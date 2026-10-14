@@ -1,0 +1,1515 @@
+{
+  "category": "角色牌",
+  "sourceDir": "assets/cards/角色牌",
+  "updated": "2026-10-14",
+  "cardCount": 53,
+  "cards": [
+    {
+      "id": "character-001",
+      "name": "6+6",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/6+6.png",
+      "sourceFile": "角色牌/IMG_5886.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 组织部部长：你的回合开始的时候，场上的所有人都要向自己移动一格。",
+        "主动技 6：场上只要有人甩出6，你就可以摸两张牌。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“向自己”是向6+6还是各玩家自己、是否含本人、主动技触发次数/费用待确认。"
+      ]
+    },
+    {
+      "id": "character-002",
+      "name": "easy",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/easy.png",
+      "sourceFile": "角色牌/IMG_5876.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 太简单了：消耗一个行动点，进行判定，3-6则可使一张牌失效（可以无限使用）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "响应顺序待确认；无限使用保留牌面原文，不解释为免费。"
+      ]
+    },
+    {
+      "id": "character-003",
+      "name": "JJ",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/JJ.png",
+      "sourceFile": "角色牌/IMG_5877.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 懒得喷：本回合行动不需要消耗行动点，但是到下一个回合之前，所有牌无限制，你都会成为他们的目标（包括队友的）。",
+        "锁定技 没救了：你所造成的致命伤害无法救治。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“所有牌无限制”的范围、行动免付范围、技能启动费用、无法救治与复活关系待确认。"
+      ]
+    },
+    {
+      "id": "character-004",
+      "name": "lemon",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "操场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/lemon.png",
+      "sourceFile": "角色牌/IMG_5891.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 嘲讽：当你的对手攻击范围内存在你时，他的单体卡牌只能对你使用，若此时他对你造成伤害，那么他可以摸一张牌。",
+        "主动技 奶爸：你每扣一滴血，你的队友都可以摸两张牌。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“奶爸”标为主动技但正文为受伤触发；多点伤害如何计次、费用待确认。"
+      ]
+    },
+    {
+      "id": "character-005",
+      "name": "QB",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/QB.png",
+      "sourceFile": "角色牌/IMG_5878.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 根正苗红：建民卡牌对你无效，但是你也没有办法使用他们。",
+        "主动技 纯菜：对由自己造成伤害的角色使用，进行判定，3-6则对方再扣一滴血，1-2则自己扣一滴血。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "纯菜的使用时点、次数、费用待确认。"
+      ]
+    },
+    {
+      "id": "character-006",
+      "name": "北帝汶",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "帝汶岛",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/北帝汶.png",
+      "sourceFile": "角色牌/IMG_5859.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 北鄙：所有针对非机械猴子的卡牌都对你无效。",
+        "主动技 真正的帝汶：你使用带有帝汶词条的卡牌时，不用消耗行动点。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“针对非机械猴子的卡牌”的范围、技能是否要主动启动及费用待确认。"
+      ]
+    },
+    {
+      "id": "character-007",
+      "name": "波波鲨鱼",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "淘安泽",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/波波鲨鱼.png",
+      "sourceFile": "角色牌/IMG_5871.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 没有手脚：没有唐车时，你无法移动。",
+        "主动技 斩杀：每回合只可以使用一次，对1-2血的角色使用，弃1张牌，进行判定，单数则直接将其血条清零，此伤害无法恢复。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "技能距离、行动点费用、无法恢复与复活关系待确认。"
+      ]
+    },
+    {
+      "id": "character-008",
+      "name": "大帝汶",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "办公室",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/大帝汶.png",
+      "sourceFile": "角色牌/IMG_5862.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 语汶：当你受到伤害的时候，你可以获得两点行动点。",
+        "被动技 强壮：你无法被他人撞开。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "语汶标为主动技但正文为触发；次数/费用待确认。"
+      ]
+    },
+    {
+      "id": "character-009",
+      "name": "大幻神",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "办公室",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/大幻神.png",
+      "sourceFile": "角色牌/IMG_5893.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 白眼：你瞧不起牌堆，所以说在摸牌阶段，你只能从每个对手手上摸一张牌（最多为两张）。",
+        "主动技 好奇怪哦：每回合可发动一次，消耗一个行动点，进行判定，1-3则阻止一张卡牌的效果。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "摸牌选取方式、对手不足牌时处理、响应时机待确认。"
+      ]
+    },
+    {
+      "id": "character-010",
+      "name": "东帝汶",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "帝汶岛",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/东帝汶.png",
+      "sourceFile": "角色牌/IMG_5906.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 帝汶三宝：你所在的阵营打出咖啡、橡胶、紫檀木即可获胜。",
+        "锁定技 克星：假原始人无法让你阵营的人移动。",
+        "主动技 领袖风范：每回合开始可以选择一个人和自己各摸一张牌，或者从别人那里摸一张牌。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "三宝累计/时序、阵营与队伍关系；领袖风范费用、选取方式待确认。"
+      ]
+    },
+    {
+      "id": "character-011",
+      "name": "二幻神",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "办公室",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/二幻神.png",
+      "sourceFile": "角色牌/IMG_5907.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 又开始叫了：废掉和你相同地块的角色的主动技能（队友无效）。",
+        "主动技 画圆：和你相同或相邻地块的角色无法移动出相同或相邻地块（但是可以在这之内移动），他们可以选择支付一点行动点，消除此效果一次。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "画圆启动费用、持续、范围是否随本人移动、消除一次的含义待确认。"
+      ]
+    },
+    {
+      "id": "character-012",
+      "name": "观察者",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/观察者.png",
+      "sourceFile": "角色牌/IMG_5881.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 观察：你可以提前知道下一个轰炸区的位置。",
+        "主动技 隐身：在你回合结束之后可以进行判定，4-6则直到下一个回合，你无法被单体卡牌选中。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "隐身费用及持续终点待确认。"
+      ]
+    },
+    {
+      "id": "character-013",
+      "name": "猴八",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴八.png",
+      "sourceFile": "角色牌/IMG_5854.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 武士刀：由你造成的所有外星伤害+1。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "外星伤害的归类待确认。"
+      ]
+    },
+    {
+      "id": "character-014",
+      "name": "猴六",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴六.png",
+      "sourceFile": "角色牌/IMG_5853.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 释放毒气：消耗一个行动点，所有人远离自己一格（由你选择移动方向）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "是否含自己、技能次数、地形与越界处理待确认。"
+      ]
+    },
+    {
+      "id": "character-015",
+      "name": "猴三",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "办公室",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴三.png",
+      "sourceFile": "角色牌/IMG_5850.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 拖动进度条：每当你成为场上血量最少的角色时，本回合直接结束，并跳到你的回合。",
+        "主动技 狂叫：当你对你投出的点数不满意时，你可以再投一次（每次行动只能使用一次）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "最少血量并列、重复触发/插队规则、狂叫费用待确认。"
+      ]
+    },
+    {
+      "id": "character-016",
+      "name": "猴十八",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴十八.png",
+      "sourceFile": "角色牌/IMG_5856.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 不动：任何人都无法使你移动（除非经过你的同意）。【此为最高等级，传送也不可以】"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。"
+      ]
+    },
+    {
+      "id": "character-017",
+      "name": "猴十六",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴十六.png",
+      "sourceFile": "角色牌/IMG_5855.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 自虐：当你被队友指定为目标的时候，你可以进行判定，1-2直接生效，3-5所有对手失去一张手牌，6对一个角色造成一点伤害。",
+        "锁定技 首杀：由你造成的伤害，在第一个人死亡之前无法恢复。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "自虐各分支是否取消原牌效果、费用待确认。"
+      ]
+    },
+    {
+      "id": "character-018",
+      "name": "猴四",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴四.png",
+      "sourceFile": "角色牌/IMG_5851.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 易伤：你受到带有帝汶词条的卡牌伤害+1。",
+        "锁定技 回家：你每次受到伤害，就立刻回到出生点，并且这一个回合，你不会再受到任何伤害（包括毒圈和轰炸区）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "受伤、回家、死亡的结算顺序待确认。"
+      ]
+    },
+    {
+      "id": "character-019",
+      "name": "猴五",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "?",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴五.png",
+      "sourceFile": "角色牌/IMG_5852.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 做手术：你初始血量为2点，但是你没有血量上限。",
+        "锁定技 搏击操爱好者：你每使用一次带有搏击操词条的卡片就会回复一点血量。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "牌面右上角为“?”；正文明确初始2点、无血量上限，不能把“?”当数值。"
+      ]
+    },
+    {
+      "id": "character-020",
+      "name": "猴一",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/猴一.png",
+      "sourceFile": "角色牌/IMG_5849.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 战斗欲望：你第一个出牌。",
+        "主动技 鼓励队友：当你队友受到伤害的时候，你可以进行判定，单数则你获得两张牌，双数则伤害来源失去两张牌。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "首位与插队等关系、鼓励队友费用/次数待确认。"
+      ]
+    },
+    {
+      "id": "character-021",
+      "name": "黄虫",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "高唐农场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/黄虫.png",
+      "sourceFile": "角色牌/IMG_5864.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 质数：你打出的所有卡牌必须增加一个行动点，并视作打出两张。",
+        "主动技 过境：你可以花两点行动点霸占他人的食物效果。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "视作两张是否重复效果；霸占取代还是复制、距离/时机待确认。"
+      ]
+    },
+    {
+      "id": "character-022",
+      "name": "假原始人",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "食堂",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/假原始人.png",
+      "sourceFile": "角色牌/IMG_5866.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 建民首领：场上有人打出带有建民词条的卡牌时，你可以摸一张牌，且你使用建民卡牌不用行动点。",
+        "主动技 狗头军师：消耗一个行动点，使一个角色朝指定方向移动一格（可以无限次数使用）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "移动目标距离、地形/越界处理待确认。"
+      ]
+    },
+    {
+      "id": "character-023",
+      "name": "牢大",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/牢大.png",
+      "sourceFile": "角色牌/IMG_5901.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 肘击：你的肘击可以主动打出，对相同地区的角色造成一点伤害，并且瞬移到他的位置，将他撞飞。",
+        "主动技 指点江山：你可以将任意牌当作肘击打出，但需要消耗2行动点。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "撞飞距离/方向、地区含义、转换费用是否另付牌面费用待确认。"
+      ]
+    },
+    {
+      "id": "character-024",
+      "name": "卤蛋",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "操场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/卤蛋.png",
+      "sourceFile": "角色牌/IMG_5884.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 体育部部长：当场上有人移动的时候，你可以移动一格。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "是否可由自身移动再次触发、次数/费用待确认。"
+      ]
+    },
+    {
+      "id": "character-025",
+      "name": "马懿",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/马懿.png",
+      "sourceFile": "角色牌/IMG_5892.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 樱岛麻衣：你可以消耗3点行动点，你所有相同或相邻地块的队友（包括自己）各回复一点血量。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。"
+      ]
+    },
+    {
+      "id": "character-026",
+      "name": "梅梅涛",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/梅梅涛.png",
+      "sourceFile": "角色牌/IMG_5900.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 普通人：没有任何技能。",
+        "锁定技 创始人：任何技能对你无效。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "两条技能均按原文保留；“任何技能”是否含自身和装备能力待确认。"
+      ]
+    },
+    {
+      "id": "character-027",
+      "name": "美丽学子",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/美丽学子.png",
+      "sourceFile": "角色牌/IMG_5889.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 款爷：你回合开始和结束之后都可以再摸一张牌，你手上只有一张手牌时，无法被群体技能选中。",
+        "被动技 耐药王：你无法通过吃食物回血。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“群体技能”是否包括群体卡牌待确认。"
+      ]
+    },
+    {
+      "id": "character-028",
+      "name": "魔方小子",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/魔方小子.png",
+      "sourceFile": "角色牌/IMG_5888.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 魔法有方：每回合开局都要进行一次判定，获得一次当前回合限定效果，1无法攻击，2无法移动，3多摸两张牌，4多拥有两个行动点（可以突破体力上限），5被你伤害的目标下次受到的伤害+1，6移动改为指定传送。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "5的标记持续/叠加、6的传送范围待确认。"
+      ]
+    },
+    {
+      "id": "character-029",
+      "name": "奶龙大帝",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/奶龙大帝.png",
+      "sourceFile": "角色牌/IMG_5882.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 准：你的躲避球可以直接生效，且别人的躲避球对你无效。",
+        "主动技 变：你可以将任何一张牌当作躲避球打出，但是你还是要多消耗一点行动点。",
+        "被动技 摇：你受到伤害时，会进行判定，1左2右3上4下，5-6不动。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "摇的移动距离未写明、边界处理待确认。"
+      ]
+    },
+    {
+      "id": "character-030",
+      "name": "南帝汶",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "帝汶岛",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/南帝汶.png",
+      "sourceFile": "角色牌/IMG_5860.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 南南合作：选择一个人，和他互换任意张手牌，若此做，则在下一个回合，你和他一起扣血，一起回血（他不用和你一起扣血）。"
+      ],
+      "userSupplement": [
+        "- 2026-10-14，用户确认：对方扣血/回血同步到南帝汶；南帝汶的回血同步到对方；南帝汶的扣血不影响对方。此说明解释同步方向，不替代牌面原文，也未裁定连锁、持续时点和取整。"
+      ],
+      "notes": [
+        "连锁是否重复触发、交换数量是否等量、技能行动点费用及下回合具体起止待确认。"
+      ]
+    },
+    {
+      "id": "character-031",
+      "name": "跑者",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "高唐农场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/跑者.png",
+      "sourceFile": "角色牌/IMG_5865.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 无限体力：你每回合开始时，行动点刷新为6点。",
+        "主动技 强大的体魄：在你受到伤害的时候，你可以进行判定，4-6则可以使用2行动点回一滴血。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "受伤与死亡的结算顺序待确认。"
+      ]
+    },
+    {
+      "id": "character-032",
+      "name": "痞帅",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/痞帅.png",
+      "sourceFile": "角色牌/IMG_5870.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 bccb：当有人进入你的区域时，你可以进行判定，1-4你抽取对方两张手牌，自己扣一滴血，5-6对方扣一滴血，自己扣一滴血。",
+        "锁定技 和气：你每次扣一滴血，都可以回复2点行动点并提升1点最大生命值上限。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "多点扣血如何计次、无足够手牌时处理待确认。"
+      ]
+    },
+    {
+      "id": "character-033",
+      "name": "人机",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/人机.png",
+      "sourceFile": "角色牌/IMG_5887.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 高科技：你使用外星卡牌时不需要消耗行动点。",
+        "主动技 编程：每人每回合限使用一次，再摇一次骰子，改变别人的点数。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "技能费用、重掷适用判定和响应顺序待确认。"
+      ]
+    },
+    {
+      "id": "character-034",
+      "name": "壬人心",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "办公室",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/壬人心.png",
+      "sourceFile": "角色牌/IMG_5897.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 做自己喜欢的教育：当他人对你造成伤害的时候，你可以让他向后推退一格，也可以让自己往后退一格（也可以两个都要）。",
+        "主动技 厌蠢：当有人在你相同或相邻地块受到伤害的时候，你可以把他赶出与你相同或相邻的地块。",
+        "主动技 化学金牌教练：你可以和相同或相邻地块的人进行拼点（对同一个角色只能成功一次），但是你可以投两次（取最大），如果你获胜则可以获得对方所有的行动点+手牌+装备+坐骑，若你失败，则你扣1/2/3点血（由拼点次数决定）。",
+        "被动技 字迹潦草+口齿不清：每回合少获得一个行动点。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“向后推退”为原文；厌蠢落点/费用、拼点次数与扣血对应、平手、上限/装备冲突待确认。"
+      ]
+    },
+    {
+      "id": "character-035",
+      "name": "三幻神",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "???",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/三幻神.png",
+      "sourceFile": "角色牌/IMG_5895.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 世界是多元的：你的出生地自定义。",
+        "锁定技 Leap：移动自定义（传送）。",
+        "主动技 respect：你Leap的区域原本存在的角色会被你赶出去。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "出生/移动自定义合法范围、费用、赶出落点待确认。"
+      ]
+    },
+    {
+      "id": "character-036",
+      "name": "水母",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "红素洋",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/水母.png",
+      "sourceFile": "角色牌/IMG_5869.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 干枯：你摇不到6就无法离开水域。",
+        "锁定技 致命触须：你造成的所有伤害，都是真实伤害（直接扣总生命值+现在的血量）。",
+        "主动技 毒蜇：当有人经过或停留你所在的区域时，你可以进行判定，1-3对方失去两张手牌，4-5你对对方造成2点真实伤害。"
+      ],
+      "userSupplement": [
+        "- 2026-10-14，用户要求缺失参数先标注“未注明”，本次不补数值。"
+      ],
+      "notes": [
+        "毒蜇判定6的效果未注明；真伤公式、次数/费用待确认。"
+      ]
+    },
+    {
+      "id": "character-037",
+      "name": "土豆",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/土豆.png",
+      "sourceFile": "角色牌/IMG_5899.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "被动技 掘地：当你每次受到伤害的时候，你可以传送到自己指定的位置。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "落点合法范围、受伤与死亡结算顺序待确认。"
+      ]
+    },
+    {
+      "id": "character-038",
+      "name": "汪羊",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "操场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/汪羊.png",
+      "sourceFile": "角色牌/IMG_5879.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 大班级先走：你的回合结束时，血量最高的角色朝你的反方向走一步。",
+        "主动技 逃生演习：每回合只可以使用一次，消耗两个行动点，指定一个地区，所有人向那边移动一格，且离目的地最远的角色扣一滴血（自己不用移动）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "最高/最远并列、反方向定义、自己是否可为最远者待确认。"
+      ]
+    },
+    {
+      "id": "character-039",
+      "name": "忘尘雪",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/忘尘雪.png",
+      "sourceFile": "角色牌/IMG_5875.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 冰封之力：消耗2点行动点，使一个角色直接跳过他的回合（因为过于强大，所以两回合使用一次）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "目标距离与两回合计数待确认。"
+      ]
+    },
+    {
+      "id": "character-040",
+      "name": "西帝汶",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "帝汶岛",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/西帝汶.png",
+      "sourceFile": "角色牌/IMG_5858.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 方向感：你在移动前，指定一个方向，先进行判定，若为单数则走向反方向。",
+        "主动技 拖泥带水：你的每一次行动（无论是主动还是被动）都可以让一个人和自己一起移动。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "一起移动目标距离、费用、是否仅在移动行动触发待确认。"
+      ]
+    },
+    {
+      "id": "character-041",
+      "name": "小帝汶",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "帝汶岛",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/小帝汶.png",
+      "sourceFile": "角色牌/IMG_5861.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 小：不占格位，若在移动的时候越过其他角色，则可以进行判定，1-3他人扣一滴血，4-6你抽他两张牌。",
+        "锁定技（未命名）：你无法被躲避球选中。【最高等级】"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "越过多角色如何计次、行动点费用待确认。"
+      ]
+    },
+    {
+      "id": "character-042",
+      "name": "小原始人",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "山洞",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/小原始人.png",
+      "sourceFile": "角色牌/IMG_5868.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 数学天才：你可以自定义你的判定点数。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "点数范围、费用、次数待确认。"
+      ]
+    },
+    {
+      "id": "character-043",
+      "name": "晓虫",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "办公室",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/晓虫.png",
+      "sourceFile": "角色牌/IMG_5898.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 还有声音：当有人手牌超出上限的时候，你获得他超出上限的手牌。",
+        "主动技 整理着装：当有人行动点超出上限的时候，你获得他超出的行动点（你的行动点此时可以超出上限）。【所有技能在他人超出后立刻发动】"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "牌面括号未闭合，转录整理闭合；手牌/行动点上限及例外优先级待确认。"
+      ]
+    },
+    {
+      "id": "character-044",
+      "name": "谢bro",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "办公室",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/谢bro.png",
+      "sourceFile": "角色牌/IMG_5863.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 绝对威严：任何人无法对你使用主动技。",
+        "主动技 阎王薄：在你相同或相邻地块，如果有人使用猴子游戏，或者参与猴子游戏，则可对其造成一点伤害。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“阎王薄”为牌面写法；目标数、次数/费用待确认。"
+      ]
+    },
+    {
+      "id": "character-045",
+      "name": "应豪",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "秀松苑",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/应豪.png",
+      "sourceFile": "角色牌/IMG_5848.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 不可阻挡：你行动路径上的人会被你直接撞开（撞到墙为止）。",
+        "锁定技 APE：你所在的阵营打出外星人、阿萨姆、营养快线可直接胜利。",
+        "锁定技 来玩：你使用的“猴子游戏”不受任何地点人数限制。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "撞击方向/路径、组合获胜累计/时序与阵营归属待确认。"
+      ]
+    },
+    {
+      "id": "character-046",
+      "name": "羽毛人",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "操场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/羽毛人.png",
+      "sourceFile": "角色牌/IMG_5885.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 手长：你的所有攻击都没有距离限制。",
+        "锁定技 脚短：你每次移动都要进行判定，1-2则本回合不能移动（还是要消耗行动点）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "手长标为主动技但正文为持续效果，费用/启动方式待确认。"
+      ]
+    },
+    {
+      "id": "character-047",
+      "name": "原始人",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/原始人.png",
+      "sourceFile": "角色牌/IMG_5867.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 睡觉：本回合不使用卡牌，则下一个回合多回复2行动点（可以超过行动点上限）。",
+        "主动技 你要不要吃：场上有人使用食物时，你可以进行判定，5-6则可以回复1点血量。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "睡觉是否包括响应牌、技能费用/次数待确认。"
+      ]
+    },
+    {
+      "id": "character-048",
+      "name": "涨佳选",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/涨佳选.png",
+      "sourceFile": "角色牌/IMG_5874.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 面包之友：你装备面包时不需要消耗行动点。",
+        "锁定技 动物之友：你装备动物时不需要消耗行动点。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "面包/动物装备名单待确认。"
+      ]
+    },
+    {
+      "id": "character-049",
+      "name": "中帝汶",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "XDF",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/中帝汶.png",
+      "sourceFile": "角色牌/IMG_5880.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 店长：你使用食物时不需要消耗行动点，别人使用食物时，你需要掉落一张牌。",
+        "主动技 哈基米：当你移动时甩到6，则可以跨过其他角色，并对其造成一点伤害（也可以不造成）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "掉落选取、无手牌处理、跨过多人计次、哈基米费用待确认。"
+      ]
+    },
+    {
+      "id": "character-050",
+      "name": "中饭",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "操场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/中饭.png",
+      "sourceFile": "角色牌/IMG_5883.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 装备哥：你装备装备时可以再摸一张牌，并且你和队友的装备共享。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "装备共享是否复制效果/槽位、发动和耐久归属待确认。"
+      ]
+    },
+    {
+      "id": "character-051",
+      "name": "朱鹏岩",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/朱鹏岩.png",
+      "sourceFile": "角色牌/IMG_5873.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 随风漂流：每回合都要向右移动一格。",
+        "被动技 坚韧：你受到伤害时，可以用一点最大生命值抵挡一点伤害。",
+        "被动技 你是岩石：你是岩石类角色。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "强制移动时点/边界、生命上限降低后当前血量处理待确认。"
+      ]
+    },
+    {
+      "id": "character-052",
+      "name": "朱伟岩",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "5",
+      "birthplace": "教学楼",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/朱伟岩.png",
+      "sourceFile": "角色牌/IMG_5872.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 岩浆之力：花费2点行动点，对同一个区域的角色造成伤害。",
+        "被动技 你是岩石：你是岩石类角色。"
+      ],
+      "userSupplement": [
+        "- 2026-10-14，用户要求缺失参数先标注“未注明”，本次不补数值。"
+      ],
+      "notes": [
+        "伤害数值、目标数/是否含自己未注明。"
+      ]
+    },
+    {
+      "id": "character-053",
+      "name": "朱重四",
+      "category": "角色牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "操场",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/角色牌/朱重四.png",
+      "sourceFile": "角色牌/IMG_5890.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 乞讨：当你消耗完所有行动点时，你的所有队友恢复2点行动点。",
+        "主动技 一人得道，鸡犬升天：每回合限一次，你弃掉所有手牌，你的所有队友（包括自己）恢复2点行动点。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "乞讨次数、零行动点能否重复触发、主动技费用、空手牌能否发动待确认。"
+      ]
+    }
+  ],
+  "excludedAssets": [
+    {
+      "asset": "../../assets/cards/角色牌/template.png",
+      "sourceFile": "角色牌/IMG_5847.PNG",
+      "handling": "空白模板，无完整卡牌能力"
+    },
+    {
+      "asset": "../../assets/cards/角色牌/帝汶家族.back.jpg",
+      "sourceFile": "角色牌/IMG_5905.JPG",
+      "handling": "牌背/阵营插画，无角色属性和能力"
+    },
+    {
+      "asset": "../../assets/cards/角色牌/机械猴子.back.jpg",
+      "sourceFile": "角色牌/IMG_5903.JPG",
+      "handling": "牌背/阵营插画，无角色属性和能力"
+    },
+    {
+      "asset": "../../assets/cards/角色牌/中立阵营1.back.jpg",
+      "sourceFile": "角色牌/IMG_5902.JPG",
+      "handling": "牌背/阵营插画，无角色属性和能力"
+    },
+    {
+      "asset": "../../assets/cards/角色牌/中立阵营2.back.jpg",
+      "sourceFile": "角色牌/IMG_5904.JPG",
+      "handling": "牌背/阵营插画，无角色属性和能力"
+    }
+  ]
+}

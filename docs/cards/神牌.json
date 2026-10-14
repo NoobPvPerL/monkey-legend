@@ -1,0 +1,478 @@
+{
+  "category": "神牌",
+  "sourceDir": "assets/cards/神牌",
+  "updated": "2026-10-14",
+  "cardCount": 16,
+  "cards": [
+    {
+      "id": "god-001",
+      "name": "6-BA",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/6-BA.png",
+      "sourceFile": "神牌/IMG_6131.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 比较强势的技能：你每次出牌时都可以进行判定：1.强制生效（无视任何效果真伤）；2.此行动不需要消耗行动点；3.移动一格；4.视做打出两张一样的卡牌；5.你再摸一张牌；6.最大生命值+1，现有生命值+1。",
+        "神的陨落 自暴自弃：你死后拥有X张牌，则所有对手都要弃X张牌，少多少扣多少血量。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“无视任何效果真伤”为原文连写；两张结算、出牌判定时机、技能费用待确认。"
+      ]
+    },
+    {
+      "id": "god-002",
+      "name": "Jerry",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/Jerry.png",
+      "sourceFile": "神牌/IMG_6140.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 灾厄洪流：你横纵列格子上的敌人的判定由你指定。",
+        "主动技 霉运：弃一张手牌，对所有处在灾厄洪流上的敌人造成1点真伤。",
+        "神的陨落 不玩了：将全场变为灾厄洪流区域（没有任何效果）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“没有任何效果”指哪些效果、指定点数合法范围、霉运行动点费用待确认。"
+      ]
+    },
+    {
+      "id": "god-003",
+      "name": "May",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/May.png",
+      "sourceFile": "神牌/IMG_6137.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 超级玩家：你的卡牌/行动点没有上限，且每人每回合你的卡牌/行动点+1。",
+        "神的陨落 创始人的愤怒：你死亡之后，全场变成毒圈。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“卡牌”是否指手牌数量、“每人每回合”触发时点、全场毒圈规则待确认。"
+      ]
+    },
+    {
+      "id": "god-004",
+      "name": "Q博",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/Q博.png",
+      "sourceFile": "神牌/IMG_6135.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 I don’t want to be African：你失去生命时可以进行觉醒，最大生命值无限，血量恢复为1点，对你造成致命伤害的人带上“易伤”效果（只可以使用两次）。",
+        "神的陨落 绝对蒙的：你每次失去生命时可以弃掉所有的手牌，再摸取五张牌，行动点回满，直接到你的回合。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“失去生命”是否指血量归零、觉醒与神的陨落先后、无限生命上限后的回满行动点、易伤定义待确认。"
+      ]
+    },
+    {
+      "id": "god-005",
+      "name": "Strong哥",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/Strong哥.png",
+      "sourceFile": "神牌/IMG_6133.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 Looking my eyes：你受伤时进行判定：1-4.你回复一点护盾；5-6.同一卡牌/技能之后都对你无效。",
+        "神的陨落 空调的力量：你死后，所有的队友回复1-6点护盾（由他们自己进行判定）。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "同一卡牌/技能指实例还是种类、当前伤害与后续免疫先后待确认。"
+      ]
+    },
+    {
+      "id": "god-006",
+      "name": "草帝汶",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/草帝汶.png",
+      "sourceFile": "神牌/IMG_6129.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 汶王：场上X个帝汶玩家，则你每回合多摸X张牌，多回X行动点。",
+        "锁定技 入侵：场上有人打出“帝汶”之后，你可以无视其的效果，并且回收该卡牌（队友仍有效）。",
+        "神的陨落 传承：你死亡后，对方无法再使用“帝汶”卡牌。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "X是否含自己/仅存活玩家、回收/免疫时机、对方范围待确认。"
+      ]
+    },
+    {
+      "id": "god-007",
+      "name": "呆呆",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/呆呆.png",
+      "sourceFile": "神牌/IMG_6132.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 你说：你被他人使用卡牌/技能的时候，可以进行判定：1-2.对方卡牌/技能无效；3.你再摸2张牌；4.你移动两格；5.你恢复2行动点；6.你最大生命值+1，血量+1。",
+        "神的陨落 终结：和你相同/相邻区域的对手不可以在使用任何技能。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“不可以在使用”为原文；非1-2分支是否继续原效果、移动方向、禁技持续、主动技费用待确认。"
+      ]
+    },
+    {
+      "id": "god-008",
+      "name": "嚎",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/嚎.png",
+      "sourceFile": "神牌/IMG_6136.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 开机：你受到伤害/造成伤害时，摸1张卡牌，回复1点行动点，howl+1；使用食物时，howl+1。",
+        "主动技 howl：震开所有人（可选择），并让一个人的所有技能无效一回合（可以叠加），并且累积三次howl可以恢复1点血量。",
+        "神的陨落 振奋人心：你第一次血量归零时，howl+3。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "howl计数是否消耗、主动技能费用、震开方向/距离、叠加对象待确认。"
+      ]
+    },
+    {
+      "id": "god-009",
+      "name": "猴二",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/猴二.png",
+      "sourceFile": "神牌/IMG_6128.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 猴王：场上X个猴子玩家，则你每回合多摸X张牌，多回X行动点。",
+        "锁定技 机械：场上有人打出“外星”之后，你可以无视其的效果，并且回收该卡牌（队友仍有效）。",
+        "神的陨落 传承：你死亡后，对方无法再使用“外星”卡牌。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "X是否含自己/仅存活玩家、回收/免疫时机、对方范围待确认。"
+      ]
+    },
+    {
+      "id": "god-010",
+      "name": "乔纳森",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "4",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/乔纳森.png",
+      "sourceFile": "神牌/IMG_6126.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 想象一下：你弃置X张牌，视做打出“搏击操X+1”。",
+        "锁定技 搏击之王：场上有人打出搏击操之后，你可以无视其的效果，并且回收该卡牌（你的队友还是有效的）。",
+        "神的陨落 传承：你死亡后，对方无法再使用搏击操。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "X上限、超过已有III等级的效果、主动技行动点费用待确认。"
+      ]
+    },
+    {
+      "id": "god-011",
+      "name": "生活委员",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "2",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/生活委员.png",
+      "sourceFile": "神牌/IMG_6141.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 移动导弹：你每回合都可以发射一个导弹，每人每回合每个导弹都可以由你动一次，导弹碰到任何人都会进行爆炸，对该区域所有敌人造成1点伤害，自己再回1点血量，并且再发射一枚导弹。",
+        "锁定技 短路：你在水中受到的伤害+1，并且导弹改为瞬爆鱼雷，对距离水域一格的陆地/所有水域上的所有敌人造成1点伤害。",
+        "神的陨落 闲逛：你剩下的所有移动导弹自动爆炸。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "导弹出生/移动距离与费用、连锁补发限制、鱼雷水域范围、死亡后爆炸回血待确认。"
+      ]
+    },
+    {
+      "id": "god-012",
+      "name": "始祖奶龙",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/始祖奶龙.png",
+      "sourceFile": "神牌/IMG_6139.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "锁定技 躲避球的王者：你的任意一张牌可以当作躲避球打出（不需要消耗任何行动点），并且你每回合第一张躲避球可以强制生效【最高等级】。",
+        "锁定技 一起摇摆：你可以让场上所有人（可以选择）和自己一起移动。",
+        "神的陨落 \\*\\*：你死亡后，所有剩余的行动点和卡牌都当作躲避球，不限距离地打出。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "神的陨落名称牌面为“\\*\\*”；行动点转换比例、一起移动范围、死后出牌顺序待确认。"
+      ]
+    },
+    {
+      "id": "god-013",
+      "name": "忘栗冻",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/忘栗冻.png",
+      "sourceFile": "神牌/IMG_6125.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 封印时间：扣除自身一点血量，使所有的对手跳过一个回合，即不可以摸牌，也不可以回复行动点。",
+        "主动技 高唐守护神：扣除自身一点血量，到你下个回合之前，你的队友不能带上负面效果（除了扣血）。",
+        "神的陨落 万籁俱静：你死亡后，封锁对手所有技能1回合。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "跳过回合与仅禁止摸牌/加点的关系、行动点费用/次数、生命支付致死时的处理待确认。"
+      ]
+    },
+    {
+      "id": "god-014",
+      "name": "曦",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/曦.png",
+      "sourceFile": "神牌/IMG_6134.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 物化生年一：每回合一次，和场上所有人（可选择）进行拼点，你可以摇三次（取最大值），有人相同则相同的人重新拼点，最后最大的玩家获得最小的玩家所有卡牌和行动点。",
+        "主动技 忧郁：你不是满血状态时，同格区域的对手每回合扣除一点血量。",
+        "神的陨落 我\\*\\*\\*\\*：把所有的对手（可以选择）扔回到出生点。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "“同格区域”的空间含义、拼点费用/平手重掷次数、忧郁触发时点待确认。"
+      ]
+    },
+    {
+      "id": "god-015",
+      "name": "章鱼",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "3",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/章鱼.png",
+      "sourceFile": "神牌/IMG_6130.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 八爪：每回合一次，在别人移动/传送时改为等距离你控制的移动。",
+        "锁定技 海上霸主：水域中你不可以受到负面效果的影响（不包括扣血），且在其中移动不需要消耗行动点。",
+        "神的陨落 风暴：你死亡后，对所有在水域中的对方角色造成2点真伤，并且把全图变成水域。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "传送等距离如何确定、八爪费用、真伤定义待确认。"
+      ]
+    },
+    {
+      "id": "god-016",
+      "name": "真正的man",
+      "category": "神牌",
+      "subcategory": "角色",
+      "keyword": "不适用",
+      "faction": "未注明",
+      "hp": "2",
+      "birthplace": "未注明",
+      "actionPoint": "见能力文本；未写出的技能费用为未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "不适用",
+      "image": "../../assets/cards/神牌/真正的man.png",
+      "sourceFile": "神牌/IMG_6138.PNG",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "主动技 1秒连肘24次：每回合限一次，消耗所有行动点和卡牌（都至少为1）肘击相同/相邻区域的人，将其撞飞，并造成一点伤害，自己回复一点血量，撞到新的目标可以刷新。【多余的血量转化为护盾】",
+        "神的陨落 牢：你第一次血量归零时可以发动一次连肘。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "每次连肘成本还是启动成本、刷新次数/新目标定义、撞飞落点、归零时资源不足是否可发动待确认。"
+      ]
+    }
+  ],
+  "excludedAssets": [
+    {
+      "asset": "../../assets/cards/神牌/back.jpg",
+      "sourceFile": "神牌/IMG_6124.jpg",
+      "handling": "牌背/阵营插画，无角色属性和能力"
+    },
+    {
+      "asset": "../../assets/cards/神牌/template.jpg",
+      "sourceFile": "神牌/IMG_6121.jpg",
+      "handling": "空白模板，无完整卡牌能力"
+    }
+  ]
+}

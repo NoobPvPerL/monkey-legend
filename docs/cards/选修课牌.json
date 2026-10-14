@@ -1,0 +1,299 @@
+{
+  "category": "选修课牌",
+  "sourceDir": "assets/cards/选修课",
+  "updated": "2026-10-14",
+  "cardCount": 8,
+  "cards": [
+    {
+      "id": "course-001",
+      "name": "大逼兜",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "二回合",
+      "image": "../../assets/cards/选修课/大逼兜.jpg",
+      "illustration": "../../assets/cards/选修课/大逼兜.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222139_57_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "立刻斩杀现血量≤最大生命值一半的角色，成功使用后可以进行判定，1-3可立刻刷新。",
+        "补充条款：该技能对无生命值上限的角色无效。",
+        "补充条款：刷新之后可以继续斩杀同一名角色，或者不同角色。",
+        "补充条款：此技能必须在自己回合内使用。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "行动点费用、目标范围、斩杀与救援/复活关系未注明。"
+      ]
+    },
+    {
+      "id": "course-002",
+      "name": "红温",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "二回合",
+      "image": "../../assets/cards/选修课/红温.jpg",
+      "illustration": "../../assets/cards/选修课/红温.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222136_56_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "由你造成的伤害附有50%额外暴击伤害，吸血率+100%，持续一回合。",
+        "补充条款：吸血率+100%即造成多少伤害，恢复多少血量。",
+        "补充条款：吸血回复双倍血量。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "两条吸血补充如何共同结算已提问，待确认；行动点费用、百分比计算/取整未注明。"
+      ]
+    },
+    {
+      "id": "course-003",
+      "name": "军训",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "二回合",
+      "image": "../../assets/cards/选修课/军训.jpg",
+      "illustration": "../../assets/cards/选修课/军训.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222134_55_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "削弱50%你攻击范围内所有对手的伤害，你伤害减免50%，持续一回合。",
+        "补充条款：对手在走出你攻击范围后，就不受该效果影响，进入则获得。",
+        "补充条款：你受到的伤害包括天道伤害。",
+        "补充条款：你受到的伤害至少为0.5滴血。",
+        "补充条款：伤害计算出现0.25滴血时，向上取0.5。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "行动点费用、攻击范围基准、两种减伤叠加顺序及其他小数取整未注明。"
+      ]
+    },
+    {
+      "id": "course-004",
+      "name": "跑饭",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "一回合",
+      "image": "../../assets/cards/选修课/跑饭.jpg",
+      "illustration": "../../assets/cards/选修课/跑饭.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222130_53_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "立刻闪现到自己攻击范围内的任意一个方格内。",
+        "补充条款：可以避免瞬时的毒圈伤害。",
+        "补充条款：可以在他人判定之前逃离对方攻击范围，使其卡牌作废，行动点恢复。",
+        "补充条款：可以用于追击使用跑饭的角色。",
+        "补充条款：落点处不可以有角色，不可以将别人挤开。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "行动点费用、“行动点恢复”的返还对象/数量及响应顺序未注明。"
+      ]
+    },
+    {
+      "id": "course-005",
+      "name": "十佳学子",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "无",
+      "image": "../../assets/cards/选修课/十佳学子.jpg",
+      "illustration": "../../assets/cards/选修课/十佳学子.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222145_60_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "你受到的天道伤害减半，你的手牌上限，行动点上限，生命值上限全部+1。",
+        "补充条款：你仍会受到天道的累计伤害。",
+        "补充条款：生命值上限+1，不代表你的现有生命+1，需要通过回血提升。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "是否常驻被动、是否可重复增加上限、天道伤害定义/累计/取整未注明。"
+      ]
+    },
+    {
+      "id": "course-006",
+      "name": "树兰医学",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "二回合",
+      "image": "../../assets/cards/选修课/树兰医学.jpg",
+      "illustration": "../../assets/cards/选修课/树兰医学.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222132_54_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "为所有的队友各回复0.5滴血，并且指定一名角色多回复1滴血。",
+        "补充条款：可以在队友濒死的时候救活。",
+        "补充条款：可以在任意时候使用。",
+        "补充条款：视作你给他们回血。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "额外治疗是否只能指定队友、是否包含自己、行动点费用及救活窗口未注明。"
+      ]
+    },
+    {
+      "id": "course-007",
+      "name": "通校",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "0（补充条款明确无需行动点）",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "无",
+      "image": "../../assets/cards/选修课/通校.jpg",
+      "illustration": "../../assets/cards/选修课/通校.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222143_59_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "立刻传送到云上学府。",
+        "补充条款：不用消耗行动点，他人若没有此课程则无法传送到云上学府。",
+        "补充条款：你在云上学府中无视群体伤害，受到的天道伤害减半，且别人不可以在不经你允许的情况下，将你移出云上学府。",
+        "补充条款：他人的单体伤害必须在和你距离为2的地方使用，不管他的攻击距离是多少。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "距离2的单位/是否严格等于2、传送规则与其他技能冲突、天道取整未注明。"
+      ]
+    },
+    {
+      "id": "course-008",
+      "name": "洗澡",
+      "category": "选修课牌",
+      "subcategory": "课程",
+      "keyword": "不适用",
+      "faction": "不适用",
+      "hp": "不适用",
+      "birthplace": "不适用",
+      "actionPoint": "未注明",
+      "range": "见能力文本",
+      "target": "见能力文本",
+      "cooldown": "一回合",
+      "image": "../../assets/cards/选修课/洗澡.jpg",
+      "illustration": "../../assets/cards/选修课/洗澡.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222141_58_2.jpg",
+      "transcriptionStatus": "已对照图片转录",
+      "ruleStatus": "牌面依据已记录；完整裁定待确认",
+      "abilities": [
+        "立刻清空当前角色身上的所有负面效果。",
+        "补充条款：其中的负面效果包括控制，失去手牌，失去装备，失去坐骑，失去行动点，由卡牌造成的血量损失。",
+        "补充条款：由技能、天道伤害造成的扣血无法靠此课程避免。",
+        "补充条款：选修课中的负面效果不可避免。",
+        "补充条款：清空所有负面效果，包括之前已被使用，但是还未生效的效果。"
+      ],
+      "userSupplement": [
+        "未记录此牌的单独用户裁定；费用保留要求及通用约束见索引。"
+      ],
+      "notes": [
+        "已经结算的资源/血量损失是否返还已提问，待确认；行动点费用未注明。"
+      ]
+    }
+  ],
+  "excludedAssets": [
+    {
+      "asset": "../../assets/cards/选修课/大逼兜.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222120_49_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    },
+    {
+      "asset": "../../assets/cards/选修课/红温.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222125_51_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    },
+    {
+      "asset": "../../assets/cards/选修课/军训.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222122_50_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    },
+    {
+      "asset": "../../assets/cards/选修课/跑饭.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222111_46_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    },
+    {
+      "asset": "../../assets/cards/选修课/十佳学子.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222148_61_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    },
+    {
+      "asset": "../../assets/cards/选修课/树兰医学.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222128_52_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    },
+    {
+      "asset": "../../assets/cards/选修课/通校.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222117_48_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    },
+    {
+      "asset": "../../assets/cards/选修课/洗澡.back.jpg",
+      "sourceFile": "选修课/微信图片_20261012222114_47_2.jpg",
+      "handling": "对应课程插画，关联上方课程，不另算一张牌"
+    }
+  ]
+}
