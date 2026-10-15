@@ -1,20 +1,21 @@
 # monkey-legend
-应猴传说:高唐之战
-初次上手请先阅读几个Markdown文件
-此外优先解决Issues
 
-## 开发资料
+应猴传说：高唐之战。四人校园地图卡牌游戏。
 
-- [规则汇总](docs/rule.md)：已整合 Issue #1 最新澄清、众玩家讨论与作者更正，注明未决项。
-- [规则裁定与来源](docs/rule-decisions.md)：逐项结论、旧信息替代轨迹与剩余问题。
-- [开发方案](docs/网页游戏开发方案.md)与[进度计划](docs/plan.md)。
-- [卡牌文字资料](docs/cards/README.md)：基础牌、角色牌、神牌、选修课共 153 种，含来源图片、完整能力、用户补充与待确认项。
-- [P0 规则规格](docs/rules-spec.md)与[来源记录](docs/rule-decisions.md)。
-- [地图与移动待标注表](docs/map-spec.md)：32 格编号完整，地形/区域/通行仍待确认。
-- [首版候选与依赖](docs/mvp-scope.md)：4 个优先角色、2 个备选、12 种基础牌，均未正式启用。
-- [图片素材台账](docs/assets-manifest.json)：187 张图片的固定 ID、SHA-256、原图及卡牌映射；独立于卡牌存储格式。
-- [P0 核对与验收案例](docs/p0-acceptance-cases.md)：预期与待裁定场景，全部尚未运行游戏。
+**P0规则与首版规格已完成（2026-10-15），当前基线 web-v0.1.1；P1游戏实现尚未开始。**
+负责人批准由Codex补全网页版规则，完成记录见 [P0验收](docs/p0-acceptance-cases.md)。
 
-当前为 P0 资料与规则确认阶段，尚未开始游戏实现。[Issue #1](https://github.com/NoobPvPerL/monkey-legend/issues/1) 此批回答已登记，后续由 [#4 地图与移动](https://github.com/NoobPvPerL/monkey-legend/issues/4)、[#5 资源与天灾](https://github.com/NoobPvPerL/monkey-legend/issues/5)、[#6 结算与首版](https://github.com/NoobPvPerL/monkey-legend/issues/6) 跟进；资料文件齐全不等于 P0 通过。
+## 开发入口
 
-最新普通通则：初始行动点5，整轮开始低于5才加3，否则不加，点数保留且无通用硬上限；首轮不补，之后仅当前人行动前抽2，自己行动结束后按 floor(当前血量) 自选弃牌。中立第4轮自由选方，插队计数、不要求人数均衡；细分结算顺序与首版方案仍待确认。
+- [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：首版实现唯一规则来源。
+- [规则规格索引](docs/rules-spec.md)、[32格地图与移动](docs/map-spec.md)、[首版范围及64张牌池](docs/mvp-scope.md)。
+- [验收案例与文档推演](docs/p0-acceptance-cases.md)：46项规格案例、两种模式完整推演；不是游戏运行报告。
+- [进度计划](docs/plan.md)、[开发方案](docs/网页游戏开发方案.md)：下一阶段P1本地规则引擎及完整测试桌。
+- [原作/群聊历史规则](docs/rule.md)、[裁定与版本差异](docs/rule-decisions.md)：保留原文、来源与更正轨迹。
+- [原始卡牌资料](docs/cards/README.md)：153种内容；[素材台账](docs/assets-manifest.json)：187张图片、稳定ID与SHA-256。
+
+首版四角色、十二种基础牌，支持四人各自为战和2对2；角色原始阵营与本局队伍分开。保留AP5、整轮低于5加3、首轮不补牌、之后当前人抽2、自己结束按生命向下取整弃牌。采用本网格、响应/技能/环境/终局裁定；原始全部牌面不能直接作为首版运行数据。
+
+[#7设计评审](https://github.com/NoobPvPerL/monkey-legend/issues/7)意见已整合并由负责人批准采用；旧#4/#5/#6已按要求关闭。卡牌格式与PR #3独立处理，本次未改卡牌存储格式。
+
+P0完成不等于游戏已实现、平衡或发布。没有进行引擎/浏览器/联机测试及真实试玩；20—30分钟是待验证目标。按 [协作约束](docs/AGENTS.md)开展后续实施与验收。
