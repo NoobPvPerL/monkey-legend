@@ -147,3 +147,7 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# P1 generated reference copies and browser evidence
+/public/references/
+/artifacts/p1/browser-downloads/

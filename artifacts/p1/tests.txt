@@ -1,0 +1,5 @@
+
+> monkey-legend@0.1.0 test
+> vitest run --reporter=json --outputFile=artifacts/p1/test-results.json
+
+JSON report written to D:/Users/20753/Desktop/应猴传说/monkey-legend/artifacts/p1/test-results.json
