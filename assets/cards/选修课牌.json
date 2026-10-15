@@ -17,8 +17,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "二回合",
-      "image": "../../assets/cards/选修课/大逼兜.jpg",
-      "illustration": "../../assets/cards/选修课/大逼兜.back.jpg",
+      "image": "assets/cards/选修课/大逼兜.jpg",
+      "illustration": "assets/cards/选修课/大逼兜.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222139_57_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -48,8 +48,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "二回合",
-      "image": "../../assets/cards/选修课/红温.jpg",
-      "illustration": "../../assets/cards/选修课/红温.back.jpg",
+      "image": "assets/cards/选修课/红温.jpg",
+      "illustration": "assets/cards/选修课/红温.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222136_56_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -78,8 +78,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "二回合",
-      "image": "../../assets/cards/选修课/军训.jpg",
-      "illustration": "../../assets/cards/选修课/军训.back.jpg",
+      "image": "assets/cards/选修课/军训.jpg",
+      "illustration": "assets/cards/选修课/军训.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222134_55_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -110,8 +110,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "一回合",
-      "image": "../../assets/cards/选修课/跑饭.jpg",
-      "illustration": "../../assets/cards/选修课/跑饭.back.jpg",
+      "image": "assets/cards/选修课/跑饭.jpg",
+      "illustration": "assets/cards/选修课/跑饭.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222130_53_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -142,8 +142,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "无",
-      "image": "../../assets/cards/选修课/十佳学子.jpg",
-      "illustration": "../../assets/cards/选修课/十佳学子.back.jpg",
+      "image": "assets/cards/选修课/十佳学子.jpg",
+      "illustration": "assets/cards/选修课/十佳学子.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222145_60_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -172,8 +172,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "二回合",
-      "image": "../../assets/cards/选修课/树兰医学.jpg",
-      "illustration": "../../assets/cards/选修课/树兰医学.back.jpg",
+      "image": "assets/cards/选修课/树兰医学.jpg",
+      "illustration": "assets/cards/选修课/树兰医学.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222132_54_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -203,8 +203,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "无",
-      "image": "../../assets/cards/选修课/通校.jpg",
-      "illustration": "../../assets/cards/选修课/通校.back.jpg",
+      "image": "assets/cards/选修课/通校.jpg",
+      "illustration": "assets/cards/选修课/通校.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222143_59_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -234,8 +234,8 @@
       "range": "见能力文本",
       "target": "见能力文本",
       "cooldown": "一回合",
-      "image": "../../assets/cards/选修课/洗澡.jpg",
-      "illustration": "../../assets/cards/选修课/洗澡.back.jpg",
+      "image": "assets/cards/选修课/洗澡.jpg",
+      "illustration": "assets/cards/选修课/洗澡.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222141_58_2.jpg",
       "transcriptionStatus": "已对照图片转录",
       "ruleStatus": "牌面依据已记录；完整裁定待确认",
@@ -256,42 +256,42 @@
   ],
   "excludedAssets": [
     {
-      "asset": "../../assets/cards/选修课/大逼兜.back.jpg",
+      "asset": "assets/cards/选修课/大逼兜.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222120_49_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     },
     {
-      "asset": "../../assets/cards/选修课/红温.back.jpg",
+      "asset": "assets/cards/选修课/红温.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222125_51_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     },
     {
-      "asset": "../../assets/cards/选修课/军训.back.jpg",
+      "asset": "assets/cards/选修课/军训.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222122_50_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     },
     {
-      "asset": "../../assets/cards/选修课/跑饭.back.jpg",
+      "asset": "assets/cards/选修课/跑饭.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222111_46_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     },
     {
-      "asset": "../../assets/cards/选修课/十佳学子.back.jpg",
+      "asset": "assets/cards/选修课/十佳学子.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222148_61_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     },
     {
-      "asset": "../../assets/cards/选修课/树兰医学.back.jpg",
+      "asset": "assets/cards/选修课/树兰医学.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222128_52_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     },
     {
-      "asset": "../../assets/cards/选修课/通校.back.jpg",
+      "asset": "assets/cards/选修课/通校.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222117_48_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     },
     {
-      "asset": "../../assets/cards/选修课/洗澡.back.jpg",
+      "asset": "assets/cards/选修课/洗澡.back.jpg",
       "sourceFile": "选修课/微信图片_20261012222114_47_2.jpg",
       "handling": "对应课程插画，关联上方课程，不另算一张牌"
     }
