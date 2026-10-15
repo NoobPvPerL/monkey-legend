@@ -1,0 +1,3767 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-15",
+  "purpose": "Image inventory only; not card JSON conversion, gameplay data, deck multiplicity or enabled content.",
+  "idPolicy": "IDs are fixed after this first registration. Preserve IDs on later updates; append new IDs without renumbering existing records.",
+  "sourceDocuments": [
+    {
+      "path": "docs/cards/基础牌.md",
+      "sha256": "71b5d2c3da8d96b5d4ad1556c91520146cd33b52cdc66616f3ad43e52960f1f4"
+    },
+    {
+      "path": "docs/cards/角色牌.md",
+      "sha256": "5bfa60eb6e538791139cdb88249c79609435c7df2aa9d6f0a9381a17690aff4b"
+    },
+    {
+      "path": "docs/cards/神牌.md",
+      "sha256": "88427e5a0612f9cdb509d45fae6015baa05faf0e79b8ca716efc41a840ef82dc"
+    },
+    {
+      "path": "docs/cards/选修课牌.md",
+      "sha256": "fc95b6e8a4465ca91b021674b1ae8b2bccb067ab1ef0f978bcc643705ebaad36"
+    }
+  ],
+  "summary": {
+    "imageFiles": 187,
+    "cardDefinitions": 153,
+    "categoryCounts": {
+      "地图": 1,
+      "地点牌": 16,
+      "基础牌": 78,
+      "神牌": 18,
+      "角色牌": 58,
+      "选修课": 16
+    },
+    "usageCounts": {
+      "card_back": 3,
+      "card_face": 153,
+      "course_illustration": 8,
+      "faction_art_or_back": 4,
+      "location_art": 15,
+      "map": 1,
+      "template": 3
+    },
+    "originalHashMatchedFiles": 187
+  },
+  "assets": [
+    {
+      "id": "asset-0001",
+      "path": "assets/cards/地图/地图.jpg",
+      "category": "地图",
+      "usage": "map",
+      "bytes": 456525,
+      "sha256": "38766ca6d91581954926d5f98facea0d52d3a26eb62927daacc687537f1554b3",
+      "workspaceOriginalPaths": [
+        "地图/2c9d04810b6d3f19d210ccb1e7dfdf6f.JPG"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0002",
+      "path": "assets/cards/地点牌/XDF.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 289837,
+      "sha256": "71413507f49132cb3ba8343275dcd16c42bc9c8b92386645f966e39753b19afd",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5937.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0003",
+      "path": "assets/cards/地点牌/back.jpg",
+      "category": "地点牌",
+      "usage": "card_back",
+      "bytes": 521218,
+      "sha256": "15bfe99050d992cba6afc06217534dc3c2e0c0559348ad775cd2d72b7bea15f6",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5952.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0004",
+      "path": "assets/cards/地点牌/云上学府.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 222411,
+      "sha256": "ee401577da99e3245301a4e544b3b6e19b8bc673ebd291c03e831498372b4e86",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5951.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0005",
+      "path": "assets/cards/地点牌/办公室.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 1463725,
+      "sha256": "1a97aae1eb0ff48ef8ac086989a0bc0103f29916a00c88949517c2da02bc9724",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5943.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0006",
+      "path": "assets/cards/地点牌/尚德荟.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 1303805,
+      "sha256": "e499e9d5a1e0951f21399f5f2e717f8bf64c1a04f5c893b74b7f640fd6eb45e6",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5939.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0007",
+      "path": "assets/cards/地点牌/山洞.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 1194576,
+      "sha256": "ff512d1a83d754af678da9ba733761cd06bdd71cb1bc2df47893f87efc281d0c",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5944.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0008",
+      "path": "assets/cards/地点牌/帝汶岛.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 377882,
+      "sha256": "96c7690d93364309045313e8f643697a43041fc2d6650cf9908e6415117317ea",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5948.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0009",
+      "path": "assets/cards/地点牌/操场.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 1675556,
+      "sha256": "2eb94f215b0872804b200e09be49b4e3895e750b45530b4b829373a5ede85f61",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5942.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0010",
+      "path": "assets/cards/地点牌/教学楼.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 1469737,
+      "sha256": "78ea044aa5bf686f5b26b4d0318ebcb2b38b45b726e7196bfd732162cbf83ea5",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5941.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0011",
+      "path": "assets/cards/地点牌/樱花大道.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 278046,
+      "sha256": "d4d44bc6462778ae807faae79c4456af87b77aa46c9ae8acfdaf140901e4399c",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5950.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0012",
+      "path": "assets/cards/地点牌/淘安泽.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 1336640,
+      "sha256": "c909d12b4ab8aceb9fe5b8e2b4fa42eeca1f61d79ea3a72042edf001fa71985f",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5946.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0013",
+      "path": "assets/cards/地点牌/秀松苑.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 333764,
+      "sha256": "0bed7453887007196e7e1d61fcfe789dc66a2692fd32c5afcb89abc6cc634932",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5949.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0014",
+      "path": "assets/cards/地点牌/红素洋.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 374616,
+      "sha256": "8fc58945fff09716dc29ce0ed4c34bea42fc7cdedf460c68cc4a96a1ddbd95c1",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5947.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0015",
+      "path": "assets/cards/地点牌/飞船.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 1450622,
+      "sha256": "820b022b2547bb06cf2d936515af63a8b5c914f60879238207f43b96f3de3480",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5945.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0016",
+      "path": "assets/cards/地点牌/食堂.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 283708,
+      "sha256": "bd6a7b0ae0ff5f54047a358ea3cb8de75fd901df540f32942f2972deabfd0612",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5940.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0017",
+      "path": "assets/cards/地点牌/高唐农场.jpg",
+      "category": "地点牌",
+      "usage": "location_art",
+      "bytes": 477180,
+      "sha256": "16cc3f0aa89b0ff8d51202f8d583b5b3fe5334a54eb4d25d93ff407bb6788eb9",
+      "workspaceOriginalPaths": [
+        "地点牌/IMG_5934.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0018",
+      "path": "assets/cards/基础牌/back.jpg",
+      "category": "基础牌",
+      "usage": "card_back",
+      "bytes": 750895,
+      "sha256": "c0ce4901764cc0aba4a72e595a410a4049a05dafab9006adeba9306481d96d88",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6055.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0019",
+      "path": "assets/cards/基础牌/template.png",
+      "category": "基础牌",
+      "usage": "template",
+      "bytes": 288404,
+      "sha256": "2a157d04e2190fc6c7d847488edce359df2bb3954aa9ecb168599ffb94439bdc",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5970.PNG"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0020",
+      "path": "assets/cards/基础牌/坐骑-外星-临伟叶.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 402562,
+      "sha256": "c20548fffbd115cde5af2047006c16fce4e936f7954513c6b0fe6dd355a4fefd",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6032.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-076",
+          "name": "临伟叶",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-076"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0021",
+      "path": "assets/cards/基础牌/坐骑-外星-快速车.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 392268,
+      "sha256": "4768306837fddedd1dc18f595979351842e1ed608ce89b2593d39c2ad6005bda",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6030.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-075",
+          "name": "快速车",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-075"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0022",
+      "path": "assets/cards/基础牌/坐骑-帝汶-哈基米.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 408203,
+      "sha256": "ceff3edbdbd3774e0d584226a3b0504773fb1c14eb3abea3cd960e490676d077",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6028.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-063",
+          "name": "哈基米",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-063"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0023",
+      "path": "assets/cards/基础牌/坐骑-帝汶-面包车.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 414792,
+      "sha256": "a23f1d258016f0df28d205123ebf0e821ee69fd72a79e56d503169d3071ce554",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6029.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-064",
+          "name": "面包车",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-064"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0024",
+      "path": "assets/cards/基础牌/坐骑-普通-关烁（本人）.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 416130,
+      "sha256": "0d8ce8a3d37d8b8e6dc7370547fb8a437414a11c9ee7f6b6be32e9c224974fdf",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6034.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-068",
+          "name": "关烁（本人）",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-068"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0025",
+      "path": "assets/cards/基础牌/坐骑-普通-勿一羊.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 392166,
+      "sha256": "257e13cab227651da6f3933fc5d0beca3816d99b54f1d741014fe0bf14a961f9",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6023.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-071",
+          "name": "勿一羊",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-071"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0026",
+      "path": "assets/cards/基础牌/坐骑-普通-唐车.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 403112,
+      "sha256": "d9d952344a0741e3caf3787761bc392f66c1972251780f551b1575711db1375d",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6031.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-069",
+          "name": "唐车",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-069"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0027",
+      "path": "assets/cards/基础牌/坐骑-普通-承汉骑.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 395509,
+      "sha256": "e116c72e1443038c83a327357e41fdcdd92a2357e3c072154a40b2d6f54c79fe",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6026.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-065",
+          "name": "承汉骑",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-065"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0028",
+      "path": "assets/cards/基础牌/坐骑-普通-无一骑.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 403234,
+      "sha256": "7d229eef33fa5426388e2aa9593726f049c72912716b09e0fccc7d0a97dd1fa3",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6025.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-070",
+          "name": "无一骑",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-070"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0029",
+      "path": "assets/cards/基础牌/坐骑-普通-等一羊.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 424172,
+      "sha256": "1a231bb86594e62363614e9779975ed9a401a4c76ac4dfa77e3e782c3469fe2b",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6024.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-066",
+          "name": "等一羊",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-066"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0030",
+      "path": "assets/cards/基础牌/坐骑-普通-粥盛羊.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 400159,
+      "sha256": "46171c3fc15546ea68ed92553d148a3a0b3caf3c8742ca0048a22fd82d9e8608",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6035.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-072",
+          "name": "粥盛羊",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-072"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0031",
+      "path": "assets/cards/基础牌/坐骑-普通-高胜胜牌小白马.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 436066,
+      "sha256": "4100b45e42c90b60ea48f3a06324209bd7464241faa2d2224390756d34f38e5c",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6033.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-067",
+          "name": "高胜胜牌小白马",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-067"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0032",
+      "path": "assets/cards/基础牌/坐骑-神秘-Bob.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 396028,
+      "sha256": "2d97c48131998e4ccc12c4803f95684b3b9ce1107019d94400db1627f4fdde3f",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6036.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-073",
+          "name": "Bob",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-073"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0033",
+      "path": "assets/cards/基础牌/坐骑-神秘-子腾.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 404645,
+      "sha256": "1164d289f0b57df4c9536c328b9606dacb80d9e6c297f8261178febc88adf4fa",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6027.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-074",
+          "name": "子腾",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-074"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0034",
+      "path": "assets/cards/基础牌/攻击-外星-猴子游戏.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 416849,
+      "sha256": "8e5d211bdb591d29a31c9b7f1a3d4051ecc3cdc604f56f51d774d20291b3a412",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5977.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-010",
+          "name": "猴子游戏",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-010"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0035",
+      "path": "assets/cards/基础牌/攻击-外星-躲避球.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 412462,
+      "sha256": "9ca3eb27e4c4d9f24e1bfbab6e98e858b79e6eeab05d81be3617b328c5d4cb3e",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5971.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-009",
+          "name": "躲避球",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-009"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0036",
+      "path": "assets/cards/基础牌/攻击-帝汶-吸血.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 411426,
+      "sha256": "fdb618d58a305803cdb63d75b32756bf65d64e1aa31225e469418031067df914",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5972.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-006",
+          "name": "吸血",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-006"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0037",
+      "path": "assets/cards/基础牌/攻击-搏击操-搏击操I.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 432792,
+      "sha256": "c1d731a342c4e0af337582c16d56dcf07d6a1fabb2fc58e56f17565985c2f0d7",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5973.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-003",
+          "name": "搏击操I",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-003"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0038",
+      "path": "assets/cards/基础牌/攻击-搏击操-搏击操II.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 434430,
+      "sha256": "6eba7e693f08de62f39b3a883268ce76275d2b3034ae721b134e11ab76610ec6",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5974.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-004",
+          "name": "搏击操II",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-004"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0039",
+      "path": "assets/cards/基础牌/攻击-搏击操-搏击操III.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 435264,
+      "sha256": "d41e24694cf22a82a533f790a6cd75d2158ee4f73f48aeb91106af53ead5f642",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5975.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-005",
+          "name": "搏击操III",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-005"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0040",
+      "path": "assets/cards/基础牌/攻击-普通-分尸.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 400020,
+      "sha256": "fe69d84014dc5a4791d22d78c7c6b9617c11a861b97afee0825d7846924fc4b6",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5978.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-007",
+          "name": "分尸",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-007"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0041",
+      "path": "assets/cards/基础牌/攻击-普通-头锤.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 411760,
+      "sha256": "7ba7d7c2e713123dad908ba231e11e5db1fdd9000e66e17fe36977e0a5ee7fb7",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5976.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-008",
+          "name": "头锤",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-008"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0042",
+      "path": "assets/cards/基础牌/武器（头）-普通-王烨超.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 387637,
+      "sha256": "79ac43cc2d31b737ab371eb8b6aeea3c5bb532eef09fb5cbf4f10a52b57117d1",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6020.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-058",
+          "name": "王烨超",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-058"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0043",
+      "path": "assets/cards/基础牌/武器（头）-神秘-眼镜.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 406510,
+      "sha256": "52a73071dd90a628b63a33dfec6841d6a5217735171d02b614ffc60295710404",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6015.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-059",
+          "name": "眼镜",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-059"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0044",
+      "path": "assets/cards/基础牌/武器（手）-外星-冰糖雪梨.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 423154,
+      "sha256": "15e502bd0a06ae9140a28e9d41b6321cd432637ef7653c30c54991ea617ca33e",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6009.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-055",
+          "name": "冰糖雪梨",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-055"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0045",
+      "path": "assets/cards/基础牌/武器（手）-外星-爆浆冰淇淋面包.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 431224,
+      "sha256": "bb7d27612e7c58db80d34cbde02d31eee42bc5081da669734417666a45c210c0",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6010.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-054",
+          "name": "爆浆冰淇淋面包",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-054"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0046",
+      "path": "assets/cards/基础牌/武器（手）-外星-花露水.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 394899,
+      "sha256": "119e02e654a7c11115594a67ff22fff7e8bd46f3a5879511b6d4ba15e661fd3d",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6017.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-057",
+          "name": "花露水",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-057"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0047",
+      "path": "assets/cards/基础牌/武器（手）-外星-高宇涛.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 409993,
+      "sha256": "bc9e31598191b87c43dc82982133ecac2daf3932e0d178ad73134de728c77916",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6019.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-056",
+          "name": "高宇涛",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-056"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0048",
+      "path": "assets/cards/基础牌/武器（手）-神秘-校医的扣分单.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 394472,
+      "sha256": "4b2d2e61e238e2aff2a0bb75171260cf311a7166bb90ed195332309b9364c370",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6021.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-053",
+          "name": "校医的扣分单",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-053"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0049",
+      "path": "assets/cards/基础牌/武器（手）-神秘-粉笔.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 443440,
+      "sha256": "031e40623c0d8f528786db7741aec15b143b67b256ca1055100534463460167a",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6014.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-052",
+          "name": "粉笔",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-052"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0050",
+      "path": "assets/cards/基础牌/武器（腕）-外星-通哥.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 406971,
+      "sha256": "075b54e655dc22c23e4bc98089d55865898afe0fbfd5c790c6e9586e81acef7a",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6011.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-062",
+          "name": "通哥",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-062"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0051",
+      "path": "assets/cards/基础牌/武器（腕）-神秘-手表.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 393105,
+      "sha256": "ed7eb6633c4b6411d8a9b1888da070eec64b5eac43bfe542a17c65111dab8872",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6016.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-060",
+          "name": "手表",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-060"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0052",
+      "path": "assets/cards/基础牌/武器（腕）-神秘-植物.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 412839,
+      "sha256": "3ee9a06da8723299dacc19a61e43dc8953232e994dae9e88424ec0d68b4e39ad",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6022.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-061",
+          "name": "植物",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-061"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0053",
+      "path": "assets/cards/基础牌/武器（身）-帝汶-帝汶斗篷.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 423991,
+      "sha256": "bf5ce3fe145d167f760a1217b733ce2800476d260fd46438821e32d470282cda",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6018.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-049",
+          "name": "帝汶斗篷",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-049"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0054",
+      "path": "assets/cards/基础牌/武器（身）-神秘-杭高校服.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 422169,
+      "sha256": "0db692299a651a251a3eff570b26ad32e69658a5d9a65a6940e41ee40ad274b3",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6012.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-050",
+          "name": "杭高校服",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-050"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0055",
+      "path": "assets/cards/基础牌/武器（身）-神秘-正装.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 428706,
+      "sha256": "2e7dd5880ed283334385dbfc5156faea4cb0296c0226e417fc738efa5dccaaf4",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6013.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-051",
+          "name": "正装",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-051"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0056",
+      "path": "assets/cards/基础牌/锦囊-帝汝-咖啡.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 399582,
+      "sha256": "3f02590c4184f750e8ace62ecfd8d382f39fa7b71c1842f68005efab7891d072",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5995.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-015",
+          "name": "咖啡",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-015"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0057",
+      "path": "assets/cards/基础牌/锦囊-帝汝-橡胶.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 391897,
+      "sha256": "8a84876cdbb3909df4228072c6ec6d4f42b37cc8cd664fafb535f693d9dad50d",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5996.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-016",
+          "name": "橡胶",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-016"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0058",
+      "path": "assets/cards/基础牌/锦囊-建民-上厕所.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 396115,
+      "sha256": "4a4807ae250fd0950d5d52700a97000b5098558ae7d253c20c7653d68c69976a",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5988.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-020",
+          "name": "上厕所",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-020"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0059",
+      "path": "assets/cards/基础牌/锦囊-建民-借我张纸.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 396103,
+      "sha256": "c0f60402ccdefc263e542ef583ed39312857458977dcfe9711fce4503f98416c",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5986.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-019",
+          "name": "借我张纸",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-019"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0060",
+      "path": "assets/cards/基础牌/锦囊-建民-占座.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 412899,
+      "sha256": "84a9bb30cae6bbc9c769c7f83fa1abf4682f6bd16e032e1b8d82583d7308e9a7",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5981.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-023",
+          "name": "占座",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-023"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0061",
+      "path": "assets/cards/基础牌/锦囊-建民-卫汶找你.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 418183,
+      "sha256": "1746a2a86d936650632226bf0de2d4a4514ac58231ed659baa4270908ef1dfa2",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5983.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-021",
+          "name": "卫汶找你",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-021"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0062",
+      "path": "assets/cards/基础牌/锦囊-建民-插队.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 406800,
+      "sha256": "8fa7a8091afa9b79b762b4ad87d05209866376c826cb6384968af426d68090dd",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5982.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-017",
+          "name": "插队",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-017"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0063",
+      "path": "assets/cards/基础牌/锦囊-建民-断水断电.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 420827,
+      "sha256": "2912088e3190909e46d48ef07674fff61935f8148d1d8e7f9b528b024e4efbc9",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5985.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-018",
+          "name": "断水断电",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-018"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0064",
+      "path": "assets/cards/基础牌/锦囊-建民-谣言.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 389066,
+      "sha256": "6aad95ce66213808d3b8aaf835996724b869885e1f504b3901810d3ff9b9ebb7",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5984.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-022",
+          "name": "谣言",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-022"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0065",
+      "path": "assets/cards/基础牌/锦囊-建民-转学手册.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 426669,
+      "sha256": "4e2e6a15d7f43f5f7c85047acd995d1d2e2973f590c6c94d263843d00fad969d",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5987.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-024",
+          "name": "转学手册",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-024"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0066",
+      "path": "assets/cards/基础牌/锦囊-搏击操-来玩.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 396453,
+      "sha256": "3b7826d46ffb3e2620861faa166de93d3ea834c1d28367e0f9282192474ecf20",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5991.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-012",
+          "name": "来玩",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-012"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0067",
+      "path": "assets/cards/基础牌/锦囊-搏击操-樱花舞.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 406490,
+      "sha256": "f7e1c4ccc68a0cd4bd6dd2b20acd12fdde6016617e907ee6155be2fb3f4fd102",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5994.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-014",
+          "name": "樱花舞",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-014"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0068",
+      "path": "assets/cards/基础牌/锦囊-搏击操-给你加分.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 405753,
+      "sha256": "b788da1068568c63cdc04eb5dfe80e300ba47b45123081acb654be463fb6b8d3",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6003.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-011",
+          "name": "给你加分",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-011"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0069",
+      "path": "assets/cards/基础牌/锦囊-搏击操-跑操.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 409964,
+      "sha256": "e1d4ff90ea01e5a0913808feb1462e2f82ae6b778b2faa9e1158606c08fd7241",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5990.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-013",
+          "name": "跑操",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-013"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0070",
+      "path": "assets/cards/基础牌/锦囊-普通-收集石头.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 393759,
+      "sha256": "9d21c5d6c498b62c75bfaa4ce66c477231523c486cd45c3222838513ece3f5a2",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6001.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-025",
+          "name": "收集石头",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-025"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0071",
+      "path": "assets/cards/基础牌/锦囊-神秘-LMM.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 427564,
+      "sha256": "a178b3e09c983bdd973905efd2db54d3f4b57169ceb4ec3223d9e6cf2faefa78",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6002.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-026",
+          "name": "LMM",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-026"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0072",
+      "path": "assets/cards/基础牌/锦囊-神秘-上课铃.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 449359,
+      "sha256": "c47f82cb7947bd33a095e8545e279a33dcaa949a82834124ed3286870b2854c5",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6007.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-031",
+          "name": "上课铃",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-031"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0073",
+      "path": "assets/cards/基础牌/锦囊-神秘-化汶.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 391005,
+      "sha256": "e1b53c151aa67cbcd8b3c7ee125edfa046455c7064094b7c0041b60e3993f89c",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5998.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-030",
+          "name": "化汶",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-030"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0074",
+      "path": "assets/cards/基础牌/锦囊-神秘-化猴.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 392178,
+      "sha256": "4ee4a1fd747e3b4f2acd8953c4a69c4ea0ae2da8b062343335488fcca6abb145",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5999.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-029",
+          "name": "化猴",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-029"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0075",
+      "path": "assets/cards/基础牌/锦囊-神秘-樟脑丸.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 395904,
+      "sha256": "02581348adfb79c32e2be21b91278e197047bb0f966264cc9e8cbacd6480d83b",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5993.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-036",
+          "name": "樟脑丸",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-036"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0076",
+      "path": "assets/cards/基础牌/锦囊-神秘-汶泽.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 391813,
+      "sha256": "df4655cbd663dfc5f92f25720b33c2936c4086565e366eace90a91c211cd0a3d",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6005.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-033",
+          "name": "汶泽",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-033"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0077",
+      "path": "assets/cards/基础牌/锦囊-神秘-王漠.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 427010,
+      "sha256": "33801ee1e47bcfc0e8c6a07e3358f9cc3a300ac495f6f4af113991df39ab44a5",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6004.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-032",
+          "name": "王漠",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-032"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0078",
+      "path": "assets/cards/基础牌/锦囊-神秘-移家.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 427236,
+      "sha256": "707bbd157f11e4e683906fd5dfe3002e9982459abaf188e1325f90d913dfaef5",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6006.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-034",
+          "name": "移家",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-034"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0079",
+      "path": "assets/cards/基础牌/锦囊-神秘-第三只手.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 396004,
+      "sha256": "78d25288b6e5674ddcc55a493d118f50e8b4d8a8a268bdd8d8d8ad073a1df5f7",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5989.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-027",
+          "name": "第三只手",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-027"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0080",
+      "path": "assets/cards/基础牌/锦囊-神秘-紫檀木.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 402635,
+      "sha256": "a50405300fad01adbc01694e978053e1d7f4fed82ef1766976c88c8e3fd7a57b",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5997.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-037",
+          "name": "紫檀木",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-037"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0081",
+      "path": "assets/cards/基础牌/锦囊-神秘-约谈.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 394052,
+      "sha256": "e32c364d7420de70ffb5389aac121fbb51ec8aedfb80dcc45e7c83909fa33009",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5992.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-035",
+          "name": "约谈",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-035"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0082",
+      "path": "assets/cards/基础牌/锦囊-神秘-高唐判官.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 418911,
+      "sha256": "d2c138614cfabcd63d578d5b0f619d8e86c2335f644aaabae36a72fc50c4b7b4",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6008.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-028",
+          "name": "高唐判官",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-028"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0083",
+      "path": "assets/cards/基础牌/防御-普通-肘击.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 424945,
+      "sha256": "36103e0460c54d988e9cfb07f8aed05945cde7a0c9a4dc341eb10e0645ab4a28",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5979.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-002",
+          "name": "肘击",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-002"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0084",
+      "path": "assets/cards/基础牌/防御-普通-防御姿态.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 412122,
+      "sha256": "914011c84dd1e8ea167ec199d2e142619f893ad6efffab108d4bbab15e478893",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_5980.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-001",
+          "name": "防御姿态",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-001"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0085",
+      "path": "assets/cards/基础牌/食物-外星-农夫三拳.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 414703,
+      "sha256": "209eca6ae2f1f1193a3d7cb48508b5adda68235d95fcae007a2de8ed5810470e",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6048.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-044",
+          "name": "农夫三拳",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-044"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0086",
+      "path": "assets/cards/基础牌/食物-外星-冰红茶.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 405116,
+      "sha256": "ebee6dcb21004e4cac667a7bf2afb09701d526e0bf07e8e849411abb883b915f",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6043.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-042",
+          "name": "冰红茶",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-042"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0087",
+      "path": "assets/cards/基础牌/食物-外星-外星人.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 378561,
+      "sha256": "ec1c103534e8baa55638724ed4f459cf339d1922cba475dec089ae2c92034d0e",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6037.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-046",
+          "name": "外星人",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-046"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0088",
+      "path": "assets/cards/基础牌/食物-外星-水果.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 381130,
+      "sha256": "d9a37be7c95fd20500de0be013b197042e22b9c42d1b4e63769662b3bce711b6",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6046.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-045",
+          "name": "水果",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-045"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0089",
+      "path": "assets/cards/基础牌/食物-外星-油泼.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 393366,
+      "sha256": "62485bec802d08e3482d360ec384b6a7a51d0007d612ff97bb61256f5dea9bad",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6045.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-048",
+          "name": "油泼",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-048"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0090",
+      "path": "assets/cards/基础牌/食物-外星-盖浇.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 404807,
+      "sha256": "7078f975d885f1a6e58c806a0aeed74382ba06cfa6e48f61f6a6cc5664f7cb86",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6044.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-043",
+          "name": "盖浇",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-043"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0091",
+      "path": "assets/cards/基础牌/食物-外星-营养快线.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 392280,
+      "sha256": "c5a9672ed1115b8e3791997532e20ad74cc572f2b5213c3b0844624e624e159f",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6039.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-047",
+          "name": "营养快线",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-047"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0092",
+      "path": "assets/cards/基础牌/食物-外星-阿萨姆.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 395306,
+      "sha256": "04aa0ece5f85194eb93359551417461ec3c4378b542edb7792d4aecae9ef2a79",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6038.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-041",
+          "name": "阿萨姆",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-041"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0093",
+      "path": "assets/cards/基础牌/食物-帝汶-奈雪.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 380037,
+      "sha256": "c74c73fe32f92fb488780fdda3f7a14379a7caa835fea1a9b357f5faf0902e6d",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6041.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-039",
+          "name": "奈雪",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-039"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0094",
+      "path": "assets/cards/基础牌/食物-帝汶-芦荟水.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 401363,
+      "sha256": "8510641c6fb292a3e24e41d771352ad990bde6a32082665d310704a7b73027dc",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6047.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-038",
+          "name": "芦荟水",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-038"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0095",
+      "path": "assets/cards/基础牌/食物-帝汶-茜帝.png",
+      "category": "基础牌",
+      "usage": "card_face",
+      "bytes": 399012,
+      "sha256": "10fb47147e8d15fe7c7889634748f8ccd38d27a1d401a02afc348c86e336b1f1",
+      "workspaceOriginalPaths": [
+        "基础牌/IMG_6040.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "basic-040",
+          "name": "茜帝",
+          "usage": "card_face",
+          "document": "docs/cards/基础牌.md",
+          "anchor": "basic-040"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0096",
+      "path": "assets/cards/神牌/6-BA.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 339007,
+      "sha256": "81f1ebf75a17a9fc7f1616fdab2ed728bc387b238b40ba8925f940c96379e37a",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6131.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-001",
+          "name": "6-BA",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-001"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0097",
+      "path": "assets/cards/神牌/Jerry.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 306785,
+      "sha256": "7b146e4cf7aa7d3054edb5689951ec374c0924c5a8113a0e06a08942df120273",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6140.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-002",
+          "name": "Jerry",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-002"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0098",
+      "path": "assets/cards/神牌/May.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 281484,
+      "sha256": "5ef33889da12aea5a441e8450bbba3417e3af046e627e5727c547c6e049b47a6",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6137.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-003",
+          "name": "May",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-003"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0099",
+      "path": "assets/cards/神牌/Q博.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 330393,
+      "sha256": "4f4e364a97651ac10195fc5a8c61c57b6a237b43c5c3bdfdeb79fc0bb0348d9b",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6135.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-004",
+          "name": "Q博",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-004"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0100",
+      "path": "assets/cards/神牌/Strong哥.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 301723,
+      "sha256": "035616b2407cbbc5d92b86909d317fbab9608c25c0d7368a74708f4cfdf86b26",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6133.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-005",
+          "name": "Strong哥",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-005"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0101",
+      "path": "assets/cards/神牌/back.jpg",
+      "category": "神牌",
+      "usage": "card_back",
+      "bytes": 849610,
+      "sha256": "6eb09fd65800c302a29bba9b92292245d0f4b601a6b19bd492b327a27ce3f9d0",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6124.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0102",
+      "path": "assets/cards/神牌/template.jpg",
+      "category": "神牌",
+      "usage": "template",
+      "bytes": 149496,
+      "sha256": "350cbfde4522c7290a5a369946fb6e236451813a87616ae6869e1275ada55035",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6121.jpg"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0103",
+      "path": "assets/cards/神牌/乔纳森.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 315579,
+      "sha256": "3e906ab0fc940877232824ac9cb4a242eb79657cca174266f0a8794ea6ea466f",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6126.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-010",
+          "name": "乔纳森",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-010"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0104",
+      "path": "assets/cards/神牌/呆呆.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 321196,
+      "sha256": "30e1d8acdaf3e14451616c750acf44e01afc1a67fc49311ec13a4c0244f5a4f8",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6132.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-007",
+          "name": "呆呆",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-007"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0105",
+      "path": "assets/cards/神牌/嚎.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 326339,
+      "sha256": "f47678fad8f8818c5dca3c127895952e8a992a37923da42fda4ec53e1a4e2cda",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6136.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-008",
+          "name": "嚎",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-008"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0106",
+      "path": "assets/cards/神牌/始祖奶龙.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 351818,
+      "sha256": "c1ac55f55f1464fba905f0c8316b68bed4259422f2a51ee11b8f39631d6f528a",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6139.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-012",
+          "name": "始祖奶龙",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-012"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0107",
+      "path": "assets/cards/神牌/忘栗冻.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 322168,
+      "sha256": "ffdcc72f81f8a8ef48bd12a50abccc1dfbfa2b1e67b3ba6f0fbaeecedbf02750",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6125.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-013",
+          "name": "忘栗冻",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-013"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0108",
+      "path": "assets/cards/神牌/曦.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 341133,
+      "sha256": "26afff6b80fce6dbdbd0b937eb1d929c84ce2b1a4f3b4dfa50aba1b3fdb571e3",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6134.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-014",
+          "name": "曦",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-014"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0109",
+      "path": "assets/cards/神牌/猴二.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 314652,
+      "sha256": "12ad745487a9c38f188c41d46202e10baf847d96c6f3f312ac910b00316f8a99",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6128.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-009",
+          "name": "猴二",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-009"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0110",
+      "path": "assets/cards/神牌/生活委员.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 380242,
+      "sha256": "c588488bc3baa03db6e3f6b0db1b9f8c7ac9727a751761f1be72ba44c5a6947a",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6141.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-011",
+          "name": "生活委员",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-011"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0111",
+      "path": "assets/cards/神牌/真正的man.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 327869,
+      "sha256": "88abb5d4bee852739d8aad53933d3e97170811dc918066d4c4734e152437cf23",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6138.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-016",
+          "name": "真正的man",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-016"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0112",
+      "path": "assets/cards/神牌/章鱼.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 334386,
+      "sha256": "284a0e46c5bde31d9130f78aad59cf470447c1645d28f96c7e354e0fa2e22f87",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6130.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-015",
+          "name": "章鱼",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-015"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0113",
+      "path": "assets/cards/神牌/草帝汶.png",
+      "category": "神牌",
+      "usage": "card_face",
+      "bytes": 320346,
+      "sha256": "9b015d858db7b860b69e14edaef80231c12f3d6898942f01224dbcf4dd30593e",
+      "workspaceOriginalPaths": [
+        "神牌/IMG_6129.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "god-006",
+          "name": "草帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/神牌.md",
+          "anchor": "god-006"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0114",
+      "path": "assets/cards/角色牌/6+6.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 157956,
+      "sha256": "21d949218e188a6b452394210c23daea15563cf4c5ac28338b1ea5a55d44bd1b",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5886.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-001",
+          "name": "6+6",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-001"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0115",
+      "path": "assets/cards/角色牌/JJ.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 173987,
+      "sha256": "706bde9a84f24425b59cddc944e3f6f517f2a720ec7def273398fd788e4423a5",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5877.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-003",
+          "name": "JJ",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-003"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0116",
+      "path": "assets/cards/角色牌/QB.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 166193,
+      "sha256": "e3088de441365464978cd73c15d3cedd9212e91eb0e7137d941eb7ec2eeb8622",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5878.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-005",
+          "name": "QB",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-005"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0117",
+      "path": "assets/cards/角色牌/easy.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 142320,
+      "sha256": "170073e7dba176c4a30e8233746d5b68d014c3527d8c0b530dffae6c0940bb4f",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5876.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-002",
+          "name": "easy",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-002"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0118",
+      "path": "assets/cards/角色牌/lemon.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 176043,
+      "sha256": "4407636c2c369f9ed949f13867b58e0eb9323b1eeb459bd3dcbb434930b6c559",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5891.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-004",
+          "name": "lemon",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-004"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0119",
+      "path": "assets/cards/角色牌/template.png",
+      "category": "角色牌",
+      "usage": "template",
+      "bytes": 111239,
+      "sha256": "f8e6d61741206e582c11a33e9c02aeadb309eac8851d94aad844603fb1f4c621",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5847.PNG"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0120",
+      "path": "assets/cards/角色牌/三幻神.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 161628,
+      "sha256": "07d59eeed80fcb3b65dc1d1c4318f4ad468f37e1125eac1dbea400aafbbb4761",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5895.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-035",
+          "name": "三幻神",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-035"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0121",
+      "path": "assets/cards/角色牌/东帝汶.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 193169,
+      "sha256": "e36a002fad3a8dc24c22077015f826620c5e952514d7bd1965dc92e8b7fbcd6d",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5906.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-010",
+          "name": "东帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-010"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0122",
+      "path": "assets/cards/角色牌/中帝汶.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 178458,
+      "sha256": "ffd6f1a2e61207708384c57df3d4babff1c3bcf3f5af0a7229a1602a3a7fb31f",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5880.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-049",
+          "name": "中帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-049"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0123",
+      "path": "assets/cards/角色牌/中立阵营1.back.jpg",
+      "category": "角色牌",
+      "usage": "faction_art_or_back",
+      "bytes": 383302,
+      "sha256": "dc45f06e652d723f6ced21d2a3ef8c97dd69bd73cd892cd8289dc2a386300c88",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5902.JPG"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0124",
+      "path": "assets/cards/角色牌/中立阵营2.back.jpg",
+      "category": "角色牌",
+      "usage": "faction_art_or_back",
+      "bytes": 356908,
+      "sha256": "ce59939020e3327f3f34c330c2b51e46c8f8747666adfcb7d1011357a1df9dd2",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5904.JPG"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0125",
+      "path": "assets/cards/角色牌/中饭.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 137185,
+      "sha256": "d6665a39e8c4119ac831761cbb3c71f0564ecc9b56fc7f9764683d9630f61d09",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5883.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-050",
+          "name": "中饭",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-050"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0126",
+      "path": "assets/cards/角色牌/二幻神.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 193694,
+      "sha256": "997db7e5733828d16e2e2a7ce334115168d3f2bc02d9822f4aa9f8f22ecaab85",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5907.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-011",
+          "name": "二幻神",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-011"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0127",
+      "path": "assets/cards/角色牌/人机.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 157773,
+      "sha256": "2fbf6a9f4b23e4ac16ebc2766fef795ffff9f0e93875ee439255edd61011b711",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5887.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-033",
+          "name": "人机",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-033"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0128",
+      "path": "assets/cards/角色牌/假原始人.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 188964,
+      "sha256": "625b4183567ce9757834c1b0295e497254e05369673d45a0cd5593e0c88ed1f8",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5866.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-022",
+          "name": "假原始人",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-022"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0129",
+      "path": "assets/cards/角色牌/北帝汶.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 161775,
+      "sha256": "226d694f79f2de846926f15bdc699a83574c523702d998d787563093b6198646",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5859.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-006",
+          "name": "北帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-006"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0130",
+      "path": "assets/cards/角色牌/南帝汶.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 156021,
+      "sha256": "dbe9f5aabac274bf26551d7b0afd61e02007d8ad52b5fc17392c871091533ba3",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5860.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-030",
+          "name": "南帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-030"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0131",
+      "path": "assets/cards/角色牌/卤蛋.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 134335,
+      "sha256": "e3d448f68e15689aef943e06abd88f3f037a436bd2dfbf3546aa34435fe1d742",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5884.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-024",
+          "name": "卤蛋",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-024"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0132",
+      "path": "assets/cards/角色牌/原始人.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 176111,
+      "sha256": "ca0df71615b612ad9b806bec52a2e02b86f34001b93471e9abd868bf64b3c9fb",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5867.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-047",
+          "name": "原始人",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-047"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0133",
+      "path": "assets/cards/角色牌/土豆.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 137595,
+      "sha256": "c6c52ebd4bd3306503dadfea6d517052c32e30a976e69eca79158df79bc1e885",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5899.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-037",
+          "name": "土豆",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-037"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0134",
+      "path": "assets/cards/角色牌/壬人心.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 255773,
+      "sha256": "c7c3c05480910f120953497383420448b9f02e2e703117548982a1aa8813795c",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5897.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-034",
+          "name": "壬人心",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-034"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0135",
+      "path": "assets/cards/角色牌/大帝汶.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 151063,
+      "sha256": "5f16bfc2a2ef067e0fa3261099146cdb1eb8bcaa7cbad755e9e742cd9e289ee0",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5862.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-008",
+          "name": "大帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-008"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0136",
+      "path": "assets/cards/角色牌/大幻神.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 183405,
+      "sha256": "6a2e73874fdf455fbd2de25724638702a1c425b7c443a1ae6fb15c8fe0e07584",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5893.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-009",
+          "name": "大幻神",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-009"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0137",
+      "path": "assets/cards/角色牌/奶龙大帝.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 203159,
+      "sha256": "03cddbbfbcfb7d29d7388aac432f56d9583ed0feea90417a4e9276c68745224c",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5882.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-029",
+          "name": "奶龙大帝",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-029"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0138",
+      "path": "assets/cards/角色牌/小原始人.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 132515,
+      "sha256": "efcf7307d76eeb80a0d89e06825c00fbc8b56e1220af09f24b86f388c8c528e7",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5868.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-042",
+          "name": "小原始人",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-042"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0139",
+      "path": "assets/cards/角色牌/小帝汶.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 172737,
+      "sha256": "4c6a94e6166169d19323a8e720ab16457b75254dd8ca247957d346f60ba99113",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5861.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-041",
+          "name": "小帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-041"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0140",
+      "path": "assets/cards/角色牌/帝汶家族.back.jpg",
+      "category": "角色牌",
+      "usage": "faction_art_or_back",
+      "bytes": 317396,
+      "sha256": "9728f9e7beb3418b691d7a1abe0e1f5db08adf9d4341c1a3d90e726673647560",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5905.JPG"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0141",
+      "path": "assets/cards/角色牌/应豪.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 191578,
+      "sha256": "9e5919031f2f844ea221712b7e44064e0d50c60293529fb1ce16d1bacb725701",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5848.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-045",
+          "name": "应豪",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-045"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0142",
+      "path": "assets/cards/角色牌/忘尘雪.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 155238,
+      "sha256": "dcb63a11e7ecd6dc1c8aa91776c9cfa1e20c86903cd3621fb47b800f2a18e248",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5875.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-039",
+          "name": "忘尘雪",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-039"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0143",
+      "path": "assets/cards/角色牌/晓虫.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 184517,
+      "sha256": "02b85e80470e10982cbed8e16325a6f4feaa5576cb42fb072c90f3fa5ad779df",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5898.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-043",
+          "name": "晓虫",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-043"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0144",
+      "path": "assets/cards/角色牌/朱伟岩.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 154092,
+      "sha256": "08e569802be028440ea1e2becfb82457b6648614f1517c601830159e384a0f49",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5872.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-052",
+          "name": "朱伟岩",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-052"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0145",
+      "path": "assets/cards/角色牌/朱重四.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 175220,
+      "sha256": "bf37d21ca3d7d400043e28f2b45a7aa81f102b11d4a8e4fe4d28583fd69bcae8",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5890.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-053",
+          "name": "朱重四",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-053"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0146",
+      "path": "assets/cards/角色牌/朱鹏岩.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 174306,
+      "sha256": "6b6fde32fff78f62442dcff9b1f33dd8680e5f5d9091d619b40956c1438e4d8a",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5873.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-051",
+          "name": "朱鹏岩",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-051"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0147",
+      "path": "assets/cards/角色牌/机械猴子.back.jpg",
+      "category": "角色牌",
+      "usage": "faction_art_or_back",
+      "bytes": 411161,
+      "sha256": "b0fac3d9ef46471ee95b7e69724691102b3fb95f59bd12f024c0ec0fc702c86a",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5903.JPG"
+      ],
+      "contentRefs": [],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0148",
+      "path": "assets/cards/角色牌/梅梅涛.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 149283,
+      "sha256": "42d7d0be771a7b16a034690e7f9247491b0fcf32a5c8dabaa1721637eb8f6686",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5900.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-026",
+          "name": "梅梅涛",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-026"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0149",
+      "path": "assets/cards/角色牌/水母.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 205913,
+      "sha256": "3c74af222285c76783772366f22a360ea257cc0f2fb581a4f8de6e9b1e63fc7d",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5869.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-036",
+          "name": "水母",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-036"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0150",
+      "path": "assets/cards/角色牌/汪羊.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 187445,
+      "sha256": "55e2f4fe9c05bc7e25f6463f48e9437179c1f477307d744d3549003d7bccce58",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5879.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-038",
+          "name": "汪羊",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-038"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0151",
+      "path": "assets/cards/角色牌/波波鲨鱼.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 186207,
+      "sha256": "a4eca0fb4752433daecc3bc05fba73105b7b37a8df055b002b7c87da97d7cd85",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5871.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-007",
+          "name": "波波鲨鱼",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-007"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0152",
+      "path": "assets/cards/角色牌/涨佳选.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 162631,
+      "sha256": "1109ab26bd541022d4d283116e556e9e99a882b4db96702f789f14c655790f6c",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5874.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-048",
+          "name": "涨佳选",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-048"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0153",
+      "path": "assets/cards/角色牌/牢大.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 172297,
+      "sha256": "9f6cbeef6d2fffb39637a863cd8e578c25c3f4c582c3990d7ecda30f88287230",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5901.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-023",
+          "name": "牢大",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-023"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0154",
+      "path": "assets/cards/角色牌/猴一.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 172765,
+      "sha256": "9fec56bfa2378e1364098f1cf1510fd87644d633dce75acf609ed25c0ae6e625",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5849.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-020",
+          "name": "猴一",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-020"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0155",
+      "path": "assets/cards/角色牌/猴三.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 179014,
+      "sha256": "c37968192981b611e2636865df3b7bd0497ac4195704e85b8d277c138ddebd0b",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5850.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-015",
+          "name": "猴三",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-015"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0156",
+      "path": "assets/cards/角色牌/猴五.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 162294,
+      "sha256": "a333c968bd04fa297ba2f23782a9fa6196f3490c8c64f31327299a53c0df8993",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5852.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-019",
+          "name": "猴五",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-019"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0157",
+      "path": "assets/cards/角色牌/猴八.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 130694,
+      "sha256": "e8694bf77021afd74875953c10f074d504bde5fd199e7043056b0a13e71101ef",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5854.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-013",
+          "name": "猴八",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-013"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0158",
+      "path": "assets/cards/角色牌/猴六.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 143667,
+      "sha256": "cbfbad12485ff45f466003d29ca411a099bff7bac71f32435fb7719819a6616e",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5853.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-014",
+          "name": "猴六",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-014"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0159",
+      "path": "assets/cards/角色牌/猴十八.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 153731,
+      "sha256": "433fa11b0dc7bb8b4672c4f8808cf82b28984a03b797904b8cea20b02ebf8f13",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5856.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-016",
+          "name": "猴十八",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-016"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0160",
+      "path": "assets/cards/角色牌/猴十六.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 186198,
+      "sha256": "7cdc6d0a2a191620e788ce9180bede80bdbcb4504d6f9325aadfc6a8e240c4a8",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5855.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-017",
+          "name": "猴十六",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-017"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0161",
+      "path": "assets/cards/角色牌/猴四.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 174550,
+      "sha256": "cd45be3b94df7bc03f6eafd5aa038d7aedec25313964b06d5ea829559628898a",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5851.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-018",
+          "name": "猴四",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-018"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0162",
+      "path": "assets/cards/角色牌/痞帅.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 184123,
+      "sha256": "be30b0eb3ccef2209581865bb43fce3925a0c1517f3567c6d30b8a1a579e9268",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5870.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-032",
+          "name": "痞帅",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-032"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0163",
+      "path": "assets/cards/角色牌/美丽学子.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 173565,
+      "sha256": "ef4e6ff82ed5b40c5e5801a7690738383ff6f3538f1bf6d1a0155fbe3038d8c2",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5889.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-027",
+          "name": "美丽学子",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-027"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0164",
+      "path": "assets/cards/角色牌/羽毛人.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 163996,
+      "sha256": "2b2237c068d650550cb86d551600a44b0cf47d34b5f7e1e10195122b444b8959",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5885.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-046",
+          "name": "羽毛人",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-046"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0165",
+      "path": "assets/cards/角色牌/西帝汶.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 177698,
+      "sha256": "13b3415072be63afd57eaf2beef02337f09462338a444c9d11d7bce5f6268629",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5858.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-040",
+          "name": "西帝汶",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-040"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0166",
+      "path": "assets/cards/角色牌/观察者.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 171848,
+      "sha256": "5f29291613aff9419aee099b51d0691d30c304f568fc9aa2a048aff7be7c59ca",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5881.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-012",
+          "name": "观察者",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-012"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0167",
+      "path": "assets/cards/角色牌/谢bro.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 171810,
+      "sha256": "74056e4de237ea3b8d234e8016f029d7b02a3d25608ff983b0874ec5e9973916",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5863.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-044",
+          "name": "谢bro",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-044"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0168",
+      "path": "assets/cards/角色牌/跑者.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 169492,
+      "sha256": "b79b114ca4cbfae414a4e34b29d0a082b09a8c140642ba33b3d17a413272e8e2",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5865.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-031",
+          "name": "跑者",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-031"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0169",
+      "path": "assets/cards/角色牌/马懿.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 153778,
+      "sha256": "0812eb48551c96512bf9316d648e854878b9b1287e751bc3918884f2b955ce71",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5892.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-025",
+          "name": "马懿",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-025"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0170",
+      "path": "assets/cards/角色牌/魔方小子.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 205096,
+      "sha256": "faf59750f393dbc2b70a4f463183b88249def6f77dbd983b3971f130a2126416",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5888.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-028",
+          "name": "魔方小子",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-028"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0171",
+      "path": "assets/cards/角色牌/黄虫.png",
+      "category": "角色牌",
+      "usage": "card_face",
+      "bytes": 161827,
+      "sha256": "82c71dc8a4eb40a50f20f67e8fc1ea17d0bbeb57e5348d2540257c9c7c637397",
+      "workspaceOriginalPaths": [
+        "角色牌/IMG_5864.PNG"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "character-021",
+          "name": "黄虫",
+          "usage": "card_face",
+          "document": "docs/cards/角色牌.md",
+          "anchor": "character-021"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0172",
+      "path": "assets/cards/选修课/军训.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 79447,
+      "sha256": "35753af1dca6ccf2ce0508a8d9af86d8c867dc543d2227cb9ff66afcefcf1bc4",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222122_50_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-003",
+          "name": "军训",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-003"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0173",
+      "path": "assets/cards/选修课/军训.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 109854,
+      "sha256": "c18c6e640c6f96101810de52ce15283674259c1d2ac32e47bfc547c18aaabc3b",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222134_55_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-003",
+          "name": "军训",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-003"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0174",
+      "path": "assets/cards/选修课/十佳学子.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 252850,
+      "sha256": "8a6a311730fb75b80aa393e65b9e648384e855d33afe5679917a07b4ea37fc48",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222148_61_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-005",
+          "name": "十佳学子",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-005"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0175",
+      "path": "assets/cards/选修课/十佳学子.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 99277,
+      "sha256": "22075a421d00359e229835505fe0d478da908ab0501eb005d2cb9cb671ebef0e",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222145_60_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-005",
+          "name": "十佳学子",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-005"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0176",
+      "path": "assets/cards/选修课/大逼兜.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 109993,
+      "sha256": "6b6ab1a5ba0cad07c4e740c0a0cd1cc107c8f812eff354d3d959546cf8071287",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222120_49_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-001",
+          "name": "大逼兜",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-001"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0177",
+      "path": "assets/cards/选修课/大逼兜.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 111246,
+      "sha256": "16218ec9d27bb6fcc30b9b9428e90e1df0dac7f1781e96326882d5ad439b2fdb",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222139_57_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-001",
+          "name": "大逼兜",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-001"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0178",
+      "path": "assets/cards/选修课/树兰医学.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 68481,
+      "sha256": "c0d3d6a2dbf6a7215f5a48141e378a10b65e9a5c1af4417afe53a942edc6034d",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222128_52_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-006",
+          "name": "树兰医学",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-006"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0179",
+      "path": "assets/cards/选修课/树兰医学.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 96986,
+      "sha256": "a73fae5f27d4b4b671ee8f3bc24430f675513e7cf2a13ead28fbc9aa54533093",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222132_54_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-006",
+          "name": "树兰医学",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-006"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0180",
+      "path": "assets/cards/选修课/洗澡.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 162328,
+      "sha256": "050cd7c9a633df1e97ecd0126d80034411af34dfcbbbc823a255139c83b08402",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222114_47_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-008",
+          "name": "洗澡",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-008"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0181",
+      "path": "assets/cards/选修课/洗澡.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 111233,
+      "sha256": "8c2dade20f63b9b819384462f2f28119d0c802adc2f7d0a74545b3e27d175f6b",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222141_58_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-008",
+          "name": "洗澡",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-008"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0182",
+      "path": "assets/cards/选修课/红温.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 101586,
+      "sha256": "b38aaf6b26ad6cebfe347dd4716b5ca0bd8c6eae16df110103b9f0a6187667c8",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222125_51_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-002",
+          "name": "红温",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-002"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0183",
+      "path": "assets/cards/选修课/红温.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 92860,
+      "sha256": "aa05a1cb1a7dcee466f94e1296e502a5ae6c5fc205a3338637049030cb98c3e4",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222136_56_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-002",
+          "name": "红温",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-002"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0184",
+      "path": "assets/cards/选修课/跑饭.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 210101,
+      "sha256": "43eec7849bd3635112fda1d3561d8d26f0a9277166d69377df68c3bc5334d3ee",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222111_46_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-004",
+          "name": "跑饭",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-004"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0185",
+      "path": "assets/cards/选修课/跑饭.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 102177,
+      "sha256": "be87be53a7598d7a58d64a7c6f6030a12ef6b86f3c173f2efc6ee9c90561bb8c",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222130_53_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-004",
+          "name": "跑饭",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-004"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0186",
+      "path": "assets/cards/选修课/通校.back.jpg",
+      "category": "选修课",
+      "usage": "course_illustration",
+      "bytes": 236633,
+      "sha256": "4544897b2925cf0206a6ac62b2ce82a606971abdb848022090256eafdedd7800",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222117_48_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-007",
+          "name": "通校",
+          "usage": "course_illustration",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-007"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    },
+    {
+      "id": "asset-0187",
+      "path": "assets/cards/选修课/通校.jpg",
+      "category": "选修课",
+      "usage": "card_face",
+      "bytes": 103832,
+      "sha256": "dc14709669e5b2a0aad116db6c7431861331095c84bc8ba40bb68af6588789d6",
+      "workspaceOriginalPaths": [
+        "选修课/微信图片_20261012222143_59_2.jpg"
+      ],
+      "contentRefs": [
+        {
+          "cardId": "course-007",
+          "name": "通校",
+          "usage": "card_face",
+          "document": "docs/cards/选修课牌.md",
+          "anchor": "course-007"
+        }
+      ],
+      "ruleStatus": "reference_only_not_a_playable_definition"
+    }
+  ]
+}
