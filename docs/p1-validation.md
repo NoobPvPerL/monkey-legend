@@ -1,6 +1,6 @@
 # P1 实现与验证记录
 
-日期：2026-10-16（开发始于2026-10-15）。规则基线web-v0.1.1。P1实现及开发验证完成，等待负责人试玩和正式验收；没有对外发布。
+日期：2026-10-16（开发始于2026-10-15）。规则基线web-v0.1.1。P1实现及开发验证完成，成员本地测试预发布已发布，等待负责人试玩和正式验收；没有公网部署或公众正式发布。
 
 ## 自动检查
 
@@ -74,4 +74,6 @@ T-FFA实测：土豆生命5、AP4、击杀1、实际敌方生命伤害4，排名
 
 本机默认沙箱禁止Windows realpath，最初服务检查因环境权限失败；相同源码在允许本机路径解析/监听的执行环境下通过，没有删去路径边界检查。独立解压仍是在同一主机执行，不代表其他成员电脑/干净系统通过。
 
-正式包必须从干净提交重建、再次独立解压验证后才上传；远程Release和意见Issue状态在[开发日志](development-log.md)登记。原有实际浏览器核心交互记录继续有效，本次未修改规则/客户端游戏逻辑。
+正式包从干净提交b98b2303d5c0d11c2661ca7820b2046a8dd8f73b构建，已再次独立解压验证后上传；[Release](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.1.0-p1.1)已发布，[意见Issue #8](https://github.com/NoobPvPerL/monkey-legend/issues/8)已开启。原有实际浏览器核心交互记录继续有效，本次未修改规则/客户端游戏逻辑。
+
+正式包最终证据：[final-package.json](../artifacts/p1-release/final-package.json)、[发布清单](../artifacts/p1-release/release-manifest.json)、[GitHub核对](../artifacts/p1-release/github-release.json)。实际浏览器从解压包内置服务5180打开，开局后32格与手牌显示正常，土豆参考图720×1280加载完成，warn/error为空；见[browser.json](../artifacts/p1-release/browser.json)和[截图](../artifacts/p1-release/release-game.png)。本次未重新宣称全角色/全牌浏览器穷举或其他成员电脑通过。

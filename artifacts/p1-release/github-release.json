@@ -1,0 +1,32 @@
+{
+  "id": 414553671,
+  "tag": "v0.1.0-p1.1",
+  "url": "https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.1.0-p1.1",
+  "draft": false,
+  "prerelease": true,
+  "published_at": "2026-10-16T05:09:25Z",
+  "target_commitish": "b98b2303d5c0d11c2661ca7820b2046a8dd8f73b",
+  "commit": "b98b2303d5c0d11c2661ca7820b2046a8dd8f73b",
+  "assets": [
+    {
+      "name": "monkey-legend-0.1.0-p1.1-windows-x64.zip",
+      "size": 41367945,
+      "state": "uploaded",
+      "digest": "sha256:647ea903ae258a94840b47990fb0215bb1a33ae8980fb0cc66f7d2868068b407",
+      "browser_download_url": "https://github.com/NoobPvPerL/monkey-legend/releases/download/v0.1.0-p1.1/monkey-legend-0.1.0-p1.1-windows-x64.zip"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 107,
+      "state": "uploaded",
+      "digest": "sha256:474eeffd66ce6a2b5f3ddc38d378ce69aecaab57cee167326e814b9d447a6865",
+      "browser_download_url": "https://github.com/NoobPvPerL/monkey-legend/releases/download/v0.1.0-p1.1/SHA256SUMS.txt"
+    }
+  ],
+  "feedback": {
+    "number": 8,
+    "title": "P1 开发意见征集：本地测试版 v0.1.0-p1.1",
+    "html_url": "https://github.com/NoobPvPerL/monkey-legend/issues/8",
+    "state": "open"
+  }
+}

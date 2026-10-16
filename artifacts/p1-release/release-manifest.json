@@ -1,0 +1,124 @@
+{
+  "version": "0.1.0-p1.1",
+  "ruleVersion": "web-v0.1.1",
+  "sourceCommit": "b98b2303d5c0d11c2661ca7820b2046a8dd8f73b",
+  "sourceDirty": false,
+  "platform": "windows-x64",
+  "nodeVersion": "24.19.0",
+  "nodeArchiveUrl": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-win-x64.zip",
+  "nodeArchiveSha256": "57f71ab3652e797d84acddc79c81cc9ff1c6ddb2a1974cdb83f00fee9bff4c73",
+  "files": {
+    "dist/references/character-037.png": {
+      "bytes": 137595,
+      "sha256": "c6c52ebd4bd3306503dadfea6d517052c32e30a976e69eca79158df79bc1e885"
+    },
+    "dist/references/basic-001.png": {
+      "bytes": 412122,
+      "sha256": "914011c84dd1e8ea167ec199d2e142619f893ad6efffab108d4bbab15e478893"
+    },
+    "runtime/LICENSE.txt": {
+      "bytes": 160552,
+      "sha256": "d9c4eeda951d6d08f4aa1316b61aafcf67e6da5f79b18f8edeb56fa6abdc038c"
+    },
+    "dist/assets/index-CkipwFd3.css": {
+      "bytes": 14311,
+      "sha256": "8946deb10f6e103856f23425d1e7fb4b99ed5e612a16c0b9f316db4cc91b43da"
+    },
+    "dist/references/index.json": {
+      "bytes": 739,
+      "sha256": "3568b324ec249c8a1c91b47caad9ce947aad2d1641d81042a427cdb2abf80f27"
+    },
+    "dist/references/basic-004.png": {
+      "bytes": 434430,
+      "sha256": "6eba7e693f08de62f39b3a883268ce76275d2b3034ae721b134e11ab76610ec6"
+    },
+    "dist/references/basic-002.png": {
+      "bytes": 424945,
+      "sha256": "36103e0460c54d988e9cfb07f8aed05945cde7a0c9a4dc341eb10e0645ab4a28"
+    },
+    "启动游戏.cmd": {
+      "bytes": 504,
+      "sha256": "1d830ce3de3f029c18a6127789d57d40c61a93fe7169521699572805c4b7f02a"
+    },
+    "dist/references/basic-046.png": {
+      "bytes": 378561,
+      "sha256": "ec1c103534e8baa55638724ed4f459cf339d1922cba475dec089ae2c92034d0e"
+    },
+    "licenses/react-LICENSE.txt": {
+      "bytes": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    "dist/index.html": {
+      "bytes": 417,
+      "sha256": "664ab916ae009ddaddd72f40e9c3e9d69928c8e5e66969d4ef10f6e4d4e92b25"
+    },
+    "dist/references/basic-047.png": {
+      "bytes": 392280,
+      "sha256": "c5a9672ed1115b8e3791997532e20ad74cc572f2b5213c3b0844624e624e159f"
+    },
+    "licenses/scheduler-LICENSE.txt": {
+      "bytes": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    "dist/references/basic-008.png": {
+      "bytes": 411760,
+      "sha256": "7ba7d7c2e713123dad908ba231e11e5db1fdd9000e66e17fe36977e0a5ee7fb7"
+    },
+    "licenses/react-dom-LICENSE.txt": {
+      "bytes": 1088,
+      "sha256": "da6d3703ed11cbe42bd212c725957c98da23cbff1998c05fa4b3d976d1a58e93"
+    },
+    "dist/references/character-004.png": {
+      "bytes": 176043,
+      "sha256": "4407636c2c369f9ed949f13867b58e0eb9323b1eeb459bd3dcbb434930b6c559"
+    },
+    "dist/references/basic-005.png": {
+      "bytes": 435264,
+      "sha256": "d41e24694cf22a82a533f790a6cd75d2158ee4f73f48aeb91106af53ead5f642"
+    },
+    "runtime/node.exe": {
+      "bytes": 92825416,
+      "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237"
+    },
+    "tools/start-local.mjs": {
+      "bytes": 2431,
+      "sha256": "383ab37319fe3d41091c706c3a1a899a9743da245313af081c5a148276321876"
+    },
+    "dist/references/basic-045.png": {
+      "bytes": 381130,
+      "sha256": "d9a37be7c95fd20500de0be013b197042e22b9c42d1b4e63769662b3bce711b6"
+    },
+    "dist/references/character-027.png": {
+      "bytes": 173565,
+      "sha256": "ef4e6ff82ed5b40c5e5801a7690738383ff6f3538f1bf6d1a0155fbe3038d8c2"
+    },
+    "dist/references/basic-039.png": {
+      "bytes": 380037,
+      "sha256": "c74c73fe32f92fb488780fdda3f7a14379a7caa835fea1a9b357f5faf0902e6d"
+    },
+    "dist/assets/index-B2hjdrMT.js": {
+      "bytes": 266196,
+      "sha256": "dc2388d8ab31ad836290e8d36e2aa4784b8a796c5647d442dd231865903f7937"
+    },
+    "dist/references/basic-009.png": {
+      "bytes": 412462,
+      "sha256": "9ca3eb27e4c4d9f24e1bfbab6e98e858b79e6eeab05d81be3617b328c5d4cb3e"
+    },
+    "dist/references/character-031.png": {
+      "bytes": 169492,
+      "sha256": "b79b114ca4cbfae414a4e34b29d0a082b09a8c140642ba33b3d17a413272e8e2"
+    },
+    "tools/local-server.mjs": {
+      "bytes": 2548,
+      "sha256": "df28559af4adfc1ce4c7f892e69e8b4c5a9bf3bb9f29523d3cbb0a10897fcbe9"
+    },
+    "dist/references/basic-003.png": {
+      "bytes": 432792,
+      "sha256": "c1d731a342c4e0af337582c16d56dcf07d6a1fabb2fc58e56f17565985c2f0d7"
+    },
+    "dist/references/basic-006.png": {
+      "bytes": 411426,
+      "sha256": "fdb618d58a305803cdb63d75b32756bf65d64e1aa31225e469418031067df914"
+    }
+  }
+}

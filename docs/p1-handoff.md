@@ -38,3 +38,5 @@ npm run dev
 ## 成员测试预发布
 
 本次用户另行授权P1文档收尾、推送GitHub、准备含一键启动脚本的Release和新意见Issue。Release只包含游戏运行所需文件及必要许可；复杂文档/报告保留仓库。操作与最终发布状态见[p1-release.md](p1-release.md)和[development-log.md](development-log.md)。正式成员试玩与负责人验收继续分开登记。
+
+发布收尾已完成：[v0.1.0-p1.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.1.0-p1.1)供成员下载测试，[Issue #8](https://github.com/NoobPvPerL/monkey-legend/issues/8)收集开发意见；最终包验证与远端哈希核对均通过。下一步是跟进实际反馈及负责人P1正式验收。

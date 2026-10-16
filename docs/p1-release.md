@@ -52,3 +52,9 @@ node tools/verify-release.mjs '独立解压后的游戏目录' '验证结果.jso
 规则与页面实现、开发验证已完成；本次增加分发脚本、发布包独立验证和文档收尾。正式包、远程Release及反馈Issue的最终状态登记在[开发日志](development-log.md)。实际测试证据见[p1-validation.md](p1-validation.md)。
 
 成员建议反馈：启动环境及失败信息、手牌/目标/响应流程、四角色技能、两模式结果、规则描述是否清晰。问题应带版本、模式、种子、复现步骤、预期/实际和截图或复现JSON。不要把尚未启用的原作全部牌池当成P1缺陷。
+
+## 实际发布结果
+
+2026-10-16已发布[v0.1.0-p1.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.1.0-p1.1)，对应提交b98b2303d5c0d11c2661ca7820b2046a8dd8f73b，标记为预发布。Windows游戏ZIP为41367945字节，SHA-256：647ea903ae258a94840b47990fb0215bb1a33ae8980fb0cc66f7d2868068b407。另附SHA256SUMS.txt，GitHub端大小/哈希已核对；未上传复杂说明文档或测试报告。
+
+正式ZIP已在同机独立中文/空格路径重新解压，使用内置运行时通过8项包验证，并在实际浏览器确认开局与参考图。成员请在[意见Issue #8](https://github.com/NoobPvPerL/monkey-legend/issues/8)反馈；负责人正式验收、其他电脑与真实四人平衡仍待完成。

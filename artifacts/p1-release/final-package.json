@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0-p1.1",
+  "sourceCommit": "b98b2303d5c0d11c2661ca7820b2046a8dd8f73b",
+  "sourceDirty": false,
+  "directory": "D:\\Users\\20753\\Desktop\\应猴传说\\monkey-legend\\releases\\正式包独立解压 中文 路径\\monkey-legend-0.1.0-p1.1-windows-x64",
+  "checks": [
+    "Every packaged file matches manifest SHA-256",
+    "Only game, launcher, runtime, licenses and version manifest are included",
+    "Windows CMD launcher starts with system Node/npm removed from PATH",
+    "Extracted game entry serves real HTML",
+    "Built JavaScript and CSS load",
+    "All 16 in-game source reference images load",
+    "Server exposes only built game files with read-only HTTP methods",
+    "Stopping the test launcher also stops its game server"
+  ],
+  "pass": true,
+  "launcherOutput": "应猴传说 P1 本地测试桌\n游戏地址：http://127.0.0.1:12051/\n关闭此窗口或按Ctrl+C停止游戏。\n本机四座轮换；尚未提供好友联机。\n"
+}

@@ -2,7 +2,7 @@
 
 应猴传说：高唐之战。四人校园地图卡牌游戏。
 
-**P0已完成；当前基线web-v0.1.1。P1本地实现与开发验证已完成（2026-10-16），等待负责人试玩和正式验收。**
+**P0已完成；当前基线web-v0.1.1。P1本地实现与开发验证已完成（2026-10-16），成员测试预发布已发布，等待负责人试玩和正式验收。**
 负责人批准由Codex补全网页版规则，完成记录见 [P0验收](docs/p0-acceptance-cases.md)。
 
 ## 开发入口
@@ -33,3 +33,5 @@ Windows启动：进入本仓库后执行 npm ci，再执行 npm run dev；测试
 仅支持本机四座轮换，尚未联机。Release包不含开发文档和测试场景；详细操作与打包流程见[发布说明](docs/p1-release.md)，进展见[开发日志](docs/development-log.md)。成员测试预发布不代表负责人正式验收。
 
 源码也可双击start-local.cmd（需Node 24，首次安装依赖并构建）；开发修改后使用start-local.cmd --rebuild。
+
+意见集中在[P1开发意见征集 #8](https://github.com/NoobPvPerL/monkey-legend/issues/8)；请附版本、模式/种子、复现步骤与预期/实际。[发布结果与进度](docs/development-log.md)已记录。

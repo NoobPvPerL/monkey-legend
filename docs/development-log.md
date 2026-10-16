@@ -15,9 +15,15 @@
 - 独立解压候选包：已在中文/空格路径、移除系统Node/npm的PATH后，通过包内CMD启动；HTML、JS/CSS及16张参考图加载正常，发布包未包含开发文档/测试文件；终止测试进程后服务停止。
 - 完整回归：87/87项测试、类型检查、生产构建、原始资料哈希通过，输出位于artifacts/p1-release/。
 - 静态服务回归：4项检查通过，覆盖本机监听、资源类型、坏路径/方法、端口冲突和错误目录。
-- 正式Release及意见Issue：待完成最终包、推送和远程发布后回填；候选包不是已经发布的Release。
+- 正式Release：[v0.1.0-p1.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.1.0-p1.1)已于2026-10-16 13:09（Asia/Hong_Kong）发布，标记prerelease；来源提交b98b2303d5c0d11c2661ca7820b2046a8dd8f73b，工作区干净后打包。
+- 正式包：41367945字节；SHA-256为647ea903ae258a94840b47990fb0215bb1a33ae8980fb0cc66f7d2868068b407。GitHub已返回相同大小与digest，两份附件均为uploaded；没有上传开发文档或测试报告。
+- 独立验证：最终ZIP重新解压，通过8项包验证；浏览器实际开局/交接/原始牌面加载通过，warn/error为空。测试用临时服务与标签页已关闭，原5173预览不受影响。
+- 开发意见：[Issue #8](https://github.com/NoobPvPerL/monkey-legend/issues/8)已新建，状态open，说明版本、测试重点和复现模板；未改旧Issue或PR #3。
+- 最终证据：[包验证](../artifacts/p1-release/final-package.json)、[文件清单](../artifacts/p1-release/release-manifest.json)、[远程发布核对](../artifacts/p1-release/github-release.json)、[浏览器记录](../artifacts/p1-release/browser.json)。
 - 负责人P1正式验收、其他成员电脑、真实四人试玩、平衡和实际局长：待进行。
 
 ## 追踪方式
 
 功能/验证证据见[p1-validation.md](p1-validation.md)，发布操作见[p1-release.md](p1-release.md)，后续阶段见[plan.md](plan.md)。Git标签确定Release的准确源码版本，后续纯文档回填不改变已发布游戏内容。
+
+发布后的本次提交只回填文档、远程链接及验证证据；不改变v0.1.0-p1.1标签或已上传游戏包。正式验收、其他成员电脑和真实四人试玩继续等待实际反馈。
