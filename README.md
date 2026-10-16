@@ -5,6 +5,8 @@
 **P0已完成；当前基线web-v0.1.1。P1本地实现与开发验证已完成（2026-10-16），成员测试预发布已发布，等待负责人试玩和正式验收。**
 负责人批准由Codex补全网页版规则，完成记录见 [P0验收](docs/p0-acceptance-cases.md)。
 
+P2已获批按WorkBuddy云数据库权威方案开发。当前先交付[SQL数据库交接](database/README.md)，[实现与阶段边界](docs/p2-implementation.md)、[验证记录](docs/p2-validation.md)单独登记；尚未接入云测试环境，也未完成联机页面或全栈发布包。现有启动方式仍运行P1本地桌。
+
 ## 开发入口
 
 - [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：首版实现唯一规则来源。
