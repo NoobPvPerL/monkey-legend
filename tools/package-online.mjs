@@ -11,7 +11,7 @@ if(new URL(c.endpoint).protocol!=='https:'||!c.publishableKey)throw Error('Expec
 const version=JSON.parse(await readFile('package.json','utf8')).version,folder=resolve('releases',`monkey-legend-${version}-online-source${suffix?'-'+suffix:''}`);
 await mkdir(folder,{recursive:false});
 const files=execFileSync('git',['ls-files','-z'],{encoding:'utf8'}).split('\0').filter(Boolean);
-const manifest={version,ruleVersion:'web-v0.1.1',sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceDirty:false,applicationId:c.applicationId,endpoint:c.endpoint,purpose:'P2 full source; WorkBuddy deployment and remote acceptance pending',files:{}};
+const manifest={version,ruleVersion:'web-v0.1.2',schemaVersion:2,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceDirty:false,applicationId:c.applicationId,endpoint:c.endpoint,purpose:'P2 full source; WorkBuddy deployment and remote acceptance pending',files:{}};
 for(const file of files){if(file.split('/').some(x=>x==='.git'||x==='node_modules')||file.includes('workbuddy-public.json'))throw Error('Unexpected tracked deployment input');const target=join(folder,file);await mkdir(dirname(target),{recursive:true});await copyFile(file,target);manifest.files[file]=createHash('sha256').update(await readFile(file)).digest('hex');}
 await mkdir(join(folder,'config'),{recursive:true});
 const configText=JSON.stringify(publicConfig,null,2)+'\n';await writeFile(join(folder,'config/workbuddy-public.json'),configText);manifest.files['config/workbuddy-public.json']=createHash('sha256').update(configText).digest('hex');

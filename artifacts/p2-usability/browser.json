@@ -1,0 +1,205 @@
+{
+  "date": "2026-10-16",
+  "timezone": "Asia/Hong_Kong",
+  "environment": "loopback gateway with isolated in-memory PGlite; no cloud writes",
+  "modes": [
+    "ffa",
+    "team"
+  ],
+  "checks": [
+    "name-create-ready-start",
+    "real attack target and confirm with AP update",
+    "team move-step-stop",
+    "refresh-name-resume",
+    "rules focus cycle and Escape",
+    "sound toggle UI",
+    "FFA and team settlement via isolated test-clock advance",
+    "same code and members retained; ready and start a new match",
+    "four viewport layouts, full card text and no vertical hand clipping",
+    "hidden scrollbar chrome with native horizontal keyboard scroll retained"
+  ],
+  "viewportChecks": [
+    {
+      "actions": {
+        "bottom": 633.0000228881836
+      },
+      "cards": [
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        }
+      ],
+      "cells": 32,
+      "hand": {
+        "clientHeight": 118,
+        "clientWidth": 345,
+        "overflowY": "hidden",
+        "scrollHeight": 118,
+        "scrollWidth": 464,
+        "scrollbar": "none",
+        "webkitScrollbar": "none"
+      },
+      "page": {
+        "height": 640,
+        "width": 360
+      },
+      "viewport": {
+        "height": 640,
+        "width": 360
+      }
+    },
+    {
+      "actions": {
+        "bottom": 837.0000228881836
+      },
+      "cards": [
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        }
+      ],
+      "cells": 32,
+      "hand": {
+        "clientHeight": 121,
+        "clientWidth": 375,
+        "overflowY": "hidden",
+        "scrollHeight": 121,
+        "scrollWidth": 464,
+        "scrollbar": "none",
+        "webkitScrollbar": "none"
+      },
+      "page": {
+        "height": 844,
+        "width": 390
+      },
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "actions": {
+        "bottom": 1016.0000228881836
+      },
+      "cards": [
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        }
+      ],
+      "cells": 32,
+      "hand": {
+        "clientHeight": 124,
+        "clientWidth": 747,
+        "overflowY": "hidden",
+        "scrollHeight": 124,
+        "scrollWidth": 747,
+        "scrollbar": "none",
+        "webkitScrollbar": "none"
+      },
+      "page": {
+        "height": 1024,
+        "width": 768
+      },
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "actions": {
+        "bottom": 708.0000228881836
+      },
+      "cards": [
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        },
+        {
+          "fullyVisibleVertically": true,
+          "textFits": true
+        }
+      ],
+      "cells": 32,
+      "hand": {
+        "clientHeight": 124,
+        "clientWidth": 1243,
+        "overflowY": "hidden",
+        "scrollHeight": 124,
+        "scrollWidth": 1243,
+        "scrollbar": "none",
+        "webkitScrollbar": "none"
+      },
+      "page": {
+        "height": 720,
+        "width": 1280
+      },
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      }
+    }
+  ],
+  "handScroll": {
+    "beforeScroll": 0,
+    "afterScroll": 81.33333587646484
+  },
+  "dialogStyles": {
+    "clientHeight": 550,
+    "overflowY": "auto",
+    "scrollHeight": 550,
+    "scrollbar": "none",
+    "webkitScrollbar": "none"
+  },
+  "logs": [],
+  "limitations": [
+    "No real-phone touch or Safari verification",
+    "Sound toggle and browser running audio state verified, not human audibility",
+    "Terminal scenarios used a controlled local database clock, not real-time human full games"
+  ],
+  "published": false
+}

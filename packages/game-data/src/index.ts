@@ -16,6 +16,13 @@ export const CARDS: Record<CardId, CardDefinition> = Object.fromEntries([
  ['basic-046','外星人',2,2,'food',undefined,undefined,false,'自己回复2生命'],
  ['basic-047','营养快线',4,2,'food',undefined,undefined,false,'自己回复1生命，再摸2张'],
 ].map(([id,name,copies,cost,type,range,power,group,text])=>[id,{id,name,copies,cost,type,range,power,group,text}])) as Record<CardId,CardDefinition>;
+// Versioned overrides preserve the original catalog for matches already in progress.
+export function cardForVersion(id:CardId,version:string):CardDefinition {
+ const card=CARDS[id];if(version!=='web-v0.1.2')return card;
+ if(['basic-003','basic-004','basic-005'].includes(id))return {...card,group:true,text:`全图选1—3名敌人：各扣${card.power}AP，不足转普通伤害；始终为群体`};
+ if(id==='basic-008')return {...card,text:'同/相邻区域；吸收目标全部现有AP，目标AP为0则伤1'};
+ return card;
+}
 export const CARD_IDS = Object.keys(CARDS) as CardId[];
 export const definitionId = (instance: string) => instance.split('#')[0] as CardId;
 export const ALL_CARDS = CARD_IDS.flatMap(id => Array.from({length:CARDS[id].copies},(_,i)=>`${id}#${String(i+1).padStart(2,'0')}`));

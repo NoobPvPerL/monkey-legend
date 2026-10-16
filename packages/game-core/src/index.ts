@@ -1,4 +1,4 @@
-import { ALL_CARDS,CARDS,CHARACTERS,CHARACTER_IDS,CELLS,MAP,RULE_VERSION,bombCandidates,definitionId,distance,neighboring,poisonDamage,safeCells,validateData } from '../../game-data/src/index';
+import { ALL_CARDS,CARDS,cardForVersion,CHARACTERS,CHARACTER_IDS,CELLS,MAP,RULE_VERSION,bombCandidates,definitionId,distance,neighboring,poisonDamage,safeCells,validateData } from '../../game-data/src/index';
 import type {CardId} from '../../game-data/src/index';
 import type {Attack,ChoiceKind,Command,DispatchResult,GameState,Player,RandomState,Ranking,Setup,Task} from './types';
 export type * from './types';
@@ -43,7 +43,8 @@ export function teleportCells(s:GameState,actor:number):string[] {
 function select(s:GameState,kind:ChoiceKind,actor:number,now:number,extra:Partial<NonNullable<GameState['choice']>>={}):void {
  const paused=kind!=='draw-start'&&kind!=='draw-end';
  if(paused)pause(s,now);else resume(s,now);
- s.phase='choice'; s.choice={id:++s.choiceSerial,kind,actor,deadline:now+Math.min(10000,paused?10000:budget(s,now)),paused,...extra};
+ const window=kind==='discard'&&s.version==='web-v0.1.2'?20000:10000;
+ s.phase='choice'; s.choice={id:++s.choiceSerial,kind,actor,deadline:now+Math.min(window,paused?window:budget(s,now)),paused,...extra};
  emit(s,'choice',`${name(s,actor)} 等待选择：${kind}`);
 }
 interface Hit { target:number; amount:number; source:number|null; category:'attack'|'response'|'environment' }
@@ -113,7 +114,7 @@ function resolveAttack(s:GameState):void {
   if(def.power!==undefined){const amount=Math.max(0,def.power-p.ap),paid=Math.min(def.power,p.ap);p.ap-=paid;emit(s,'ap',`${name(s,target)} 被扣${paid}AP → ${p.ap}`);if(amount)hits.push({target,amount,source:a.actor,category:'attack'});}
   else if(def.id==='basic-008'){
    if(p.ap===0)hits.push({target,amount:1,source:a.actor,category:'attack'});
-   else {const n=Math.min(2,p.ap);p.ap-=n;s.players[a.actor].ap+=n;emit(s,'ap',`${name(s,a.actor)} 从${name(s,target)}吸收${n}AP`);}
+   else {const n=s.version==='web-v0.1.2'?p.ap:Math.min(2,p.ap);p.ap-=n;s.players[a.actor].ap+=n;emit(s,'ap',`${name(s,a.actor)} 从${name(s,target)}吸收${n}AP`);}
   }else if(roll>=4)hits.push({target,amount:1,source:a.actor,category:'attack'});
  }
  for(const actor of a.elbows){const target=a.actor;const p=s.players[target];if(p.ap===0)hits.push({target,amount:1,source:actor,category:'response'});else{const n=Math.min(2,p.ap);p.ap-=n;s.players[actor].ap+=n;emit(s,'ap',`${name(s,actor)} 肘击反吸${n}AP`);}}
@@ -160,19 +161,24 @@ function pump(s:GameState,now:number):void {
   }
  }
 }
+function settleMovement(s:GameState):void {
+ const m=s.movement;if(s.version!=='web-v0.1.2'||!m?.costDue)return;
+ if(m.path.length>1){const p=s.players[s.active];requireRule(p.ap>=1,'移动结算需要1AP');p.ap--;emit(s,'cost',`${name(s,p.seat)} 移动结束支付1AP`);}
+ m.costDue=false;
+}
 function endTurn(s:GameState,now:number,timeout=false):void {
- if(s.movement){const p=s.players[s.active];p.cell=s.movement.lastEmpty;s.movement=null;emit(s,'move',`移动结束，落点${p.cell}，剩余额度作废`);}
+ if(s.movement){settleMovement(s);const p=s.players[s.active];p.cell=s.movement.lastEmpty;s.movement=null;emit(s,'move',`移动结束，落点${p.cell}，剩余额度作废`);}
  s.phase='resolving';s.queue.push({kind:timeout?'discard':'end-draw'});pump(s,now);
 }
 function rawTarget(s:GameState,actor:number,defId:CardId,target:number):boolean {
  const p=s.players[target];if(!p||!alive(p)||!enemy(s,actor,target))return false;
- const def=CARDS[defId];if(def.type!=='attack')return false;
+ const def=cardForVersion(defId,s.version);if(def.type!=='attack')return false;
  if(def.group&&p.character==='character-027'&&p.hand.length===1)return false;
  const a=MAP[s.players[actor].cell].region,b=MAP[p.cell].region;
  return def.range==='global'||a===b||(def.range==='adjacent'&&neighboring(a,b));
 }
 export function legalTargets(s:GameState,actor:number,card:string):number[] {
- const defId=definitionId(card),def=CARDS[defId];if(!def||def.type!=='attack')return [];
+ const defId=definitionId(card),def=cardForVersion(defId,s.version);if(!def||def.type!=='attack')return [];
  const ids=s.players.filter(p=>rawTarget(s,actor,defId,p.seat)).map(p=>p.seat);
  const lemon=ids.find(i=>s.players[i].character==='character-004');return !def.group&&lemon!==undefined?[lemon]:ids;
 }
@@ -207,7 +213,7 @@ function choose(s:GameState,cmd:Extract<Command,{type:'choose'}>,now:number,time
 }
 function expire(s:GameState,now:number):boolean {
  if(s.choice&&now>=s.choice.deadline){const c=s.choice;const cmd:Extract<Command,{type:'choose'}>={id:'timeout',revision:s.revision,actor:c.actor,type:'choose',choice:c.id,accept:false,card:null,cell:null,cards:c.kind==='discard'?[...s.players[c.actor].hand].sort().slice(0,c.count):undefined};
-  // A personal-budget expiry skips the optional end draw; a separate discard window still gets 10 seconds.
+  // A personal-budget expiry skips the optional end draw; discard uses its own versioned window.
   const personalExpired=!c.paused&&budget(s,now)===0;
   if(personalExpired){s.choice=null;s.queue=[];s.clock.remaining=0;s.clock.since=null;emit(s,'timeout','60秒行动预算用完');endTurn(s,now,true);}else choose(s,cmd,now,true);return true;
  }
@@ -217,6 +223,7 @@ function expire(s:GameState,now:number):boolean {
 export function createGame(setup:Setup,now:number):GameState {
  requireRule(setup!==null&&typeof setup==='object'&&!Array.isArray(setup),'开局输入必须为对象');
  requireRule(Array.isArray(setup.seats)&&(setup.characters===undefined||Array.isArray(setup.characters))&&(setup.deck===undefined||Array.isArray(setup.deck)),'座位、角色和牌堆必须为数组');
+ requireRule(setup.ruleVersion===undefined||['web-v0.1.1','web-v0.1.2'].includes(setup.ruleVersion),'规则版本无效');
  requireRule(setup.first===undefined||(Number.isInteger(setup.first)&&setup.first>=0&&setup.first<4),'首位无效');
  requireRule(setup.dice===undefined||(Array.isArray(setup.dice)&&setup.dice.every(v=>Number.isInteger(v)&&v>=1&&v<=6)),'测试骰子必须为1—6的数组');
  requireRule(setup.bombs===undefined||(Array.isArray(setup.bombs)&&setup.bombs.every(v=>typeof v==='string'&&CELLS.some(c=>c.region===v))),'测试轰炸必须为已知区域数组');
@@ -229,11 +236,11 @@ export function createGame(setup:Setup,now:number):GameState {
  const teamPair=shuffled(random,[0,1,2,3]).slice(0,2);const teams=setup.teams??[0,1,2,3].map(i=>teamPair.includes(i)?'A':'B');if(setup.mode==='team')requireRule(teams.length===4&&teams.filter(t=>t==='A').length===2&&teams.filter(t=>t==='B').length===2,'团战必须2对2');
  const first=setup.first??integer(random,4);requireRule(Number.isInteger(first)&&first>=0&&first<4,'首位无效');const deck=setup.deck??shuffled(random,ALL_CARDS);requireRule(sameSet(deck,ALL_CARDS),'牌堆不是64实体的完整排列');
  const players=characters.map((character,seat)=>{const c=CHARACTERS[character];return {seat,character,team:setup.mode==='team'?teams[seat]:`S${seat+1}`,faction:c.faction,hp:c.hp,maxHp:c.hp,ap:5,shield:0,cell:c.spawn,hand:[] as string[],moved:false,attacks:0,skillUsed:false,rewarded:[],kills:0,damage:0,eliminated:null};});
- const s:GameState={version:RULE_VERSION,revision:0,time:now,mode:setup.mode,players,order:Array.from({length:4},(_,i)=>(first+i)%4),cursor:0,active:first,round:1,phase:'resolving',deck:[...deck],discard:[],resolving:[],random,queue:[],choice:null,choiceSerial:0,attack:null,movement:null,safe:safeCells(1),bomb:null,forecast:null,clock:{remaining:60000,since:null},events:[],eventSerial:0,batch:0,reshuffleCount:0,seen:[],result:null};
- emit(s,'setup',`四人${setup.mode==='ffa'?'各自为战':'2对2'} · ${RULE_VERSION}`);for(let i=0;i<4;i++)draw(s,i,4);startRound(s,now);validateState(s);return s;
+ const s:GameState={version:setup.ruleVersion??RULE_VERSION,revision:0,time:now,mode:setup.mode,players,order:Array.from({length:4},(_,i)=>(first+i)%4),cursor:0,active:first,round:1,phase:'resolving',deck:[...deck],discard:[],resolving:[],random,queue:[],choice:null,choiceSerial:0,attack:null,movement:null,safe:safeCells(1),bomb:null,forecast:null,clock:{remaining:60000,since:null},events:[],eventSerial:0,batch:0,reshuffleCount:0,seen:[],result:null};
+ emit(s,'setup',`四人${setup.mode==='ffa'?'各自为战':'2对2'} · ${s.version}`);for(let i=0;i<4;i++)draw(s,i,4);startRound(s,now);validateState(s);return s;
 }
 export function validateState(s:GameState):void {
- requireRule(s.version===RULE_VERSION&&s.players.length===4&&s.round>=1&&s.round<=12,'状态版本/轮次/人数无效');requireRule(sameSet(s.players.map(p=>p.character),CHARACTER_IDS)&&sameSet(s.order,[0,1,2,3]),'角色/顺序无效');
+ requireRule(['web-v0.1.1','web-v0.1.2'].includes(s.version)&&s.players.length===4&&s.round>=1&&s.round<=12,'状态版本/轮次/人数无效');requireRule(sameSet(s.players.map(p=>p.character),CHARACTER_IDS)&&sameSet(s.order,[0,1,2,3]),'角色/顺序无效');
  const zones=[...s.deck,...s.discard,...s.resolving,...s.players.flatMap(p=>p.hand)];requireRule(sameSet(zones,ALL_CARDS),'64张实体不守恒或实体重复');
  for(const p of s.players){requireRule(Number.isInteger(p.hp)&&p.hp>=0&&p.hp<=p.maxHp&&p.maxHp===CHARACTERS[p.character].hp,'生命状态无效');requireRule(Number.isInteger(p.ap)&&p.ap>=0&&Number.isInteger(p.shield)&&p.shield>=0&&p.shield<=2,'AP/护盾无效');requireRule(Boolean(MAP[p.cell]),'位置无效');if(!alive(p))requireRule(p.ap===0&&p.shield===0&&p.hand.length===0&&p.eliminated!==null,'淘汰清理无效');}
  const occupied=s.players.filter(alive);const overlap=occupied.some((p,i)=>occupied.slice(i+1).some(q=>q.cell===p.cell));if(overlap)requireRule(s.phase==='moving'&&s.movement!==null,'稳定落点不能重叠');
@@ -272,17 +279,18 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
     if(cmd.type==='step'){
      requireRule(s.phase==='moving'&&s.movement!==null,'尚未开始移动');requireRule(cmd.path.length>0,'移动路径不能为空');const m=s.movement!;
      for(const cell of cmd.path){requireRule(Boolean(MAP[cell])&&distance(p.cell,cell)===1,'只能正交移动到棋盘内相邻格');const cost=MAP[cell].terrain==='water'?2:1;requireRule(m.remaining>=cost,'移动步数不足');requireRule(canEscape(s,cmd.actor,cell,m.remaining-cost),'此路径会困在占用格');m.remaining-=cost;p.cell=cell;m.path.push(cell);if(!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===cell))m.lastEmpty=cell;emit(s,'move',`${name(s,p.seat)} → ${cell}，消耗${cost}步，余${m.remaining}`);}
-     if(m.remaining===0){s.movement=null;s.phase='action';}
+     if(m.remaining===0){settleMovement(s);s.movement=null;s.phase='action';}
     }else if(cmd.type==='stop'){
-     requireRule(s.movement!==null,'尚未开始移动');requireRule(!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===p.cell),'不能停在占用格');s.movement=null;s.phase='action';emit(s,'move','主动结束移动，未用额度作废');
+     requireRule(s.movement!==null,'尚未开始移动');requireRule(!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===p.cell),'不能停在占用格');settleMovement(s);s.movement=null;s.phase='action';emit(s,'move','主动结束移动，未用额度作废');
     }else if(cmd.type==='end'){requireRule(!s.movement||!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===p.cell),'不能在占用格结束行动，请先离开');endTurn(s,now);}
     else {
      requireRule(s.phase==='action','请先完成移动');
-     if(cmd.type==='move'){requireRule(!p.moved,'本个人回合已使用基础移动');requireRule(p.ap>=1,'移动需要1AP');p.ap--;p.moved=true;const steps=Math.ceil(die(s,'基础移动')/2);s.movement={remaining:steps,lastEmpty:p.cell,origin:p.cell,path:[p.cell]};s.phase='moving';emit(s,'cost',`${name(s,p.seat)} 移动支付1AP，获得${steps}步`);}
+     if(cmd.type==='move'){requireRule(!p.moved,'本个人回合已使用基础移动');requireRule(p.ap>=1,'移动需要1AP');if(s.version==='web-v0.1.1')p.ap--;p.moved=true;const steps=Math.ceil(die(s,'基础移动')/2);s.movement={remaining:steps,lastEmpty:p.cell,origin:p.cell,path:[p.cell],...(s.version==='web-v0.1.2'?{costDue:true}:{})};s.phase='moving';emit(s,'cost',`${name(s,p.seat)} ${s.version==='web-v0.1.2'?'移动结束扣费':'移动支付1AP'}，获得${steps}步`);}
      else if(cmd.type==='play'){
-      requireRule(p.hand.includes(cmd.card),'手中没有该实体牌');const def=CARDS[definitionId(cmd.card)];requireRule(def&&def.type!=='response','响应牌只能在对应窗口使用');requireRule(p.ap>=def.cost,`需要${def.cost}AP`);
-      if(def.type==='attack'){requireRule(p.attacks<2,'本回合最多两张攻击');requireRule(cmd.targets.length>=1&&cmd.targets.length<=(def.group?2:1)&&new Set(cmd.targets).size===cmd.targets.length,'目标数量无效');const legal=legalTargets(s,p.seat,cmd.card);requireRule(cmd.targets.every(t=>legal.includes(t)),'目标不合法：检查范围、队伍、lemon嘲讽或群体免疫');}
+      requireRule(p.hand.includes(cmd.card),'手中没有该实体牌');const def=cardForVersion(definitionId(cmd.card),s.version);requireRule(def&&def.type!=='response','响应牌只能在对应窗口使用');requireRule(p.ap>=def.cost,`需要${def.cost}AP`);
+      if(def.type==='attack'){requireRule(p.attacks<2,'本回合最多两张攻击');requireRule(cmd.targets.length>=1&&cmd.targets.length<=(def.group?(s.version==='web-v0.1.2'?3:2):1)&&new Set(cmd.targets).size===cmd.targets.length,'目标数量无效');const legal=legalTargets(s,p.seat,cmd.card);requireRule(cmd.targets.every(t=>legal.includes(t)),'目标不合法：检查范围、队伍、lemon嘲讽或群体免疫');}
       else requireRule(cmd.targets.length===0,'补给只能对自己，不接受外部目标');
+      if(s.version==='web-v0.1.2')s.clock={remaining:60000,since:now};
       p.ap-=def.cost;p.hand.splice(p.hand.indexOf(cmd.card),1);s.resolving.push(cmd.card);emit(s,'play',`${name(s,p.seat)} 使用${def.name}，支付${def.cost}AP${def.type==='attack'?`，目标${cmd.targets.map(t=>name(s,t)).join('、')}`:''}`,{actor:p.seat,card:cmd.card,targets:cmd.targets});
       if(def.type==='attack'){p.attacks++;s.attack={actor:p.seat,card:cmd.card,targets:[...cmd.targets],cancelled:[],elbows:[]};s.phase='resolving';s.queue.push(...s.order.filter(t=>cmd.targets.includes(t)).map(actor=>({kind:'response' as const,actor})),{kind:'resolve'});pump(s,now);}
       else {heal(s,p.seat,def.id==='basic-046'?2:1,true);if(def.id==='basic-045'){const gained=Math.min(1,2-p.shield);p.shield+=gained;emit(s,'shield',`${name(s,p.seat)} 获得${gained}护盾 → ${p.shield}`);}if(def.id==='basic-047')draw(s,p.seat,2);s.discard.push(...s.resolving);s.resolving=[];finish(s,false,now);}
@@ -294,5 +302,5 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
  }catch(error){return {state:previous,ok:false,error:error instanceof Error?error.message:String(error)};}
 }
 export function publicView(s:GameState,viewer:number) {
- return structuredClone({version:s.version,revision:s.revision,mode:s.mode,round:s.round,phase:s.phase,active:s.active,order:s.order,attack:s.attack,movement:s.movement,safe:s.safe,bomb:s.bomb,forecast:s.forecast,result:s.result,players:s.players.map(p=>({seat:p.seat,character:p.character,team:p.team,faction:p.faction,hp:p.hp,maxHp:p.maxHp,ap:p.ap,shield:p.shield,cell:p.cell,moved:p.moved,attacks:p.attacks,skillUsed:p.skillUsed,rewarded:p.rewarded,kills:p.kills,damage:p.damage,eliminated:p.eliminated,handCount:p.hand.length,...(p.seat===viewer?{hand:p.hand}:{})})),deckCount:s.deck.length,discard:s.discard,resolving:s.resolving,choice:s.choice?{id:s.choice.id,kind:s.choice.kind,actor:s.choice.actor,deadline:s.choice.deadline,source:s.choice.source,...(s.choice.actor===viewer?{cards:s.choice.cards,cells:s.choice.cells,count:s.choice.count}:{})}:null,clock:s.clock,events:s.events.map(e=>({seq:e.seq,type:e.type,text:e.text}))});
+ return structuredClone({version:s.version,revision:s.revision,mode:s.mode,round:s.round,phase:s.phase,active:s.active,order:s.order,attack:s.attack,movement:s.movement,safe:s.safe,bomb:s.bomb,forecast:s.forecast,result:s.result,players:s.players.map(p=>({seat:p.seat,character:p.character,team:p.team,faction:p.faction,hp:p.hp,maxHp:p.maxHp,ap:p.ap,shield:p.shield,cell:p.cell,moved:p.moved,attacks:p.attacks,skillUsed:p.skillUsed,rewarded:p.rewarded,kills:p.kills,damage:p.damage,eliminated:p.eliminated,handCount:p.hand.length,...(p.seat===viewer?{hand:p.hand}:{})})),deckCount:s.deck.length,discard:s.discard,resolving:s.resolving,choice:s.choice?{id:s.choice.id,kind:s.choice.kind,actor:s.choice.actor,deadline:s.choice.deadline,source:s.choice.source,...(s.choice.actor===viewer?{cards:s.choice.cards,cells:s.choice.cells,count:s.choice.count}:{})}:null,clock:s.clock,events:s.events.map(e=>({seq:e.seq,type:e.type,text:e.text,...(e.type==='dice'&&typeof e.data==='number'?{roll:e.data}:{})}))});
 }

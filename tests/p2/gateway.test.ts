@@ -13,8 +13,8 @@ let lost=false,loseNext=false;
 const sockets:Socket[]=[];
 const socketEvent=(s:Socket,name:string)=>new Promise<unknown>(resolve=>s.once(name,resolve));
 const rpc:Rpc=async(name,args)=>{
- const query=name==='ml_room'?'select public.ml_room($1::jsonb) v':name==='ml_health'?'select public.ml_health() v':'select public.ml_maintenance(20) v';
- const result=(await db.query<{v:unknown}>(query,name==='ml_room'?[JSON.stringify(args.p_request)]:[])).rows[0].v;
+ const query=name==='ml_health'?'select public.ml_health() v':name==='ml_maintenance'?'select public.ml_maintenance(20) v':`select public.${name}($1::jsonb) v`;
+ const result=(await db.query<{v:unknown}>(query,['ml_room','ml_watch','ml_chat'].includes(name)?[JSON.stringify(args.p_request)]:[])).rows[0].v;
  if(loseNext&&name==='ml_room'&&(args.p_request as {op:string}).op==='ready'){loseNext=false;lost=true;throw Error('simulated lost database response after commit');}
  return result;
 };

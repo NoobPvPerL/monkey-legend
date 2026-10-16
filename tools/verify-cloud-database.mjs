@@ -6,7 +6,7 @@ import {createWorkBuddyCloud,createMemoryStorage} from '@tencent-ai/workbuddy-cl
 if(!process.argv.includes('--isolated-test')||!process.argv[2]||process.argv[2].startsWith('--'))throw Error('Usage: npm run verify:cloud-database -- <publicConfig.json> --isolated-test [--report=<file>]');
 const raw=JSON.parse(await readFile(process.argv[2],'utf8')),config=raw.publicConfig??raw;
 const endpoint=new URL(config.endpoint);if(endpoint.protocol!=='https:'||typeof config.publishableKey!=='string')throw Error('Expected HTTPS endpoint and public publishableKey');
-const report={version:'0.2.0-p2.1',engine:'WorkBuddy cloud PostgreSQL RPC',checks:[],passed:false};
+const report={version:JSON.parse(await readFile('package.json','utf8')).version,engine:'WorkBuddy cloud PostgreSQL RPC',checks:[],passed:false};
 const mark=name=>{report.checks.push(name);console.log('PASS '+name);};
 const cloud=createWorkBuddyCloud({endpoint:endpoint.origin,publishableKey:config.publishableKey,storage:createMemoryStorage(),fetch:(input,init={})=>{const headers=new Headers(init.headers);headers.set('Origin',endpoint.origin);return fetch(input,{...init,headers,signal:AbortSignal.timeout(20000)});}});
 async function rpc(request){const {data,error}=await cloud.database.rpc('ml_room',{p_request:request});if(error)throw Error('Cloud RPC failed: '+(error.code??'unknown'));return data;}
@@ -16,7 +16,7 @@ const call=(i,op,extra={})=>rpc({...people[i],op,requestId:randomUUID(),...extra
 const snapshot=async i=>{const r=await call(i,'view');need(r.ok,'View rejected');return r.snapshot;};
 const lobby=async(i,op,extra={})=>call(i,op,{roomRevision:(await snapshot(i)).roomRevision,...extra});
 try{
- const health=await cloud.database.rpc('ml_health',{});need(!health.error&&health.data?.ok&&health.data?.schemaVersion===1,'Database migration/anon RPC is not ready');mark('schema and anonymous RPC ready');
+ const health=await cloud.database.rpc('ml_health',{});need(!health.error&&health.data?.ok&&health.data?.schemaVersion===2,'Database migration/anon RPC is not ready');mark('schema 2 and anonymous RPC ready');
  const intake={...people[0],op:'create',requestId:randomUUID()};const first=await rpc(intake);need(first.ok,'Create rejected');need(/^\d{4}$/.test(first.snapshot.code),'Invalid room code');const again=await rpc(intake);need(again.ok&&again.duplicate&&again.snapshot.roomId===first.snapshot.roomId,'Create retry was not idempotent');
  Object.assign(people[0],{roomId:first.snapshot.roomId,epoch:first.snapshot.epoch});for(let i=1;i<4;i++){const r=await call(i,'join',{code:first.snapshot.code});need(r.ok,'Join rejected');Object.assign(people[i],{roomId:r.snapshot.roomId,epoch:r.snapshot.epoch});}mark('four identities, four-digit code and lost intake acknowledgement');
  const bad=await rpc({...people[0],token:randomBytes(32).toString('hex'),op:'resume'});need(!bad.ok,'Wrong credential resumed a seat');

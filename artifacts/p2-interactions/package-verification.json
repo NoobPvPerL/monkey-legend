@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "engine": "isolated PGlite PostgreSQL",
+  "version": "0.2.1-p2.2",
+  "sourceCommit": "43e203c5599df158204b6263a23de15fbe4bd8ce",
+  "sourceDirty": true,
+  "package": "releases/monkey-legend-0.2.1-p2.2-database-interactions-upgrade-final",
+  "files": {
+    "migrations/005_deferred_movement.sql": "98ca01333d3cd2a616fa96fa14070763ac7059db1f706083658a2bf0420a6d77",
+    "migrations/006_social.sql": "2558fff2bd05d664f85a956128bc0e32590c2bd29b8e516c6d5dd1d9dba838e6",
+    "migrations/007_feedback_rules.sql": "1573c4fb698a4f5fa09cfe147ba3688219342d0d163098174b59d6830030c5ae",
+    "install-one-statement.sql": "20677e177a002af80a063cdac541f7d02c44107bd48b9ffe1a0793a3520a352a",
+    "install.sql": "e8df760bf8b3637ef792a51dec019e5223cef414e64dd4b27399b442ff1d594a",
+    "verify.sql": "27b223720b68240625ea1ac64f5217845005b65c7f0ffda1afb6f908f5366e6c",
+    "README.md": "917e5166b0a742af5a77caf1ac4fa3684de0c9051e2834df21422942f0688675"
+  },
+  "checks": [
+    "all package hashes match",
+    "only incremental 005-007 packaged",
+    "actual one-statement prepared install succeeds over schema 1",
+    "actual package can be reapplied",
+    "schema 2 and five fixed-search-path SECURITY DEFINER RPCs",
+    "anon and authenticated private ACLs denied",
+    "anon health callable, direct spectator read denied"
+  ],
+  "cloudExecuted": false
+}

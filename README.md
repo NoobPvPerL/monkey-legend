@@ -13,9 +13,11 @@ P2完整应用：准备公开配置`config/workbuddy-public.json`，执行`npm c
 
 [P2版本v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)提供完整源码ZIP、SHA-256与包验证附件；直接游玩使用上方在线地址。
 
+本地工作区另有候选 **0.2.1-p2.2 / web-v0.1.2 / schema2**：第二批交互及Issue新增建议已实施，尚未更新上述线上版本。见 [本地验证](docs/p2-interactions-validation.md)、[新版规则](docs/web-rules-v0.1.2.md)、[升级交接](docs/p2-interactions-workbuddy.md)。
+
 ## 开发入口
 
-- [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：首版实现唯一规则来源。
+- [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：旧版规则基线；本地新版叠加v0.1.2明确差异。
 - [规则规格索引](docs/rules-spec.md)、[32格地图与移动](docs/map-spec.md)、[首版范围及64张牌池](docs/mvp-scope.md)。
 - [验收案例与文档推演](docs/p0-acceptance-cases.md)：46项规格案例、两种模式完整推演；不是游戏运行报告。
 - [进度计划](docs/plan.md)、[开发方案](docs/网页游戏开发方案.md)：阶段划分；P1本地规则引擎与测试桌已实现。

@@ -1,0 +1,254 @@
+[
+  {
+    "kind": "spectator",
+    "cards": [
+      {
+        "bottom": 627,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 627,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 627,
+        "height": 106,
+        "scrollHeight": 106
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 118,
+      "overflowX": "auto",
+      "scrollHeight": 118,
+      "scrollbar": "none"
+    },
+    "height": 640,
+    "pageOverflow": false,
+    "scrollbars": [
+      "none"
+    ],
+    "width": 360
+  },
+  {
+    "kind": "spectator",
+    "cards": [
+      {
+        "bottom": 829,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 829,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 829,
+        "height": 106,
+        "scrollHeight": 106
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 121,
+      "overflowX": "auto",
+      "scrollHeight": 121,
+      "scrollbar": "none"
+    },
+    "height": 844,
+    "pageOverflow": false,
+    "scrollbars": [],
+    "width": 390
+  },
+  {
+    "kind": "spectator",
+    "cards": [
+      {
+        "bottom": 1006,
+        "height": 120,
+        "scrollHeight": 120
+      },
+      {
+        "bottom": 1006,
+        "height": 120,
+        "scrollHeight": 120
+      },
+      {
+        "bottom": 1006,
+        "height": 120,
+        "scrollHeight": 120
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 138,
+      "overflowX": "auto",
+      "scrollHeight": 138,
+      "scrollbar": "none"
+    },
+    "height": 1024,
+    "pageOverflow": false,
+    "scrollbars": [],
+    "width": 768
+  },
+  {
+    "kind": "spectator",
+    "cards": [
+      {
+        "bottom": 698,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 698,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 698,
+        "height": 106,
+        "scrollHeight": 106
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 124,
+      "overflowX": "auto",
+      "scrollHeight": 124,
+      "scrollbar": "none"
+    },
+    "height": 720,
+    "pageOverflow": false,
+    "scrollbars": [],
+    "width": 1280
+  },
+  {
+    "cards": [
+      {
+        "bottom": 549,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 549,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 549,
+        "height": 106,
+        "scrollHeight": 106
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 118,
+      "overflowX": "auto",
+      "scrollHeight": 118,
+      "scrollbar": "none"
+    },
+    "height": 640,
+    "kind": "player",
+    "pageOverflow": false,
+    "scrollbars": [
+      "none"
+    ],
+    "width": 360
+  },
+  {
+    "cards": [
+      {
+        "bottom": 750,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 750,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 750,
+        "height": 106,
+        "scrollHeight": 106
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 121,
+      "overflowX": "auto",
+      "scrollHeight": 121,
+      "scrollbar": "none"
+    },
+    "height": 844,
+    "kind": "player",
+    "pageOverflow": false,
+    "scrollbars": [],
+    "width": 390
+  },
+  {
+    "cards": [
+      {
+        "bottom": 921,
+        "height": 120,
+        "scrollHeight": 120
+      },
+      {
+        "bottom": 921,
+        "height": 120,
+        "scrollHeight": 120
+      },
+      {
+        "bottom": 921,
+        "height": 120,
+        "scrollHeight": 120
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 138,
+      "overflowX": "auto",
+      "scrollHeight": 138,
+      "scrollbar": "none"
+    },
+    "height": 1024,
+    "kind": "player",
+    "pageOverflow": false,
+    "scrollbars": [],
+    "width": 768
+  },
+  {
+    "cards": [
+      {
+        "bottom": 611,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 611,
+        "height": 106,
+        "scrollHeight": 106
+      },
+      {
+        "bottom": 611,
+        "height": 106,
+        "scrollHeight": 106
+      }
+    ],
+    "colors": 15,
+    "hand": {
+      "height": 124,
+      "overflowX": "auto",
+      "scrollHeight": 124,
+      "scrollbar": "none"
+    },
+    "height": 720,
+    "kind": "player",
+    "pageOverflow": false,
+    "scrollbars": [],
+    "width": 1280
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "code": "9065",
+  "status": "finished",
+  "matchId": "dad4d978-eec7-4751-bdae-8e68998ea18a",
+  "active": 1,
+  "choice": null,
+  "round": 8,
+  "result": {
+    "reason": "natural",
+    "ranking": [
+      {
+        "hp": 5,
+        "rank": 1,
+        "alive": 2,
+        "kills": 0,
+        "label": "B队",
+        "maxHp": 9,
+        "damage": 0,
+        "players": [
+          1,
+          3
+        ]
+      },
+      {
+        "hp": 0,
+        "rank": 2,
+        "alive": 0,
+        "kills": 0,
+        "label": "A队",
+        "maxHp": 8,
+        "damage": 0,
+        "players": [
+          0,
+          2
+        ]
+      }
+    ],
+    "winners": [
+      1,
+      3
+    ]
+  }
+}

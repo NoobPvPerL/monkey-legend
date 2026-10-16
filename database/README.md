@@ -1,31 +1,28 @@
-# P2 数据库交接：WorkBuddy 隔离测试环境
+# P2 数据库 schema 2 交接
 
-规则 web-v0.1.1。此包是数据库实现和验证交接，不代表 WorkBuddy 已执行或 P2 已通过云端验收。
+本地候选 0.2.1-p2.2，新局 web-v0.1.2，旧局保留 web-v0.1.1。此包未在 WorkBuddy 云端执行，不代表线上已升级。详细交接见仓库 docs/p2-interactions-workbuddy.md。
 
-## WorkBuddy 执行顺序
+## 安装选择
 
-1. 创建一个 P2 专用测试应用并开启云数据库，不使用成员正在试玩的 P1 环境或生产数据。
-2. 使用数据库管理者身份审阅并执行 install-one-statement.sql。它是单条 DO/EXECUTE，完整安装在一个事务中；失败整体回滚，不删除权限检查。标准 psql 可使用等价的 install.sql（BEGIN/COMMIT）。两者选一，勿重复执行。
-3. 执行 verify.sql，保存实际结果（包括 PostgreSQL 版本、anon/authenticated 权限、SHA-256/随机UUID能力）。两种调用角色必须实际存在；脚本不会创建或提升平台角色。
-4. 返回测试应用的 publicConfig（endpoint、publishableKey；均为公开配置）及结果文件路径。不要提供管理员密钥或数据库连接串。
-5. 由 Codex/验证脚本经真实 SDK RPC 验证房间、权限、两模式与恢复。仅执行 verify.sql 不等于完成联机验收。
+- 已有 schema 1：只执行增量 005、006、007，同一事务；使用 --upgrade 生成的包，禁止重新执行旧初始迁移/数据装载。
+- 全新隔离库：顺序安装 000—007。anon、authenticated 须由平台实际提供，脚本不创建或提升角色。
+- install-one-statement.sql 为单条 DO/EXECUTE，适配云端单 prepared statement，失败整体回滚。标准 psql 可选等价 install.sql，二选一。
+- 执行前保留数据库快照和旧应用包。增量不清库、不改原房间码、成员、matchId、游戏状态及回执；重跑保留身份和消息。
 
-请同时确认 anon 可以执行受控 public RPC。玩家身份由数据库校验房间凭据，不要求增加邮箱、手机号或平台账号登录。
+## 权限和验证
 
-## 边界
+在独立测试应用/数据库执行并保存 verify.sql 结果：健康版本应为 schemaVersion 2 / ruleVersion web-v0.1.2；五个公开RPC权限正确，两角色不能直读私有表或执行引擎，SHA-256和UUID能力可用。只读验证不等于联机验收。
 
-- ml_private 下的表、规则函数、完整手牌、牌堆、随机记录和凭据哈希禁止 anon/authenticated 直接访问。RLS 不建立玩家直读策略。
-- public.ml_room(p_request jsonb) 是玩家操作入口，public.ml_health() 是就绪探测；public.ml_maintenance(p_limit integer) 只能按数据库时间补超时及清理到期数据，不接受任意时间/状态。
-- 使用 SECURITY DEFINER 并固定 search_path；不把角色提权、SQL执行或完整状态注入暴露成 RPC。
-- 数据库产生随机、计时及结算。调用方即使绕过 Node 也只能提交同样受校验的意图。
-- 000—004迁移按顺序安装，001数据由现有 TypeScript 白名单生成；不改规则或启用原作扩展。
-- 不安装 plv8、pgcrypto 或后台数据库进程；随机源使用 PostgreSQL 内置 gen_random_uuid 的随机位，无偏拒绝采样，哈希使用内置 sha256(bytea)。需由平台实测确认这些能力。
-- 维护调用有频率与批次上限。无进程运行期间不会推送消息，下次访问会按原期限追赶，不增加时间。
+公开函数：ml_room(jsonb)、ml_watch(jsonb)、ml_chat(jsonb)、ml_health()、ml_maintenance(integer)。SECURITY DEFINER固定search_path，私有表启用RLS，无玩家直读策略。观战完整手牌通过鉴权视图返回，不含未来牌堆、随机源、队列、凭据。
 
-## 配置与部署
+聊天不改游戏revision、不暂停时钟；观战不占座、不清准备，数据库和网关均禁用观众游戏命令。玩家/观众共享不区分大小写名字空间；闭房拒绝旧凭据。最多32个观战保留身份，断线保留2分钟；无断线通知先以45秒心跳过期识别。
 
-完整应用的部署约定为 installCmd="npm ci && npm run build"、startCmd="npm start"。数据库单独包只有SQL；完整源码包包含Node网关和联机页面。Node已知探针版本22.13.1，完整应用仍须在部署环境实测安装和构建。
-运行环境公开配置放入 config/workbuddy-public.json，或通过 WORKBUDDY_PUBLIC_CONFIG 指向文件；不需要管理员密钥或数据库连接串。
-服务端以 PORT 监听0.0.0.0，Socket.IO使用长轮询及可选WebSocket升级。
+消息最多200字，每身份2秒一条；默认最近50条，增量每页最多50条，保留最新200条。回执24小时，关闭房间消息24小时后有界批次清理；无后台精确定时删除，无进程时下次访问追赶。
 
-此首批SQL交接不包含测试后门、任意Setup接口或角色/队伍/骰子注入RPC。测试用可控输入只在本地管理者测试中调用内部函数。
+## 配套应用
+
+旧网关就绪检查要求schema1，新网关要求schema2，需协调切换；过渡期/ready可暂时503。数据回滚使用快照并配套旧应用，不手工降级函数。
+
+沿用 config/workbuddy-public.json 或 WORKBUDDY_PUBLIC_CONFIG，仅公开配置，不需管理员密钥/连接串。安装 npm ci && npm run build，启动 npm start，单PORT监听0.0.0.0，HTTPS同域与Socket.IO长轮询。支持Node22.12+（22.x）或24.x。
+
+包内没有测试后门、Setup注入RPC、后台数据库进程或新扩展。确定性输入仅由本地隔离测试管理者调用内部函数。

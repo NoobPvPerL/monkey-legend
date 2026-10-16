@@ -3,12 +3,20 @@ import type {publicView} from '../../game-core/src/index';
 
 export type OnlineGame = ReturnType<typeof publicView> & {actions:{targets:Record<string,number[]>;steps:string[]}};
 export interface Member {id:string;seat:number;name:string;ready:boolean;online:boolean}
+export interface Spectator {id:string;name:string;online:boolean}
 export interface Snapshot {
  protocol:1;roomId:string;code:string;status:'lobby'|'playing'|'finished'|'closed';mode:'ffa'|'team';host:string|null;
  members:(Member|null)[];roomRevision:number;matchId:string|null;seat:number;memberId:string;epoch:number;serverTime:number;game:OnlineGame|null;
+ role?:'player';spectators?:Spectator[];
 }
-export interface Reply {ok:boolean;error?:string;duplicate?:boolean;left?:boolean;snapshot?:Snapshot}
-export type Rpc = (name:'ml_room'|'ml_health'|'ml_maintenance',args:Record<string,unknown>)=>Promise<unknown>;
+export interface WatchSnapshot extends Omit<Snapshot,'seat'|'role'> {role:'spectator';seat:null}
+export type RoomSnapshot=Snapshot|WatchSnapshot;
+export interface Reply<S=Snapshot> {ok:boolean;error?:string;duplicate?:boolean;left?:boolean;snapshot?:S}
+export type RoomReply=Reply<RoomSnapshot>;
+export interface ChatMessage {seq:number;authorId:string;name:string;kind:'player'|'spectator';seat:number|null;text:string;createdAt:number}
+export interface ChatReply {ok:boolean;error?:string;duplicate?:boolean;message?:ChatMessage;messages?:ChatMessage[];lastSeq?:number}
+export interface ChatPacket {history:boolean;messages:ChatMessage[];lastSeq:number}
+export type Rpc = (name:'ml_room'|'ml_health'|'ml_maintenance'|'ml_watch'|'ml_chat',args:Record<string,unknown>)=>Promise<unknown>;
 const name=z.string().trim().min(1).max(24).refine(s=>!/[\x00-\x1f\x7f]/.test(s),'玩家名不能包含控制字符');
 const token=z.string().regex(/^[a-f0-9]{64}$/);
 const requestId=z.string().regex(/^[A-Za-z0-9_-]{1,100}$/);
@@ -17,11 +25,13 @@ export const attachSchema=z.discriminatedUnion('op',[
  z.strictObject({op:z.literal('create'),name,token,requestId}),
  z.strictObject({op:z.literal('join'),name,token,requestId,code:z.string().regex(/^\d{4}$/)}),
  z.strictObject({op:z.literal('resume'),name,token,roomId:z.uuid()}),
+ z.strictObject({op:z.literal('watch'),name,token,requestId,code:z.string().regex(/^\d{4}$/)}),
+ z.strictObject({op:z.literal('watch-resume'),name,token,roomId:z.uuid()}),
 ]);
 export type Attachment=z.infer<typeof attachSchema>;
-export interface Credential {name:string;token:string;roomId:string}
+export interface Credential {name:string;token:string;roomId:string;kind?:'player'|'spectator'}
 const intent=z.discriminatedUnion('type',[
- z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(2)}),
+ z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(3)}),
  z.strictObject({type:z.literal('move')}),z.strictObject({type:z.literal('stop')}),z.strictObject({type:z.literal('end')}),
  z.strictObject({type:z.literal('step'),path:z.array(z.string().max(4)).min(1).max(6)}),
  z.strictObject({type:z.literal('choose'),choice:revision,accept:z.boolean().optional(),card:z.string().max(40).nullable().optional(),cell:z.string().max(4).nullable().optional(),cards:z.array(z.string().max(40)).max(64).optional()}),
@@ -32,6 +42,12 @@ export const commandSchema=z.discriminatedUnion('op',[
  z.strictObject({op:z.literal('mode'),requestId,roomRevision:revision,mode:z.enum(['ffa','team'])}),
  z.strictObject({op:z.literal('start'),requestId,roomRevision:revision}),
  z.strictObject({op:z.literal('leave'),requestId,roomRevision:revision}),
+ z.strictObject({op:z.literal('watch-leave'),requestId}),
  z.strictObject({op:z.literal('game'),requestId,matchId:z.uuid(),revision,intent}),
 ]);
 export type OnlineCommand=z.infer<typeof commandSchema>;
+export const chatSchema=z.discriminatedUnion('op',[
+ z.strictObject({op:z.literal('list'),after:revision.max(Number.MAX_SAFE_INTEGER).optional()}),
+ z.strictObject({op:z.literal('send'),requestId,text:z.string().trim().min(1).refine(s=>Array.from(s).length<=200&&!/[\x00-\x1f\x7f]/.test(s),'消息须为1至200字，不含控制字符')}),
+]);
+export type ChatCommand=z.infer<typeof chatSchema>;
