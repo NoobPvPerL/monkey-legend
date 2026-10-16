@@ -21,8 +21,8 @@ export function runTabletop(mode:Mode):{state:GameState;commands:Command[];setup
 }
 export interface ReplayFile { format:'monkey-legend-replay-v1'; setup:Setup; commands:{command:Command;at:number}[] }
 export function replay(file:ReplayFile):GameState {
- if(file.format!=='monkey-legend-replay-v1'||!Array.isArray(file.commands)||file.commands.length>20000)throw Error('复现文件格式无效或过大');
+ if(!file||typeof file!=='object'||file.format!=='monkey-legend-replay-v1'||!Array.isArray(file.commands)||file.commands.length>20000)throw Error('复现文件格式无效或过大');
  let state=createGame(file.setup,0);let previous=0;
- for(const item of file.commands){if(!Number.isFinite(item.at)||item.at<previous)throw Error('复现时钟必须单调');previous=item.at;const result=dispatch(state,item.command,item.at);if(!result.ok)throw Error(`第${state.revision+1}步：${result.error}`);state=result.state;}
+ for(const item of file.commands){if(!item||typeof item!=='object'||!Number.isFinite(item.at)||item.at<previous)throw Error('复现时钟必须单调');previous=item.at;const result=dispatch(state,item.command,item.at);if(!result.ok)throw Error(`第${state.revision+1}步：${result.error}`);state=result.state;}
  return state;
 }

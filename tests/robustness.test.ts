@@ -9,6 +9,6 @@ it.each(['basic-003','basic-004','basic-005','basic-006','basic-008','basic-009'
  let s=createGame({mode:'ffa',seed:1,seats:[0,1,2,3],characters:[...CHARACTER_IDS],first:3,dice:[6]},0);const card=`${id}#01`,defense='basic-001#01';s.players.forEach(p=>p.hand=[]);s.deck=ALL_CARDS.filter(c=>c!==card&&c!==defense);s.discard=[];s.players[3].hand=[card];s.players[0].hand=[defense];s.players[3].ap=10;s.players[3].cell='r4c2';
  let r=dispatch(s,{id:'attack',revision:s.revision,actor:3,type:'play',card,targets:[0]},0);expect(r.ok).toBe(true);s=r.state;expect(s.choice?.kind).toBe('response');r=dispatch(s,{id:'defense',revision:s.revision,actor:0,type:'choose',choice:s.choice!.id,card:defense},0);expect(r.ok).toBe(true);s=r.state;expect(s.players[0].hp).toBe(5);expect(s.players[0].ap).toBe(4);expect(s.random.dice).toEqual([6]);validateState(s);
 });
-it('强制终局保留被淘汰队员的伤害和击杀，不能攻击队友',()=>{
+it('强制终局保留被淘汰队员的伤害和击杀',()=>{
  let s=createGame({mode:'team',seed:1,seats:[0,1,2,3],characters:[...CHARACTER_IDS],first:3,teams:['A','A','B','B']},0);s.players[2].hp=0;s.players[2].ap=0;s.players[2].eliminated=1;s.players[2].kills=1;s.players[2].damage=7;s.discard.push(...s.players[2].hand);s.players[2].hand=[];s.round=12;s.cursor=3;s.players[3].hand.forEach(c=>s.deck.push(c));s.players[3].hand=[];const r=dispatch(s,{id:'finish',revision:s.revision,actor:3,type:'end'},0);expect(r.ok).toBe(true);expect(r.state.result!.ranking.find(r=>r.label==='B队')).toMatchObject({kills:1,damage:7});
 });

@@ -1,0 +1,152 @@
+{
+  "format": "monkey-legend-replay-v1",
+  "setup": {
+    "mode": "ffa",
+    "seed": 1,
+    "seats": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "characters": [
+      "character-004",
+      "character-027",
+      "character-031",
+      "character-037"
+    ],
+    "teams": [
+      "A",
+      "A",
+      "B",
+      "B"
+    ],
+    "first": 1,
+    "deck": [
+      "basic-001#01",
+      "basic-001#02",
+      "basic-001#03",
+      "basic-001#04",
+      "basic-045#01",
+      "basic-047#01",
+      "basic-039#01",
+      "basic-046#01",
+      "basic-001#05",
+      "basic-001#06",
+      "basic-001#07",
+      "basic-001#08",
+      "basic-002#01",
+      "basic-002#02",
+      "basic-002#03",
+      "basic-002#04",
+      "basic-003#01",
+      "basic-003#02",
+      "basic-003#03",
+      "basic-003#04",
+      "basic-003#05",
+      "basic-003#06",
+      "basic-003#07",
+      "basic-003#08",
+      "basic-004#01",
+      "basic-004#02",
+      "basic-004#03",
+      "basic-004#04",
+      "basic-005#01",
+      "basic-005#02",
+      "basic-006#01",
+      "basic-006#02",
+      "basic-006#03",
+      "basic-006#04",
+      "basic-006#05",
+      "basic-006#06",
+      "basic-006#07",
+      "basic-006#08",
+      "basic-008#01",
+      "basic-008#02",
+      "basic-008#03",
+      "basic-008#04",
+      "basic-008#05",
+      "basic-008#06",
+      "basic-009#01",
+      "basic-009#02",
+      "basic-009#03",
+      "basic-009#04",
+      "basic-009#05",
+      "basic-009#06",
+      "basic-009#07",
+      "basic-009#08",
+      "basic-009#09",
+      "basic-009#10",
+      "basic-009#11",
+      "basic-009#12",
+      "basic-039#02",
+      "basic-039#03",
+      "basic-039#04",
+      "basic-045#02",
+      "basic-046#02",
+      "basic-047#02",
+      "basic-047#03",
+      "basic-047#04"
+    ],
+    "dice": [
+      4
+    ]
+  },
+  "commands": [
+    {
+      "command": {
+        "id": "local-14",
+        "revision": 0,
+        "actor": 1,
+        "type": "choose",
+        "choice": 1,
+        "accept": true
+      },
+      "at": 314.80000000004657
+    },
+    {
+      "command": {
+        "id": "local-15",
+        "revision": 1,
+        "actor": 1,
+        "type": "play",
+        "card": "basic-045#01",
+        "targets": []
+      },
+      "at": 860.5
+    },
+    {
+      "command": {
+        "id": "local-16",
+        "revision": 2,
+        "actor": 1,
+        "type": "end"
+      },
+      "at": 1136.6000000000931
+    },
+    {
+      "command": {
+        "id": "local-17",
+        "revision": 3,
+        "actor": 1,
+        "type": "choose",
+        "choice": 2,
+        "accept": true
+      },
+      "at": 1404.1999999999534
+    },
+    {
+      "command": {
+        "id": "local-18",
+        "revision": 4,
+        "actor": 1,
+        "type": "choose",
+        "choice": 3,
+        "cards": [
+          "basic-046#01"
+        ]
+      },
+      "at": 1940.8999999999069
+    }
+  ]
+}
