@@ -1,5 +1,7 @@
 # P2 全栈部署交接给 WorkBuddy
 
+当前状态：本交接已经执行。WorkBuddy已回报同域上线与公网客户端/重启恢复，负责人确认一轮真人游玩；[在线游戏](https://monkey-legend-p2.app.workbuddy.host/)及[反馈Issue #13](https://github.com/NoobPvPerL/monkey-legend/issues/13)已可使用。以下为后续复现或重新部署保留的操作约定；发布状态见[p2-release.md](p2-release.md)。
+
 用户已批准数据库权威 P2；当前交付完整源码，规则 web-v0.1.1。目标是独立测试应用，部署后继续远程验收，不能提前填“上线验收通过”。
 
 交付包见[v0.2.0-p2.1预发布](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)，源码固定c787088，ZIP SHA-256为`d16a74d9ad21b2afcbd802648593b23a0464b0082c5fe5b1af60744b41903cb4`；完整记录见[p2-release.md](p2-release.md)。

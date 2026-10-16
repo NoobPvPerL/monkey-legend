@@ -2,14 +2,16 @@
 
 应猴传说：高唐之战。四人校园地图卡牌游戏。
 
-**P0已完成；当前基线web-v0.1.1。P1本地实现与开发验证已完成（2026-10-16），成员测试预发布已发布，等待负责人试玩和正式验收。**
+**当前版本P2好友联机版v0.2.0-p2.1，规则基线web-v0.1.1。服务器已上线，负责人于2026-10-16确认已完成一轮真人游玩，现进入游戏反馈收集。**
 负责人批准由Codex补全网页版规则，完成记录见 [P0验收](docs/p0-acceptance-cases.md)。
 
-P2已实现WorkBuddy云数据库权威规则、Node/Socket.IO网关和独立联机页面，真实云端两模式整局与强杀恢复检查通过。完整源码的[WorkBuddy部署交接](docs/p2-workbuddy-deploy.md)、[实现边界](docs/p2-implementation.md)、[验证记录](docs/p2-validation.md)单独登记。部署域名、异地真人与负责人验收仍待进行。
+**[进入在线游戏](https://monkey-legend-p2.app.workbuddy.host/) · [P2 游戏反馈 Issue #13](https://github.com/NoobPvPerL/monkey-legend/issues/13) · [版本下载](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)**
+
+P2已实现WorkBuddy云数据库权威规则、Node/Socket.IO网关和独立联机页面，真实云端两模式整局与强杀恢复检查通过。WorkBuddy已回报同域部署、长轮询、私密视图和重启恢复实测；本次核对首页、health、ready均正常。真人试玩结果来自负责人确认；完整设备覆盖、长期稳定性和平衡继续收集反馈。见[发布记录](docs/p2-release.md)、[验证记录](docs/p2-validation.md)与[反馈模板](docs/p2-feedback.md)。
 
 P2完整应用：准备公开配置`config/workbuddy-public.json`，执行`npm ci && npm run build`后`npm start`；读取`PORT`并监听0.0.0.0。开发者本机复验设置`ML_LOOPBACK=1`仅监听127.0.0.1。每次进入先确认玩家名，创建/加入四位码房间；本地测试桌和复现工具从入口单独打开。单独`npm run dev`只运行Vite，不包含联机网关。
 
-[P2源码预发布v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)与[交付核对记录](docs/p2-release.md)已提供。此为源码交接，网页仍需WorkBuddy部署。
+[P2版本v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)提供完整源码ZIP、SHA-256与包验证附件；直接游玩使用上方在线地址。
 
 ## 开发入口
 
