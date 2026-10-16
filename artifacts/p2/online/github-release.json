@@ -1,0 +1,32 @@
+{
+  "tag": "v0.2.0-p2.1",
+  "sourceCommit": "c7870881063aa3967ba1a6c3485fbfde09f35c6c",
+  "url": "https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1",
+  "draft": false,
+  "prerelease": true,
+  "publishedAt": "2026-10-16T09:35:14Z",
+  "pullRequest": "https://github.com/NoobPvPerL/monkey-legend/pull/12",
+  "assets": [
+    {
+      "name": "monkey-legend-0.2.0-p2.1-online-source-verified.zip",
+      "size": 64110285,
+      "digest": "sha256:d16a74d9ad21b2afcbd802648593b23a0464b0082c5fe5b1af60744b41903cb4",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/releases/download/v0.2.0-p2.1/monkey-legend-0.2.0-p2.1-online-source-verified.zip",
+      "state": "uploaded"
+    },
+    {
+      "name": "monkey-legend-0.2.0-p2.1-online-source-verified.zip.sha256",
+      "size": 118,
+      "digest": "sha256:5b94f1aaa806113b6e23ccee5d459fc19da9b1fb1c54c7208a116fe89ecd343d",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/releases/download/v0.2.0-p2.1/monkey-legend-0.2.0-p2.1-online-source-verified.zip.sha256",
+      "state": "uploaded"
+    },
+    {
+      "name": "p2-online-source-validation.json",
+      "size": 920,
+      "digest": "sha256:5700e19aa5adcc8f5b8301e2d0cb536841a5cd044b74001315b492b8f389842e",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/releases/download/v0.2.0-p2.1/p2-online-source-validation.json",
+      "state": "uploaded"
+    }
+  ]
+}

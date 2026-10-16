@@ -9,6 +9,8 @@ P2已实现WorkBuddy云数据库权威规则、Node/Socket.IO网关和独立联�
 
 P2完整应用：准备公开配置`config/workbuddy-public.json`，执行`npm ci && npm run build`后`npm start`；读取`PORT`并监听0.0.0.0。开发者本机复验设置`ML_LOOPBACK=1`仅监听127.0.0.1。每次进入先确认玩家名，创建/加入四位码房间；本地测试桌和复现工具从入口单独打开。单独`npm run dev`只运行Vite，不包含联机网关。
 
+[P2源码预发布v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)与[交付核对记录](docs/p2-release.md)已提供。此为源码交接，网页仍需WorkBuddy部署。
+
 ## 开发入口
 
 - [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：首版实现唯一规则来源。
