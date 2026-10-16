@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-16",
+  "timezone": "Asia/Hong_Kong",
+  "recordedAt": "2026-10-16T11:04:42.767Z",
+  "version": "0.2.0-p2.1",
+  "gameUrl": "https://monkey-legend-p2.app.workbuddy.host/",
+  "sourceCommit": "c7870881063aa3967ba1a6c3485fbfde09f35c6c",
+  "sourceZipSha256": "d16a74d9ad21b2afcbd802648593b23a0464b0082c5fe5b1af60744b41903cb4",
+  "workbuddyReported": {
+    "manifestMatches": 316,
+    "manifestEntries": 316,
+    "longPollingWorks": true,
+    "fourClientLobbyAndPrivateViews": true,
+    "processRepublishPreservesRoomMemberMatch": true,
+    "clockContinuesAcrossRepublish": true,
+    "inProcessRuntimeMeasured": false,
+    "evidenceFile": "P2-DEPLOY-ACCEPTANCE-TO-CODEX.md",
+    "provenance": "WorkBuddy report, not re-executed by Codex"
+  },
+  "ownerReported": {
+    "serverOnline": true,
+    "oneRoundOfHumanPlayCompleted": true,
+    "formalGithubPublicationAndFeedbackRequested": true,
+    "provenance": "Direct user message in current conversation; no mode/player/device/duration inferred"
+  },
+  "codexReadOnlyChecks": [
+    {
+      "path": "/",
+      "status": 200,
+      "hasBuiltClient": true
+    },
+    {
+      "path": "/health",
+      "status": 200,
+      "ok": true,
+      "version": "0.2.0-p2.1",
+      "ruleVersion": "web-v0.1.1"
+    },
+    {
+      "path": "/ready",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "remainingCoverage": [
+    "in-process runtime version and raw install/build logs",
+    "multi-replica session affinity",
+    "mobile and wider device coverage",
+    "database failure/load testing",
+    "long-term stability and balance"
+  ]
+}

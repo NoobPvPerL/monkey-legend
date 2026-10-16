@@ -154,4 +154,6 @@ vite.config.ts.timestamp-*
 
 # Local release builds, runtime downloads and publishing helpers
 /releases/
+/server-dist/
+/config/workbuddy-public.json
 /.release-cache/

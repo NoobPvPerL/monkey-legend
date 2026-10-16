@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0-p2.1",
+  "engine": "WorkBuddy cloud PostgreSQL RPC",
+  "checks": [
+    "schema and anonymous RPC ready",
+    "four identities, four-digit code and lost intake acknowledgement",
+    "credential rejection and connection fencing",
+    "ffa complete legal opening to result over real HTTPS RPC, privacy and idempotence",
+    "team complete legal opening to result over real HTTPS RPC, privacy and idempotence",
+    "all test seats released"
+  ],
+  "passed": true
+}

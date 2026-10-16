@@ -1,0 +1,17 @@
+import {PGlite} from '@electric-sql/pglite';
+import {readFile,readdir} from 'node:fs/promises';
+import {expect,it} from 'vitest';
+async function bundle(){return 'begin;\n'+(await Promise.all((await readdir('database/migrations')).filter(f=>f.endsWith('.sql')).sort().map(f=>readFile('database/migrations/'+f,'utf8')))).join('\n')+'\ncommit;';}
+it('P2-I01 entire owner migration is atomic and fails closed without WorkBuddy roles',async()=>{const db=new PGlite();try{await expect(db.exec(await bundle())).rejects.toThrow('WorkBuddy must provision');await db.exec('rollback');expect((await db.query<{v:unknown}>("select to_regnamespace('ml_private') v")).rows[0].v).toBeNull();}finally{await db.close();}});
+it('P2-I02 full install and read-only verification work; reapply preserves room and identity',async()=>{const db=new PGlite();try{await db.exec('create role anon; create role authenticated;');const sql=await bundle();await db.exec(sql);const create=JSON.stringify({op:'create',name:'安装验证',token:'f'.repeat(64),requestId:'install-check'});const r=(await db.query<{v:any}>('select public.ml_room($1::jsonb) v',[create])).rows[0].v;expect(r.ok,r.error).toBe(true);const results=await db.exec(await readFile('database/verify.sql','utf8'));const roles=results[3].rows as Record<string,unknown>[];expect(roles).toHaveLength(2);for(const role of roles){expect(role.private_schema_access_must_be_false).toBe(false);expect(role.private_read_must_be_false).toBe(false);expect(role.private_write_must_be_false).toBe(false);expect(role.private_engine_must_be_false).toBe(false);expect(role.room_rpc_must_be_true).toBe(true);}await db.exec(sql);const next=(await db.query<{v:any}>('select public.ml_room($1::jsonb) v',[create])).rows[0].v;expect(next.ok,next.error).toBe(true);expect(next.snapshot.roomId).toBe(r.snapshot.roomId);expect(next.snapshot.memberId).toBe(r.snapshot.memberId);}finally{await db.close();}});
+it('P2-I03 one prepared DO statement installs atomically on the WorkBuddy single-statement SQL channel',async()=>{
+ const sql=(await bundle()).replace(/^begin;\n/,'').replace(/\ncommit;$/,'');
+ const one=`DO $outer$ BEGIN EXECUTE $payload$${sql}$payload$; END $outer$;`;
+ for(const roles of [false,true]){
+  const db=new PGlite();try{
+   if(roles)await db.exec('create role anon; create role authenticated;');
+   if(roles){await db.query(one);expect((await db.query<{v:any}>('select public.ml_health() v')).rows[0].v.ok).toBe(true);}
+   else{await expect(db.query(one)).rejects.toThrow('WorkBuddy must provision');expect((await db.query<{v:unknown}>("select to_regnamespace('ml_private') v")).rows[0].v).toBeNull();}
+  }finally{await db.close();}
+ }
+},30000);

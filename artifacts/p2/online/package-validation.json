@@ -1,0 +1,26 @@
+{
+  "sourceCommit": "c7870881063aa3967ba1a6c3485fbfde09f35c6c",
+  "sourceDirty": false,
+  "files": 316,
+  "zip": "releases/monkey-legend-0.2.0-p2.1-online-source-verified.zip",
+  "bytes": 64110285,
+  "sha256": "d16a74d9ad21b2afcbd802648593b23a0464b0082c5fe5b1af60744b41903cb4",
+  "runtime": "Node 22.13.1 Windows",
+  "checks": [
+    "all extracted manifest hashes match",
+    "clean npm ci with lockfile",
+    "clean full client/server build",
+    "187 images and four original card documents verified",
+    "built extracted app starts independently",
+    "real cloud /ready ok",
+    "HTML/JS/CSS and 16 card references load",
+    "publicConfig not served as static file",
+    "packaged single-statement SQL installs and private anon access denied"
+  ],
+  "notVerified": [
+    "WorkBuddy Linux deployment",
+    "published reverse proxy/Socket.IO",
+    "remote devices and real-player acceptance"
+  ],
+  "passed": true
+}

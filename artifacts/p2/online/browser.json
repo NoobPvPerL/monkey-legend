@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-16",
+  "url": "http://127.0.0.1:3219/",
+  "backend": "WorkBuddy isolated PostgreSQL via built Node gateway",
+  "players": 4,
+  "checks": [
+    "fresh page requires name confirmation",
+    "four browser tabs create/join same four-digit room",
+    "concurrent stale ready rejected; retry against current room revision succeeds",
+    "all four ready; host starts",
+    "each tab displays its own hand and public roster",
+    "refresh requires name confirmation and restores same room/seat",
+    "move consumes AP and database generates steps",
+    "select target and confirm attack updates public log and victim AP",
+    "real timeout/discard logs continue without pausing"
+  ],
+  "warnOrErrorLogs": [
+    [],
+    [],
+    [],
+    []
+  ],
+  "notTested": [
+    "published WorkBuddy domain/proxy",
+    "four physical devices",
+    "remote real players",
+    "mobile browser"
+  ]
+}

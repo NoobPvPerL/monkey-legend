@@ -1,0 +1,15 @@
+
+> monkey-legend@0.2.0-p2.1 test
+> vitest run --reporter=dot --reporter=json --outputFile=artifacts/p2/online/test-results.json
+
+
+ RUN  v5.0.5 D:/Users/20753/Desktop/应猴传说/monkey-legend
+
+··············································································································································································
+
+ Test Files  11 passed (11)
+      Tests  174 passed (174)
+   Start at  17:13:26
+   Duration  8.96s (tests 89%, import 10%, transform 1%)
+
+JSON report written to D:/Users/20753/Desktop/应猴传说/monkey-legend/artifacts/p2/online/test-results.json

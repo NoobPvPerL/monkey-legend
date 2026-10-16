@@ -1,0 +1,11 @@
+
+ RUN  v5.0.5 D:/Users/20753/Desktop/应猴传说/monkey-legend
+
+···
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  17:19:10
+   Duration  2.68s (tests 86%, import 11%, transform 3%)
+
+JSON report written to D:/Users/20753/Desktop/应猴传说/monkey-legend/artifacts/p2/online/node22-tests.json
