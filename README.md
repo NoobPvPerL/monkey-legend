@@ -10,7 +10,7 @@
 - [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：首版实现唯一规则来源。
 - [规则规格索引](docs/rules-spec.md)、[32格地图与移动](docs/map-spec.md)、[首版范围及64张牌池](docs/mvp-scope.md)。
 - [验收案例与文档推演](docs/p0-acceptance-cases.md)：46项规格案例、两种模式完整推演；不是游戏运行报告。
-- [进度计划](docs/plan.md)、[开发方案](docs/网页游戏开发方案.md)：下一阶段P1本地规则引擎及完整测试桌。
+- [进度计划](docs/plan.md)、[开发方案](docs/网页游戏开发方案.md)：阶段划分；P1本地规则引擎与测试桌已实现。
 - [原作/群聊历史规则](docs/rule.md)、[裁定与版本差异](docs/rule-decisions.md)：保留原文、来源与更正轨迹。
 - [原始卡牌资料](docs/cards/README.md)：153种内容；[素材台账](docs/assets-manifest.json)：187张图片、稳定ID与SHA-256。
 
@@ -22,6 +22,14 @@ P0完成与P1实现、平衡、发布分别验收。P1已执行引擎测试与�
 
 ## P1 本地测试桌
 
-见[安装与操作说明](docs/p1-implementation.md)、[实际验证记录](docs/p1-validation.md)及[试玩与后续验收](docs/p1-handoff.md)。83项测试、类型检查、来源哈希与生产构建通过；两模式规格对局已执行，直接手牌/响应/四角色技能/弃牌及文件往返已补验。
+见[安装与操作说明](docs/p1-implementation.md)、[实际验证记录](docs/p1-validation.md)及[试玩与后续验收](docs/p1-handoff.md)。87项测试（含4项分发服务回归）、类型检查、来源哈希与生产构建通过；两模式规格对局已执行，直接手牌/响应/四角色技能/弃牌及文件往返已补验。
 
 Windows启动：进入本仓库后执行 npm ci，再执行 npm run dev；测试用 npm test，构建用 npm run build。
+
+## 成员本地测试预发布
+
+[下载v0.1.0-p1.1游戏包](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.1.0-p1.1)，完整解压后双击“启动游戏.cmd”；内置运行时，无需安装Node/npm。请下载windows-x64游戏ZIP，不是GitHub自动生成的源码归档。
+
+仅支持本机四座轮换，尚未联机。Release包不含开发文档和测试场景；详细操作与打包流程见[发布说明](docs/p1-release.md)，进展见[开发日志](docs/development-log.md)。成员测试预发布不代表负责人正式验收。
+
+源码也可双击start-local.cmd（需Node 24，首次安装依赖并构建）；开发修改后使用start-local.cmd --rebuild。

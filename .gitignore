@@ -151,3 +151,7 @@ vite.config.ts.timestamp-*
 # P1 generated reference copies and browser evidence
 /public/references/
 /artifacts/p1/browser-downloads/
+
+# Local release builds, runtime downloads and publishing helpers
+/releases/
+/.release-cache/

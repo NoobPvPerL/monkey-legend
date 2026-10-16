@@ -59,4 +59,10 @@ publicView提供每座专属数据模型；包含公开攻击/目标、移动、
 
 ## 续接
 
-见[p1-handoff.md](p1-handoff.md)与[p1-validation.md](p1-validation.md)。用户已恢复夜间任务，剩余直接交互和文件往返均已补验。83项自动测试和构建通过，下一步是负责人试玩与P1正式验收；没有对外发布。
+见[p1-handoff.md](p1-handoff.md)与[p1-validation.md](p1-validation.md)。用户已恢复夜间任务，剩余直接交互和文件往返均已补验。87项自动测试（含4项分发服务回归）和构建通过，下一步是负责人试玩与P1正式验收；没有对外发布。
+
+## 成员分发与开发记录
+
+已增加start-local.cmd及tools/start-local.mjs、local-server.mjs：Release使用内置Node24与预构建页面，源码启动可安装锁定依赖并构建。默认本机5180端口，冲突时换端口；只提供本机HTTP，不开启联机。
+
+本次包版本0.1.0-p1.1，规则仍web-v0.1.1。详细发布步骤见[p1-release.md](p1-release.md)，历次开发与发布记录见[development-log.md](development-log.md)。这些文档只保留在仓库，不进入游戏ZIP。

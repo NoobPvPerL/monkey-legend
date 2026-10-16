@@ -6,8 +6,8 @@
 
 | 检查 | 实际结果 | 证据 |
 |---|---|---|
-| 类型检查 | 通过 | artifacts/p1/typecheck.txt |
-| 自动测试 | 83/83通过，5个测试文件 | artifacts/p1/tests.txt、test-results.json |
+| 类型检查 | 通过 | artifacts/p1-release/typecheck.txt |
+| 自动测试 | 87/87通过，6个测试文件（原有83项+本次本机服务4项） | artifacts/p1-release/tests.txt、test-results.json |
 | C-001—C-046 | 各有一项同编号真实实现测试，通过 | tests/rules.test.ts |
 | T-FFA/T-TEAM | 从合法64实体开局至第10轮自然胜利；两局均一次重洗 | rules.test.ts、game-core/src/replay.ts |
 | 全部12种牌、四角色能力 | 实际执行覆盖，包含失败、放弃、支付与响应 | rules.test.ts、robustness.test.ts |
@@ -16,8 +16,8 @@
 | 计时边界 | 响应/本人受伤选择暂停预算、延迟tick按原期限推进、拒绝倒退时钟 | rules.test.ts、robustness.test.ts |
 | JSON输入/公开视图 | 拒绝类型混淆、坏随机输入；拒绝命令完整不变；公开攻击/移动、隐藏未来输入；视图深拷贝 | input-view.test.ts |
 | 五个浏览器场景及实际下载文件 | 所有场景由合法开局和命令组成；实际下载JSON逐条重放至相同状态 | ui-fixtures.test.ts、tests/fixtures/ |
-| 原始资料 | 187张图片和4份原始转录SHA-256与台账一致 | artifacts/p1/source-hashes.txt |
-| 生产构建 | 通过，生成dist/ | artifacts/p1/build.txt |
+| 原始资料 | 187张图片和4份原始转录SHA-256与台账一致 | artifacts/p1-release/source-hashes.txt |
+| 生产构建 | 通过，生成dist/ | artifacts/p1-release/build.txt |
 
 C-006仅验证floor手牌上限公式的2.5边界，并验证首版状态拒绝小数生命，不加入半点生命玩法。C-043的专属视图、C-045的命令拒绝仅验证本地模型；真实网络传输、并发/重发与多客户端隐私留P2。
 
@@ -64,4 +64,14 @@ T-FFA实测：土豆生命5、AP4、击杀1、实际敌方生命伤害4，排名
 - 负责人P1正式验收：待验收。本记录不代替负责人确认。
 - 真实四人试玩、平衡性、20—30分钟局长、全量设备/手机兼容：未执行，不能填通过。
 - P2服务端权威、多设备私密信息、实际断线恢复：未实现；本地计时模型和同屏遮罩不能替代。
-- 公网部署/对外发布：未执行。
+- 公网部署/面向公众正式发布：未执行。成员本地测试预发布由本次用户另行授权，执行记录见下节。
+
+## 0.1.0-p1.1分发验证
+
+新增4项本机静态服务回归与原有83项合计87项，全部通过；类型检查、生产构建、187图/4份转录哈希均通过。新输出位于artifacts/p1-release/，旧artifacts/p1/记录保留为历史证据。
+
+候选ZIP已独立解压到中文与空格路径，逐文件哈希和精确清单匹配；只含游戏、启动/本机服务、运行时、必要许可及版本清单。在移除系统Node/npm的PATH后执行包内CMD，HTML、JS/CSS、16张参考图和HTTP边界正常，结束测试进程后服务已停止。候选验证见[candidate-package.json](../artifacts/p1-release/candidate-package.json)。
+
+本机默认沙箱禁止Windows realpath，最初服务检查因环境权限失败；相同源码在允许本机路径解析/监听的执行环境下通过，没有删去路径边界检查。独立解压仍是在同一主机执行，不代表其他成员电脑/干净系统通过。
+
+正式包必须从干净提交重建、再次独立解压验证后才上传；远程Release和意见Issue状态在[开发日志](development-log.md)登记。原有实际浏览器核心交互记录继续有效，本次未修改规则/客户端游戏逻辑。

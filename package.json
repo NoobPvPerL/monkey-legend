@@ -1,8 +1,33 @@
 {
- "name":"monkey-legend", "version":"0.1.0", "private":true, "type":"module",
- "description":"web-v0.1.1 本地四人规则测试桌",
- "engines":{"node":">=24.0.0 <25"},
- "scripts":{"predev":"node tools/prepare-assets.mjs","dev":"vite --host 127.0.0.1","typecheck":"tsc --noEmit","test":"vitest run","test:watch":"vitest","prebuild":"node tools/prepare-assets.mjs","build":"npm run typecheck && vite build","preview":"vite preview --host 127.0.0.1","verify:data":"node tools/verify-data.mjs"},
- "dependencies":{"react":"19.3.1","react-dom":"19.3.1"},
- "devDependencies":{"@types/node":"26.6.5","@types/react":"19.3.0","@types/react-dom":"19.3.0","typescript":"7.0.2","vite":"8.3.4","vitest":"5.0.5"}
+ "name": "monkey-legend",
+ "version": "0.1.0-p1.1",
+ "private": true,
+ "type": "module",
+ "description": "web-v0.1.1 本地四人规则测试桌",
+ "engines": {
+  "node": ">=24.0.0 <25"
+ },
+ "scripts": {
+  "predev": "node tools/prepare-assets.mjs",
+  "dev": "vite --host 127.0.0.1",
+  "typecheck": "tsc --noEmit",
+  "test": "vitest run",
+  "test:watch": "vitest",
+  "prebuild": "node tools/prepare-assets.mjs",
+  "build": "npm run typecheck && vite build",
+  "preview": "vite preview --host 127.0.0.1",
+  "verify:data": "node tools/verify-data.mjs"
+ },
+ "dependencies": {
+  "react": "19.3.1",
+  "react-dom": "19.3.1"
+ },
+ "devDependencies": {
+  "@types/node": "26.6.5",
+  "@types/react": "19.3.0",
+  "@types/react-dom": "19.3.0",
+  "typescript": "7.0.2",
+  "vite": "8.3.4",
+  "vitest": "5.0.5"
+ }
 }

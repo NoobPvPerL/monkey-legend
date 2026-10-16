@@ -1,0 +1,23 @@
+
+> monkey-legend@0.1.0-p1.1 prebuild
+> node tools/prepare-assets.mjs
+
+已根据稳定ID准备16份浏览器参考素材，原图未修改。
+
+> monkey-legend@0.1.0-p1.1 build
+> npm run typecheck && vite build
+
+
+> monkey-legend@0.1.0-p1.1 typecheck
+> tsc --noEmit
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 18 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.41 kB │ gzip:  0.32 kB
+dist/assets/index-CkipwFd3.css   14.31 kB │ gzip:  4.17 kB
+dist/assets/index-B2hjdrMT.js   266.19 kB │ gzip: 85.57 kB
+
+✓ built in 214ms

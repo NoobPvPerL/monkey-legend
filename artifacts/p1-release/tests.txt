@@ -1,0 +1,21 @@
+
+> monkey-legend@0.1.0-p1.1 test
+> vitest run --reporter=default --reporter=json --outputFile=artifacts/p1-release/test-results.json
+
+
+ RUN  v5.0.5 D:/Users/20753/Desktop/应猴传说/monkey-legend
+
+ ✓ tests/ui-fixtures.test.ts (6 tests) 23ms
+ ✓ tests/input-view.test.ts (4 tests) 17ms
+ ✓ tests/data.test.ts (3 tests) 10ms
+ ✓ tests/local-server.test.ts (4 tests) 102ms
+ ✓ tests/rules.test.ts (60 tests) 233ms
+ ✓ tests/robustness.test.ts (10 tests) 4704ms
+   ✓ 200种开局以真实命令推进到终局，每个稳定点实体守恒 4688ms
+
+ Test Files  6 passed (6)
+      Tests  87 passed (87)
+   Start at  12:46:55
+   Duration  4.96s (tests 96%, import 2%, transform 1%, worker 1%)
+
+JSON report written to D:/Users/20753/Desktop/应猴传说/monkey-legend/artifacts/p1-release/test-results.json
