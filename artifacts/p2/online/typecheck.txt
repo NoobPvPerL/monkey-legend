@@ -1,0 +1,3 @@
+
+> monkey-legend@0.2.0-p2.1 typecheck
+> tsc --noEmit

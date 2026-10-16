@@ -5,7 +5,7 @@
 ## WorkBuddy 执行顺序
 
 1. 创建一个 P2 专用测试应用并开启云数据库，不使用成员正在试玩的 P1 环境或生产数据。
-2. 使用数据库管理者身份审阅并执行 install.sql。整个安装在一个事务中；失败应回滚，不要删去权限检查后重试。若管理界面不接受批量事务，停止并返回原始错误供适配。
+2. 使用数据库管理者身份审阅并执行 install-one-statement.sql。它是单条 DO/EXECUTE，完整安装在一个事务中；失败整体回滚，不删除权限检查。标准 psql 可使用等价的 install.sql（BEGIN/COMMIT）。两者选一，勿重复执行。
 3. 执行 verify.sql，保存实际结果（包括 PostgreSQL 版本、anon/authenticated 权限、SHA-256/随机UUID能力）。两种调用角色必须实际存在；脚本不会创建或提升平台角色。
 4. 返回测试应用的 publicConfig（endpoint、publishableKey；均为公开配置）及结果文件路径。不要提供管理员密钥或数据库连接串。
 5. 由 Codex/验证脚本经真实 SDK RPC 验证房间、权限、两模式与恢复。仅执行 verify.sql 不等于完成联机验收。
@@ -24,8 +24,8 @@
 
 ## 配置与部署
 
-后续完整应用的部署约定为 installCmd="npm ci && npm run build"、startCmd="npm start"；本首批包只有SQL，不是可启动的全栈应用，当前工程尚未新增npm start。Node已知探针版本22.13.1，完整应用仍须实测依赖安装和构建。
-后续运行环境公开配置拟放入 config/workbuddy-public.json；本次先返回publicConfig文件即可，不用源码文件保存任何服务端秘密。
+完整应用的部署约定为 installCmd="npm ci && npm run build"、startCmd="npm start"。数据库单独包只有SQL；完整源码包包含Node网关和联机页面。Node已知探针版本22.13.1，完整应用仍须在部署环境实测安装和构建。
+运行环境公开配置放入 config/workbuddy-public.json，或通过 WORKBUDDY_PUBLIC_CONFIG 指向文件；不需要管理员密钥或数据库连接串。
 服务端以 PORT 监听0.0.0.0，Socket.IO使用长轮询及可选WebSocket升级。
 
 此首批SQL交接不包含测试后门、任意Setup接口或角色/队伍/骰子注入RPC。测试用可控输入只在本地管理者测试中调用内部函数。

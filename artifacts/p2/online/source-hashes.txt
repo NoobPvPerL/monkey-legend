@@ -1,0 +1,5 @@
+
+> monkey-legend@0.2.0-p2.1 verify:data
+> node tools/verify-data.mjs
+
+PASS：187图片与4份原始卡牌文档SHA-256一致；运行数据校验见 npm test。

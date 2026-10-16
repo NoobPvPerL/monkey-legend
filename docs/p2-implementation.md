@@ -19,20 +19,26 @@
 - 长停机追赶到终局时先保留原座位，断线成员从首次观察终局开始保留2分钟，不在恢复请求中立即全清。
 - 原TS引擎和P1页面保持；随机测试输入只对本地管理者测试可用，不是公开RPC。
 
-生产无SQLite/PGlite；@electric-sql/pglite 0.5.10只作为本地PostgreSQL验证器。正式云SDK锁定0.1.3-dev.05a12d5.202610152129；当前未取得测试publicConfig，未执行任何云写入。
+生产无SQLite/PGlite；@electric-sql/pglite 0.5.10只作为本地PostgreSQL验证器。正式云SDK锁定0.1.3-dev.05a12d5.202610152129。WorkBuddy已在独立应用wbapp_X1YyBYN4mhieMW91OYqaGj安装原SQL；真实匿名HTTPS RPC验证已通过，不需要重建数据库。
 
 ## 当前阶段边界
 
-此提交是P2数据库交接检查点。Socket.IO房间网关、联机页面、完整全栈部署包、云端数据库实测、真实网络/多设备与负责人验收仍待进行；当前npm run dev/start-local.cmd仍是P1本地桌，尚未新增npm start。
+SQL检查点之后，已新增packages/online严格协议、apps/server的官方云SDK适配/单端口HTTP与Socket.IO网关、apps/client联机入口和本人视图棋盘；原页面移至LocalTable.tsx保留本地复现能力。npm run build同时构建dist和server-dist，npm start启动完整应用。start-local.cmd仍是P1静态本地流程，联机复验按p2-workbuddy-deploy.md执行。
 
-当前P1 87项与数据库83项合计170项本地检查通过，含独立Node进程的持久化重开；具体证据见p2-validation.md。不能将该检查点作为完整P2 Release上传。
+当前174项本地回归通过，含独立Node进程持久化重开、四个Socket.IO客户端、长轮询/升级、回执丢失重试与网关重开。真实云端完成FFA/2v2整局和SIGKILL后按真实行动期限恢复；具体证据见p2-validation.md。完整源码交接用于部署测试，尚不代表已在WorkBuddy域名完成联机验收。
 
 后续按Node探针22.13.1/linux x64验证，installCmd为npm ci && npm run build，startCmd为npm start，单端口读取PORT绑定0.0.0.0，长轮询起步并尝试WebSocket升级。一个端口或一次实例采样不证明永久单实例；多副本连接路由尚未验收。
 
 ## SQL交接与下一步
 
-按database/README.md交付install.sql和verify.sql，由WorkBuddy在P2隔离环境执行，返回验证输出和publicConfig文件。不得在P1成员包或未经确认的生产环境执行。
+已取得publicConfig及WorkBuddy安装/权限报告。当前未改迁移内容，不重新执行云SQL。打包工具新增单条DO/EXECUTE安装文件，适配平台prepared statement一次只接受一条语句；本地成功安装及缺角色整体回滚均通过。
 
-拿到配置后：npm run verify:cloud-database -- <publicConfig路径> --isolated-test --report=<输出路径>。该工具通过官方SDK的真实HTTPS RPC创建合成测试房，验证两模式从开局到终局、隐私、重复/换载荷、恢复和再开；不会读取管理员配置。它会写入测试房，不能用于生产数据。
+真实RPC工具：npm run verify:cloud-database -- <publicConfig路径> --isolated-test --report=<输出路径>。网关强杀验证：node tools/verify-cloud-gateway.mjs <publicConfig路径> --isolated-test --report=<输出路径>。只用于已批准的隔离测试应用；不在build/start自动执行，不读取管理员配置，不记录凭据。
+
+网关每连接串行化有限操作，以房间能力和连接epoch向数据库鉴权；每2秒查询本人视图/保持在线，不广播完整状态。新连接接管后旧epoch拒绝并主动断开；不同网关进程也依赖数据库围栏。数据库行锁负责最终并发，维护每30秒有限批次。短暂数据库错误不生成替代命令编号。
+
+浏览器每次载入要求确认名字；localStorage保存房间/名字/随机能力，sessionStorage先保存未确认入房及操作，再发网络。恢复后用同一编号重试未确认操作；等待期间禁用新操作。进程恢复补超时，客户端只展示数据库下发的合法目标和移动格，不构造完整GameState。在线页面没有种子、tick、Setup或复现导入。
+
+剩余交接：完整源码包部署到同一applicationId及保留域名，核对Node22/Linux构建、反向代理长轮询及会话路由；部署域名浏览器、异地设备/真人与负责人验收待进行。详见p2-workbuddy-deploy.md。
 
 数据库能力不满足时报告具体SQL/权限/SDK失败，保留全部实现，不改为客户端裁判或关闭权限检查。

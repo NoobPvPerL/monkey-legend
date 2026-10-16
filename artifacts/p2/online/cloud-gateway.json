@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-10-16T09:16:56.545Z",
+  "runtime": "v24.19.0",
+  "checks": [
+    "anonymous data plane rejects private table names and engine RPC",
+    "four polling-only clients open a real cloud match through built Node gateway",
+    "SIGKILL, real action deadline passes, new process resumes same room/match/members and catches up clock",
+    "pre-outage game revision rejected"
+  ],
+  "passed": true,
+  "outage": {
+    "waitMs": 64661,
+    "roomPreserved": true,
+    "matchPreserved": true,
+    "membersPreserved": true,
+    "clockCaughtUp": true
+  },
+  "finishedAt": "2026-10-16T09:18:09.720Z"
+}

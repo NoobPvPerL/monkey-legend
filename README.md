@@ -5,7 +5,9 @@
 **P0已完成；当前基线web-v0.1.1。P1本地实现与开发验证已完成（2026-10-16），成员测试预发布已发布，等待负责人试玩和正式验收。**
 负责人批准由Codex补全网页版规则，完成记录见 [P0验收](docs/p0-acceptance-cases.md)。
 
-P2已获批按WorkBuddy云数据库权威方案开发。当前先交付[SQL数据库交接](database/README.md)，[实现与阶段边界](docs/p2-implementation.md)、[验证记录](docs/p2-validation.md)单独登记；尚未接入云测试环境，也未完成联机页面或全栈发布包。现有启动方式仍运行P1本地桌。
+P2已实现WorkBuddy云数据库权威规则、Node/Socket.IO网关和独立联机页面，真实云端两模式整局与强杀恢复检查通过。完整源码的[WorkBuddy部署交接](docs/p2-workbuddy-deploy.md)、[实现边界](docs/p2-implementation.md)、[验证记录](docs/p2-validation.md)单独登记。部署域名、异地真人与负责人验收仍待进行。
+
+P2完整应用：准备公开配置`config/workbuddy-public.json`，执行`npm ci && npm run build`后`npm start`；读取`PORT`并监听0.0.0.0。开发者本机复验设置`ML_LOOPBACK=1`仅监听127.0.0.1。每次进入先确认玩家名，创建/加入四位码房间；本地测试桌和复现工具从入口单独打开。单独`npm run dev`只运行Vite，不包含联机网关。
 
 ## 开发入口
 
@@ -32,7 +34,7 @@ Windows启动：进入本仓库后执行 npm ci，再执行 npm run dev；测试
 
 [下载v0.1.0-p1.1游戏包](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.1.0-p1.1)，完整解压后双击“启动游戏.cmd”；内置运行时，无需安装Node/npm。请下载windows-x64游戏ZIP，不是GitHub自动生成的源码归档。
 
-仅支持本机四座轮换，尚未联机。Release包不含开发文档和测试场景；详细操作与打包流程见[发布说明](docs/p1-release.md)，进展见[开发日志](docs/development-log.md)。成员测试预发布不代表负责人正式验收。
+该P1 Release仅支持本机四座轮换。P2联机需要完整应用部署。P1包不含开发文档和测试场景；详细操作与打包流程见[发布说明](docs/p1-release.md)，进展见[开发日志](docs/development-log.md)。成员测试预发布不代表负责人正式验收。
 
 源码也可双击start-local.cmd（需Node 24，首次安装依赖并构建）；开发修改后使用start-local.cmd --rebuild。
 
