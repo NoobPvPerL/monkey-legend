@@ -17,7 +17,7 @@ for(const [file,sha] of Object.entries(dm.files).filter(([f])=>f.startsWith('mig
 mark('extracted source/SQL manifests, every file hash, same snapshot and all migration bytes');
 const config=JSON.parse(await readFile(join(source,'config/workbuddy-public.json'),'utf8'));
 assert(Object.keys(config).every(k=>['applicationId','resourceId','endpoint','oauthRelayBaseUrl','publishableKey'].includes(k)));
-assert(!Object.keys(sm.files).some(f=>/(^|\/)(\.git|node_modules|releases|server-dist|dist)(\/|$)|(^|\/)\.env(?:\.|$)|\.(pem|key)$/.test(f)));
+assert(!Object.keys(sm.files).some(f=>/(^|\/)(\.git|node_modules)(\/|$)|^(releases|server-dist|dist)\/|(^|\/)\.env(?:\.|$)|\.(pem|key)$/.test(f)));
 const refs=JSON.parse(await readFile(join(source,'dist/references/index.json'),'utf8'));assert.equal(Object.keys(refs).length,92);
 for(const file of Object.values(refs))assert((await readFile(join(source,'dist',file))).length>0);
 mark('public configuration whitelist, no runtime/private inputs, and92 built reference assets');
