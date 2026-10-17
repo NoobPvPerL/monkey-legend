@@ -8,10 +8,10 @@ const suffix=process.argv.slice(2).find(arg=>arg!=='--upgrade')??'';if(suffix&&!
 await mkdir('releases',{recursive:true});
 const folder=resolve('releases',`monkey-legend-${version}-database${suffix?'-'+suffix:''}`);
 await mkdir(folder,{recursive:false});await mkdir(join(folder,'migrations'));
-const manifest={version,ruleVersion:'web-v0.1.2',schemaVersion:2,upgradeFrom:upgrade?1:null,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceDirty:execFileSync('git',['status','--porcelain'],{encoding:'utf8'}).trim().length>0,purpose:upgrade?'Incremental owner upgrade from schema 1; isolated validation only':'Fresh isolated install; not cloud acceptance',files:{}};
+const manifest={version,ruleVersion:'web-v0.1.6',schemaVersion:2,engineRevision:16,classicRuleVersion:'web-v0.1.6',classicPlayable:true,upgradeFrom:upgrade?1:null,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceDirty:execFileSync('git',['status','--porcelain'],{encoding:'utf8'}).trim().length>0,purpose:upgrade?'Incremental owner upgrade from schema 1; isolated validation only':'Fresh isolated install; not cloud acceptance',files:{}};
 let bundle='-- monkey-legend '+version+'; owner-only installation. Review README first.\nBEGIN;\n';
 if(upgrade)bundle+="DO $$ BEGIN IF coalesce(public.ml_health()->>'schemaVersion','') NOT IN ('1','2') THEN RAISE EXCEPTION 'Expected installed schema 1 or 2'; END IF; END $$;\n";
-for(const file of (await readdir('database/migrations')).filter(f=>f.endsWith('.sql')&&(!upgrade||/^(005|006|007)_/.test(f))).sort()){
+for(const file of (await readdir('database/migrations')).filter(f=>f.endsWith('.sql')&&(!upgrade||/^(005|006|007|008|009|010|011|012|013|014|015|016)_/.test(f))).sort()){
  const body=await readFile('database/migrations/'+file,'utf8');bundle+='\n-- '+file+'\n'+body+'\n';await copyFile('database/migrations/'+file,join(folder,'migrations',file));
  manifest.files['migrations/'+file]=createHash('sha256').update(body).digest('hex');
 }

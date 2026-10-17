@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-17",
+  "baselineCommit": "a5e84e1fee512b2c6a669c83cc9768e92469820b",
+  "applicationVersion": "0.2.2-p2.3",
+  "activeRule": "web-v0.1.3",
+  "foundationRule": "web-v0.1.4",
+  "classicPlayable": false,
+  "schemaVersion": 2,
+  "engineRevision": 10,
+  "testFiles": 25,
+  "testsPassed": 229,
+  "failed": 0,
+  "maxConcurrentTestWorkers": 2,
+  "classicCells": 32,
+  "classicRegions": 15,
+  "sourceCards": 76,
+  "sourceCharacters": 16,
+  "verifiedSpawnCombinations": 1365,
+  "unresolvedSpawn": [
+    "character-004"
+  ],
+  "cloudExecuted": false,
+  "pushed": false,
+  "migrationSha256": "59fba1a3a58d36c9e9682b90abf32c44f43c9ec5004f6c9498ee9e0acb9c1a21",
+  "checksPassed": [
+    "build and typecheck",
+    "verify:catalog",
+    "verify:db-data",
+    "verify:data",
+    "verify:classic-map",
+    "full tests"
+  ]
+}

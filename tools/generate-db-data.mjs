@@ -1,6 +1,6 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import {transform} from 'esbuild';
-const code=await transform(await readFile('packages/game-data/src/index.ts','utf8'),{loader:'ts',format:'esm'});
+const code=await transform(await readFile('packages/game-data/src/legacy.ts','utf8'),{loader:'ts',format:'esm'});
 const d=await import('data:text/javascript;base64,'+Buffer.from(code.code).toString('base64'));
 const entries={cards:d.CARDS,characters:d.CHARACTERS,characterIds:d.CHARACTER_IDS,cells:d.CELLS,map:d.MAP,allCards:d.ALL_CARDS};
 let sql='-- Generated from the approved web-v0.1.1 runtime data. Do not edit by hand.\n';

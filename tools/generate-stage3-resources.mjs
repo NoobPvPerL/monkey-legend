@@ -1,0 +1,10 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {build} from 'esbuild';
+const bundled=await build({entryPoints:['packages/game-data/src/stage3.ts'],bundle:true,write:false,platform:'node',format:'esm'});
+const d=await import('data:text/javascript;base64,'+Buffer.from(bundled.outputFiles[0].contents).toString('base64'));
+const content={cards:d.STAGE3_CARDS,characters:d.STAGE3_CHARACTERS,allCards:d.STAGE3_ALL_CARDS,characterIds:d.STAGE3_CHARACTER_IDS,policy:d.STAGE3_POLICY};
+const sources=await Promise.all(['stage3-resources','stage3-roles','stage3-card-stack'].map(name=>readFile('database/engine/'+name+'.sql','utf8')));
+const body=`-- Private stage-three dependency catalog and resource helpers only.\n-- Does not change ml_health, default room rules or existing ruleset profiles.\nDO $$ BEGIN IF coalesce((public.ml_health()->>'engineRevision')::int,0)<14 THEN RAISE EXCEPTION 'Apply complete 014 before 015'; END IF; END $$;\ninsert into ml_private.catalog(key,value) values('stage3:content-v1','${JSON.stringify(content).replaceAll("'","''")}'::jsonb) on conflict(key) do nothing;\n`+sources.map(s=>s.replaceAll('\r\n','\n')).join('\n')+`\nrevoke all on all functions in schema ml_private from public;\nDO $$ declare r text; begin foreach r in array array['anon','authenticated'] loop execute format('revoke all on all functions in schema ml_private from %I',r);end loop;end $$;\n`;
+const path='database/migrations/015_stage3_resources.sql';
+if(process.argv.includes('--check')){if((await readFile(path,'utf8')).replaceAll('\r\n','\n')!==body)throw Error('Stage-three resource SQL differs');}else await writeFile(path,body);
+console.log('015: private 23/85/16 catalog and resource lifecycle; live default unchanged.');

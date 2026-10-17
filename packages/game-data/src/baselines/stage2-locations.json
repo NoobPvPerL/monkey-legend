@@ -1,0 +1,2007 @@
+{
+  "manifest": {
+    "version": "web-v0.1.4",
+    "status": "foundation",
+    "mapId": "classic-v1",
+    "catalogId": "classic-content-v1",
+    "environmentId": "pending-regions",
+    "spawnPolicy": "fixed-region-random-empty",
+    "spawnConflicts": []
+  },
+  "mapDefinition": {
+    "id": "classic-v1",
+    "cells": [
+      {
+        "id": "r1c1",
+        "row": 1,
+        "col": 1,
+        "region": "高唐农场",
+        "terrain": "land"
+      },
+      {
+        "id": "r1c2",
+        "row": 1,
+        "col": 2,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      {
+        "id": "r1c3",
+        "row": 1,
+        "col": 3,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      {
+        "id": "r1c4",
+        "row": 1,
+        "col": 4,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      {
+        "id": "r1c5",
+        "row": 1,
+        "col": 5,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      {
+        "id": "r1c6",
+        "row": 1,
+        "col": 6,
+        "region": "尚德荟",
+        "terrain": "land"
+      },
+      {
+        "id": "r1c7",
+        "row": 1,
+        "col": 7,
+        "region": "食堂",
+        "terrain": "land"
+      },
+      {
+        "id": "r1c8",
+        "row": 1,
+        "col": 8,
+        "region": "飞船",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c1",
+        "row": 2,
+        "col": 1,
+        "region": "XDF",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c2",
+        "row": 2,
+        "col": 2,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c3",
+        "row": 2,
+        "col": 3,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c4",
+        "row": 2,
+        "col": 4,
+        "region": "操场",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c5",
+        "row": 2,
+        "col": 5,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c6",
+        "row": 2,
+        "col": 6,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c7",
+        "row": 2,
+        "col": 7,
+        "region": "食堂",
+        "terrain": "land"
+      },
+      {
+        "id": "r2c8",
+        "row": 2,
+        "col": 8,
+        "region": "山洞",
+        "terrain": "land"
+      },
+      {
+        "id": "r3c1",
+        "row": 3,
+        "col": 1,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      {
+        "id": "r3c2",
+        "row": 3,
+        "col": 2,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      {
+        "id": "r3c3",
+        "row": 3,
+        "col": 3,
+        "region": "红素洋",
+        "terrain": "water"
+      },
+      {
+        "id": "r3c4",
+        "row": 3,
+        "col": 4,
+        "region": "操场",
+        "terrain": "land"
+      },
+      {
+        "id": "r3c5",
+        "row": 3,
+        "col": 5,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      {
+        "id": "r3c6",
+        "row": 3,
+        "col": 6,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      {
+        "id": "r3c7",
+        "row": 3,
+        "col": 7,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      {
+        "id": "r3c8",
+        "row": 3,
+        "col": 8,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      {
+        "id": "r4c1",
+        "row": 4,
+        "col": 1,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      {
+        "id": "r4c2",
+        "row": 4,
+        "col": 2,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      {
+        "id": "r4c3",
+        "row": 4,
+        "col": 3,
+        "region": "红素洋",
+        "terrain": "water"
+      },
+      {
+        "id": "r4c4",
+        "row": 4,
+        "col": 4,
+        "region": "办公室",
+        "terrain": "land"
+      },
+      {
+        "id": "r4c5",
+        "row": 4,
+        "col": 5,
+        "region": "办公室",
+        "terrain": "land"
+      },
+      {
+        "id": "r4c6",
+        "row": 4,
+        "col": 6,
+        "region": "淘安泽",
+        "terrain": "water"
+      },
+      {
+        "id": "r4c7",
+        "row": 4,
+        "col": 7,
+        "region": "淘安泽",
+        "terrain": "water"
+      },
+      {
+        "id": "r4c8",
+        "row": 4,
+        "col": 8,
+        "region": "云上学府",
+        "terrain": "land"
+      }
+    ],
+    "map": {
+      "r1c1": {
+        "id": "r1c1",
+        "row": 1,
+        "col": 1,
+        "region": "高唐农场",
+        "terrain": "land"
+      },
+      "r1c2": {
+        "id": "r1c2",
+        "row": 1,
+        "col": 2,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      "r1c3": {
+        "id": "r1c3",
+        "row": 1,
+        "col": 3,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      "r1c4": {
+        "id": "r1c4",
+        "row": 1,
+        "col": 4,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      "r1c5": {
+        "id": "r1c5",
+        "row": 1,
+        "col": 5,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      "r1c6": {
+        "id": "r1c6",
+        "row": 1,
+        "col": 6,
+        "region": "尚德荟",
+        "terrain": "land"
+      },
+      "r1c7": {
+        "id": "r1c7",
+        "row": 1,
+        "col": 7,
+        "region": "食堂",
+        "terrain": "land"
+      },
+      "r1c8": {
+        "id": "r1c8",
+        "row": 1,
+        "col": 8,
+        "region": "飞船",
+        "terrain": "land"
+      },
+      "r2c1": {
+        "id": "r2c1",
+        "row": 2,
+        "col": 1,
+        "region": "XDF",
+        "terrain": "land"
+      },
+      "r2c2": {
+        "id": "r2c2",
+        "row": 2,
+        "col": 2,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      "r2c3": {
+        "id": "r2c3",
+        "row": 2,
+        "col": 3,
+        "region": "教学楼",
+        "terrain": "land"
+      },
+      "r2c4": {
+        "id": "r2c4",
+        "row": 2,
+        "col": 4,
+        "region": "操场",
+        "terrain": "land"
+      },
+      "r2c5": {
+        "id": "r2c5",
+        "row": 2,
+        "col": 5,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      "r2c6": {
+        "id": "r2c6",
+        "row": 2,
+        "col": 6,
+        "region": "秀松苑",
+        "terrain": "land"
+      },
+      "r2c7": {
+        "id": "r2c7",
+        "row": 2,
+        "col": 7,
+        "region": "食堂",
+        "terrain": "land"
+      },
+      "r2c8": {
+        "id": "r2c8",
+        "row": 2,
+        "col": 8,
+        "region": "山洞",
+        "terrain": "land"
+      },
+      "r3c1": {
+        "id": "r3c1",
+        "row": 3,
+        "col": 1,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      "r3c2": {
+        "id": "r3c2",
+        "row": 3,
+        "col": 2,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      "r3c3": {
+        "id": "r3c3",
+        "row": 3,
+        "col": 3,
+        "region": "红素洋",
+        "terrain": "water"
+      },
+      "r3c4": {
+        "id": "r3c4",
+        "row": 3,
+        "col": 4,
+        "region": "操场",
+        "terrain": "land"
+      },
+      "r3c5": {
+        "id": "r3c5",
+        "row": 3,
+        "col": 5,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      "r3c6": {
+        "id": "r3c6",
+        "row": 3,
+        "col": 6,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      "r3c7": {
+        "id": "r3c7",
+        "row": 3,
+        "col": 7,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      "r3c8": {
+        "id": "r3c8",
+        "row": 3,
+        "col": 8,
+        "region": "樱花大道",
+        "terrain": "land"
+      },
+      "r4c1": {
+        "id": "r4c1",
+        "row": 4,
+        "col": 1,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      "r4c2": {
+        "id": "r4c2",
+        "row": 4,
+        "col": 2,
+        "region": "帝汶岛",
+        "terrain": "land"
+      },
+      "r4c3": {
+        "id": "r4c3",
+        "row": 4,
+        "col": 3,
+        "region": "红素洋",
+        "terrain": "water"
+      },
+      "r4c4": {
+        "id": "r4c4",
+        "row": 4,
+        "col": 4,
+        "region": "办公室",
+        "terrain": "land"
+      },
+      "r4c5": {
+        "id": "r4c5",
+        "row": 4,
+        "col": 5,
+        "region": "办公室",
+        "terrain": "land"
+      },
+      "r4c6": {
+        "id": "r4c6",
+        "row": 4,
+        "col": 6,
+        "region": "淘安泽",
+        "terrain": "water"
+      },
+      "r4c7": {
+        "id": "r4c7",
+        "row": 4,
+        "col": 7,
+        "region": "淘安泽",
+        "terrain": "water"
+      },
+      "r4c8": {
+        "id": "r4c8",
+        "row": 4,
+        "col": 8,
+        "region": "云上学府",
+        "terrain": "land"
+      }
+    },
+    "regions": {
+      "高唐农场": {
+        "exposure": "outdoor"
+      },
+      "教学楼": {
+        "exposure": "indoor"
+      },
+      "秀松苑": {
+        "exposure": "indoor"
+      },
+      "尚德荟": {
+        "exposure": "indoor"
+      },
+      "食堂": {
+        "exposure": "indoor"
+      },
+      "飞船": {
+        "exposure": "indoor"
+      },
+      "XDF": {
+        "exposure": "indoor"
+      },
+      "操场": {
+        "exposure": "outdoor"
+      },
+      "山洞": {
+        "exposure": "exempt"
+      },
+      "帝汶岛": {
+        "exposure": "outdoor"
+      },
+      "红素洋": {
+        "exposure": "outdoor"
+      },
+      "樱花大道": {
+        "exposure": "outdoor"
+      },
+      "办公室": {
+        "exposure": "indoor"
+      },
+      "淘安泽": {
+        "exposure": "outdoor"
+      },
+      "云上学府": {
+        "exposure": "indoor"
+      }
+    }
+  },
+  "environment": {
+    "kind": "pending-regions",
+    "roundLimit": null,
+    "settlement": null,
+    "shieldBlocks": null
+  },
+  "sourceCatalog": {
+    "sourceHashFormat": "utf8-lf",
+    "sources": {
+      "docs/cards/基础牌.md": "af3bc235244b3e367aa2cb5d90206db8ce141863893b05860f6edd8610edf998",
+      "docs/cards/角色牌.md": "898e0692d9cd8668ecac306973a843089c77d54a197ac256481037ee8cb00b74"
+    },
+    "cards": {
+      "basic-001": {
+        "id": "basic-001",
+        "name": "防御姿态",
+        "source": "docs/cards/基础牌.md#basic-001",
+        "text": "- 当别人对你使用“普通牌”时打出，抵挡对方对你的效果。",
+        "notes": "“普通牌”的覆盖范围待确认。",
+        "subtype": "防御",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-002": {
+        "id": "basic-002",
+        "name": "肘击",
+        "source": "docs/cards/基础牌.md#basic-002",
+        "text": "- 当别人对你使用“头锤”的时候打出，反吸收对方的行动点（对方若没有行动点则扣除1点血量）。",
+        "notes": "反吸收数量未另写，需结合头锤裁定。",
+        "subtype": "防御",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "0",
+        "range": "相同/相邻区域",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-003": {
+        "id": "basic-003",
+        "name": "搏击操I",
+        "source": "docs/cards/基础牌.md#basic-003",
+        "text": "- 被指定的角色扣除1点行动点，没有行动点的扣除血量（缺少多少行动点，就扣除多少血量）。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "攻击",
+        "tags": [
+          "搏击操"
+        ],
+        "printedCost": "1",
+        "range": "全地图所有指定角色",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-004": {
+        "id": "basic-004",
+        "name": "搏击操II",
+        "source": "docs/cards/基础牌.md#basic-004",
+        "text": "- 被指定的角色扣除2点行动点，没有行动点的扣除血量（缺少多少行动点，就扣除多少血量）。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "攻击",
+        "tags": [
+          "搏击操"
+        ],
+        "printedCost": "2",
+        "range": "全地图所有指定角色",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-005": {
+        "id": "basic-005",
+        "name": "搏击操III",
+        "source": "docs/cards/基础牌.md#basic-005",
+        "text": "- 被指定的角色扣除3点行动点，没有行动点的扣除血量（缺少多少行动点，就扣除多少血量）。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "攻击",
+        "tags": [
+          "搏击操"
+        ],
+        "printedCost": "3",
+        "range": "全地图所有指定角色",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-006": {
+        "id": "basic-006",
+        "name": "吸血",
+        "source": "docs/cards/基础牌.md#basic-006",
+        "text": "- 由你进行判定，若为单数则可以吸取对方1点血量（满血时也可以使用）。",
+        "notes": "满血吸取后的自身血量及上限处理待确认。",
+        "subtype": "攻击",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "1",
+        "range": "相同区域",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-007": {
+        "id": "basic-007",
+        "name": "分尸",
+        "source": "docs/cards/基础牌.md#basic-007",
+        "text": "- 直接扣除对方2点血量（岩石类角色扣除3点血量）。",
+        "notes": "“岩石类角色”的完整名单待确认。",
+        "subtype": "攻击",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "2",
+        "range": "相同/相邻区域",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-008": {
+        "id": "basic-008",
+        "name": "头锤",
+        "source": "docs/cards/基础牌.md#basic-008",
+        "text": "- 吸收对方所有的行动点（若对方没有行动点则扣除对方1点血量）。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "攻击",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "相同/相邻区域",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-009": {
+        "id": "basic-009",
+        "name": "躲避球",
+        "source": "docs/cards/基础牌.md#basic-009",
+        "text": "- 由你进行判定，若为单数，则可以对目标造成1点伤害。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "攻击",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "1",
+        "range": "相同/相邻区域",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-010": {
+        "id": "basic-010",
+        "name": "猴子游戏",
+        "source": "docs/cards/基础牌.md#basic-010",
+        "text": "- 由被你指定的人进行判定，若对方摇出单数则扣除对方1点血量。",
+        "notes": "可指定人数未写明。",
+        "subtype": "攻击",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "相同/相邻区域",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-011": {
+        "id": "basic-011",
+        "name": "给你加分",
+        "source": "docs/cards/基础牌.md#basic-011",
+        "text": "- 所有人打出一张“攻击”牌，若没有，则扣除1点血量（队友一样）。",
+        "notes": "牌面末尾括号未闭合；“所有人”是否包含自己待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "搏击操"
+        ],
+        "printedCost": "2",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-012": {
+        "id": "basic-012",
+        "name": "来玩",
+        "source": "docs/cards/基础牌.md#basic-012",
+        "text": "- 所有人打出一张“外星”卡牌，否则扣除一点血量（队友一样）。",
+        "notes": "“所有人”是否包含自己待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "搏击操"
+        ],
+        "printedCost": "2",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-013": {
+        "id": "basic-013",
+        "name": "跑操",
+        "source": "docs/cards/基础牌.md#basic-013",
+        "text": "- 所有人向操场移动一格，最远的人扣除1点血量（队友一样，自己无效）。",
+        "notes": "最远者并列与移动路径待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "搏击操"
+        ],
+        "printedCost": "2",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-014": {
+        "id": "basic-014",
+        "name": "樱花舞",
+        "source": "docs/cards/基础牌.md#basic-014",
+        "text": "- 所有人打出一张“普通”卡牌，否则扣除一滴血量（队友一样）。",
+        "notes": "“所有人”是否包含自己待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "搏击操"
+        ],
+        "printedCost": "2",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-015": {
+        "id": "basic-015",
+        "name": "咖啡",
+        "source": "docs/cards/基础牌.md#basic-015",
+        "text": "- 立刻回复8点行动点，但是你下一个回合无法恢复行动点。",
+        "notes": "与行动点上限的关系待确认；素材文件名标签为“帝汝”，牌面词条为“帝汶”；未重命名图片。",
+        "subtype": "锦囊",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "0",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-016": {
+        "id": "basic-016",
+        "name": "橡胶",
+        "source": "docs/cards/基础牌.md#basic-016",
+        "text": "- 选定一名角色，和他互换位置。",
+        "notes": "素材文件名标签为“帝汝”，牌面词条为“帝汶”；未重命名图片。",
+        "subtype": "锦囊",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "1",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-017": {
+        "id": "basic-017",
+        "name": "插队",
+        "source": "docs/cards/基础牌.md#basic-017",
+        "text": "- 直接跳到你的回合，并且刷新回合次数，确定轰炸区和毒圈。",
+        "notes": "中断恢复、补牌加点、环境与次数刷新参见规则裁定，尚未齐全。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "2",
+        "range": "可在任意时候打出",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-018": {
+        "id": "basic-018",
+        "name": "断水断电",
+        "source": "docs/cards/基础牌.md#basic-018",
+        "text": "- 你可以让一个人下回合不可以摸牌，也不可以恢复行动点（对猴四无效）。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "2",
+        "range": "全地图（云上学府除外）",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-019": {
+        "id": "basic-019",
+        "name": "借我张纸",
+        "source": "docs/cards/基础牌.md#basic-019",
+        "text": "- 拿取对方2点行动点。",
+        "notes": "对方不足2点时怎样处理待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "0",
+        "range": "相同/相邻区域",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-020": {
+        "id": "basic-020",
+        "name": "上厕所",
+        "source": "docs/cards/基础牌.md#basic-020",
+        "text": "- 使用后到你的下一个回合，你无法被单体伤害选中。",
+        "notes": "到下回合开始还是结束待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "1",
+        "range": "对自身使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-021": {
+        "id": "basic-021",
+        "name": "卫汶找你",
+        "source": "docs/cards/基础牌.md#basic-021",
+        "text": "- 指定一个人，让对方猜你摇出来的数字，对方猜错则可以把对方传送到任意一个位置。",
+        "notes": "猜测与摇骰先后、数字信息可见性待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "2",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-022": {
+        "id": "basic-022",
+        "name": "谣言",
+        "source": "docs/cards/基础牌.md#basic-022",
+        "text": "- 你可以让一个人下回合不可以出牌。",
+        "notes": "是否禁止响应牌待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "1",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-023": {
+        "id": "basic-023",
+        "name": "占座",
+        "source": "docs/cards/基础牌.md#basic-023",
+        "text": "- 对一块区域使用（可以有人），使到你下一个回合内所有人不可进入（对队友无效）。",
+        "notes": "牌面类型写“单体伤害”，正文为区域限制；持续终点待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "1",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-024": {
+        "id": "basic-024",
+        "name": "转学手册",
+        "source": "docs/cards/基础牌.md#basic-024",
+        "text": "- 拿取对方两张手牌或者1张武器/坐骑（可以直接装配，不用行动点，但其特性不变）。",
+        "notes": "选择手牌方式与装备替换待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "建民"
+        ],
+        "printedCost": "2",
+        "range": "相同/相邻区域",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-025": {
+        "id": "basic-025",
+        "name": "收集石头",
+        "source": "docs/cards/基础牌.md#basic-025",
+        "text": "- 摸X张牌（一个回合内可以重复使用）。",
+        "notes": "X的可选范围、是否消耗同一张牌与重复使用费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "X",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-026": {
+        "id": "basic-026",
+        "name": "LMM",
+        "source": "docs/cards/基础牌.md#basic-026",
+        "text": "- 收所有人一张牌，没有手牌的角色扣一点血量。若此作，下回合的单体伤害只可对你使用。【最高等级】（队友无效）",
+        "notes": "自身是否交牌、下回合强制选中范围待确认；费用按用户要求保留牌面写法，不解释选档方式。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2/3",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-027": {
+        "id": "basic-027",
+        "name": "第三只手",
+        "source": "docs/cards/基础牌.md#basic-027",
+        "text": "- 使用后抵消另一张锦囊效果。",
+        "notes": "多档费用、响应顺序待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "0/1/2",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-028": {
+        "id": "basic-028",
+        "name": "高唐判官",
+        "source": "docs/cards/基础牌.md#basic-028",
+        "text": "- 对一个使用“建民”卡牌的玩家使用，无效其卡牌效果并且扣除其一点血量。",
+        "notes": "多档及负行动点费用含义待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "-1/0/1",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-029": {
+        "id": "basic-029",
+        "name": "化猴",
+        "source": "docs/cards/基础牌.md#basic-029",
+        "text": "- 将一名角色改为猴子阵营。",
+        "notes": "是否同步改队伍/胜利归属、持续时间、多档费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "4/5/6",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-030": {
+        "id": "basic-030",
+        "name": "化汶",
+        "source": "docs/cards/基础牌.md#basic-030",
+        "text": "- 将一名角色改为帝汶阵营。",
+        "notes": "是否同步改队伍/胜利归属、持续时间、多档费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "4/5/6",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-031": {
+        "id": "basic-031",
+        "name": "上课铃",
+        "source": "docs/cards/基础牌.md#basic-031",
+        "text": "- 所有人向“教学楼”移动三格（直到进入）。移动结束后，所有处在教学楼内的人给你一点行动点和一张手牌，没有其中一项，则扣除1点血量（队友无效）。",
+        "notes": "“直到进入”与三格上限、自己是否受影响、多档费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "3/4",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-032": {
+        "id": "basic-032",
+        "name": "王漠",
+        "source": "docs/cards/基础牌.md#basic-032",
+        "text": "- 将1块区域变为沙漠。所有停留/经过的人都要向你上交一张手牌或一点行动点，否则则扣除一点血量。",
+        "notes": "地形持续、经过/停留触发频次、自己是否受影响、多档费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "2/3/4",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-033": {
+        "id": "basic-033",
+        "name": "汶泽",
+        "source": "docs/cards/基础牌.md#basic-033",
+        "text": "- 将一块区域变为水域。",
+        "notes": "地形持续、多档费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2/3",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-034": {
+        "id": "basic-034",
+        "name": "移家",
+        "source": "docs/cards/基础牌.md#basic-034",
+        "text": "- 将自己移出地图，不可以被任何技能/手牌/轰炸区/毒圈选中，到下一个回合，自己选择出生地。【最高等级】",
+        "notes": "“选择出生地”的范围、回归时点、费用确定方式待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1-6",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-035": {
+        "id": "basic-035",
+        "name": "约谈",
+        "source": "docs/cards/基础牌.md#basic-035",
+        "text": "- 去除其身上的“化猴”效果。",
+        "notes": "恢复何种阵营、多档费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "2/3/4",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-036": {
+        "id": "basic-036",
+        "name": "樟脑丸",
+        "source": "docs/cards/基础牌.md#basic-036",
+        "text": "- 去除其身上的“化汶”效果。",
+        "notes": "恢复何种阵营、多档费用待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "2/3/4",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-037": {
+        "id": "basic-037",
+        "name": "紫檀木",
+        "source": "docs/cards/基础牌.md#basic-037",
+        "text": "- 复活一名刚死亡的角色（不超过一个回合）。",
+        "notes": "复活血量/地点、死亡窗口与费用确定方式待确认。",
+        "subtype": "锦囊",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1-6",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-038": {
+        "id": "basic-038",
+        "name": "芦荟水",
+        "source": "docs/cards/基础牌.md#basic-038",
+        "text": "- 阻止另外一个食物的效果，并且自身恢复1点血量。",
+        "notes": "响应时机待确认。",
+        "subtype": "食物",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "2",
+        "range": "全地图",
+        "target": "单体伤害",
+        "copies": null
+      },
+      "basic-039": {
+        "id": "basic-039",
+        "name": "奈雪",
+        "source": "docs/cards/基础牌.md#basic-039",
+        "text": "- 回复1点血量。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "食物",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-040": {
+        "id": "basic-040",
+        "name": "茜帝",
+        "source": "docs/cards/基础牌.md#basic-040",
+        "text": "- 所有帝汶家族恢复1点血量，西帝汶回满。",
+        "notes": "回满的生命上限按角色规则裁定。",
+        "subtype": "食物",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "2",
+        "range": "全地图",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-041": {
+        "id": "basic-041",
+        "name": "阿萨姆",
+        "source": "docs/cards/基础牌.md#basic-041",
+        "text": "- 自己和队友回复一点血量。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "相同/相邻区域",
+        "target": "群体伤害",
+        "copies": null
+      },
+      "basic-042": {
+        "id": "basic-042",
+        "name": "冰红茶",
+        "source": "docs/cards/基础牌.md#basic-042",
+        "text": "- 回复1点血量。下一次“肘击”和“牢大”一样打出（不需要消耗行动点）。",
+        "notes": "“和牢大一样打出”的具体机制待确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-043": {
+        "id": "basic-043",
+        "name": "盖浇",
+        "source": "docs/cards/基础牌.md#basic-043",
+        "text": "- 回复1点血量。下一次“躲避球”百分之百命中，伤害+1。【最高等级】",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-044": {
+        "id": "basic-044",
+        "name": "农夫三拳",
+        "source": "docs/cards/基础牌.md#basic-044",
+        "text": "- 回复1点血量。下次使用搏击操时不需要消耗行动点（别人对你使用也是一样）。",
+        "notes": "“别人对你使用也是一样”涉及谁免付费用待确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自身使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-045": {
+        "id": "basic-045",
+        "name": "水果",
+        "source": "docs/cards/基础牌.md#basic-045",
+        "text": "- 回复1点血量+1点护盾。",
+        "notes": "护盾持续、抵扣顺序待确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-046": {
+        "id": "basic-046",
+        "name": "外星人",
+        "source": "docs/cards/基础牌.md#basic-046",
+        "text": "- 回复2点血量。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-047": {
+        "id": "basic-047",
+        "name": "营养快线",
+        "source": "docs/cards/基础牌.md#basic-047",
+        "text": "- 回复1点血量，摸2张牌。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-048": {
+        "id": "basic-048",
+        "name": "油泼",
+        "source": "docs/cards/基础牌.md#basic-048",
+        "text": "- 由你进行判定：1-5回满血；6扣除自己1点血量。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "食物",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-049": {
+        "id": "basic-049",
+        "name": "帝汶斗篷",
+        "source": "docs/cards/基础牌.md#basic-049",
+        "text": "- 披风：当别人使用躲避球对你生效后，你可以进行判定，若为单数，则此躲避球失效。",
+        "notes": "生效后撤销伤害的结算顺序待确认。",
+        "subtype": "武器（身）",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-050": {
+        "id": "basic-050",
+        "name": "杭高校服",
+        "source": "docs/cards/基础牌.md#basic-050",
+        "text": "- 气场压迫：和你同区域的人每回合扣除一点血量（队友无效）（教学楼内无效）。",
+        "notes": "触发时点、多档装备费用待确认。",
+        "subtype": "武器（身）",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2/3",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-051": {
+        "id": "basic-051",
+        "name": "正装",
+        "source": "docs/cards/基础牌.md#basic-051",
+        "text": "- 善良高贵：你每次受到伤害都可以反伤一点（轰炸区/毒圈无效）。【特性：易碎，只可以使用3次，自动报废】",
+        "notes": "反伤目标、次数消耗和自动报废时点、多档费用待确认。",
+        "subtype": "武器（身）",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2/3",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-052": {
+        "id": "basic-052",
+        "name": "粉笔",
+        "source": "docs/cards/基础牌.md#basic-052",
+        "text": "- 粉尘攻击：消耗1个行动点，本次造成的伤害+1（一次攻击只能使用一次）（可以在造成伤害后使用）。\n- 落幕：你失去此装备，可以对场上任意一个人造成一点伤害。",
+        "notes": "伤害后追加时机、群体攻击加伤范围、多档装备费用待确认。",
+        "subtype": "武器（手）",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2/3",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-053": {
+        "id": "basic-053",
+        "name": "校医的扣分单",
+        "source": "docs/cards/基础牌.md#basic-053",
+        "text": "- 心理伤害：你的攻击为真伤。",
+        "notes": "真伤与免疫/护盾关系、多档费用待确认。",
+        "subtype": "武器（手）",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "2/3",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-054": {
+        "id": "basic-054",
+        "name": "爆浆冰淇淋面包",
+        "source": "docs/cards/基础牌.md#basic-054",
+        "text": "- 黏稠：消耗2行动点，使1名角色跳过出牌（2回合1次）。\n- 好吃：失去此装备时，你可以回复2点血量。",
+        "notes": "技能目标距离、跳过出牌范围、两回合计数待确认。",
+        "subtype": "武器（手）",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-055": {
+        "id": "basic-055",
+        "name": "冰糖雪梨",
+        "source": "docs/cards/基础牌.md#basic-055",
+        "text": "- 糖：对你造成伤害/被你造成伤害的角色扣除1行动点（对方没有行动点则失效）。",
+        "notes": "连续/群体伤害触发次数待确认。",
+        "subtype": "武器（手）",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-056": {
+        "id": "basic-056",
+        "name": "高宇涛",
+        "source": "docs/cards/基础牌.md#basic-056",
+        "text": "- 不可阻挡：你的躲避球不是“6”就生效，且不可以“帝汶斗篷”所阻挡。",
+        "notes": "末句保留原文语法。",
+        "subtype": "武器（手）",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-057": {
+        "id": "basic-057",
+        "name": "花露水",
+        "source": "docs/cards/基础牌.md#basic-057",
+        "text": "- 字面意思：你不可以被指定为“吸血”的目标。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "武器（手）",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-058": {
+        "id": "basic-058",
+        "name": "王烨超",
+        "source": "docs/cards/基础牌.md#basic-058",
+        "text": "- Bling Bling：你的卡牌距离+1。",
+        "notes": "“+1”的距离单位与适用牌待确认。",
+        "subtype": "武器（头）",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-059": {
+        "id": "basic-059",
+        "name": "眼镜",
+        "source": "docs/cards/基础牌.md#basic-059",
+        "text": "- 智慧：你受伤上限为1点。\n- 武装：你失去它时可以恢复1点血量。",
+        "notes": "伤害上限适用范围、多档费用待确认。",
+        "subtype": "武器（头）",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-060": {
+        "id": "basic-060",
+        "name": "手表",
+        "source": "docs/cards/基础牌.md#basic-060",
+        "text": "- 回溯时间：回到上回和刚开始的位置（1回合1次）。",
+        "notes": "“上回和”为牌面原文，疑似笔误；目标回合、技能费用、多档装备费用待确认。",
+        "subtype": "武器（腕）",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-061": {
+        "id": "basic-061",
+        "name": "植物",
+        "source": "docs/cards/基础牌.md#basic-061",
+        "text": "- 致命打击：你对别人造成伤害后，可以把他传送到“云上学府”/“高唐农场”。",
+        "notes": "多档费用待确认。",
+        "subtype": "武器（腕）",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "1/2/3",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-062": {
+        "id": "basic-062",
+        "name": "通哥",
+        "source": "docs/cards/基础牌.md#basic-062",
+        "text": "- 停滞：被你攻击到的角色下回合不可以移动（一定要对其造成伤害）。",
+        "notes": "主动与被动移动是否都禁止待确认。",
+        "subtype": "武器（腕）",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-063": {
+        "id": "basic-063",
+        "name": "哈基米",
+        "source": "docs/cards/基础牌.md#basic-063",
+        "text": "- 身躯强大：无视面包车，但是不可以下水，失去后可以传送到“山洞”。",
+        "notes": "无视范围待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "0",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-064": {
+        "id": "basic-064",
+        "name": "面包车",
+        "source": "docs/cards/基础牌.md#basic-064",
+        "text": "- 横冲直撞：停留地同行/同列的所有人扣除1点血量（队友无效），但是你不可以过水。",
+        "notes": "触发时点、频次、自身是否受影响待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "帝汶"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-065": {
+        "id": "basic-065",
+        "name": "承汉骑",
+        "source": "docs/cards/基础牌.md#basic-065",
+        "text": "- 体力充沛：你的卡牌行动点没有上限。",
+        "notes": "“卡牌行动点没有上限”指行动点总量还是用牌限制待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-066": {
+        "id": "basic-066",
+        "name": "等一羊",
+        "source": "docs/cards/基础牌.md#basic-066",
+        "text": "- 等一下：你若是上一个回合没有主动移动，那么你这一个回合可以移动两次，且移动距离即为摇出的点数。",
+        "notes": "首回合是否触发、两次移动是否各判定待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-067": {
+        "id": "basic-067",
+        "name": "高胜胜牌小白马",
+        "source": "docs/cards/基础牌.md#basic-067",
+        "text": "- 王子权威：你若是这一个回合没有移动，那么直到下一个回合，所有拥有坐骑的玩家都无法主动移动。",
+        "notes": "生效时点、是否包含自己待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-068": {
+        "id": "basic-068",
+        "name": "关烁（本人）",
+        "source": "docs/cards/基础牌.md#basic-068",
+        "text": "- 实名上网：若是他人进入你的区域/对你造成伤害，你可以移动一步。",
+        "notes": "频次与移动费用待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-069": {
+        "id": "basic-069",
+        "name": "唐车",
+        "source": "docs/cards/基础牌.md#basic-069",
+        "text": "- 轮椅：你可以选择性的无视地形所有效果（包括沙漠）。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-070": {
+        "id": "basic-070",
+        "name": "无一骑",
+        "source": "docs/cards/基础牌.md#basic-070",
+        "text": "- 【特性：肉盾，它可以为你抵挡两次伤害】（无法吸血，扣血正常）",
+        "notes": "“无法吸血，扣血正常”的作用对象、抵挡耗尽后是否报废待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-071": {
+        "id": "basic-071",
+        "name": "勿一羊",
+        "source": "docs/cards/基础牌.md#basic-071",
+        "text": "- 机智：你的移动不需要消耗行动点。",
+        "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-072": {
+        "id": "basic-072",
+        "name": "粥盛羊",
+        "source": "docs/cards/基础牌.md#basic-072",
+        "text": "- 恢复力：你每次回血时视作回复最大生命值+现有血量。",
+        "notes": "该公式表示回复量还是回复后血量、能否超上限待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "普通"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-073": {
+        "id": "basic-073",
+        "name": "Bob",
+        "source": "docs/cards/基础牌.md#basic-073",
+        "text": "- 变化：你可以转化为场上一个已有的坐骑。",
+        "notes": "牌面主语为“你”；复制坐骑还是角色变坐骑、次数/费用、多档装备费用待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "0/1/2",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-074": {
+        "id": "basic-074",
+        "name": "子腾",
+        "source": "docs/cards/基础牌.md#basic-074",
+        "text": "- 飞天：你移动时可以多消耗1个行动点，改为传送。",
+        "notes": "传送落点范围、多档装备费用待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "神秘"
+        ],
+        "printedCost": "0/1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-075": {
+        "id": "basic-075",
+        "name": "快速车",
+        "source": "docs/cards/基础牌.md#basic-075",
+        "text": "- 木牛流马：你可以把手牌给别人。",
+        "notes": "赠牌距离、时机、数量与费用待确认。",
+        "subtype": "坐骑",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "0",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      },
+      "basic-076": {
+        "id": "basic-076",
+        "name": "临伟叶",
+        "source": "docs/cards/基础牌.md#basic-076",
+        "text": "- 拔刀斩：你可以将你落点区域的人震开（后退一格）。",
+        "notes": "后退方向、多人落点及无合法后退格时的处理待确认。\n\n## 不重复计入卡牌的素材\n\n| 素材 | 原始文件（工作区） | 处理 |\n|---|---|---|\n| [back.jpg](<../../assets/cards/基础牌/back.jpg>) | `基础牌/IMG_6055.jpg` | 牌背/阵营插画，无角色属性和能力 |\n| [template.png](<../../assets/cards/基础牌/template.png>) | `基础牌/IMG_5970.PNG` | 空白模板，无完整卡牌能力 |",
+        "subtype": "坐骑",
+        "tags": [
+          "外星"
+        ],
+        "printedCost": "1",
+        "range": "对自己使用",
+        "target": "自身",
+        "copies": null
+      }
+    },
+    "characters": {
+      "character-002": {
+        "id": "character-002",
+        "name": "easy",
+        "source": "docs/cards/角色牌.md#character-002",
+        "text": "- 主动技 太简单了：消耗一个行动点，进行判定，3-6则可使一张牌失效（可以无限使用）。",
+        "notes": "响应顺序待确认；无限使用保留牌面原文，不解释为免费。",
+        "printedHp": "4",
+        "spawnRegion": "秀松苑",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-003": {
+        "id": "character-003",
+        "name": "JJ",
+        "source": "docs/cards/角色牌.md#character-003",
+        "text": "- 主动技 懒得喷：本回合行动不需要消耗行动点，但是到下一个回合之前，所有牌无限制，你都会成为他们的目标（包括队友的）。\n- 锁定技 没救了：你所造成的致命伤害无法救治。",
+        "notes": "“所有牌无限制”的范围、行动免付范围、技能启动费用、无法救治与复活关系待确认。",
+        "printedHp": "4",
+        "spawnRegion": "秀松苑",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-004": {
+        "id": "character-004",
+        "name": "lemon",
+        "source": "docs/cards/角色牌.md#character-004",
+        "text": "- 锁定技 嘲讽：当你的对手攻击范围内存在你时，他的单体卡牌只能对你使用，若此时他对你造成伤害，那么他可以摸一张牌。\n- 主动技 奶爸：你每扣一滴血，你的队友都可以摸两张牌。",
+        "notes": "“奶爸”标为主动技但正文为受伤触发；多点伤害如何计次、费用待确认。",
+        "printedHp": "5",
+        "spawnRegion": "操场",
+        "printedFaction": null,
+        "waterNative": true
+      },
+      "character-005": {
+        "id": "character-005",
+        "name": "QB",
+        "source": "docs/cards/角色牌.md#character-005",
+        "text": "- 锁定技 根正苗红：建民卡牌对你无效，但是你也没有办法使用他们。\n- 主动技 纯菜：对由自己造成伤害的角色使用，进行判定，3-6则对方再扣一滴血，1-2则自己扣一滴血。",
+        "notes": "纯菜的使用时点、次数、费用待确认。",
+        "printedHp": "4",
+        "spawnRegion": "秀松苑",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-006": {
+        "id": "character-006",
+        "name": "北帝汶",
+        "source": "docs/cards/角色牌.md#character-006",
+        "text": "- 锁定技 北鄙：所有针对非机械猴子的卡牌都对你无效。\n- 主动技 真正的帝汶：你使用带有帝汶词条的卡牌时，不用消耗行动点。",
+        "notes": "“针对非机械猴子的卡牌”的范围、技能是否要主动启动及费用待确认。",
+        "printedHp": "4",
+        "spawnRegion": "帝汶岛",
+        "printedFaction": null,
+        "waterNative": true
+      },
+      "character-010": {
+        "id": "character-010",
+        "name": "东帝汶",
+        "source": "docs/cards/角色牌.md#character-010",
+        "text": "- 锁定技 帝汶三宝：你所在的阵营打出咖啡、橡胶、紫檀木即可获胜。\n- 锁定技 克星：假原始人无法让你阵营的人移动。\n- 主动技 领袖风范：每回合开始可以选择一个人和自己各摸一张牌，或者从别人那里摸一张牌。",
+        "notes": "三宝累计/时序、阵营与队伍关系；领袖风范费用、选取方式待确认。",
+        "printedHp": "4",
+        "spawnRegion": "帝汶岛",
+        "printedFaction": null,
+        "waterNative": true
+      },
+      "character-023": {
+        "id": "character-023",
+        "name": "牢大",
+        "source": "docs/cards/角色牌.md#character-023",
+        "text": "- 锁定技 肘击：你的肘击可以主动打出，对相同地区的角色造成一点伤害，并且瞬移到他的位置，将他撞飞。\n- 主动技 指点江山：你可以将任意牌当作肘击打出，但需要消耗2行动点。",
+        "notes": "撞飞距离/方向、地区含义、转换费用是否另付牌面费用待确认。",
+        "printedHp": "4",
+        "spawnRegion": "教学楼",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-026": {
+        "id": "character-026",
+        "name": "梅梅涛",
+        "source": "docs/cards/角色牌.md#character-026",
+        "text": "- 锁定技 普通人：没有任何技能。\n- 锁定技 创始人：任何技能对你无效。",
+        "notes": "两条技能均按原文保留；“任何技能”是否含自身和装备能力待确认。",
+        "printedHp": "4",
+        "spawnRegion": "教学楼",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-027": {
+        "id": "character-027",
+        "name": "美丽学子",
+        "source": "docs/cards/角色牌.md#character-027",
+        "text": "- 锁定技 款爷：你回合开始和结束之后都可以再摸一张牌，你手上只有一张手牌时，无法被群体技能选中。\n- 被动技 耐药王：你无法通过吃食物回血。",
+        "notes": "“群体技能”是否包括群体卡牌待确认。",
+        "printedHp": "4",
+        "spawnRegion": "教学楼",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-031": {
+        "id": "character-031",
+        "name": "跑者",
+        "source": "docs/cards/角色牌.md#character-031",
+        "text": "- 锁定技 无限体力：你每回合开始时，行动点刷新为6点。\n- 主动技 强大的体魄：在你受到伤害的时候，你可以进行判定，4-6则可以使用2行动点回一滴血。",
+        "notes": "受伤与死亡的结算顺序待确认。",
+        "printedHp": "3",
+        "spawnRegion": "高唐农场",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-037": {
+        "id": "character-037",
+        "name": "土豆",
+        "source": "docs/cards/角色牌.md#character-037",
+        "text": "- 被动技 掘地：当你每次受到伤害的时候，你可以传送到自己指定的位置。",
+        "notes": "落点合法范围、受伤与死亡结算顺序待确认。",
+        "printedHp": "5",
+        "spawnRegion": "教学楼",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-040": {
+        "id": "character-040",
+        "name": "西帝汶",
+        "source": "docs/cards/角色牌.md#character-040",
+        "text": "- 锁定技 方向感：你在移动前，指定一个方向，先进行判定，若为单数则走向反方向。\n- 主动技 拖泥带水：你的每一次行动（无论是主动还是被动）都可以让一个人和自己一起移动。",
+        "notes": "一起移动目标距离、费用、是否仅在移动行动触发待确认。",
+        "printedHp": "5",
+        "spawnRegion": "帝汶岛",
+        "printedFaction": null,
+        "waterNative": true
+      },
+      "character-043": {
+        "id": "character-043",
+        "name": "晓虫",
+        "source": "docs/cards/角色牌.md#character-043",
+        "text": "- 主动技 还有声音：当有人手牌超出上限的时候，你获得他超出上限的手牌。\n- 主动技 整理着装：当有人行动点超出上限的时候，你获得他超出的行动点（你的行动点此时可以超出上限）。【所有技能在他人超出后立刻发动】",
+        "notes": "牌面括号未闭合，转录整理闭合；手牌/行动点上限及例外优先级待确认。",
+        "printedHp": "3",
+        "spawnRegion": "办公室",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-044": {
+        "id": "character-044",
+        "name": "谢bro",
+        "source": "docs/cards/角色牌.md#character-044",
+        "text": "- 锁定技 绝对威严：任何人无法对你使用主动技。\n- 主动技 阎王薄：在你相同或相邻地块，如果有人使用猴子游戏，或者参与猴子游戏，则可对其造成一点伤害。",
+        "notes": "“阎王薄”为牌面写法；目标数、次数/费用待确认。",
+        "printedHp": "3",
+        "spawnRegion": "办公室",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-045": {
+        "id": "character-045",
+        "name": "应豪",
+        "source": "docs/cards/角色牌.md#character-045",
+        "text": "- 锁定技 不可阻挡：你行动路径上的人会被你直接撞开（撞到墙为止）。\n- 锁定技 APE：你所在的阵营打出外星人、阿萨姆、营养快线可直接胜利。\n- 锁定技 来玩：你使用的“猴子游戏”不受任何地点人数限制。",
+        "notes": "撞击方向/路径、组合获胜累计/时序与阵营归属待确认。",
+        "printedHp": "4",
+        "spawnRegion": "秀松苑",
+        "printedFaction": null,
+        "waterNative": false
+      },
+      "character-048": {
+        "id": "character-048",
+        "name": "涨佳选",
+        "source": "docs/cards/角色牌.md#character-048",
+        "text": "- 锁定技 面包之友：你装备面包时不需要消耗行动点。\n- 锁定技 动物之友：你装备动物时不需要消耗行动点。",
+        "notes": "面包/动物装备名单待确认。",
+        "printedHp": "5",
+        "spawnRegion": "教学楼",
+        "printedFaction": null,
+        "waterNative": false
+      }
+    }
+  },
+  "runtimeData": null,
+  "locationPolicy": {
+    "farm": {
+      "normalDrawBonus": 1,
+      "initialDrawBonus": 0
+    },
+    "playground": {
+      "moveCost": 0
+    },
+    "campus": {
+      "firstRoundApBonus": 0,
+      "apBonus": 1,
+      "afterRunnerRefill": true
+    },
+    "xdf": {
+      "foodHealBonus": 1,
+      "characterRestrictionFirst": true
+    },
+    "ship": {
+      "minimumAp": 1,
+      "cost": 0,
+      "usesPerTurn": 1,
+      "emptyDestination": true,
+      "usesBasicMove": false
+    },
+    "commute": {
+      "minimumAp": 1,
+      "spendAllAp": true,
+      "emptyDestination": true,
+      "usesBasicMove": false
+    },
+    "cave": {
+      "stopWalking": true,
+      "occupiedPassage": false
+    },
+    "prohibitedCards": {
+      "教学楼": [
+        "basic-009",
+        "basic-010"
+      ],
+      "秀松苑": [
+        "basic-009",
+        "basic-010"
+      ]
+    },
+    "officeImmuneTag": "建民"
+  },
+  "characterTraits": {
+    "character-002": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "秀松苑",
+      "revivalRegion": null
+    },
+    "character-003": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "秀松苑",
+      "revivalRegion": null
+    },
+    "character-004": {
+      "faction": "帝汶家族",
+      "familyRole": "随从",
+      "waterNative": true,
+      "spawnRegion": "操场",
+      "revivalRegion": "操场"
+    },
+    "character-005": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "秀松苑",
+      "revivalRegion": null
+    },
+    "character-006": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": true,
+      "spawnRegion": "帝汶岛",
+      "revivalRegion": null
+    },
+    "character-010": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": true,
+      "spawnRegion": "帝汶岛",
+      "revivalRegion": null
+    },
+    "character-023": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "教学楼",
+      "revivalRegion": null
+    },
+    "character-026": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "教学楼",
+      "revivalRegion": null
+    },
+    "character-027": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "教学楼",
+      "revivalRegion": null
+    },
+    "character-031": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "高唐农场",
+      "revivalRegion": null
+    },
+    "character-037": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "教学楼",
+      "revivalRegion": null
+    },
+    "character-040": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": true,
+      "spawnRegion": "帝汶岛",
+      "revivalRegion": null
+    },
+    "character-043": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "办公室",
+      "revivalRegion": null
+    },
+    "character-044": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "办公室",
+      "revivalRegion": null
+    },
+    "character-045": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "秀松苑",
+      "revivalRegion": null
+    },
+    "character-048": {
+      "faction": null,
+      "familyRole": null,
+      "waterNative": false,
+      "spawnRegion": "教学楼",
+      "revivalRegion": null
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import {afterAll,expect,it} from 'vitest';
 import {database} from './database';
-import {budget,createGame,dispatch,legalTargets} from '../../packages/game-core/src/index';
+import {budget,createGame,dispatch,legalTargets,publicView} from '../../packages/game-core/src/index';
 import {ALL_CARDS,CHARACTER_IDS,cardForVersion} from '../../packages/game-data/src/index';
 import type {Command,GameState} from '../../packages/game-core/src/types';
 import {commandSchema} from '../../packages/online/src/protocol';
@@ -39,8 +39,21 @@ it('group targeting respects one-card immunity, excludes teammates, and bypasses
  s=fixture('basic-003').s;expect(legalTargets(s,2,'basic-003#01')).toEqual([0,1,3]);
 });
 it('headbutt transfers all current AP, preserves zero-AP damage and old-match two-point cap',async()=>{
- for(const version of ['web-v0.1.1','web-v0.1.2'] as const){const {s,instance}=fixture('basic-008',version);s.players[1].cell='r4c2';s.players[1].ap=9;const t=await step(s,{type:'play',card:instance,targets:[1]});expect(t.players[1].ap).toBe(version==='web-v0.1.2'?0:7);expect(t.players[0].ap).toBe(version==='web-v0.1.2'?13:6);}
+ for(const version of ['web-v0.1.1','web-v0.1.2'] as const){const {s,instance}=fixture('basic-008',version);s.players[1].cell='r4c2';s.players[1].ap=9;const t=await step(s,{type:'play',card:instance,targets:[1]});expect(t.players[1].ap).toBe(version==='web-v0.1.2'?0:7);expect(t.players[0].ap).toBe(version==='web-v0.1.2'?13:6);expect(t.events.findLast(e=>e.type==='ap')?.text).toContain(version==='web-v0.1.2'?'吸收全部9AP（目标AP 9→0）':'吸收2AP');}
  const {s,instance}=fixture('basic-008');s.players[1].cell='r4c2';s.players[1].ap=0;const t=await step(s,{type:'play',card:instance,targets:[1]});expect(t.players[1].hp).toBe(3);expect(t.players[0].ap).toBe(4);
+});
+it('three lethal enemy hits reach settlement with three kills in both engines and the public view',async()=>{
+ const {s,instance}=fixture('basic-005');for(let i=1;i<4;i++){s.players[i].hp=1;s.players[i].ap=0;s.players[i].skillUsed=true;}
+ const t=await step(s,{type:'play',card:instance,targets:[1,2,3]});
+ expect(t.result?.reason).toBe('natural');expect(t.players[0]).toMatchObject({kills:3,damage:3});expect(t.result?.ranking[0]).toMatchObject({players:[0],kills:3,damage:3});
+ const view=(await db.query<any>('select ml_private.public_view($1::jsonb,0) v',[JSON.stringify(t)])).rows[0].v;
+ expect(view.result).toEqual(publicView(t,0).result);expect(view.players[0].kills).toBe(3);
+});
+it('environmental elimination leaves every player kill counter at zero in both engines',async()=>{
+ const {s}=fixture('basic-003');s.round=3;s.active=3;s.cursor=3;s.phase='action';s.choice=null;s.queue=[];
+ s.players[0].cell='r2c4';s.players[1].cell='r2c3';s.players[2].cell='r1c1';s.players[3].cell='r2c5';s.players[2].hp=1;
+ const t=await step(s,{actor:3,type:'end'});expect(t.round).toBe(4);expect(t.players[2].hp).toBe(0);expect(t.players.map(p=>p.kills)).toEqual([0,0,0,0]);
+ expect(t.events.findLast(e=>e.type==='damage')?.text).toContain('环境伤害1');
 });
 it('new headbutt can still be cancelled by defense or elbow; elbow retains its own two-point cap',async()=>{
  for(const id of ['basic-001','basic-002']){const {s,instance,give}=fixture('basic-008');s.players[1].cell='r4c2';s.players[1].ap=9;const response=give(1,id);let t=await step(s,{type:'play',card:instance,targets:[1]});expect(t.choice?.kind).toBe('response');t=await step(t,{actor:1,type:'choose',choice:t.choice!.id,card:response},1200);expect(t.players[1].ap).toBe(id==='basic-002'?11:8);expect(t.players[0].ap).toBe(id==='basic-002'?2:4);}

@@ -1,9 +1,9 @@
 import {PGlite} from '@electric-sql/pglite';
 import {readFile,readdir} from 'node:fs/promises';
-export async function database(path?:string){
+export async function database(path?:string,through=16){
  const db=new PGlite(path);await db.waitReady;
  await db.exec('create role anon; create role authenticated;');
- for(const file of (await readdir('database/migrations')).filter(f=>f.endsWith('.sql')).sort())await db.exec(await readFile('database/migrations/'+file,'utf8'));
+ for(const file of (await readdir('database/migrations')).filter(f=>f.endsWith('.sql')&&Number(f.slice(0,3))<=through).sort())await db.exec(await readFile('database/migrations/'+file,'utf8'));
  return db;
 }
 export const literal=(v:unknown)=>`'${JSON.stringify(v).replaceAll("'","''")}'::jsonb`;

@@ -1,0 +1,2 @@
+# Preserve the supplied CSV bytes (including BOM/CRLF) for source-hash checks.
+docs/maps/classic-regions.csv -text

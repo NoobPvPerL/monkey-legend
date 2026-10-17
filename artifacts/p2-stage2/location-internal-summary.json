@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-17",
+  "baselineCommit": "a5e84e1fee512b2c6a669c83cc9768e92469820b",
+  "applicationVersion": "0.2.2-p2.3",
+  "activeRule": "web-v0.1.3",
+  "classicRule": "web-v0.1.4",
+  "classicPlayable": false,
+  "stage2Complete": false,
+  "schemaVersion": 2,
+  "engineRevision": 11,
+  "testFiles": 27,
+  "testsPassed": 239,
+  "failed": 0,
+  "lemon": {
+    "faction": "帝汶家族",
+    "familyRole": "随从",
+    "waterNative": true,
+    "spawnRegion": "操场",
+    "revivalRegion": "操场"
+  },
+  "spawnCombinationsVerified": 1820,
+  "locationDataReady": true,
+  "publicLocationFlowEnabled": false,
+  "pendingQuestions": [
+    "water parameters (question 2)",
+    "environment parameters (question 3)"
+  ],
+  "cloudExecuted": false,
+  "pushed": false,
+  "migrationSha256": "64f7b4efccaf3ea37fd0732faf1848fdc7d372f3f301f345c114135208290ae7",
+  "checksPassed": [
+    "full tests",
+    "build and typecheck",
+    "verify:catalog",
+    "verify:db-data",
+    "verify:data",
+    "verify:classic-map"
+  ]
+}

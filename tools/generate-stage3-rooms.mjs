@@ -1,0 +1,34 @@
+import {readFile,readdir,writeFile} from 'node:fs/promises';
+const functions=new Map();for(const file of (await readdir('database/migrations')).filter(f=>/^0(?:0\d|1[0-5])_/.test(f)).sort())for(const m of (await readFile('database/migrations/'+file,'utf8')).replaceAll('\r\n','\n').matchAll(/create or replace function ((?:ml_private|public)\.\w+)\([\s\S]*?\$\$;/gi))functions.set(m[1],m[0]);
+const original=name=>{const body=functions.get('ml_private.'+name);if(!body)throw Error('Missing '+name);return body;};
+const replace=(body,from,to)=>{if(!body.includes(from))throw Error('Room hook drift: '+from.slice(0,100));return body.replace(from,to);};
+let out=`-- DEVELOPMENT room wiring, promoted together with the complete stage-three engine.\nalter table ml_private.rooms add column if not exists draft jsonb;\nalter table ml_private.rooms drop constraint if exists rooms_status_check;\nalter table ml_private.rooms add constraint rooms_status_check check(status in ('lobby','drafting','playing','finished','closed'));\n`;
+for(const name of ['draft_offer','draft_pick','dispatch_draft','draft_view'])out+=original(name)+'\n';
+let validate=original('validate_draft').replace("s->>'catalogVersion'='web-v0.1.4'","s->>'catalogVersion' in ('web-v0.1.4','web-v0.1.6')").replaceAll("ml_private.version_catalog('web-v0.1.4')","ml_private.version_catalog(s->>'catalogVersion')");out+=validate+'\n';
+let create=replace(original('create_draft'),'declare s jsonb;',"declare catalogv text:=coalesce(setup->>'catalogVersion','web-v0.1.4');s jsonb;");create=create.replaceAll("ml_private.version_catalog('web-v0.1.4')","ml_private.version_catalog(catalogv)").replace("'version','draft-v1','catalogVersion','web-v0.1.4'","'version','draft-v1','catalogVersion',catalogv");create=replace(create,"perform ml_private.need(jsonb_typeof(setup)='object','选角输入必须为对象');","perform ml_private.need(jsonb_typeof(setup)='object','选角输入必须为对象');perform ml_private.need(catalogv in ('web-v0.1.4','web-v0.1.6'),'选角目录版本无效');");out+=create+'\n';
+out+=(await readFile('database/engine/stage3-rooms.sql','utf8')).replaceAll('\r\n','\n');
+out+=replace(original('save_room'),'game=r.game,','game=r.game,draft=r.draft,')+'\n';
+let refresh=replace(original('refresh_room'),"if r.status='playing' then",`if r.status='drafting' then
+ outj:=ml_private.dispatch_draft(r.draft,jsonb_build_object('type','tick','actor',0,'id','draft-time-'||(r.draft->>'revision'),'revision',r.draft->'revision'),at);
+ perform ml_private.need(outj->>'ok'='true','选角权威时钟处理失败');if outj->'state'<>r.draft then r.draft:=outj->'state';r.revision:=r.revision+1;r.updated_at:=at;end if;
+ r:=ml_private.stage3_complete_draft(r,at);end if;
+ if r.status='playing' then`);refresh=refresh.replaceAll('r.game:=null;', 'r.game:=null;r.draft:=null;');out+=refresh+'\n';
+let view=replace(original('room_view'),"'game',game_view);","'game',game_view)||case when r.status='drafting' then jsonb_build_object('draft',ml_private.draft_view(r.draft,a)) else '{}'::jsonb end;");out+=view+'\n';
+let watch=replace(original('watch_view'),"return v||jsonb_build_object('role','spectator'","if r.status='drafting' then v:=jsonb_set(v,'{draft}',ml_private.draft_view(r.draft,null));end if;\n return v||jsonb_build_object('role','spectator'");out+=watch+'\n';
+out+=original('chat_actor').replaceAll("r.status='playing'","r.status in ('playing','drafting')")+'\n';
+let room=original('room_v1');
+room=replace(room,"'start','leave','game')","'start','leave','game','draft-pick')");
+room=replace(room,"'revision','intent')","'revision','intent','offer','character')");
+room=replace(room,"'start','leave','game') then","'start','leave','game','draft-pick') then");
+room=replace(room,"'end','choose','location')","'end','choose','location','skill')");
+room=replace(room,"'cell','cards','kind')","'cell','cards','kind','direction','as','replacement','target','action')");
+const start="r.match_id:=gen_random_uuid(); r.game:=ml_private.create_game(jsonb_build_object('mode',r.mode,'seed',0,'first',ml_private.entropy(4),'seats','[0,1,2,3]'::jsonb,'secure',true),at); r.status:='playing'; r.members:=ml_private.clear_ready(r.members); changed:=true;";
+room=replace(room,start,"r.match_id:=gen_random_uuid();r.game:=null;r.draft:=ml_private.stage3_create_draft(r.mode,jsonb_build_object('seed',0,'dice','[]'::jsonb,'bombs','[]'::jsonb,'reshuffles','[]'::jsonb,'sortedReshuffles',false,'secure',true),at);r.status:='drafting';r.members:=ml_private.clear_ready(r.members);changed:=true;");
+room=replace(room,"elsif op='ready' then",`elsif op='draft-pick' then
+ perform ml_private.need(r.status='drafting' and p_request->>'matchId'=r.match_id::text,'选角对局身份已过期');
+ command:=jsonb_build_object('type','pick','actor',a,'revision',p_request->'revision','offer',p_request->'offer','character',p_request->'character','id',ml_private.token_hash(r.match_id::text||':'||mid::text||':'||req_id));
+ res:=ml_private.dispatch_draft(r.draft,command,at);perform ml_private.need(res->>'ok'='true',res->>'error');r.draft:=res->'state';r:=ml_private.stage3_complete_draft(r,at);changed:=true;
+ elsif op='ready' then`);
+room=replace(room,"'appliedRevision',r.game->'revision'","'appliedRevision',case when r.status='drafting' then r.draft->'revision' else r.game->'revision' end");out+=room+'\n';
+out+=`revoke all on all functions in schema ml_private from public;\nDO $$ declare r text;begin foreach r in array array['anon','authenticated'] loop execute format('revoke all on all functions in schema ml_private from %I',r);end loop;end $$;\n`;
+const path='database/engine/stage3-rooms-generated.sql';if(process.argv.includes('--check')){if((await readFile(path,'utf8')).replaceAll('\r\n','\n')!==out)throw Error('Stage-three rooms SQL differs');}else await writeFile(path,out);console.log('Staged room draft / identity fences generated; not a release migration.');

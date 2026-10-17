@@ -6,7 +6,7 @@ import {once} from 'node:events';
 import {database} from './database';
 import {createGateway} from '../../apps/server/src/gateway';
 import {attachSchema,commandSchema} from '../../packages/online/src/protocol';
-import type {Reply,Rpc,Snapshot} from '../../packages/online/src/protocol';
+import type {Reply,RoomReply,Rpc,Snapshot} from '../../packages/online/src/protocol';
 
 let db:Awaited<ReturnType<typeof database>>,server:ReturnType<typeof createGateway>,url:string;
 let lost=false,loseNext=false;
@@ -40,6 +40,16 @@ it('P2-N02 one-port static/health/readiness; no source/config leakage and wrong 
  for(const path of ['/config/workbuddy-public.json','/database/migrations/003_rooms.sql','/%2e%2e/package.json','/packages/game-core/src/index.ts'])expect((await fetch(url+path)).status).toBe(404);
  const bad=io(url,{autoConnect:false,transports:['polling'],reconnection:false,extraHeaders:{Origin:'https://wrong.example'}});sockets.push(bad);const failure=socketEvent(bad,'connect_error');bad.connect();await failure;expect(bad.connected).toBe(false);bad.disconnect();
 });
+it('readiness returns 503 for schema 2 without the required rule patch revision',async()=>{
+ let health:Record<string,unknown>={ok:true,schemaVersion:2,ruleVersion:'web-v0.1.6'};
+ const probe=createGateway({rpc:async()=>health,origin:'https://test.example',maintenanceMs:60000});
+ probe.http.listen(0,'127.0.0.1');await once(probe.http,'listening');const base=`http://127.0.0.1:${(probe.http.address() as {port:number}).port}`;
+ try{
+  expect((await fetch(base+'/ready')).status).toBe(503);
+  health={...health,engineRevision:16,draftReady:true,characterSkillsReady:true,stage3Ready:true,classicPatchReady:true,feedbackRulesReady:true,versionedDataReady:true,locationDataReady:true,locationRulesReady:true,waterRulesReady:true,environmentRulesReady:true,classicPlayable:true};expect((await fetch(base+'/ready')).status).toBe(200);
+  health={...health,feedbackRulesReady:false};expect((await fetch(base+'/ready')).status).toBe(503);
+ }finally{await probe.close();}
+});
 it('P2-N03 four polling-only clients, lost committed response retry, private snapshots and duplicate game intent',async()=>{
  const clients=await Promise.all([client(),client(),client(),client()]);const people=Array.from({length:4},(_,i)=>identity('网络'+i));
  const states:Snapshot[]=[];const created=await emit(clients[0],'attach',{op:'create',...people[0]});expect(created.ok,created.error).toBe(true);states[0]=created.snapshot!;
@@ -51,13 +61,20 @@ it('P2-N03 four polling-only clients, lost committed response retry, private sna
   const reply=await emit(clients[i],'command',req);expect(reply.ok,reply.error).toBe(true);if(i===0)expect(reply.duplicate).toBe(true);states[i]=reply.snapshot!;
  }
  const started=await emit(clients[0],'command',{op:'start',requestId:randomUUID(),roomRevision:states[3].roomRevision});expect(started.ok,started.error).toBe(true);
+ expect(started.snapshot!.status).toBe('drafting');
+ for(let pick=0;pick<4;pick++){
+  const a=started.snapshot!.draft!.offer!.actor;
+  const v=(await rpc('ml_room',{p_request:{...people[a],roomId:states[a].roomId,epoch:states[a].epoch,op:'view'}}) as RoomReply).snapshot!;
+  const r=await emit(clients[a],'command',{op:'draft-pick',requestId:randomUUID(),matchId:v.matchId,revision:v.draft!.revision,offer:v.draft!.offer!.id,character:v.draft!.offer!.candidates![0]});expect(r.ok,r.error).toBe(true);started.snapshot=r.snapshot;
+ }
+ expect(started.snapshot!.game!.version).toBe('web-v0.1.6');
  const game=started.snapshot!.game!;const actor=game.choice?.actor??game.active;
  for(let i=0;i<4;i++){
   const reply=await rpc('ml_room',{p_request:{...people[i],op:'view',roomId:states[i].roomId,epoch:states[i].epoch}}) as Reply;const v=reply.snapshot!.game!;
   expect('random' in v||'deck' in v||'queue' in v).toBe(false);for(const p of v.players)expect('hand' in p).toBe(p.seat===i);
   expect(clients[i].io.engine.transport.name).toBe('polling');
  }
- const req={op:'game',requestId:randomUUID(),matchId:started.snapshot!.matchId,revision:game.revision,intent:game.choice?{type:'choose',choice:game.choice.id,accept:false}:{type:'end'}};
+ const req={op:'game',requestId:randomUUID(),matchId:started.snapshot!.matchId,revision:game.revision,intent:game.choice?{type:'choose',choice:game.choice.id,accept:false,...(['discard','xiao-overflow','water-discard'].includes(game.choice.kind)?{cards:game.players[actor].hand!.slice(0,game.choice.count)}:{})}:{type:'end'}};
  const reply=await emit(clients[actor],'command',req);expect(reply.ok,reply.error).toBe(true);const repeat=await emit(clients[actor],'command',req);expect(repeat.duplicate).toBe(true);expect(repeat.snapshot!.game!.revision).toBe(reply.snapshot!.game!.revision);
  const other=await emit(clients[(actor+1)%4],'command',{...req,requestId:randomUUID()});expect(other.ok).toBe(false);
  const superseded=socketEvent(clients[actor],'revoked'),disconnected=socketEvent(clients[actor],'disconnect');const replacement=await client('upgrade');const resumed=await emit(replacement,'attach',{op:'resume',name:people[actor].name,token:people[actor].token,roomId:states[actor].roomId});expect(resumed.ok).toBe(true);await superseded;await disconnected;expect(clients[actor].connected).toBe(false);

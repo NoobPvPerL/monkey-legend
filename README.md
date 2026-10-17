@@ -2,7 +2,10 @@
 
 应猴传说：高唐之战。四人校园地图卡牌游戏。
 
-**当前版本P2好友联机版v0.2.0-p2.1，规则基线web-v0.1.1。服务器已上线，负责人于2026-10-16确认已完成一轮真人游玩，现进入游戏反馈收集。**
+**当前本地完整阶段三：0.2.4-p2.5 / web-v0.1.6 / schema2 / engineRevision16，尚未部署。**
+
+16角色三选一、23种85张、角色完整技能与必要装备接通，含v0.1.5环境／跑者等补丁。旧局保留原版本。规则见[web-v0.1.6](docs/web-rules-v0.1.6.md)，验证见[阶段三记录](docs/p2-stage3-validation.md)，部署见[WorkBuddy交接](docs/p2-stage3-workbuddy.md)。以下旧版本及上线记录保留为历史快照。
+
 负责人批准由Codex补全网页版规则，完成记录见 [P0验收](docs/p0-acceptance-cases.md)。
 
 **[进入在线游戏](https://monkey-legend-p2.app.workbuddy.host/) · [P2 游戏反馈 Issue #13](https://github.com/NoobPvPerL/monkey-legend/issues/13) · [版本下载](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)**
@@ -13,11 +16,13 @@ P2完整应用：准备公开配置`config/workbuddy-public.json`，执行`npm c
 
 [P2版本v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)提供完整源码ZIP、SHA-256与包验证附件；直接游玩使用上方在线地址。
 
-本地工作区另有候选 **0.2.1-p2.2 / web-v0.1.2 / schema2**：第二批交互及Issue新增建议已实施，尚未更新上述线上版本。见 [本地验证](docs/p2-interactions-validation.md)、[新版规则](docs/web-rules-v0.1.2.md)、[升级交接](docs/p2-interactions-workbuddy.md)。
+当前工作区候选 **0.2.2-p2.3 / web-v0.1.4 / schema2 / engineRevision12**：阶段2已在本地实现经典地图、固定地区随机空格出生、地点操作、10秒水域弃牌与轮末地区环境；新局继承攻击牌不限次数。lemon属于帝汶家族随从，出生／所述复活地点为操场。仍使用已实现的4角色、12种64实体牌，新增角色／全牌池／装备在后续阶段开发；原v0.1.1—v0.1.3进行中对局保持保存版本。候选尚未提交、推送或部署。见 [候选规则](docs/web-rules-v0.1.4.md)、[阶段2验证](docs/p2-stage2-validation.md)、[升级交接](docs/p2-third-batch-workbuddy.md)。
+
+阶段三已启动：选角基础与界面组件完成本地验证，正式房间尚未启用；家族分池及Q2—Q4已获负责人批准，完整角色实现与阶段四依赖仍未完成。见[待补裁定](docs/p2-stage3-decisions.md)及[阶段三进展](docs/p2-stage3-validation.md)。
 
 ## 开发入口
 
-- [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：旧版规则基线；本地新版叠加v0.1.2明确差异。
+- [网页版权威规则 v0.1.1](docs/web-rules-v0.1.md)：旧版规则基线；旧局继续叠加其保存的v0.1.2／v0.1.3差异；候选经典图见v0.1.4。
 - [规则规格索引](docs/rules-spec.md)、[32格地图与移动](docs/map-spec.md)、[首版范围及64张牌池](docs/mvp-scope.md)。
 - [验收案例与文档推演](docs/p0-acceptance-cases.md)：46项规格案例、两种模式完整推演；不是游戏运行报告。
 - [进度计划](docs/plan.md)、[开发方案](docs/网页游戏开发方案.md)：阶段划分；P1本地规则引擎与测试桌已实现。
@@ -45,3 +50,7 @@ Windows启动：进入本仓库后执行 npm ci，再执行 npm run dev；测试
 源码也可双击start-local.cmd（需Node 24，首次安装依赖并构建）；开发修改后使用start-local.cmd --rebuild。
 
 意见集中在[P1开发意见征集 #8](https://github.com/NoobPvPerL/monkey-legend/issues/8)；请附版本、模式/种子、复现步骤与预期/实际。[发布结果与进度](docs/development-log.md)已记录。
+
+## 第三批反馈开发（2026-10-17）
+
+本地候选0.2.2-p2.3已完成经典CSV数据准备、头锤明确日志、战斗结果提示、骰子延长显示、结算说明及升级识别。经典地图和随机出生尚未启用，待[Issue #14](https://github.com/NoobPvPerL/monkey-legend/issues/14)补齐规则。详见[实施与验证](docs/p2-third-batch-validation.md)及[后续部署说明](docs/p2-third-batch-workbuddy.md)。本轮未推送或部署。

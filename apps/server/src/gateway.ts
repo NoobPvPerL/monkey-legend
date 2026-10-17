@@ -3,6 +3,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {resolve,sep,extname} from 'node:path';
 import {Server} from 'socket.io';
 import {attachSchema,commandSchema,chatSchema} from '../../../packages/online/src/protocol';
+import {APPLICATION_VERSION,CURRENT_RULE_VERSION,REQUIRED_ENGINE_REVISION,databaseReady} from '../../../packages/online/src/version';
 import type {Credential,RoomReply,Rpc,RoomSnapshot,ChatReply,ChatPacket} from '../../../packages/online/src/protocol';
 
 interface Options {rpc:Rpc;origin:string;staticDir?:string;pollMs?:number;maintenanceMs?:number;allowLoopback?:boolean}
@@ -14,8 +15,8 @@ export function createGateway(options:Options) {
   try {
    const path=new URL(req.url??'/', 'http://localhost').pathname;
    if(req.method!=='GET'&&req.method!=='HEAD'){res.writeHead(405).end();return;}
-   if(path==='/health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({ok:!stopping,version:'0.2.1-p2.2',ruleVersion:'web-v0.1.2'}));return;}
-   if(path==='/ready') {const health=await options.rpc('ml_health',{}) as {ok?:boolean;schemaVersion?:number};const ok=health?.ok===true&&health.schemaVersion===2;res.writeHead(ok?200:503,{'Content-Type':'application/json'}).end(JSON.stringify({ok}));return;}
+   if(path==='/health'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify({ok:!stopping,version:APPLICATION_VERSION,ruleVersion:CURRENT_RULE_VERSION,requiredEngineRevision:REQUIRED_ENGINE_REVISION}));return;}
+   if(path==='/ready') {const ok=databaseReady(await options.rpc('ml_health',{}));res.writeHead(ok?200:503,{'Content-Type':'application/json'}).end(JSON.stringify({ok}));return;}
    const decoded=decodeURIComponent(path);const file=resolve(root,'.'+(decoded==='/'?'/index.html':decoded));
    if(!file.startsWith(root+sep)||!types[extname(file)]||(await stat(file)).isDirectory()){res.writeHead(404).end();return;}
    const body=await readFile(file);res.setHeader('Content-Type',types[extname(file)]);res.writeHead(200);res.end(req.method==='HEAD'?undefined:body);

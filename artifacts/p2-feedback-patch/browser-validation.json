@@ -1,0 +1,35 @@
+{
+  "kind": "local synthetic fixtures using real OnlineBoard/SpectatorBoard; no cloud",
+  "mobile390": {
+    "boardWidth": 390,
+    "bombMarkers": 6,
+    "handContentHeight": 121,
+    "handHeight": 121,
+    "mapWidth": 376,
+    "pageWidth": 390,
+    "protectedPoisonCells": 0,
+    "scrollbar": "none",
+    "width": 390
+  },
+  "mobile360": {
+    "pageWidth": 360,
+    "boardWidth": 360,
+    "mapWidth": 346,
+    "handHeight": 121,
+    "handContentHeight": 121,
+    "scrollbar": "none"
+  },
+  "desktop1200": {
+    "pageWidth": 1200,
+    "mapHeight": 437
+  },
+  "appWarningsAndErrors": [],
+  "checked": [
+    "early protected areas",
+    "late protected bombing",
+    "legacy cleared marker restoration",
+    "player and spectator",
+    "360/390/1200 widths"
+  ],
+  "cloudExecuted": false
+}

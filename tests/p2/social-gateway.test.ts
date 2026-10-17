@@ -26,6 +26,13 @@ it('polling spectator is read-only, receives all hands and chat, retries a lost 
  expect((await emit(watcher,'command',{op:'ready',requestId:randomUUID(),roomRevision:watch.roomRevision,ready:true})).ok).toBe(false);
  for(let i=0;i<4;i++){const view=await rpc('ml_room',{p_request:{...people[i],roomId:states[i].roomId,epoch:states[i].epoch,op:'view'}}) as RoomReply;const r=await emit(clients[i],'command',{op:'ready',requestId:randomUUID(),roomRevision:view.snapshot!.roomRevision,ready:true});expect(r.ok,r.error).toBe(true);states[i]=r.snapshot;}
  const started=await emit(clients[0],'command',{op:'start',requestId:randomUUID(),roomRevision:states[3].roomRevision});expect(started.ok,started.error).toBe(true);
+ expect(started.snapshot!.status).toBe('drafting');
+ for(let pick=0;pick<4;pick++){
+  const a=started.snapshot!.draft!.offer!.actor;
+  const v=(await rpc('ml_room',{p_request:{...people[a],roomId:states[a].roomId,epoch:states[a].epoch,op:'view'}}) as RoomReply).snapshot!;
+  const r=await emit(clients[a],'command',{op:'draft-pick',requestId:randomUUID(),matchId:v.matchId,revision:v.draft!.revision,offer:v.draft!.offer!.id,character:v.draft!.offer!.candidates![0]});expect(r.ok,r.error).toBe(true);started.snapshot=r.snapshot;
+ }
+ expect(started.snapshot!.game!.version).toBe('web-v0.1.6');
  const update=await rpc('ml_watch',{p_request:{...identity,roomId:watch.roomId,epoch:watch.epoch,op:'view'}}) as RoomReply;
  for(const p of update.snapshot!.game!.players)expect(p.hand?.length).toBe(p.handCount);
  const incoming=new Promise<any>(resolve=>watcher.on('chat-messages',p=>{if(p.messages.some((m:any)=>m.text==='玩家消息'))resolve(p);}));

@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-17",
+  "baselineCommit": "a5e84e1fee512b2c6a669c83cc9768e92469820b",
+  "applicationVersion": "0.2.2-p2.3",
+  "activeRule": "web-v0.1.4",
+  "engineRevision": 12,
+  "schemaVersion": 2,
+  "stage3Complete": false,
+  "draftFoundationComplete": true,
+  "draftRoomFlowEnabled": false,
+  "newCharacterSkillsComplete": false,
+  "newPlayableCharacterCount": 0,
+  "testFiles": 32,
+  "testsPassed": 271,
+  "failed": 0,
+  "draftTestsPassed": 17,
+  "migration": "013_draft_foundation.sql",
+  "migrationSha256": "27fe642f255159e4e0548c194d47e08b1a1e15d9ac438b5e16f8970c3a0e82f0",
+  "frozen012Sha256": "70f9968f124342340d88f03ccde9b7aab71ff853716b4594f856469a038dbea0",
+  "confirmed": {
+    "chosenRemoved": true,
+    "globalUnique": true,
+    "unchosenReturned": true,
+    "revealSelected": true,
+    "candidateCount": 3,
+    "deadlineMs": 30000,
+    "teamMode": "family-pools-2v2"
+  },
+  "pending": [
+    "actual faction membership and neutral allocation",
+    "new character skill execution boundaries Q2-Q4 in docs/p2-stage3-decisions.md"
+  ],
+  "uiVerification": {
+    "kind": "synthetic fixture using DraftBoard and reference draft engine; no cloud connection",
+    "widths": [
+      360,
+      390,
+      1200
+    ],
+    "360": {
+      "pageWidth": 360,
+      "draftHeight": 676,
+      "draftScrollHeight": 992,
+      "cardClientHeights": [
+        180,
+        190,
+        250
+      ],
+      "cardScrollHeights": [
+        180,
+        190,
+        250
+      ],
+      "pageScrollbar": "none",
+      "draftScrollbar": "none"
+    },
+    "flows": [
+      "pick and confirm -> next actor",
+      "other players see no current candidates",
+      "authenticated spectator view has three disabled candidate cards"
+    ],
+    "consoleWarningsAndErrors": 0,
+    "screenshots": [
+      "mobile-draft-390.png",
+      "desktop-draft-1200.png"
+    ]
+  },
+  "checksPassed": [
+    "full tests",
+    "typecheck",
+    "build",
+    "verify:catalog",
+    "verify:db-data",
+    "verify:data",
+    "verify:classic-map"
+  ],
+  "pushed": false,
+  "cloudExecuted": false
+}

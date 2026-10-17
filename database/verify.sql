@@ -19,3 +19,23 @@ select n.nspname as schema_name,p.proname as function_name,p.prosecdef as securi
        p.proconfig as fixed_search_path
 from pg_proc p join pg_namespace n on n.oid=p.pronamespace
 where n.nspname='public' and p.proname in ('ml_room','ml_health','ml_maintenance','ml_watch','ml_chat');
+
+-- schemaVersion alone cannot detect an omitted feedback-rules migration.
+select coalesce((public.ml_health()->>'engineRevision')::int>=16,false) as engine_revision_ready,
+       coalesce((public.ml_health()->>'feedbackRulesReady')::boolean,false) as feedback_rules_ready;
+
+select coalesce((public.ml_health()->>'versionedDataReady')::boolean,false) as versioned_data_ready,
+       coalesce((public.ml_health()->>'classicPlayable')::boolean,false) as classic_playable_must_be_true;
+
+select coalesce((public.ml_health()->>'locationDataReady')::boolean,false) as location_data_ready;
+
+select coalesce((public.ml_health()->>'locationRulesReady')::boolean,false) as location_rules_ready,
+       coalesce((public.ml_health()->>'waterRulesReady')::boolean,false) as water_rules_ready,
+       coalesce((public.ml_health()->>'environmentRulesReady')::boolean,false) as environment_rules_ready;
+
+select public.ml_health()->>'ruleVersion'='web-v0.1.6' as current_rule_ready,
+       coalesce((public.ml_health()->>'classicPatchReady')::boolean,false) as classic_patch_ready;
+
+select coalesce((public.ml_health()->>'draftReady')::boolean,false) as draft_ready,
+       coalesce((public.ml_health()->>'characterSkillsReady')::boolean,false) as character_skills_ready,
+       coalesce((public.ml_health()->>'stage3Ready')::boolean,false) as stage3_ready;

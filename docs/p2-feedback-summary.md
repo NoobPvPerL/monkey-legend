@@ -135,3 +135,7 @@ XRY 转述及后续补充：
 | 地区辨认 | 15地区不同基础色，同地区同色，保留水纹与毒圈/轰炸/可达标识 |
 
 来源评论：[群体/头锤](https://github.com/NoobPvPerL/monkey-legend/issues/13#issuecomment-6215684198)、[弃牌](https://github.com/NoobPvPerL/monkey-legend/issues/13#issuecomment-6215690756)、[计时](https://github.com/NoobPvPerL/monkey-legend/issues/13#issuecomment-6215794263)、[头锤裁定](https://github.com/NoobPvPerL/monkey-legend/issues/13#issuecomment-6216035553)、[地区配色](https://github.com/NoobPvPerL/monkey-legend/issues/13#issuecomment-6216660934)。敌人及立即重置的具体边界来自负责人本会话确认。其余旧规划保留历史语境；实际结果见 [第二批验证](p2-interactions-validation.md)，尚未提交或上线。
+
+## 2026-10-17继续读取后的处理状态
+
+本次读取Issue #13全部15条评论；新增[无法确认攻击](https://github.com/NoobPvPerL/monkey-legend/issues/13#issuecomment-6230011741)与[技能命令过期、标记及简洁提示](https://github.com/NoobPvPerL/monkey-legend/issues/13#issuecomment-6230116225)。截图第一项已达旧版攻击2/2；随后负责人本会话转述工作室取消攻击牌张数限制，新局web-v0.1.3已实施不限次数。其余UI同步与标记见[p2-issue13-followup.md](p2-issue13-followup.md)。经典地图及地点／水域／环境、分类、选角与装备等待Issue #14；3—6人按此前确认另批设计。头锤和击杀原始线上场景仍需对应部署与日志证据，不因本地测试通过而直接关闭原反馈。

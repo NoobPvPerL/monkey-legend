@@ -12,6 +12,10 @@ if(stage==='init'){
  const base=i=>({name:name(i),token:token(i),roomId,epoch:1});
  for(let i=0;i<4;i++){const s=(await call({...base(i),op:'view'})).snapshot;const r=await call({...base(i),op:'ready',requestId:'ready',roomRevision:s.roomRevision,ready:true});if(!r.ok)throw Error(r.error);}
  const s=(await call({...base(0),op:'view'})).snapshot;first=await call({...base(0),op:'start',requestId:'start',roomRevision:s.roomRevision});if(!first.ok)throw Error(first.error);
+ for(let i=0;i<4;i++){const a=first.snapshot.draft.offer.actor,v=(await call({...base(a),op:'view'})).snapshot;first=await call({...base(a),op:'draft-pick',requestId:'pick-'+i,matchId:v.matchId,revision:v.draft.revision,offer:v.draft.offer.id,character:v.draft.offer.candidates[0]});if(!first.ok)throw Error(first.error);}
+ // Keep natural termination deterministic: protected areas can now remain safe for many rounds.
+ const row=(await db.query('select game from ml_private.rooms where id=$1',[roomId])).rows[0];row.game.players.forEach((p,i)=>p.cell=['r3c1','r3c2','r4c1','r4c2'][i]);await db.query('update ml_private.rooms set game=$2::jsonb where id=$1',[roomId,JSON.stringify(row.game)]);
+ first=await call({...base(0),op:'view'});
  const digest=(await db.query("select encode(sha256(convert_to(game::text,'UTF8')),'hex') digest from ml_private.rooms where id=$1",[roomId])).rows[0].digest;
  console.log(JSON.stringify({snapshot:first.snapshot,digest}));
 }else{

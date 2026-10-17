@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-17",
+  "applicationVersion": "0.2.3-p2.4",
+  "ruleVersion": "web-v0.1.5",
+  "schemaVersion": 2,
+  "engineRevision": 14,
+  "feedbackPatchComplete": true,
+  "testFiles": 36,
+  "testsPassed": 293,
+  "failed": 0,
+  "finalUiTestsPassed": 4,
+  "finalSqlTestsPassed": 12,
+  "migration": "014_classic_feedback_patch.sql",
+  "migrationSha256": "11e692548ecd618031236ce75e836e82e6f431e8b41814c9365d842ee1419b6f",
+  "stage3SchemeApproved": true,
+  "meiHighestPriorityBoundaryValidated": true,
+  "fullStage3Complete": false,
+  "draftRoomFlowEnabled": false,
+  "playableCharacters": 4,
+  "cardDefinitions": 12,
+  "cardEntities": 64,
+  "stage2DeliveryUnchanged": true,
+  "runner": {
+    "commonRoundApBonus": false,
+    "personalMinimumAp": 6,
+    "preserveAboveSix": true,
+    "locationBonusAfterRefill": true
+  },
+  "checksPassed": [
+    "full regression",
+    "typecheck and production build",
+    "catalog and immutable migrations",
+    "source data and CSV",
+    "real SQL upgrade rollback/repeat/authentication/ACL",
+    "360/390/1200 UI synthetic fixtures"
+  ],
+  "cloudExecuted": false,
+  "deployed": false,
+  "pushed": false,
+  "realPlayerAcceptance": false
+}

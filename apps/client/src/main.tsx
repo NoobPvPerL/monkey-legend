@@ -4,10 +4,13 @@ import {io} from 'socket.io-client';
 import type {Socket} from 'socket.io-client';
 import type {Attachment,Credential,Intent,OnlineCommand,RoomReply,RoomSnapshot} from '../../../packages/online/src/protocol';
 import OnlineBoard from './OnlineBoard';
+import DraftBoard from './DraftBoard';
+import type {DraftPickIntent} from '../../../packages/online/src/draft-protocol';
 import SpectatorBoard from './SpectatorBoard';
 import RoomChat from './RoomChat';
 import MatchEffects from './MatchEffects';
 import Dialog from './Dialog';
+import {commandError,prepareGameCommand,prepareDraftCommand} from './interaction-guards';
 import './style.css';
 import './online.css';
 const LocalTable=lazy(()=>import('./LocalTable'));
@@ -22,20 +25,20 @@ function App(){
  const [showLobby,setShowLobby]=useState(false),[showSpectators,setShowSpectators]=useState(false),[animations,setAnimations]=useState(true),[dealMatchId,setDealMatchId]=useState<string|null>(null);
  useEffect(()=>setShowLobby(false),[room?.roomId,room?.matchId]);
  const socket=useRef<Socket|null>(null),credential=useRef<Credential|null>(null),pending=useRef<OnlineCommand|null>(null),sending=useRef(false),snapshot=useRef<RoomSnapshot|null>(null),pendingKey=useRef('');
- snapshot.current=room;
- const accept=(s:RoomSnapshot)=>{const old=snapshot.current;if(old?.roomId===s.roomId&&(s.roomRevision<old.roomRevision||s.serverTime<old.serverTime))return;if(old?.roomId===s.roomId&&s.matchId&&old.matchId!==s.matchId)setDealMatchId(s.matchId);snapshot.current=s;setRoom(s);};
+ const acceptedAt=useRef(performance.now());
+ const accept=(s:RoomSnapshot)=>{const old=snapshot.current;if(old?.roomId===s.roomId&&(s.epoch<old.epoch||s.roomRevision<old.roomRevision||s.serverTime<old.serverTime))return;if(old?.roomId===s.roomId&&s.matchId&&old.matchId!==s.matchId)setDealMatchId(s.matchId);snapshot.current=s;acceptedAt.current=performance.now();setRoom(s);};
  const clearPending=()=>{pending.current=null;if(pendingKey.current)sessionStorage.removeItem(pendingKey.current);setBusy(false);setUncertain(false);};
- const leaveScreen=()=>{socket.current?.disconnect();socket.current=null;credential.current=null;snapshot.current=null;setAttachment(null);setRoom(null);setConnected(false);setRevoked(false);setBusy(false);setUncertain(false);setRecords(saved());};
+ const leaveScreen=()=>{socket.current?.disconnect();socket.current=null;credential.current=null;snapshot.current=null;pending.current=null;pendingKey.current='';sending.current=false;setAttachment(null);setRoom(null);setConnected(false);setRevoked(false);setBusy(false);setUncertain(false);setRecords(saved());};
  const flush=()=>{
   const command=pending.current,transport=socket.current;if(!command||!transport?.connected||sending.current)return;
   sending.current=true;setBusy(true);setUncertain(false);
   transport.timeout(25000).emit('command',command,(failure:Error|null,reply:RoomReply)=>{
-   if(transport!==socket.current)return;
+   if(transport!==socket.current||pending.current?.requestId!==command.requestId)return;
    sending.current=false;
    if(failure||!reply||/尚未确认/.test(reply.error??'')){setUncertain(true);setError('操作结果尚未确认。请重试原请求，确认前不会发送新操作。');return;}
    clearPending();if(reply.snapshot)accept(reply.snapshot);
    if(reply.left&&reply.ok){if(credential.current)forget(credential.current);leaveScreen();setError('已离开房间');return;}
-   setError(reply.ok?'':reply.error??'操作未成功');
+   setError(commandError(command,reply));
   });
  };
  useEffect(()=>{
@@ -68,7 +71,8 @@ function App(){
  },[attachment]);
  const send=(command:OnlineCommand)=>{if(pending.current||!connected||revoked)return;try{sessionStorage.setItem(pendingKey.current,JSON.stringify(command));pending.current=command;setBusy(true);flush();}catch{setError('无法保存待确认操作，请允许本站存储');}};
  const lobby=(op:'ready'|'mode'|'start'|'leave',extra:Record<string,unknown>={})=>{if(!room)return;send({op,requestId:crypto.randomUUID(),roomRevision:room.roomRevision,...extra} as OnlineCommand);};
- const game=(intent:Intent)=>{if(room?.role!=='spectator'&&room?.game&&room.matchId)send({op:'game',requestId:crypto.randomUUID(),matchId:room.matchId,revision:room.game.revision,intent});};
+ const game=(intent:Intent)=>{const latest=snapshot.current;if(!room||!latest)return;const prepared=prepareGameCommand(room,latest,intent,crypto.randomUUID(),latest.serverTime+performance.now()-acceptedAt.current);if(prepared.command)send(prepared.command);else setError(prepared.error??'请查看最新状态后重试');};
+ const draft=(intent:DraftPickIntent)=>{const latest=snapshot.current;if(!room||!latest)return;const prepared=prepareDraftCommand(room,latest,intent,crypto.randomUUID(),latest.serverTime+performance.now()-acceptedAt.current);if(prepared.command)send(prepared.command);else setError(prepared.error??'请查看最新选角状态');};
  const enter=(op:'create'|'join'|'watch')=>{
   if(op!=='create'&&!/^\d{4}$/.test(code)){setError('请输入完整的4位数字房间码');return;}
   try{const input:Attachment={op,name:name.trim(),token:freshToken(),requestId:crypto.randomUUID(),...(op!=='create'?{code}:{})} as Attachment;sessionStorage.setItem(intakeKey,JSON.stringify(input));credential.current=null;setRoom(null);setAttachment(input);setError('');}catch{setError('浏览器无法保存入房凭据，请允许本站存储');}
@@ -80,13 +84,14 @@ function App(){
   {records.filter(c=>c.name.toLowerCase()===name.toLowerCase()).map(c=><button className="restore-room" disabled={Boolean(attachment)} key={c.roomId} onClick={()=>resume(c)}>恢复{c.kind==='spectator'?'观战':'房间'} {c.code}</button>)}
   {(()=>{try{const p=JSON.parse(sessionStorage.getItem(intakeKey)??'null') as Attachment|null;return p&&p.name.toLowerCase()===name.toLowerCase()&&!attachment?<button onClick={()=>setAttachment(p)}>恢复未确认的入房请求</button>:null;}catch{return null;}})()}
   {attachment&&<><p>正在连接或等待入房确认…</p>{/已满|对局进行中/.test(error)&&<button onClick={()=>{leaveScreen();enter('watch');}}>改为观战 · 可看全部手牌</button>}<button onClick={()=>{setAttachment({...attachment});}}>重试原入房请求</button><button onClick={leaveScreen}>返回入口（保留待确认请求）</button></>}
-  <button className="link" disabled={Boolean(attachment)} onClick={()=>setLocal(true)}>打开本地测试桌 / 复现工具</button></>}{errorPanel}<footer>web-v0.1.2 · 四人好友房 · 各自为战 / 双人同盟<br/>同名恢复依赖本浏览器凭据；断线和关闭页面均继续计时。</footer></section></main>;
+  <button className="link" disabled={Boolean(attachment)} onClick={()=>setLocal(true)}>打开本地测试桌 / 复现工具</button></>}{errorPanel}<footer>web-v0.1.6 · 16角色 · 三选一 · 四人好友房 · 各自为战 / 双人同盟<br/>同名恢复依赖本浏览器凭据；断线和关闭页面均继续计时。</footer></section></main>;
  const watching=room.role==='spectator';
  const host=!watching&&room.host===room.memberId,pre=room.status==='lobby'||room.status==='finished',disabled=busy||!connected||revoked;
  return <div className="table-app online-app"><header className="topbar"><div className="wordmark">应猴传说</div><span className="local-badge">房间 {room.code}</span><span className="online-identity" title={name}>{name} · {room.role==='spectator'?'观众':`S${room.seat+1}`}</span><span className="top-spacer"/><RoomChat transport={socket.current} room={room} connected={connected&&!revoked}/><button className="spectator-count" onClick={()=>setShowSpectators(true)}>观众 {room.spectators?.length??0}</button><span className={`connection-status ${connected?'connected':''}`} role="status">{revoked?'连接失效':connected?'已连接':'重连中'}</span><button onClick={leaveScreen}>返回入口</button></header>
   <div className="online-notices">{errorPanel}{uncertain&&<button disabled={!connected||sending.current||revoked} onClick={flush}>重试原操作</button>}{revoked&&<button onClick={leaveScreen}>返回入口</button>}</div>
   {room.game&&<MatchEffects room={room} dealMatchId={dealMatchId} enabled={animations}/>}
-  {room.role==='spectator'?room.game?<SpectatorBoard snapshot={room} animations={animations} onToggleAnimations={()=>setAnimations(!animations)}/>:<section className="room-lobby"><h2>观战席 · {room.code}</h2><p>等待玩家开局。你可以查看全部玩家手牌并参与聊天。</p><button disabled={disabled} onClick={()=>send({op:'watch-leave',requestId:crypto.randomUUID()})}>离开观战</button></section>:room.game&&!(pre&&showLobby)&&<OnlineBoard snapshot={room} send={game} busy={disabled} onRematch={()=>setShowLobby(true)} animations={animations} onToggleAnimations={()=>setAnimations(!animations)}/>}
+  {room.status==='drafting'&&room.draft&&<DraftBoard draft={room.draft} seat={watching?null:room.seat} members={room.members} serverTime={room.serverTime} busy={disabled} send={draft}/>}
+  {room.role==='spectator'?room.game?<SpectatorBoard snapshot={room} animations={animations} onToggleAnimations={()=>setAnimations(!animations)}/>:room.status==='drafting'?null:<section className="room-lobby"><h2>观战席 · {room.code}</h2><p>等待玩家开局。你可以查看全部玩家手牌并参与聊天。</p><button disabled={disabled} onClick={()=>send({op:'watch-leave',requestId:crypto.randomUUID()})}>离开观战</button></section>:room.game&&!(pre&&showLobby)&&<OnlineBoard snapshot={room} send={game} busy={disabled} onRematch={()=>setShowLobby(true)} animations={animations} onToggleAnimations={()=>setAnimations(!animations)}/>}
   {room.role==='spectator'&&room.game&&<button className="watch-leave" disabled={disabled} onClick={()=>send({op:'watch-leave',requestId:crypto.randomUUID()})}>离开观战</button>}
   {showSpectators&&<Dialog title="观战席" onClose={()=>setShowSpectators(false)}><p>观战者可查看全部玩家手牌；不占玩家座位，可参与聊天。</p>{room.spectators?.length?room.spectators.map(viewer=><p key={viewer.id}>{viewer.name} · {viewer.online?'在线':'离线暂留'}</p>):<p>暂无观众</p>}</Dialog>}
   {room.role!=='spectator'&&pre&&(!room.game||showLobby)&&<section className="room-lobby"><h2>{room.status==='finished'?'再来一局':'好友房'} <strong className="room-code">{room.code}</strong></h2><p>四人在线并全部准备后，由房主开始。观战者可查看全部手牌。</p><div className="lobby-members">{room.members.map((m,i)=><article className="player" key={i}><span className={`seat seat-${i}`}>S{i+1}</span><h3>{m?.name??'等待加入'}</h3><p>{m?`${m.online?'在线':'离线 · 暂留座位'} · ${m.ready?'已准备':'未准备'}${m.id===room.host?' · 房主':''}`:'空座位'}</p></article>)}</div><div className="lobby-actions"><label>游戏模式 <select value={room.mode} disabled={!host||disabled} onChange={e=>lobby('mode',{mode:e.target.value})}><option value="ffa">各自为战</option><option value="team">双人同盟 · 随机2对2</option></select></label><button className="primary" disabled={disabled} onClick={()=>lobby('ready',{ready:!room.members[room.seat]?.ready})}>{room.members[room.seat]?.ready?'取消准备':'准备'}</button>{host&&<button className="primary" disabled={disabled||room.members.some(m=>!m?.online||!m.ready)} onClick={()=>lobby('start')}>开始对局</button>}{room.game&&<button onClick={()=>setShowLobby(false)}>查看上局结算</button>}<button disabled={disabled} onClick={()=>lobby('leave')}>离开房间</button></div><small>成员或模式变化会清空准备。开局前断线保留座位2分钟；断线期间继续计时。</small></section>}

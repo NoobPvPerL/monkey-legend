@@ -1,13 +1,16 @@
 import {z} from 'zod';
 import type {publicView} from '../../game-core/src/index';
+import type {stage3Actions} from '../../game-core/src/stage3-engine';
+import type {DraftView} from '../../game-core/src/draft';
 
-export type OnlineGame = ReturnType<typeof publicView> & {actions:{targets:Record<string,number[]>;steps:string[]}};
+export type OnlineGame = ReturnType<typeof publicView> & {actions:{targets:Record<string,number[]>;steps:string[];stage3?:ReturnType<typeof stage3Actions>}};
 export interface Member {id:string;seat:number;name:string;ready:boolean;online:boolean}
 export interface Spectator {id:string;name:string;online:boolean}
 export interface Snapshot {
- protocol:1;roomId:string;code:string;status:'lobby'|'playing'|'finished'|'closed';mode:'ffa'|'team';host:string|null;
+ protocol:1;roomId:string;code:string;status:'lobby'|'drafting'|'playing'|'finished'|'closed';mode:'ffa'|'team';host:string|null;
  members:(Member|null)[];roomRevision:number;matchId:string|null;seat:number;memberId:string;epoch:number;serverTime:number;game:OnlineGame|null;
  role?:'player';spectators?:Spectator[];
+ draft?:DraftView;
 }
 export interface WatchSnapshot extends Omit<Snapshot,'seat'|'role'> {role:'spectator';seat:null}
 export type RoomSnapshot=Snapshot|WatchSnapshot;
@@ -31,10 +34,12 @@ export const attachSchema=z.discriminatedUnion('op',[
 export type Attachment=z.infer<typeof attachSchema>;
 export interface Credential {name:string;token:string;roomId:string;kind?:'player'|'spectator'}
 const intent=z.discriminatedUnion('type',[
- z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(3)}),
- z.strictObject({type:z.literal('move')}),z.strictObject({type:z.literal('stop')}),z.strictObject({type:z.literal('end')}),
+ z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(3),as:z.literal('elbow').optional(),direction:z.enum(['up','right','down','left']).optional(),replacement:z.string().max(40).optional()}),
+ z.strictObject({type:z.literal('location'),kind:z.enum(['ship','commute']),cell:z.string().max(4)}),
+ z.strictObject({type:z.literal('move'),direction:z.enum(['up','right','down','left']).optional()}),z.strictObject({type:z.literal('stop')}),z.strictObject({type:z.literal('end')}),
  z.strictObject({type:z.literal('step'),path:z.array(z.string().max(4)).min(1).max(6)}),
- z.strictObject({type:z.literal('choose'),choice:revision,accept:z.boolean().optional(),card:z.string().max(40).nullable().optional(),cell:z.string().max(4).nullable().optional(),cards:z.array(z.string().max(40)).max(64).optional()}),
+ z.strictObject({type:z.literal('choose'),choice:revision,accept:z.boolean().optional(),card:z.string().max(40).nullable().optional(),cell:z.string().max(4).nullable().optional(),cards:z.array(z.string().max(40)).max(85).optional(),target:z.number().int().min(0).max(3).optional(),action:z.enum(['draw','steal']).optional()}),
+ z.strictObject({type:z.literal('skill'),kind:z.enum(['jj','bread','revival-quote']),target:z.number().int().min(0).max(3).optional(),card:z.string().max(40).optional()}),
 ]);
 export type Intent=z.infer<typeof intent>;
 export const commandSchema=z.discriminatedUnion('op',[
@@ -44,6 +49,7 @@ export const commandSchema=z.discriminatedUnion('op',[
  z.strictObject({op:z.literal('leave'),requestId,roomRevision:revision}),
  z.strictObject({op:z.literal('watch-leave'),requestId}),
  z.strictObject({op:z.literal('game'),requestId,matchId:z.uuid(),revision,intent}),
+ z.strictObject({op:z.literal('draft-pick'),requestId,matchId:z.uuid(),revision,offer:revision.positive(),character:z.string().regex(/^character-\d{3}$/)}),
 ]);
 export type OnlineCommand=z.infer<typeof commandSchema>;
 export const chatSchema=z.discriminatedUnion('op',[

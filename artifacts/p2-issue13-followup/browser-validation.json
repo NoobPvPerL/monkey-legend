@@ -1,0 +1,63 @@
+{
+  "rule": "web-v0.1.3",
+  "room": "5534",
+  "attackSequence": [
+    ":\n  - strong: 你的手牌 · 3 张\n  - generic: AP 9 · 攻击已出1张 · 不限次数 · 移动可用\n  - button \"牌堆 58 / 弃牌 1\"\n  - generic \"左右滑动查看手牌\":\n    - button \"搏击操Ⅰ，1 AP，全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\":\n      - text: 攻击\n      - generic: 1 AP\n      - strong: 搏击操Ⅰ\n      - generic: 全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\n    - button \"搏击操Ⅰ，1 AP，全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\":\n      - text: 攻击\n      - generic: 1 AP\n      - strong: 搏击操Ⅰ\n      - generic: 全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\n    - button \"搏击操Ⅰ，1 AP，全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\":\n      - text: 攻击\n      - generic: 1 AP\n      - strong: 搏击操Ⅰ\n      - generic: 全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\n",
+    ":\n  - strong: 你的手牌 · 2 张\n  - generic: AP 8 · 攻击已出2张 · 不限次数 · 移动可用\n  - button \"牌堆 58 / 弃牌 2\"\n  - generic \"左右滑动查看手牌\":\n    - button \"搏击操Ⅰ，1 AP，全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\":\n      - text: 攻击\n      - generic: 1 AP\n      - strong: 搏击操Ⅰ\n      - generic: 全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\n    - button \"搏击操Ⅰ，1 AP，全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\":\n      - text: 攻击\n      - generic: 1 AP\n      - strong: 搏击操Ⅰ\n      - generic: 全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\n",
+    ":\n  - strong: 你的手牌 · 1 张\n  - generic: AP 7 · 攻击已出3张 · 不限次数 · 移动可用\n  - button \"牌堆 58 / 弃牌 3\"\n  - generic \"左右滑动查看手牌\":\n    - button \"搏击操Ⅰ，1 AP，全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\":\n      - text: 攻击\n      - generic: 1 AP\n      - strong: 搏击操Ⅰ\n      - generic: 全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体\n"
+  ],
+  "expiredSkill": {
+    "message": "原选择窗口已结束，本次操作未执行；已同步最新状态。",
+    "ap": 4,
+    "testFixture": "choice initially extended only in test controller; DB clock advanced after submit to simulate deadline race"
+  },
+  "layout390": {
+    "documentWidth": 390,
+    "marks": [
+      {
+        "hazard": {
+          "height": 17,
+          "width": 15,
+          "x": 34.583335876464844,
+          "y": 396.25
+        },
+        "piece": {
+          "height": 21,
+          "width": 20,
+          "x": 9.666666984558104,
+          "y": 392.25
+        }
+      },
+      {
+        "hazard": {
+          "height": 17,
+          "width": 15,
+          "x": 129.08334350585938,
+          "y": 396.25
+        },
+        "piece": {
+          "height": 21,
+          "width": 20,
+          "x": 104.16667175292967,
+          "y": 392.25
+        }
+      }
+    ],
+    "width": 390,
+    "handRegion": {
+      "scrollHeight": 155,
+      "width": 376,
+      "clientHeight": 155
+    }
+  },
+  "console": [],
+  "layout360": {
+    "viewportWidth": 360,
+    "viewportHeight": 640,
+    "handRegion": {
+      "scrollHeight": 152,
+      "width": 346,
+      "clientHeight": 152
+    }
+  }
+}

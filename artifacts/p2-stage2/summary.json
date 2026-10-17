@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-17",
+  "baselineCommit": "a5e84e1fee512b2c6a669c83cc9768e92469820b",
+  "applicationVersion": "0.2.2-p2.3",
+  "activeRule": "web-v0.1.4",
+  "classicRule": "web-v0.1.4",
+  "classicPlayable": true,
+  "stage2Complete": true,
+  "schemaVersion": 2,
+  "engineRevision": 12,
+  "testFiles": 29,
+  "testsPassed": 254,
+  "failed": 0,
+  "lemon": {
+    "faction": "帝汶家族",
+    "familyRole": "随从",
+    "waterNative": true,
+    "spawnRegion": "操场",
+    "revivalRegion": "操场"
+  },
+  "spawnCombinationsVerified": 1820,
+  "locationDataReady": true,
+  "publicLocationFlowEnabled": true,
+  "pendingQuestions": [],
+  "cloudExecuted": false,
+  "pushed": false,
+  "migrationSha256": "70f9968f124342340d88f03ccde9b7aab71ff853716b4594f856469a038dbea0",
+  "checksPassed": [
+    "full tests",
+    "build and typecheck",
+    "verify:catalog",
+    "verify:db-data",
+    "verify:data",
+    "verify:classic-map",
+    "360/390 browser UI checks"
+  ],
+  "migration": "012_classic_rules.sql",
+  "uiVerification": {
+    "source": "local synthetic fixtures using actual OnlineBoard/SpectatorBoard and reference engine; authority separately covered by authenticated SQL/Socket.IO tests",
+    "widths": [
+      360,
+      390
+    ],
+    "viewport360": {
+      "pageWidth": 360,
+      "handWidth": 345,
+      "handScrollWidth": 464,
+      "handHeight": 121,
+      "handScrollHeight": 121,
+      "cardClientHeights": [
+        106,
+        106,
+        106,
+        106
+      ],
+      "cardScrollHeights": [
+        106,
+        106,
+        106,
+        106
+      ],
+      "scrollbarWidth": "none"
+    },
+    "flows": [
+      "ship destination -> water choice -> one-card discard -> action",
+      "playground zero AP enabled and movement opens",
+      "round fourteen / closed farm in player and spectator views"
+    ],
+    "consoleErrors": 0,
+    "screenshots": [
+      "mobile-water-390.png",
+      "mobile-spectator-390.png"
+    ]
+  }
+}

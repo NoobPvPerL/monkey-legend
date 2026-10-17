@@ -1,0 +1,45 @@
+{
+  "scope": "Local synthetic UI using production React components and the TS engine. No cloud access. Choice deadlines extended only in the interactive fixture; 10/20/30/60 second production deadlines are tested in TS/SQL.",
+  "viewports": [
+    {
+      "width": 360,
+      "height": 800,
+      "pageWidth": 360,
+      "handHeight": 194,
+      "handScrollHeight": 194,
+      "scrollbar": "none"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "pageWidth": 390,
+      "handHeight": 194,
+      "handScrollHeight": 194,
+      "scrollbar": "none"
+    },
+    {
+      "width": 1200,
+      "height": 850,
+      "pageWidth": 1200,
+      "handHeight": 184,
+      "handScrollHeight": 184,
+      "scrollbar": "none"
+    }
+  ],
+  "flows": [
+    "Draft pick confirms and exposes selected QB, then shows the next three candidates",
+    "West declares direction, walks, chooses companion and empty landing; companion keeps 10 AP",
+    "Zhang requires an explicit Hakimi replacement, resolves loss choice before installing free sheep",
+    "Revival quote locks d6=4 without charge; confirmation spends 4 AP and revives runner at 1 HP /0 AP /empty hand",
+    "Laoda converts unquoted revival at total 2 AP, previews right/r1c4 before play; runner is pushed to the selected landing, exposed JJ gets a fallback landing, Mei is unaffected"
+  ],
+  "consoleWarningsAndErrors": [],
+  "screenshots": [
+    "mobile-390-west.png",
+    "mobile-390-revival-quote.png",
+    "mobile-390-draft.png",
+    "desktop-1200-equipment.png",
+    "mobile-390-elbow-preview.png",
+    "mobile-390-elbow-result.png"
+  ]
+}

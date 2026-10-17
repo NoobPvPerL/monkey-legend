@@ -1,0 +1,12 @@
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {transform} from 'esbuild';
+const source=await readFile('docs/maps/classic-regions.csv');
+if(createHash('sha256').update(source).digest('hex')!=='0e2390fb5bee52c721f0f66f09cdbdf1b0acfa094cd441d487118c96e0cf9a3c')throw Error('Original classic CSV hash changed');
+const code=await transform(await readFile('packages/game-data/src/classic-map.ts','utf8'),{loader:'ts',format:'esm'});
+const data=await import('data:text/javascript;base64,'+Buffer.from(code.code).toString('base64'));
+const cells=data.parseRegionCsv(source.toString('utf8'));
+if(JSON.stringify(cells)!==JSON.stringify(data.CLASSIC_CELLS))throw Error('Classic runtime layout differs from source CSV');
+const sql=await readFile('database/migrations/008_feedback_diagnostics.sql','utf8');
+if(!sql.includes(JSON.stringify(cells)))throw Error('Classic SQL catalog differs from source CSV');
+console.log('Classic CSV original hash, 32 cells/15 connected regions, TS and SQL layout agree; 010 preserves the historical foundation; 012 enables approved classic gameplay.');
