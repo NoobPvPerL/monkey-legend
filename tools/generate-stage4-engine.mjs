@@ -78,6 +78,7 @@ out+=(await readFile('database/engine/stage4-map-engine.sql','utf8')).replaceAll
 out+=(await readFile('database/engine/stage4-interrupt.sql','utf8')).replaceAll('\r\n','\n');
 out+=(await readFile('database/engine/stage4-view.sql','utf8')).replaceAll('\r\n','\n');
 out+='\nrevoke all on all functions in schema ml_private from public;\nDO $$ declare r text;begin foreach r in array array[\'anon\',\'authenticated\'] loop execute format(\'revoke all on all functions in schema ml_private from %I\',r);end loop;end $$;\n';
+out=out.replace(/[\t ]+$/gm,'');
 const path='database/engine/stage4-generated.sql';
 if(process.argv.includes('--check')){if((await readFile(path,'utf8')).replaceAll('\r\n','\n')!==out)throw Error('Stage-four engine SQL differs');}else await writeFile(path,out);
 console.log('Development v0.1.7 /191 entities; formal room default unchanged.');

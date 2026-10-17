@@ -772,7 +772,7 @@ set search_path=pg_catalog,ml_private as $$ declare s jsonb:=previous; a integer
   else
    p:=s->'players'->a; perform ml_private.need(a=(s->>'active')::int and (p->>'hp')::int>0,'只有当前存活行动者可操作'); perform ml_private.need(s->'choice'='null'::jsonb,'请先完成当前选择');
    case typ
-    when 'step' then if s->>'version' in ('web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7') then perform ml_private.need(s->>'phase'='moving' and s->'movement'<>'null'::jsonb and jsonb_array_length(cmd->'path')>0,'尚未开始移动或路径为空');s:=ml_private.classic_walk(s,cmd->'path',at);else 
+    when 'step' then if s->>'version' in ('web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7') then perform ml_private.need(s->>'phase'='moving' and s->'movement'<>'null'::jsonb and jsonb_array_length(cmd->'path')>0,'尚未开始移动或路径为空');s:=ml_private.classic_walk(s,cmd->'path',at);else
      perform ml_private.need(s->>'phase'='moving' and s->'movement'<>'null'::jsonb,'尚未开始移动'); perform ml_private.need(jsonb_array_length(cmd->'path')>0,'移动路径不能为空'); m:=s->'movement';
      for cell in select x#>>'{}' from ml_private.arr(cmd->'path') x loop
       perform ml_private.need(ml_private.game_data(s,'map') ? cell and ml_private.distance_for_version(s->>'version',p->>'cell',cell)=1,'只能正交移动到棋盘内相邻格'); cost:=case when ml_private.game_data(s,'map')->cell->>'terrain'='water' then 2 else 1 end; left_steps:=(m->>'remaining')::int-cost;
