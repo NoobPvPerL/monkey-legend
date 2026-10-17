@@ -1,9 +1,10 @@
 import {z} from 'zod';
 import type {publicView} from '../../game-core/src/index';
+import type {stage4Actions} from '../../game-core/src/stage4-view';
 import type {stage3Actions} from '../../game-core/src/stage3-engine';
 import type {DraftView} from '../../game-core/src/draft';
 
-export type OnlineGame = ReturnType<typeof publicView> & {actions:{targets:Record<string,number[]>;steps:string[];stage3?:ReturnType<typeof stage3Actions>}};
+export type OnlineGame = ReturnType<typeof publicView> & {actions:{targets:Record<string,number[]>;steps:string[];stage3?:ReturnType<typeof stage3Actions>;stage4?:ReturnType<typeof stage4Actions>}};
 export interface Member {id:string;seat:number;name:string;ready:boolean;online:boolean}
 export interface Spectator {id:string;name:string;online:boolean}
 export interface Snapshot {
@@ -34,12 +35,12 @@ export const attachSchema=z.discriminatedUnion('op',[
 export type Attachment=z.infer<typeof attachSchema>;
 export interface Credential {name:string;token:string;roomId:string;kind?:'player'|'spectator'}
 const intent=z.discriminatedUnion('type',[
- z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(3),as:z.literal('elbow').optional(),direction:z.enum(['up','right','down','left']).optional(),replacement:z.string().max(40).optional()}),
+ z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(3),as:z.literal('elbow').optional(),direction:z.enum(['up','right','down','left']).optional(),replacement:z.string().max(40).optional(),x:z.number().int().min(1).max(Number.MAX_SAFE_INTEGER).optional(),region:z.string().max(30).optional(),take:z.enum(['hand','equipment']).optional(),item:z.string().max(40).optional(),copy:z.string().max(40).optional()}),
  z.strictObject({type:z.literal('location'),kind:z.enum(['ship','commute']),cell:z.string().max(4)}),
  z.strictObject({type:z.literal('move'),direction:z.enum(['up','right','down','left']).optional()}),z.strictObject({type:z.literal('stop')}),z.strictObject({type:z.literal('end')}),
  z.strictObject({type:z.literal('step'),path:z.array(z.string().max(4)).min(1).max(6)}),
- z.strictObject({type:z.literal('choose'),choice:revision,accept:z.boolean().optional(),card:z.string().max(40).nullable().optional(),cell:z.string().max(4).nullable().optional(),cards:z.array(z.string().max(40)).max(85).optional(),target:z.number().int().min(0).max(3).optional(),action:z.enum(['draw','steal']).optional()}),
- z.strictObject({type:z.literal('skill'),kind:z.enum(['jj','bread','revival-quote']),target:z.number().int().min(0).max(3).optional(),card:z.string().max(40).optional()}),
+ z.strictObject({type:z.literal('choose'),choice:revision,accept:z.boolean().optional(),card:z.string().max(40).nullable().optional(),cell:z.string().max(4).nullable().optional(),cards:z.array(z.string().max(40)).max(191).optional(),target:z.number().int().min(0).max(3).optional(),action:z.enum(['draw','steal','ap']).optional(),option:z.string().max(100).optional(),guess:z.number().int().min(1).max(6).optional()}),
+ z.strictObject({type:z.literal('skill'),kind:z.enum(['jj','bread','revival-quote','quote-cost','watch','flight','gift','terrain']),target:z.number().int().min(0).max(3).optional(),card:z.string().max(40).optional(),cell:z.string().max(4).optional(),cards:z.array(z.string().max(40)).max(191).optional(),accept:z.boolean().optional()}),
 ]);
 export type Intent=z.infer<typeof intent>;
 export const commandSchema=z.discriminatedUnion('op',[

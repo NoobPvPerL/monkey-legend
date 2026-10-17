@@ -3,7 +3,9 @@ import {database} from './database';
 import {createDraft,dispatchDraft,draftView,validateDraft} from '../../packages/game-core/src/draft';
 import type {DraftSetup,DraftState,DraftCommand} from '../../packages/game-core/src/draft';
 import {sourceCatalogForVersion} from '../../packages/game-data/src/index';
-import {databaseReady} from '../../packages/online/src/version';
+import {databaseReady as currentDatabaseReady,STAGE3_DATABASE_REQUIREMENT} from '../../packages/online/src/version';
+// This suite validates the frozen stage-three readiness contract.
+const databaseReady=(health:unknown)=>currentDatabaseReady(health,STAGE3_DATABASE_REQUIREMENT);
 const db=await database();afterAll(()=>db.close());
 const q=async(sql:string,args:unknown[]=[])=>((await db.query<{v:any}>(sql,args)).rows[0].v);
 const ids=Object.keys(sourceCatalogForVersion('web-v0.1.4').characters);

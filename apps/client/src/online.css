@@ -1,6 +1,17 @@
 /* Hide scrollbar chrome throughout the app, while preserving normal scrolling. */
 *{scrollbar-width:none!important;-ms-overflow-style:none}
 *::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+.stage4-card-form,.stage4-skills,.stage4-options{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0;max-width:100%;flex-basis:100%}
+.stage4-card-form{border-top:1px solid #38504d;padding-top:10px}
+.stage4-card-form label,.compact-buttons>label{display:flex;gap:6px;align-items:center;flex-wrap:wrap;max-width:100%;font-size:13px}
+.stage4-card-form select,.stage4-card-form input,.compact-buttons>label select{min-height:44px;font-size:16px;max-width:100%;background:#15282c;color:#e1e6dc;border:1px solid #45605a;border-radius:6px;padding:7px}
+.stage4-card-form input{width:100px}
+.stage4-options{align-items:stretch}
+.stage4-options button{white-space:normal;overflow-wrap:anywhere;text-align:left;max-width:100%;flex:1 1 180px}
+.stage4-card-form button:last-child,.stage4-options button:last-child,.stage4-skills button:last-child{margin-left:0}
+.interrupt-action{border-color:#c7ab61;color:#f6d88a}
+.cell.desert-overlay{border-bottom:3px solid #b89654}
+.terrain-tag{font-size:8px;line-height:1;color:#ebcf95;position:absolute;bottom:3px;right:3px}
 /* Online layout is scoped so the local test table keeps its existing layout. */
 .online-app{height:100dvh;min-height:540px;display:flex;flex-direction:column;max-width:1600px;margin:auto;overflow:hidden}
 .online-app .topbar{height:48px;min-height:48px;padding:6px 18px;gap:14px;flex-wrap:nowrap}

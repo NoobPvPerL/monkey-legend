@@ -6,7 +6,7 @@ import type {Mode,RandomState} from './types';
 
 export const DRAFT_WINDOW_MS=30000;
 export const DRAFT_CATALOG_VERSION=CLASSIC_RULE_VERSION;
-export type DraftCatalogVersion=typeof DRAFT_CATALOG_VERSION|typeof STAGE3_RULE_VERSION;
+export type DraftCatalogVersion=typeof DRAFT_CATALOG_VERSION|typeof STAGE3_RULE_VERSION|'web-v0.1.7';
 export interface DraftSetup {mode:Mode;order:number[];teams:string[];pools:Record<string,string[]>;random:RandomState;catalogVersion?:DraftCatalogVersion}
 export interface DraftOffer {id:number;actor:number;candidates:string[];deadline:number}
 export interface DraftEvent {seq:number;kind:'offer'|'pick';actor:number;at:number;character?:string;timedOut?:boolean}
@@ -31,7 +31,7 @@ function offerNext(s:DraftState,at:number){
 export function createDraft(setup:DraftSetup,now:number):DraftState {
  need(setup&&typeof setup==='object'&&!Array.isArray(setup),'选角输入必须为对象');
  need(Number.isFinite(now)&&now>=0,'选角时钟无效');
- const catalogVersion=setup.catalogVersion??DRAFT_CATALOG_VERSION;need(catalogVersion===DRAFT_CATALOG_VERSION||catalogVersion===STAGE3_RULE_VERSION,'选角目录版本无效');
+ const catalogVersion=setup.catalogVersion??DRAFT_CATALOG_VERSION;need(catalogVersion===DRAFT_CATALOG_VERSION||(catalogVersion===STAGE3_RULE_VERSION||catalogVersion==='web-v0.1.7'),'选角目录版本无效');
  need(Array.isArray(setup.order)&&same(setup.order,[0,1,2,3]),'选角需要四个固定座位的行动顺序');
  need(setup.mode==='ffa'||setup.mode==='team','选角模式无效');
  need(Array.isArray(setup.teams)&&setup.teams.length===4,'选角阵营需要四个座位');
@@ -58,7 +58,7 @@ function pick(s:DraftState,character:string,at:number,timedOut:boolean){
  s.cursor++;offerNext(s,at);
 }
 export function validateDraft(s:DraftState){
- need((s.status==='choosing'||s.status==='complete')&&s.version==='draft-v1'&&(s.catalogVersion===DRAFT_CATALOG_VERSION||s.catalogVersion===STAGE3_RULE_VERSION)&&same(s.order,[0,1,2,3])&&s.selected.length===4,'选角状态版本或座位无效');
+ need((s.status==='choosing'||s.status==='complete')&&s.version==='draft-v1'&&(s.catalogVersion===DRAFT_CATALOG_VERSION||s.catalogVersion===STAGE3_RULE_VERSION||s.catalogVersion==='web-v0.1.7')&&same(s.order,[0,1,2,3])&&s.selected.length===4,'选角状态版本或座位无效');
  const chosen=s.selected.filter(id=>id!==null);need(chosen.length===s.cursor&&new Set(chosen).size===chosen.length&&chosen.every(id=>ids(s.catalogVersion).includes(id)),'已选角色无效或重复');
  need(s.order.every((a,i)=>(s.selected[a]!==null)===(i<s.cursor)),'选角顺序不一致');
  need(Object.values(s.pools).every(pool=>pool.every(id=>!chosen.includes(id))),'已选角色没有移出牌池');
@@ -98,9 +98,9 @@ export function draftView(s:DraftState,viewer:number|null){
 export type DraftView=ReturnType<typeof draftView>;
 // Authoritative caller supplies the RNG. Client intents never supply a seed,
 // team, pool, first seat, deadline or candidate list.
-export function createStage3Draft(mode:Mode,random:RandomState,now:number):DraftState {
+export function createStage3Draft(mode:Mode,random:RandomState,now:number,catalogVersion:DraftCatalogVersion=STAGE3_RULE_VERSION):DraftState {
  const rng=structuredClone(random),first=integer(rng,4),pair=shuffled(rng,[0,1,2,3]).slice(0,2);
  const teams=mode==='team'?[0,1,2,3].map(a=>pair.includes(a)?'机械猴子':'帝汶家族'):[0,1,2,3].map(a=>`S${a+1}`);
  const pools=mode==='team'?factionDraftPools(STAGE3_CHARACTER_IDS):Object.fromEntries(teams.map(t=>[t,[...STAGE3_CHARACTER_IDS]]));
- return createDraft({mode,order:[0,1,2,3].map(i=>(first+i)%4),teams,pools,random:rng,catalogVersion:STAGE3_RULE_VERSION},now);
+ return createDraft({mode,order:[0,1,2,3].map(i=>(first+i)%4),teams,pools,random:rng,catalogVersion},now);
 }

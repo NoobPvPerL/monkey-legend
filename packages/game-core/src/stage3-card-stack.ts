@@ -6,6 +6,8 @@ export interface PendingCard {
  responseTo:number|null;responseActor:number|null;
  converted?:boolean;pushDirection?:Direction;replacement?:string;installed?:boolean;
  pursuits?:number[];
+ stage4?:{x?:number;dodge?:boolean;counter?:'tactic'|'jianmin'|'food';counterEffective?:boolean;counterOffered?:boolean;
+ region?:string;guessDie?:number;officeExempt?:number[];take?:'hand'|'equipment';item?:string;copy?:string;interrupt?:boolean;resumePhase?:'moving'|'action';finishBoundary?:'next'|'round-next';cardTeam?:string};
 }
 export interface CardStack {serial:number;stack:PendingCard[]}
 export interface CardStackState extends ResourceState {cardStack:CardStack;resolving:string[]}
@@ -31,7 +33,7 @@ export function closePending(s:CardStackState):PendingCard {
  const pending=currentCard(s);need(!pending.counter,'反制尚未结束');
  if(pending.responseTo!==null){
   const parent=s.cardStack.stack.at(-2);need(parent?.serial===pending.responseTo,'响应父牌已过期');
-  if(!pending.countered){const a=pending.responseActor!;if(!parent!.cancelled.includes(a))parent!.cancelled.push(a);if(pending.definition==='basic-002')parent!.elbows.push(a);}
+  if(!pending.countered){if(pending.stage4?.counter){if(pending.stage4.counterEffective)parent!.countered=true;}else{const a=pending.responseActor!;if(!parent!.cancelled.includes(a))parent!.cancelled.push(a);if(pending.definition==='basic-002')parent!.elbows.push(a);}}
  }
  s.cardStack.stack.pop();s.resolving=s.resolving.filter(c=>c!==pending.card);s.discard.push(pending.card);return pending;
 }

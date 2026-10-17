@@ -1,7 +1,7 @@
 import {cardForVersion,definitionId} from '../../../packages/game-data/src/index';
 import type {OnlineGame} from '../../../packages/online/src/protocol';
 export function EquipmentLine({game,seat,onReference}:{game:OnlineGame;seat:number;onReference:(id:string)=>void}){
- if(!game.stage3)return null;const cards=game.stage3.equipment[seat];return <div className="equipment-line" aria-label={`S${seat+1}已装备`}>{cards.length?cards.map(card=><button key={card} onClick={()=>onReference(definitionId(card))}>{cardForVersion(definitionId(card),game.version).name}</button>):<small>未装备</small>}{game.stage3.jjExposed[seat]&&<b>暴露</b>}{game.stage3.breadBlocked[seat]&&<b>本回合禁出牌</b>}</div>;
+ if(!game.stage3)return null;const cards=game.stage3.equipment[seat],r=game.stage4;return <div className="equipment-line" aria-label={`S${seat+1}已装备`}>{cards.length?cards.map(card=><button key={card} onClick={()=>onReference(definitionId(card))}>{cardForVersion(definitionId(card),game.version).name}{r?.copies[card]?` → ${cardForVersion(r.copies[card] as ReturnType<typeof definitionId>,game.version).name}`:''}{r?.durability[card]!==undefined?` · ${r.durability[card]}耐久`:''}</button>):<small>未装备</small>}{game.stage3.jjExposed[seat]&&<b>暴露</b>}{game.stage3.breadBlocked[seat]&&<b>本回合禁出牌</b>}{r&&<>{r.offMap[seat]&&<b>离场</b>}{r.toilet[seat]&&<b>单体保护</b>}{r.lmm[seat]&&<b>LMM</b>}{r.tongBlocked[seat]&&<b>禁主动位移</b>}{r.tea[seat]&&<b>肘击强化</b>}{r.dodge[seat]&&<b>躲避球强化</b>}{r.exerciseFree[seat]&&<b>搏击操免费</b>}{r.exerciseGuard[seat]&&<b>免下次搏击操扣AP</b>}</>}</div>;
 }
 export function ComboProgress({game}:{game:OnlineGame}){
  if(!game.stage3)return null;const owners=game.players.filter(p=>p.character==='character-010'||p.character==='character-045');if(!owners.length)return null;

@@ -1,0 +1,15 @@
+import {readFile,writeFile} from 'node:fs/promises';
+const functions=new Map();
+for(const m of (await readFile('database/migrations/016_stage3_release.sql','utf8')).replaceAll('\r\n','\n').matchAll(/create or replace function (ml_private\.\w+)\([\s\S]*?\$\$;/gi))functions.set(m[1],m[0]);
+const get=name=>{const body=functions.get('ml_private.'+name);if(!body)throw Error('Missing room function '+name);return body;};
+const replace=(body,from,to)=>{if(!body.includes(from))throw Error('Stage4 room anchor drift: '+from);return body.replace(from,()=>to);};
+let out='-- Stage four rooms. New drafts use v0.1.7; existing v0.1.6 drafts retain their rule version.\n';
+for(const name of ['validate_draft','create_draft'])out+=replace(get(name),"('web-v0.1.4','web-v0.1.6')","('web-v0.1.4','web-v0.1.6','web-v0.1.7')")+'\n';
+out+=get('stage3_create_draft').replace('function ml_private.stage3_create_draft(','function ml_private.stage4_create_draft(').replaceAll("'web-v0.1.6'","'web-v0.1.7'")+'\n';
+out+=replace(get('stage3_complete_draft'),"'ruleVersion','web-v0.1.6'","'ruleVersion',case when r.draft->>'catalogVersion'='web-v0.1.7' then 'web-v0.1.7' else 'web-v0.1.6' end")+'\n';
+let room=get('room_v1');room=replace(room,"'direction','as','replacement','target','action')","'direction','as','replacement','target','action','x','region','take','item','copy','option','guess')");
+room=replace(room,"r.draft:=ml_private.stage3_create_draft(","r.draft:=ml_private.stage4_create_draft(");out+=room+'\n';
+out+=`revoke all on all functions in schema ml_private from public;\nDO $$ declare r text;begin foreach r in array array['anon','authenticated'] loop execute format('revoke all on all functions in schema ml_private from %I',r);end loop;end $$;\n`;
+const path='database/engine/stage4-rooms-generated.sql';
+if(process.argv.includes('--check')){if((await readFile(path,'utf8')).replaceAll('\r\n','\n')!==out)throw Error('Stage-four rooms differ');}else await writeFile(path,out);
+console.log('v0.1.7 draft factory, version-preserving completion and extended authenticated intents.');

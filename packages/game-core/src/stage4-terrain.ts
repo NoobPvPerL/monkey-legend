@@ -1,0 +1,13 @@
+import type {GameState} from './types';
+import type {ResourceState} from './stage3-resources';
+import {equipped} from './stage3-resources';
+import {basicMoveCost,normalDrawCount,personalStartAp,foodHealing,locationCardAllowed,locationEffectAllowed,stopsWalking} from './locations';
+export const ignoreLocation=(s:GameState,a:number)=>Boolean(s.stage4?.terrainIgnore[a]&&equipped(s as GameState&ResourceState,a,'basic-069'));
+export const terrainMoveCost=(s:GameState,a:number)=>ignoreLocation(s,a)?1:basicMoveCost(s.version,s.players[a].cell);
+export const terrainDraw=(s:GameState,a:number)=>ignoreLocation(s,a)?s.round===1?0:2:normalDrawCount(s.version,s.players[a].cell,s.round);
+export const terrainAp=(s:GameState,a:number)=>ignoreLocation(s,a)?s.players[a].character==='character-031'?Math.max(6,s.players[a].ap):s.players[a].ap:personalStartAp(s.version,s.players[a],s.round);
+export const terrainHealing=(s:GameState,a:number,amount:number)=>ignoreLocation(s,a)?s.players[a].character==='character-027'?0:Math.min(Math.max(0,s.players[a].maxHp-s.players[a].hp),amount):foodHealing(s.version,s.players[a],amount);
+export const terrainCard=(s:GameState,a:number,card:string)=>ignoreLocation(s,a)||locationCardAllowed(s.version,s.players[a].cell,card);
+export const terrainEffect=(s:GameState,a:number,card:string)=>ignoreLocation(s,a)||locationEffectAllowed(s.version,s.players[a].cell,card);
+export const terrainStops=(s:GameState,a:number,cell:string)=>!ignoreLocation(s,a)&&stopsWalking(s.version,cell);
+export const terrainThrough=(s:GameState,a:number,cell:string,occupied:boolean)=>!occupied||!terrainStops(s,a,cell);

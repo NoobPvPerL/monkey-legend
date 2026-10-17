@@ -7,7 +7,7 @@ export const STAGE3_RULE_VERSION='web-v0.1.6' as const;
 export const STAGE3_NEW_CARD_IDS=['basic-010','basic-015','basic-016','basic-037','basic-041','basic-054','basic-063','basic-066','basic-067','basic-071','basic-072'] as const;
 export const ANIMAL_IDS=['basic-063','basic-066','basic-067','basic-071','basic-072'] as const;
 export type Stage3CardType='attack'|'response'|'food'|'tactic'|'equipment';
-export interface Stage3Card {id:string;name:string;copies:number;cost:number;type:Stage3CardType;range?:'global'|'same'|'adjacent';power?:number;group?:boolean;text:string;slot?:'hand'|'mount';randomCost?:true}
+export interface Stage3Card {id:string;name:string;copies:number;cost:number;type:Stage3CardType;range?:'global'|'same'|'adjacent';power?:number;group?:boolean;text:string;slot?:'body'|'hand'|'head'|'wrist'|'mount';randomCost?:true}
 export interface Stage3Character {id:string;name:string;hp:number;spawnRegion:string;faction:string;waterNative:boolean;text:string}
 const extras:Record<typeof STAGE3_NEW_CARD_IDS[number],Omit<Stage3Card,'id'|'name'|'copies'|'text'>>={
  'basic-010':{cost:2,type:'attack',range:'adjacent',group:true},

@@ -1,8 +1,18 @@
-import {cardForVersion,RULE_VERSION,definitionId,validateData,hasInteractionRules,unlimitedAttacks,runtimeForVersion,mapForVersion,isActiveRuleVersion,distanceForVersion,neighboringForVersion,safeCellsForVersion,bombCandidatesForVersion,poisonDamageForVersion,hasClassicPatch,hasStage3} from '../../game-data/src/index';
+import {stage4PublicState} from './stage4-view';
+import {ignoreLocation,terrainMoveCost,terrainDraw,terrainAp,terrainHealing,terrainCard,terrainEffect,terrainStops,terrainThrough} from './stage4-terrain';
+import {landingPush,reactiveInjury,stage4MovementChoose} from './stage4-movement';
+import {combatGear} from './stage4-combat';
+import {stage4EquipmentSkill} from './stage4-actions';
+import {prepareStage4Hit,stage4AfterDamage,stage4CombatChoose} from './stage4-combat';
+import {stage4GearLossChoose} from './stage4-equipment';
+import {reserveStage4Interrupt,beginStage4Interrupt,discardStage4Interrupts} from './stage4-interrupt';
+import {onBoard,boardSingleProtected,currentDesert} from './stage4-board';
+import {boardArrivalTasks,boardReturn,isBoardChoice,stage4MapChoose} from './stage4-map-engine';
+import {cardForVersion,RULE_VERSION,definitionId,validateData,hasInteractionRules,unlimitedAttacks,runtimeForVersion,mapForVersion,isActiveRuleVersion,distanceForVersion,neighboringForVersion,safeCellsForVersion,bombCandidatesForVersion,poisonDamageForVersion,hasClassicPatch,hasStage3,hasStage4} from '../../game-data/src/index';
 import type {CardId} from '../../game-data/src/index';
 import type {Attack,ChoiceKind,Command,DispatchResult,GameState,Player,RandomState,Ranking,Setup,Task} from './types';
 export type * from './types';
-import {isClassic,initialClassic,refreshClassicRound,classicEnvironmentHits,relocated,owesWater,stepCost,enterAllowed,caveEnding} from './classic';
+import {isClassic,initialClassic,refreshClassicRound,classicEnvironmentHits,relocated,owesWater,water,stepCost,enterAllowed,caveEnding} from './classic';
 import {fixedSpawnLayout} from './spawn';
 import {locationDestinations} from './locations';
 import {integer,shuffled} from './random';
@@ -11,6 +21,9 @@ import * as resources from './stage3-resources';
 import * as roles from './stage3-roles';
 import {initialCardStack} from './stage3-card-stack';
 import {roleEffectAllowed} from './character-effects';
+import {stage4CounterChoose} from './stage4-counter';
+import {initialStage4State} from './stage4-state';
+import {stage4TurnStart,stage4Quote,stage4Play,stage4Task} from './stage4-engine';
 import {stage3Play,stage3Skill,stage3Task,stage3Choose,stage3Overflow,stage3AttackTargets} from './stage3-engine';
 import type {Stage3Ports} from './stage3-engine';
 const resourceState=(s:GameState)=>s as GameState&resources.ResourceState;
@@ -43,18 +56,19 @@ function draw(s:GameState,actor:number,count:number):void {
 }
 function heal(s:GameState,actor:number,amount:number,food=false):void {
  const p=s.players[actor]; const previous=p.hp;
- if(alive(p)){const actual=food?foodHealing(s.version,p,amount):Math.min(p.maxHp-p.hp,amount);p.hp+=hasStage3(s.version)?resources.resourceHealing(resourceState(s),actor,actual,food):actual;}
+ if(alive(p)&&(!hasStage4(s.version)||onBoard(s,actor))){const actual=food?terrainHealing(s,actor,amount):Math.min(p.maxHp-p.hp,amount);p.hp+=hasStage3(s.version)?resources.resourceHealing(resourceState(s),actor,actual,food):actual;}
  emit(s,'heal',`${name(s,actor)} 回复${p.hp-previous}生命`);
 }
 export function teleportCells(s:GameState,actor:number):string[] {
- const p=s.players[actor]; if(hasStage3(s.version)&&resources.mountMovementBlocked(resourceState(s),actor))return [];return mapForVersion(s.version).cells.filter(c=>c.terrain==='land'&&enterAllowed(s,c.id)&&distanceForVersion(s.version,p.cell,c.id)<=3&&!s.players.some(o=>alive(o)&&o.cell===c.id)).map(c=>c.id);
+ const p=s.players[actor]; if(hasStage3(s.version)&&resources.mountMovementBlocked(resourceState(s),actor))return [];return mapForVersion(s.version).cells.filter(c=>(hasStage4(s.version)?!water(s,c.id,actor)&&resources.canEnterWithMount(resourceState(s),actor,c.id):c.terrain==='land')&&enterAllowed(s,c.id)&&distanceForVersion(s.version,p.cell,c.id)<=3&&!s.players.some(o=>onBoard(s,o.seat)&&o.cell===c.id)).map(c=>c.id);
 }
-function stage3Relocate(s:GameState,actor:number,cell:string,voluntary:boolean,carry=true):Task[]{
+function stage3Relocate(s:GameState,actor:number,cell:string,voluntary:boolean,carry=true,reactive=true):Task[]{
  const p=s.players[actor],from=p.cell;if(from===cell||voluntary&&resources.mountMovementBlocked(resourceState(s),actor))return [];
  const snapshots=carry?roles.carryCandidates(resourceState(s),actor,from):[];
  relocated(s,actor,from,cell);p.cell=cell;if(voluntary)s.stage3!.voluntaryMoved[actor]=true;
  emit(s,'move',`${name(s,actor)} → ${cell}`);
  const tasks:Task[]=[];if(owesWater(s,actor,from))tasks.push({kind:'water',actor,data:{entry:true}});
+ if(hasStage4(s.version))tasks.push(...boardArrivalTasks(s,actor,from,cell,reactive),...(voluntary&&reactive?landingPush(s,actor):[]));
  if(snapshots.length)tasks.push({kind:'stage3',action:'carry',actor,data:snapshots});return tasks;
 }
 function stepDirection(s:GameState,from:string,to:string):roles.Direction {
@@ -73,19 +87,23 @@ function select(s:GameState,kind:ChoiceKind,actor:number,now:number,extra:Partia
  s.phase='choice'; s.choice={id:++s.choiceSerial,kind,actor,deadline:now+Math.min(window,paused?window:budget(s,now)),paused,...extra};
  emit(s,'choice',`${name(s,actor)} 等待选择：${kind}`);
 }
-interface Hit { target:number; amount:number; source:number|null; category:'attack'|'response'|'environment' }
+interface Hit { target:number; amount:number; source:number|null; category:'attack'|'response'|'environment';trueDamage?:boolean;reflected?:boolean;directHp?:boolean;extra?:boolean }
 function damage(s:GameState,hits:Hit[],environment=false,suppressPursuit=false):Task[] {
- s.batch++; const injured:{target:number;loss:number;source:number|null;category:Hit['category']}[]=[];
- for(const h of hits){
-  const p=s.players[h.target];if(!alive(p)||h.amount<=0)continue;
-  const blocked=environment&&!isClassic(s)?0:Math.min(p.shield,h.amount);p.shield-=blocked;
-  const loss=Math.min(p.hp,h.amount-blocked);p.hp-=loss;
+ s.batch++; const injured:(Hit&{loss:number})[]=[];
+ for(const original of hits){
+  if(hasStage4(s.version)&&(!onBoard(s,original.target)||original.amount<=0))continue;
+  const prepared=hasStage4(s.version)?prepareStage4Hit(s,original,environment,stage3Ports):original;if(!prepared)continue;
+  const h=hasStage4(s.version)&&(!environment&&s.players[original.target].character==='character-037'||resources.equipped(resourceState(s),original.target,'basic-059'))?{...prepared,amount:Math.min(1,prepared.amount)}:prepared;
+  const p=s.players[h.target];if(!alive(p)||hasStage4(s.version)&&!onBoard(s,h.target)||h.amount<=0)continue;
+  const amount=h.amount;
+  const blocked=h.trueDamage||environment&&!isClassic(s)?0:Math.min(p.shield,amount);p.shield-=blocked;
+  const loss=Math.min(p.hp,amount-blocked);p.hp-=loss;
   if(h.source!==null&&enemy(s,h.source,h.target)){s.players[h.source].damage+=loss;if(p.hp===0&&loss>0)s.players[h.source].kills++;}
   emit(s,'damage',`${name(s,h.target)} ${environment?'环境':'普通'}伤害${h.amount}，护盾抵挡${blocked}，实际失血${loss}`,{...h,blocked,loss,batch:s.batch});
   if(loss>0)injured.push({...h,loss});
  }
  for(const p of s.players)if(p.hp===0&&p.eliminated===null){p.eliminated=s.batch;p.ap=0;p.shield=0;s.discard.push(...p.hand);p.hand=[];if(hasStage3(s.version))resources.recordDeathResources(resourceState(s),p.seat);emit(s,'eliminate',`${name(s,p.seat)} 淘汰（批次${s.batch}）`);}
- const tasks:Task[]=[];
+ const tasks:Task[]=hasStage4(s.version)?[...stage4AfterDamage(s,injured,environment,stage3Ports),...reactiveInjury(s,injured)]:[];
  for(const actor of s.order){
   const p=s.players[actor];const h=injured.find(x=>x.target===actor);if(!h||!alive(p))continue;
   if(p.character==='character-004'){
@@ -98,7 +116,7 @@ function damage(s:GameState,hits:Hit[],environment=false,suppressPursuit=false):
  return tasks;
 }
 function scores(s:GameState):Ranking[] {
- const groups=s.mode==='ffa'?s.players.map(p=>[p.seat]):[s.players.filter(p=>p.team==='A').map(p=>p.seat),s.players.filter(p=>p.team==='B').map(p=>p.seat)];
+ const groups=s.mode==='ffa'?s.players.map(p=>[p.seat]):[s.players.filter(p=>p.team==='A').map(p=>p.seat),s.players.filter(p=>p.team==='B').map(p=>p.seat)].filter(ids=>!hasStage4(s.version)||ids.length>0);
  return groups.map(ids=>({label:s.mode==='ffa'?name(s,ids[0]):`${s.players[ids[0]].team}队`,players:ids,rank:0,alive:ids.filter(i=>alive(s.players[i])).length,hp:ids.reduce((n,i)=>n+s.players[i].hp,0),maxHp:ids.reduce((n,i)=>n+s.players[i].maxHp,0),kills:ids.reduce((n,i)=>n+s.players[i].kills,0),damage:ids.reduce((n,i)=>n+s.players[i].damage,0)}));
 }
 export function compareScore(a:Pick<Ranking,'alive'|'hp'|'maxHp'|'kills'|'damage'>,b:Pick<Ranking,'alive'|'hp'|'maxHp'|'kills'|'damage'>):number { return b.alive-a.alive || b.hp*a.maxHp-a.hp*b.maxHp || b.kills-a.kills || b.damage-a.damage; }
@@ -114,6 +132,7 @@ function finish(s:GameState,forced:boolean,now:number):boolean {
  const winners=surviving.length===0?[]:combo?s.players.filter(p=>combos.includes(p.team)).map(p=>p.seat):rows.filter(r=>r.rank===1).flatMap(r=>r.players);
  const tied=surviving.length===0||(combo?combos.length>1:rows.filter(r=>r.rank===1).length>1);
  s.result={reason:tied?'draw':combo?'combo':forced?'round-limit':'natural',winners:tied?[]:winners,ranking:rows};
+ if(hasStage4(s.version))discardStage4Interrupts(s);
  s.phase='over';s.choice=null;s.queue=[];s.movement=null;pause(s,now);
  emit(s,'result',tied?'对局结束：平局':`对局结束：${rows[0].label} 获胜`,s.result);return true;
 }
@@ -126,8 +145,10 @@ function startRound(s:GameState,now:number):void {
  pause(s,now);s.phase='resolving';s.queue.push(...damage(s,hits,true),{kind:'after-env'});pump(s,now);
 }
 function next(s:GameState,now:number):void {
- if(hasStage3(s.version))resources.endResourceTurn(resourceState(s),s.active);
- pause(s,now);s.players[s.active].moved=false;s.players[s.active].attacks=0;s.cursor++;
+ if(hasStage3(s.version)&&!s.stage4?.interruptSkipEnd)resources.endResourceTurn(resourceState(s),s.active);if(s.stage4)s.stage4.interruptSkipEnd=false;
+ pause(s,now);s.players[s.active].moved=false;s.players[s.active].attacks=0;
+ if(hasStage4(s.version)&&s.stage4!.interruptTurn!==null){const first=s.stage4!.interruptTurn!;s.stage4!.interruptTurn=null;s.order=Array.from({length:4},(_,i)=>(first+i)%4);s.round++;s.cursor=0;startRound(s,now);return;}
+ s.cursor++;
  while(s.cursor<4&&!alive(s.players[s.order[s.cursor]]))s.cursor++;
  if(s.cursor<4){s.queue.unshift({kind:'turn-start',actor:s.order[s.cursor]});return;}
  if(isClassic(s)){pause(s,now);s.phase='resolving';const hits=classicEnvironmentHits(s);emit(s,'environment',`第${s.round}轮末，轰炸：${s.classic!.bombs.join('、')}`);s.queue.push(...damage(s,hits,true),{kind:'round-next'});return;}
@@ -159,30 +180,33 @@ function resolveAttack(s:GameState):void {
 function pump(s:GameState,now:number):void {
  let guard=0;
  while(!s.choice&&s.phase!=='over'){
-  if(hasStage3(s.version)&&stage3Overflow(s,now,stage3Ports))break;if(!s.queue.length)break;
+  if(hasStage3(s.version)&&stage3Overflow(s,now,stage3Ports))break;if(hasStage4(s.version)&&beginStage4Interrupt(s,now,stage3Ports))continue;if(!s.queue.length)break;
   requireRule(++guard<200,'内部流程未收敛');const task=s.queue.shift()!;const actor=task.actor??s.active;const p=s.players[actor];
   switch(task.kind){
-   case 'stage3':stage3Task(s,task,now,stage3Ports);if(s.phase==='action'&&!s.choice)resume(s,now);break;
-   case 'water':if(owesWater(s,actor)||(task.data as {entry?:boolean}|undefined)?.entry&&alive(p)&&p.hand.length)select(s,'water-discard',actor,now,{count:1,cards:[...p.hand]});break;
+   case 'stage3':if(!hasStage4(s.version)||!stage4Task(s,task,now,stage3Ports))stage3Task(s,task,now,stage3Ports);if(s.phase==='action'&&!s.choice)resume(s,now);break;
+   case 'water':if(ignoreLocation(s,actor))break;if(owesWater(s,actor)||(task.data as {entry?:boolean}|undefined)?.entry&&alive(p)&&p.hand.length){if(hasStage4(s.version)&&combatGear(s,actor,'basic-069')&&!(task.data as {noTang?:boolean}|undefined)?.noTang)select(s,'gear-terrain',actor,now,{data:{task}});else select(s,'water-discard',actor,now,{count:1,cards:[...p.hand]});}break;
    case 'classic-start':
-    for(const q of s.players)if(alive(q)){q.skillUsed=false;q.rewarded=[];const allowed=!hasStage3(s.version)||resources.canGainRoundAp(resourceState(s),q.seat);if(allowed&&q.ap<5&&(!hasClassicPatch(s.version)||q.character!=='character-031')){if(hasStage3(s.version))resources.gainAp(resourceState(s),q.seat,3);else q.ap+=3;emit(s,'ap',`${name(s,q.seat)} 轮开始获得3AP → ${q.ap}`);}}
+    for(const q of s.players)if(alive(q)&&(!hasStage4(s.version)||onBoard(s,q.seat))){q.skillUsed=false;q.rewarded=[];const allowed=!hasStage3(s.version)||resources.canGainRoundAp(resourceState(s),q.seat);if(allowed&&q.ap<5&&(!hasClassicPatch(s.version)||q.character!=='character-031')){if(hasStage3(s.version))resources.gainAp(resourceState(s),q.seat,3);else q.ap+=3;emit(s,'ap',`${name(s,q.seat)} 轮开始获得3AP → ${q.ap}`);}}
     refreshClassicRound(s);emit(s,'round',`第${s.round}轮开始，毒区：${s.classic!.poison.join('、')}${s.classic!.farmClosed?'；高唐农场已封闭':''}`);s.queue.unshift({kind:'after-env'});break;
    case 'round-next':if(!finish(s,false,now)){s.round++;s.cursor=0;startRound(s,now);}break;
-   case 'walk':walkClassic(s,task.path??[],now);break;
+   case 'walk':walkClassic(s,task.path??[],now,true);break;
    case 'after-env':
     if(finish(s,false,now))break;
     s.cursor=0;while(!alive(s.players[s.order[s.cursor]]))s.cursor++;s.queue.unshift({kind:'turn-start',actor:s.order[s.cursor]});break;
    case 'turn-start':
-    s.active=actor;if(s.classic)s.classic.shipUsed=s.classic.shipUsed.filter(a=>a!==actor);s.phase='resolving';s.clock={remaining:60000,since:now};p.moved=false;p.attacks=0;
+    if(!(task.data as {resuming?:boolean}|undefined)?.resuming){s.active=actor;if(s.classic)s.classic.shipUsed=s.classic.shipUsed.filter(a=>a!==actor);s.phase='resolving';s.clock={remaining:60000,since:now};p.moved=false;p.attacks=0;
     if(hasStage3(s.version))resources.startResourceTurn(resourceState(s),actor);
+    if(hasStage4(s.version))stage4TurnStart(s,actor);
+    if(hasStage4(s.version)&&s.stage4!.offMap[actor]){s.queue.unshift({kind:'turn-start',actor,data:{resuming:true}});boardReturn(s,actor,now,stage3Ports);break;}
+    }
     const startGain=!hasStage3(s.version)||resources.canGainStartAp(resourceState(s),actor);
     if(startGain&&p.character==='character-031'&&p.ap<6){p.ap=6;emit(s,'ap',`${name(s,actor)} 行动开始补至6AP`);}
-    const locationAp=startGain?personalStartAp(s.version,p,s.round):p.ap;if(locationAp>p.ap){if(hasStage3(s.version))resources.gainAp(resourceState(s),actor,locationAp-p.ap);else p.ap=locationAp;emit(s,'ap',`${name(s,actor)} 尚德荟获得1AP → ${p.ap}`);}
-    emit(s,'turn',`${name(s,actor)} 开始行动`);if(s.round>1)draw(s,actor,normalDrawCount(s.version,p.cell,s.round));
-    s.queue.unshift(...(hasStage3(s.version)&&p.character==='character-010'?[{kind:'stage3' as const,action:'east',actor}]:[]),{kind:'action'});if(p.character==='character-027')select(s,'draw-start',actor,now);break;
+    const locationAp=startGain?terrainAp(s,actor):p.ap;if(locationAp>p.ap){if(hasStage3(s.version))resources.gainAp(resourceState(s),actor,locationAp-p.ap);else p.ap=locationAp;emit(s,'ap',`${name(s,actor)} 尚德荟获得1AP → ${p.ap}`);}
+    emit(s,'turn',`${name(s,actor)} 开始行动`);if(s.round>1&&(!hasStage4(s.version)||!s.stage4!.drawBlocked[actor]))draw(s,actor,terrainDraw(s,actor));
+    s.queue.unshift(...(hasStage3(s.version)&&p.character==='character-010'?[{kind:'stage3' as const,action:'east',actor}]:[]),{kind:'action'});if(p.character==='character-027'&&(!hasStage4(s.version)||!s.stage4!.drawBlocked[actor]))select(s,'draw-start',actor,now);break;
    case 'action':s.phase='action';resume(s,now);break;
    case 'end-draw':
-    s.queue.unshift({kind:hasClassicPatch(s.version)?'cave-end':'discard'});if(p.character==='character-027'&&alive(p)&&budget(s,now)>0)select(s,'draw-end',actor,now);break;
+    s.queue.unshift({kind:hasClassicPatch(s.version)?'cave-end':'discard'});if(p.character==='character-027'&&alive(p)&&(!hasStage4(s.version)||onBoard(s,actor))&&budget(s,now)>0)select(s,'draw-end',actor,now);break;
    case 'cave-end':{const hits=caveEnding(s,actor);s.queue.unshift(...(hits.length?damage(s,hits,true):[]),{kind:'cave-after',actor});break;}
    case 'cave-after':if(!finish(s,false,now))s.queue.unshift({kind:'discard',actor});break;
    case 'discard':{
@@ -209,19 +233,21 @@ function pump(s:GameState,now:number):void {
 }
 function settleMovement(s:GameState):void {
  const m=s.movement;
+ if(hasStage4(s.version)&&m&&m.path.length>1&&!m.gearQueued){m.gearQueued=true;s.queue.push(...landingPush(s,s.active,stepDirection(s,m.path.at(-2)!,m.path.at(-1)!)));}
  if(hasStage3(s.version)&&m&&m.path.length>1&&m.carry?.length){s.queue.unshift({kind:'stage3',action:'carry',actor:s.active,data:m.carry});m.carry=[];}
  if(!hasInteractionRules(s.version)||!m?.costDue)return;
- if(m.path.length>1){const p=s.players[s.active];requireRule(p.ap>=1,'移动结算需要1AP');p.ap--;emit(s,'cost',`${name(s,p.seat)} 移动结束支付1AP`);}
+ if(m.path.length>1){const p=s.players[s.active];requireRule(hasStage4(s.version)||p.ap>=1,'移动结算需要1AP');const paid=Math.min(1,p.ap);p.ap-=paid;emit(s,'cost',`${name(s,p.seat)} 移动结束支付${paid}AP`);}
  m.costDue=false;
 }
 function endTurn(s:GameState,now:number,timeout=false):void {
  if(s.movement){settleMovement(s);const p=s.players[s.active];relocated(s,p.seat,p.cell,s.movement.lastEmpty);p.cell=s.movement.lastEmpty;s.movement=null;emit(s,'move',`移动结束，落点${p.cell}，剩余额度作废`);}
- s.phase='resolving';s.queue.push({kind:timeout?(hasClassicPatch(s.version)?'cave-end':'discard'):'end-draw'});pump(s,now);
+ s.phase='resolving';if(hasStage4(s.version))s.queue.push({kind:'stage3',action:'gear-end',actor:s.active});if(hasStage4(s.version)&&currentDesert(s,s.active))s.queue.push({kind:'stage3',action:'board-desert',actor:s.active});
+ s.queue.push({kind:timeout?(hasClassicPatch(s.version)?'cave-end':'discard'):'end-draw'});pump(s,now);
 }
 function rawTarget(s:GameState,actor:number,defId:CardId,target:number):boolean {
  const p=s.players[target];if(!p||!alive(p)||!enemy(s,actor,target))return false;
  const def=cardForVersion(defId,s.version);if(def.type!=='attack')return false;
- if(!locationCardAllowed(s.version,s.players[actor].cell,defId))return false;
+ if(!terrainCard(s,actor,defId))return false;
  if(def.group&&p.character==='character-027'&&p.hand.length===1)return false;
  const a=mapForVersion(s.version).map[s.players[actor].cell].region,b=mapForVersion(s.version).map[p.cell].region;
  return def.range==='global'||a===b||(def.range==='adjacent'&&neighboringForVersion(s.version,a,b));
@@ -233,12 +259,12 @@ export function legalTargets(s:GameState,actor:number,card:string):number[] {
  const lemon=ids.find(i=>s.players[i].character==='character-004');return !def.group&&lemon!==undefined?[lemon]:ids;
 }
 function canEscape(s:GameState,actor:number,cell:string,remaining:number):boolean {
- const occupied=s.players.some(p=>p.seat!==actor&&alive(p)&&p.cell===cell);
- if(!canWalkThrough(s.version,cell,occupied))return false;
+ const occupied=s.players.some(p=>p.seat!==actor&&onBoard(s,p.seat)&&p.cell===cell);
+ if(!terrainThrough(s,actor,cell,occupied))return false;
  if(!occupied)return true;
  const queue:[string,number][]=[[cell,remaining]];const best=new Map<string,number>();
  while(queue.length){const [from,left]=queue.shift()!;if((best.get(from)??-1)>=left)continue;best.set(from,left);
-  for(const next of mapForVersion(s.version).cells)if(distanceForVersion(s.version,from,next.id)===1){if(isClassic(s)&&(!enterAllowed(s,next.id)||!canWalkThrough(s.version,next.id,s.players.some(q=>q.seat!==actor&&alive(q)&&q.cell===next.id))))continue;const cost=next.terrain==='water'?2:1;if(cost>left)continue;if(!s.players.some(p=>p.seat!==actor&&alive(p)&&p.cell===next.id))return true;queue.push([next.id,left-cost]);}
+  for(const next of mapForVersion(s.version).cells)if(distanceForVersion(s.version,from,next.id)===1){if(isClassic(s)&&(!enterAllowed(s,next.id)||!terrainThrough(s,actor,next.id,s.players.some(q=>q.seat!==actor&&onBoard(s,q.seat)&&q.cell===next.id))))continue;const cost=water(s,next.id,actor)&&!ignoreLocation(s,actor)?2:1;if(cost>left)continue;if(!s.players.some(p=>p.seat!==actor&&onBoard(s,p.seat)&&p.cell===next.id))return true;queue.push([next.id,left-cost]);}
  }return false;
 }
 export function legalSteps(s:GameState):string[] {
@@ -249,13 +275,14 @@ export function legalSteps(s:GameState):string[] {
    if(!resources.canEnterWithMount(resourceState(s),p.seat,c.id)||s.movement!.direction&&!roles.westStepAllowed(p.cell,c.id,s.movement!.direction))return false;
    const target=s.players.find(q=>q.hp>0&&q.seat!==p.seat&&q.cell===c.id);
    if(target&&p.character==='character-040')return false;
-   if(target&&p.character==='character-045')return cost!==null&&cost<=s.movement!.remaining&&canWalkThrough(s.version,c.id,true)&&roles.collisionPath({...resourceState(s),farmClosed:s.classic!.farmClosed},p.seat,target.seat,stepDirection(s,p.cell,c.id)).length>0;
+   if(target&&p.character==='character-045')return cost!==null&&cost<=s.movement!.remaining&&terrainThrough(s,p.seat,c.id,true)&&roles.collisionPath({...resourceState(s),farmClosed:s.classic!.farmClosed},p.seat,target.seat,stepDirection(s,p.cell,c.id)).length>0;
   }
   return cost!==null&&cost<=s.movement!.remaining&&canEscape(s,p.seat,c.id,s.movement!.remaining-cost);
  }).map(c=>c.id);
 }
-function walkClassic(s:GameState,path:string[],now:number):void {
+function walkClassic(s:GameState,path:string[],now:number,resuming=false):void {
  const p=s.players[s.active],m=s.movement!;s.phase='moving';
+ if(hasStage4(s.version)&&resuming){const probe=structuredClone(s),prefix:string[]=[];for(const cell of path){if(!legalSteps(probe).includes(cell))break;applyCollision(probe,cell);probe.movement!.remaining-=stepCost(probe,probe.active,cell)!;probe.players[probe.active].cell=cell;prefix.push(cell);if(terrainStops(probe,probe.active,cell))probe.movement!.remaining=0;}if(prefix.length!==path.length){path=prefix;emit(s,'move','后续路径已变化，保留剩余步数');}}
  // Validate the whole submitted path before opening a persistent choice. An
  // invalid tail must not leave a saved water window that can never resume.
  const check=structuredClone(s);
@@ -263,16 +290,17 @@ function walkClassic(s:GameState,path:string[],now:number):void {
   requireRule(legalSteps(check).includes(cell),'移动路径不合法：检查步数、占用、封闭地区或越水落点');
   if(hasStage3(check.version))applyCollision(check,cell);
   check.movement!.remaining-=stepCost(check,check.active,cell)!;check.players[check.active].cell=cell;
-  if(stopsWalking(check.version,cell))check.movement!.remaining=0;
+  if(terrainStops(check,check.active,cell))check.movement!.remaining=0;
  }
  for(let i=0;i<path.length;i++){
   const cell=path[i];requireRule(legalSteps(s).includes(cell),'移动路径不合法：检查步数、占用、封闭地区或越水落点');
   const pushed=hasStage3(s.version)?applyCollision(s,cell):[];
   const from=p.cell,cost=stepCost(s,p.seat,cell)!;m.remaining-=cost;p.cell=cell;m.path.push(cell);relocated(s,p.seat,from,cell);
   if(hasStage3(s.version))s.stage3!.voluntaryMoved[p.seat]=true;
-  if(!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===cell))m.lastEmpty=cell;
-  if(stopsWalking(s.version,cell))m.remaining=0;
+  if(!s.players.some(q=>q.seat!==p.seat&&onBoard(s,q.seat)&&q.cell===cell))m.lastEmpty=cell;
+  if(terrainStops(s,s.active,cell))m.remaining=0;
   emit(s,'move',`${name(s,p.seat)} → ${cell}，消耗${cost}步，余${m.remaining}`);
+  if(hasStage4(s.version)){const arrival=boardArrivalTasks(s,p.seat,from,cell),waterDue=owesWater(s,p.seat,from);if(pushed.length||waterDue||arrival.length){s.queue.unshift(...pushed,...(waterDue?[{kind:'water' as const,actor:p.seat,data:{entry:true}}]:[]),...arrival,{kind:'walk',path:path.slice(i+1)});s.phase='resolving';return;}}
   if(pushed.length){s.queue.unshift(...pushed,{kind:'walk',path:path.slice(i+1)});s.phase='resolving';return;}
   if(owesWater(s,p.seat,from)){s.queue.unshift({kind:'walk',path:path.slice(i+1)});select(s,'water-discard',p.seat,now,{count:1,cards:[...p.hand]});return;}
  }
@@ -280,6 +308,7 @@ function walkClassic(s:GameState,path:string[],now:number):void {
  resume(s,now);
 }
 export function legalLocations(s:GameState,actor:number){
+ if(ignoreLocation(s,actor))return {ship:[],commute:[]};
  const input={...s,shipUsed:s.classic?.shipUsed??[],farmClosed:s.classic?.farmClosed??false};
  if(hasStage3(s.version)&&s.stage3!.jjFree[actor])input.players=s.players.map(p=>p.seat===actor?{...p,ap:Math.max(1,p.ap)}:p);
  const allowed=(cells:string[])=>hasStage3(s.version)?resources.mountMovementBlocked(resourceState(s),actor)?[]:cells.filter(c=>resources.canEnterWithMount(resourceState(s),actor,c)):cells;
@@ -287,7 +316,12 @@ export function legalLocations(s:GameState,actor:number){
 }
 function choose(s:GameState,cmd:Extract<Command,{type:'choose'}>,now:number,timeout=false):void {
  const c=s.choice!;const p=s.players[c.actor];requireRule(cmd.choice===c.id,'选择窗口已过期');requireRule(cmd.actor===c.actor,'请交给待选择的座位操作');
- if(hasStage3(s.version)&&(['easy','qb-pursuit','east-start','xiao-overflow','xie-ledger','elbow-push','west-carry','equipment-loss','revival-confirm'].includes(c.kind)||c.kind==='response'&&s.cardStack!.stack.length)){
+ if(hasStage4(s.version)&&['gear-react','gear-push','gear-terrain'].includes(c.kind)){stage4MovementChoose(s,cmd,now,stage3Ports,timeout);}
+ else if(hasStage4(s.version)&&['gear-cloak','gear-reflect','gear-chalk','gear-plant'].includes(c.kind)){stage4CombatChoose(s,cmd,now,stage3Ports,timeout);}
+ else if(hasStage4(s.version)&&c.kind==='gear-loss'){stage4GearLossChoose(s,cmd,now,stage3Ports,timeout);}
+ else if(hasStage4(s.version)&&isBoardChoice(c.kind)){stage4MapChoose(s,cmd,now,stage3Ports,timeout);}
+ else if(hasStage4(s.version)&&['card-counter','forced-card'].includes(c.kind)){stage4CounterChoose(s,cmd,now,stage3Ports,timeout);}
+ else if(hasStage3(s.version)&&(['easy','qb-pursuit','east-start','xiao-overflow','xie-ledger','elbow-push','west-carry','equipment-loss','revival-confirm'].includes(c.kind)||c.kind==='response'&&s.cardStack!.stack.length)){
   if(stage3Choose(s,cmd,now,stage3Ports,timeout))return;
  }else switch(c.kind){
   case 'draw-start':case 'draw-end':if(cmd.accept)draw(s,c.actor,1);break;
@@ -335,6 +369,7 @@ export function createGame(setup:Setup,now:number):GameState {
  const players=characters.map((character,seat)=>{const c=data.characters[character];return {seat,character,team:setup.mode==='team'?teams[seat]:`S${seat+1}`,faction:hasStage3(version)&&setup.mode==='team'?teams[seat]==='A'?'机械猴子':'帝汶家族':c.faction,hp:c.hp,maxHp:c.hp,ap:5,shield:0,cell:spawn?.cells[seat]??c.spawn,hand:[] as string[],moved:false,attacks:0,skillUsed:false,rewarded:[],kills:0,damage:0,eliminated:null};});
  const s:GameState={version,revision:0,time:now,mode:setup.mode,players,order:Array.from({length:4},(_,i)=>(first+i)%4),cursor:0,active:first,round:1,phase:'resolving',deck:[...deck],discard:[],resolving:[],random,queue:[],choice:null,choiceSerial:0,attack:null,movement:null,safe:safeCellsForVersion(version,1),bomb:null,forecast:null,clock:{remaining:60000,since:null},events:[],eventSerial:0,batch:0,reshuffleCount:0,seen:[],result:null,...(isClassic({version})?{classic:initialClassic(setup.ruleVersion??RULE_VERSION)}:{})};
  if(hasStage3(version)){s.stage3=resources.initialStage3Resources();s.cardStack=initialCardStack();}
+ if(hasStage4(version))s.stage4=initialStage4State(players);
  emit(s,'setup',`四人${setup.mode==='ffa'?'各自为战':'2对2'} · ${s.version}`);for(let i=0;i<4;i++)draw(s,i,4);startRound(s,now);validateState(s);return s;
 }
 export function validateState(s:GameState):void {
@@ -342,7 +377,7 @@ export function validateState(s:GameState):void {
  requireRule((isActiveRuleVersion(s.version)||hasStage3(s.version))&&s.players.length===4&&Number.isSafeInteger(s.round)&&s.round>=1&&(isClassic(s)||s.round<=12),'状态版本/轮次/人数无效');requireRule((hasStage3(s.version)?new Set(s.players.map(p=>p.character)).size===4&&s.players.every(p=>runtimeForVersion(s.version).characterIds.includes(p.character)):sameSet(s.players.map(p=>p.character),runtimeForVersion(s.version).characterIds))&&sameSet(s.order,[0,1,2,3]),'角色/顺序无效');
  const zones=[...s.deck,...s.discard,...s.resolving,...s.players.flatMap(p=>p.hand),...(hasStage3(s.version)?s.stage3!.equipment.flat():[])];requireRule(sameSet(zones,runtimeForVersion(s.version).allCards),hasStage3(s.version)?'实体不守恒或实体重复':'64张实体不守恒或实体重复');
  for(const p of s.players){requireRule(Number.isInteger(p.hp)&&p.hp>=0&&p.hp<=p.maxHp&&p.maxHp===runtimeForVersion(s.version).characters[p.character].hp,'生命状态无效');requireRule(Number.isInteger(p.ap)&&p.ap>=0&&Number.isInteger(p.shield)&&p.shield>=0&&p.shield<=2,'AP/护盾无效');requireRule(Boolean(mapForVersion(s.version).map[p.cell]),'位置无效');if(!alive(p))requireRule(p.ap===0&&p.shield===0&&p.hand.length===0&&p.eliminated!==null,'淘汰清理无效');}
- const occupied=s.players.filter(alive);const overlap=occupied.some((p,i)=>occupied.slice(i+1).some(q=>q.cell===p.cell));if(overlap)requireRule((s.phase==='moving'||s.choice?.kind==='water-discard')&&s.movement!==null,'稳定落点不能重叠');
+ const occupied=s.players.filter(p=>onBoard(s,p.seat));const overlap=occupied.some((p,i)=>occupied.slice(i+1).some(q=>q.cell===p.cell));if(overlap)requireRule((s.phase==='moving'||s.choice?.kind==='water-discard')&&s.movement!==null,'稳定落点不能重叠');
  requireRule(s.clock.remaining>=0&&Number.isFinite(s.clock.remaining),'计时预算无效');
 }
 export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResult {
@@ -353,16 +388,19 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
   if(cmd.type==='play')requireRule(typeof cmd.card==='string'&&Array.isArray(cmd.targets)&&cmd.targets.every(t=>Number.isInteger(t)&&t>=0&&t<4),'出牌/目标输入无效');
   if(cmd.type==='location')requireRule((cmd.kind==='ship'||cmd.kind==='commute')&&typeof cmd.cell==='string','地点动作输入无效');
   if(cmd.type==='step')requireRule(Array.isArray(cmd.path)&&cmd.path.every(c=>typeof c==='string'),'路径必须为格子数组');
-  if(cmd.type==='skill')requireRule(['jj','bread','revival-quote'].includes(cmd.kind)&&(cmd.target===undefined||Number.isInteger(cmd.target)&&cmd.target>=0&&cmd.target<4)&&(cmd.card===undefined||typeof cmd.card==='string'),'技能输入无效');
+  if(cmd.type==='skill')requireRule(['jj','bread','revival-quote',...(hasStage4(previous.version)?['quote-cost','watch','flight','gift','terrain']:[])].includes(cmd.kind)&&(cmd.target===undefined||Number.isInteger(cmd.target)&&cmd.target>=0&&cmd.target<4)&&(cmd.card===undefined||typeof cmd.card==='string')&&(cmd.cell===undefined||typeof cmd.cell==='string')&&(cmd.cards===undefined||Array.isArray(cmd.cards)&&cmd.cards.every(c=>typeof c==='string'))&&(cmd.accept===undefined||typeof cmd.accept==='boolean'),'技能输入无效');
   if((cmd.type==='move'||cmd.type==='play')&&cmd.direction!==undefined)requireRule(roles.DIRECTIONS.includes(cmd.direction),'方向输入无效');
+  if(cmd.type==='play'&&cmd.x!==undefined)requireRule(hasStage4(previous.version)&&Number.isSafeInteger(cmd.x)&&cmd.x>=1,'X必须为阶段四正整数');
   if(cmd.type==='play')requireRule((cmd.as===undefined||cmd.as==='elbow')&&(cmd.replacement===undefined||typeof cmd.replacement==='string'),'转换或替换输入无效');
+  if(cmd.type==='play'&&cmd.region!==undefined)requireRule(hasStage4(previous.version)&&typeof cmd.region==='string','地区输入无效');
   if(cmd.type==='choose'){
+   requireRule((cmd.option===undefined||typeof cmd.option==='string')&&(cmd.guess===undefined||Number.isInteger(cmd.guess)&&cmd.guess>=1&&cmd.guess<=6),'地图选择输入无效');
    requireRule(Number.isSafeInteger(cmd.choice)&&cmd.choice>0,'选择编号必须为正整数');
    requireRule(cmd.accept===undefined||typeof cmd.accept==='boolean','发动选项必须为布尔值');
    requireRule(cmd.card===undefined||cmd.card===null||typeof cmd.card==='string','响应牌输入无效');
    requireRule(cmd.cell===undefined||cmd.cell===null||typeof cmd.cell==='string','传送格输入无效');
    requireRule(cmd.cards===undefined||(Array.isArray(cmd.cards)&&cmd.cards.every(c=>typeof c==='string')),'弃牌必须为实体牌数组');
-   requireRule((cmd.target===undefined||Number.isInteger(cmd.target)&&cmd.target>=0&&cmd.target<4)&&(cmd.action===undefined||cmd.action==='draw'||cmd.action==='steal'),'技能选择输入无效');
+   requireRule((cmd.target===undefined||Number.isInteger(cmd.target)&&cmd.target>=0&&cmd.target<4)&&(cmd.action===undefined||cmd.action==='draw'||cmd.action==='steal'||hasStage4(previous.version)&&cmd.action==='ap'),'技能选择输入无效');
   }
   requireRule(Number.isFinite(now)&&now>=previous.time,'时钟必须单调');requireRule(cmd.revision===previous.revision,'命令版本过期');requireRule(typeof cmd.id==='string'&&cmd.id.length>0&&!previous.seen.includes(cmd.id),'重复命令');requireRule(previous.phase!=='over','对局已经结束');
   const s=structuredClone(previous);
@@ -378,15 +416,18 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
   else{
    requireRule(!(s.choice?now>=s.choice.deadline:s.clock.since!==null&&budget(s,now)===0),'命令已超时，请先处理时钟事件');
    if(cmd.type==='choose'){requireRule(s.choice!==null,'当前没有选择窗口');choose(s,cmd,now);}
+   else if(hasStage4(s.version)&&cmd.type==='play'&&cmd.card.split('#')[0]==='basic-017'){reserveStage4Interrupt(s,cmd,stage3Ports);}
+   else if(hasStage4(s.version)&&cmd.type==='skill'&&cmd.kind==='terrain'){stage4EquipmentSkill(s,cmd,now,stage3Ports);}
+   else if(hasStage4(s.version)&&cmd.type==='skill'&&cmd.kind==='quote-cost'&&s.choice?.kind==='card-counter'&&s.choice.actor===cmd.actor){stage4Quote(s,cmd.actor,cmd.card!,stage3Ports);}
    else{
-    requireRule(cmd.actor===s.active&&alive(s.players[cmd.actor]),'只有当前存活行动者可操作');requireRule(!s.choice,'请先完成当前选择');const p=s.players[cmd.actor];
+    requireRule(cmd.actor===s.active&&alive(s.players[cmd.actor]),'只有当前存活行动者可操作');requireRule(!s.choice,'请先完成当前选择');const p=s.players[cmd.actor];requireRule(!hasStage4(s.version)||onBoard(s,cmd.actor)||cmd.type==='end','离场期间只能结束行动');
     if(cmd.type==='step'){
      requireRule(s.phase==='moving'&&s.movement!==null,'尚未开始移动');requireRule(cmd.path.length>0,'移动路径不能为空');const m=s.movement!;
-     if(isClassic(s))walkClassic(s,cmd.path,now);else {for(const cell of cmd.path){requireRule(Boolean(mapForVersion(s.version).map[cell])&&distanceForVersion(s.version,p.cell,cell)===1,'只能正交移动到棋盘内相邻格');const cost=mapForVersion(s.version).map[cell].terrain==='water'?2:1;requireRule(m.remaining>=cost,'移动步数不足');requireRule(canEscape(s,cmd.actor,cell,m.remaining-cost),'此路径会困在占用格');m.remaining-=cost;p.cell=cell;m.path.push(cell);if(!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===cell))m.lastEmpty=cell;if(stopsWalking(s.version,cell))m.remaining=0;emit(s,'move',`${name(s,p.seat)} → ${cell}，消耗${cost}步，余${m.remaining}`);}
+     if(isClassic(s))walkClassic(s,cmd.path,now);else {for(const cell of cmd.path){requireRule(Boolean(mapForVersion(s.version).map[cell])&&distanceForVersion(s.version,p.cell,cell)===1,'只能正交移动到棋盘内相邻格');const cost=mapForVersion(s.version).map[cell].terrain==='water'?2:1;requireRule(m.remaining>=cost,'移动步数不足');requireRule(canEscape(s,cmd.actor,cell,m.remaining-cost),'此路径会困在占用格');m.remaining-=cost;p.cell=cell;m.path.push(cell);if(!s.players.some(q=>q.seat!==p.seat&&onBoard(s,q.seat)&&q.cell===cell))m.lastEmpty=cell;if(terrainStops(s,s.active,cell))m.remaining=0;emit(s,'move',`${name(s,p.seat)} → ${cell}，消耗${cost}步，余${m.remaining}`);}
      if(m.remaining===0){settleMovement(s);s.movement=null;s.phase='action';}}
     }else if(cmd.type==='stop'){
-     requireRule(s.movement!==null,'尚未开始移动');requireRule(!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===p.cell),'不能停在占用格');settleMovement(s);s.movement=null;s.phase='action';emit(s,'move','主动结束移动，未用额度作废');
-    }else if(cmd.type==='end'){requireRule(!s.movement||!s.players.some(q=>q.seat!==p.seat&&alive(q)&&q.cell===p.cell),'不能在占用格结束行动，请先离开');endTurn(s,now);}
+     requireRule(s.movement!==null,'尚未开始移动');requireRule(!s.players.some(q=>q.seat!==p.seat&&onBoard(s,q.seat)&&q.cell===p.cell),'不能停在占用格');settleMovement(s);s.movement=null;s.phase='action';emit(s,'move','主动结束移动，未用额度作废');
+    }else if(cmd.type==='end'){requireRule(!s.movement||!s.players.some(q=>q.seat!==p.seat&&onBoard(s,q.seat)&&q.cell===p.cell),'不能在占用格结束行动，请先离开');endTurn(s,now);}
     else {
      requireRule(s.phase==='action','请先完成移动');
      if(cmd.type==='location'){
@@ -395,18 +436,18 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
       emit(s,'teleport',`${name(s,p.seat)} ${cmd.kind==='ship'?'飞船':'通校'}至${cmd.cell}`);
       if(!hasStage3(s.version)&&owesWater(s,p.seat,from)){s.queue.push({kind:'action'});select(s,'water-discard',p.seat,now,{count:1,cards:[...p.hand]});}
      }else if(cmd.type==='move'){
-      requireRule(!p.moved,'本个人回合已使用基础移动');let moveCost=basicMoveCost(s.version,p.cell);
+      requireRule(!p.moved,'本个人回合已使用基础移动');let moveCost=terrainMoveCost(s,p.seat);
       if(hasStage3(s.version)){requireRule(!resources.mountMovementBlocked(resourceState(s),p.seat),'小白马：有坐骑者暂时不能主动位移');moveCost=resources.equipped(resourceState(s),p.seat,'basic-071')?0:resources.fixedApCost(resourceState(s),p.seat,moveCost);}
       requireRule(p.ap>=moveCost,'移动需要1AP');if(s.version==='web-v0.1.1')p.ap--;p.moved=true;
       let direction:roles.Direction|undefined;
       if(hasStage3(s.version)&&p.character==='character-040'){requireRule(cmd.direction!==undefined,'请先声明移动方向');direction=roles.westDirection(cmd.direction!,die(s,'西帝汶方向'));}
       const roll=die(s,'基础移动'),steps=hasStage3(s.version)&&resources.fullMovementDie(resourceState(s),p.seat)?roll:Math.ceil(roll/2);
       if(hasStage3(s.version)){s.stage3!.basicUsed[p.seat]++;p.moved=s.stage3!.basicUsed[p.seat]>=resources.basicMoveAllowance(resourceState(s),p.seat);}
-      s.movement={remaining:steps,lastEmpty:p.cell,origin:p.cell,path:[p.cell],...(hasInteractionRules(s.version)?{costDue:moveCost>0}:{}),...(hasStage3(s.version)?{direction,carry:roles.carryCandidates(resourceState(s),p.seat,p.cell)}:{})};s.phase='moving';emit(s,'cost',`${name(s,p.seat)} ${moveCost===0?(hasStage3(s.version)?'免费移动':'操场免费移动'):hasInteractionRules(s.version)?'移动结束扣费':'移动支付1AP'}，获得${steps}步`);
+      s.movement={...(hasStage4(s.version)?{gearRoot:s.revision}:{}),remaining:steps,lastEmpty:p.cell,origin:p.cell,path:[p.cell],...(hasInteractionRules(s.version)?{costDue:moveCost>0}:{}),...(hasStage3(s.version)?{direction,carry:roles.carryCandidates(resourceState(s),p.seat,p.cell)}:{})};s.phase='moving';emit(s,'cost',`${name(s,p.seat)} ${moveCost===0?(hasStage3(s.version)?'免费移动':'操场免费移动'):hasInteractionRules(s.version)?'移动结束扣费':'移动支付1AP'}，获得${steps}步`);
      }
-     else if(cmd.type==='skill')stage3Skill(s,cmd,now,stage3Ports);
+     else if(cmd.type==='skill'){if(hasStage4(s.version)&&cmd.kind==='quote-cost'){stage4Quote(s,cmd.actor,cmd.card!,stage3Ports);}else if(!hasStage4(s.version)||!stage4EquipmentSkill(s,cmd,now,stage3Ports))stage3Skill(s,cmd,now,stage3Ports);}
      else if(cmd.type==='play'){
-      if(hasStage3(s.version)){stage3Play(s,cmd,now,stage3Ports);}else{
+      if(hasStage3(s.version)){if(hasStage4(s.version))stage4Play(s,cmd,now,stage3Ports);else stage3Play(s,cmd,now,stage3Ports);}else{
       requireRule(p.hand.includes(cmd.card),'手中没有该实体牌');const def=cardForVersion(definitionId(cmd.card),s.version);requireRule(def&&def.type!=='response','响应牌只能在对应窗口使用');requireRule(locationCardAllowed(s.version,p.cell,def.id),'当前位置禁止使用此牌');requireRule(p.ap>=def.cost,`需要${def.cost}AP`);
       if(def.type==='attack'){requireRule(unlimitedAttacks(s.version)||p.attacks<2,'本回合最多两张攻击');requireRule(cmd.targets.length>=1&&cmd.targets.length<=(def.group?(hasInteractionRules(s.version)?3:2):1)&&new Set(cmd.targets).size===cmd.targets.length,'目标数量无效');const legal=legalTargets(s,p.seat,cmd.card);requireRule(cmd.targets.every(t=>legal.includes(t)),'目标不合法：检查范围、队伍、lemon嘲讽或群体免疫');}
       else requireRule(cmd.targets.length===0,'补给只能对自己，不接受外部目标');
@@ -422,7 +463,7 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
   s.seen.push(cmd.id);s.revision++;s.time=now;validateState(s);return {state:s,ok:true};
  }catch(error){return {state:previous,ok:false,error:error instanceof Error?error.message:String(error)};}
 }
-const stage3Ports:Stage3Ports={emit,die,select,draw,heal,damage,relocate:stage3Relocate,finish};
+const stage3Ports:Stage3Ports={emit,die,select,draw,heal,damage,relocate:stage3Relocate,finish,endTurn};
 export function publicView(s:GameState,viewer:number) {
- return structuredClone({version:s.version,revision:s.revision,mode:s.mode,round:s.round,phase:s.phase,active:s.active,order:s.order,attack:s.attack,movement:s.movement,safe:s.safe,bomb:s.bomb,forecast:s.forecast,...(s.classic?{classic:s.classic}:{}),...(s.stage3?{stage3:{turn:s.stage3.turn,equipment:s.stage3.equipment,basicUsed:s.stage3.basicUsed,breadBlocked:s.stage3.breadBlocked,breadReadyAt:s.stage3.breadReadyAt,jjFree:s.stage3.jjFree,jjExposed:s.stage3.jjExposed,horseLocks:s.stage3.horseLocks,combos:s.stage3.combos}}:{}),result:s.result,players:s.players.map(p=>({seat:p.seat,character:p.character,team:p.team,faction:p.faction,hp:p.hp,maxHp:p.maxHp,ap:p.ap,shield:p.shield,cell:p.cell,moved:p.moved,attacks:p.attacks,skillUsed:p.skillUsed,rewarded:p.rewarded,kills:p.kills,damage:p.damage,eliminated:p.eliminated,handCount:p.hand.length,...(p.seat===viewer?{hand:p.hand}:{})})),deckCount:s.deck.length,discard:s.discard,resolving:s.resolving,choice:s.choice?{id:s.choice.id,kind:s.choice.kind,actor:s.choice.actor,deadline:s.choice.deadline,source:s.choice.source,...(s.choice.actor===viewer?{cards:s.choice.cards,cells:s.choice.cells,count:s.choice.count,...(hasStage3(s.version)?{targets:s.choice.targets,data:s.choice.data,options:s.choice.options}:{})}:{})}:null,clock:s.clock,events:s.events.map(e=>({seq:e.seq,type:e.type,text:e.text,...(e.type==='dice'&&typeof e.data==='number'?{roll:e.data}:{})}))});
+ return structuredClone({version:s.version,revision:s.revision,mode:s.mode,round:s.round,phase:s.phase,active:s.active,order:s.order,attack:s.attack,movement:s.movement,safe:s.safe,bomb:s.bomb,forecast:s.forecast,...(s.classic?{classic:s.classic}:{}),...(s.stage3?{stage3:{turn:s.stage3.turn,equipment:s.stage3.equipment,basicUsed:s.stage3.basicUsed,breadBlocked:s.stage3.breadBlocked,breadReadyAt:s.stage3.breadReadyAt,jjFree:s.stage3.jjFree,jjExposed:s.stage3.jjExposed,horseLocks:s.stage3.horseLocks,combos:s.stage3.combos}}:{}),...(s.stage4?{stage4:stage4PublicState(s)}:{}),result:s.result,players:s.players.map(p=>({seat:p.seat,character:p.character,team:p.team,faction:p.faction,hp:p.hp,maxHp:p.maxHp,ap:p.ap,shield:p.shield,cell:p.cell,moved:p.moved,attacks:p.attacks,skillUsed:p.skillUsed,rewarded:p.rewarded,kills:p.kills,damage:p.damage,eliminated:p.eliminated,handCount:p.hand.length,...(p.seat===viewer?{hand:p.hand}:{})})),deckCount:s.deck.length,discard:s.discard,resolving:s.resolving,choice:s.choice?{id:s.choice.id,kind:s.choice.kind,actor:s.choice.actor,deadline:s.choice.deadline,source:s.choice.source,...(s.choice.actor===viewer?{cards:s.choice.cards,cells:s.choice.cells,count:s.choice.count,...(hasStage3(s.version)?{targets:s.choice.targets,data:s.choice.data,options:s.choice.options}:{})}:{})}:null,clock:s.clock,events:s.events.map(e=>({seq:e.seq,type:e.type,text:e.text,...(e.type==='dice'&&typeof e.data==='number'?{roll:e.data}:{})}))});
 }

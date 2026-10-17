@@ -21,7 +21,7 @@ from pg_proc p join pg_namespace n on n.oid=p.pronamespace
 where n.nspname='public' and p.proname in ('ml_room','ml_health','ml_maintenance','ml_watch','ml_chat');
 
 -- schemaVersion alone cannot detect an omitted feedback-rules migration.
-select coalesce((public.ml_health()->>'engineRevision')::int>=16,false) as engine_revision_ready,
+select coalesce((public.ml_health()->>'engineRevision')::int>=18,false) as engine_revision_ready,
        coalesce((public.ml_health()->>'feedbackRulesReady')::boolean,false) as feedback_rules_ready;
 
 select coalesce((public.ml_health()->>'versionedDataReady')::boolean,false) as versioned_data_ready,
@@ -33,9 +33,13 @@ select coalesce((public.ml_health()->>'locationRulesReady')::boolean,false) as l
        coalesce((public.ml_health()->>'waterRulesReady')::boolean,false) as water_rules_ready,
        coalesce((public.ml_health()->>'environmentRulesReady')::boolean,false) as environment_rules_ready;
 
-select public.ml_health()->>'ruleVersion'='web-v0.1.6' as current_rule_ready,
+select public.ml_health()->>'ruleVersion'='web-v0.1.7' as current_rule_ready,
        coalesce((public.ml_health()->>'classicPatchReady')::boolean,false) as classic_patch_ready;
 
 select coalesce((public.ml_health()->>'draftReady')::boolean,false) as draft_ready,
        coalesce((public.ml_health()->>'characterSkillsReady')::boolean,false) as character_skills_ready,
        coalesce((public.ml_health()->>'stage3Ready')::boolean,false) as stage3_ready;
+
+select coalesce((public.ml_health()->>'stage4Ready')::boolean,false) as stage4_ready,
+       public.ml_health()->>'cardDefinitions'='76' as card_definitions_ready,
+       public.ml_health()->>'cardInstances'='191' as card_instances_ready;

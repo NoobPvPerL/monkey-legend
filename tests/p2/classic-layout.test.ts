@@ -2,7 +2,9 @@ import {expect,it} from 'vitest';
 import {readFile} from 'node:fs/promises';
 import {CLASSIC_CELLS,parseRegionCsv} from '../../packages/game-data/src/classic-map';
 import {CELLS,CHARACTERS} from '../../packages/game-data/src/index';
-import {databaseReady} from '../../packages/online/src/version';
+import {databaseReady as currentDatabaseReady,STAGE3_DATABASE_REQUIREMENT} from '../../packages/online/src/version';
+// This suite validates the frozen stage-three readiness contract.
+const databaseReady=(health:unknown)=>currentDatabaseReady(health,STAGE3_DATABASE_REQUIREMENT);
 import {eliminationCauses} from '../../apps/client/src/SettlementStats';
 const csv=await readFile('docs/maps/classic-regions.csv','utf8');
 it('classic CSV maps every row and column without changing old matches or inventing terrain',()=>{

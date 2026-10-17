@@ -1,0 +1,58 @@
+// Version-gated integration with the frozen stage-three dispatcher. Each anchor
+// is checked so a future source change cannot silently omit a board boundary.
+export function stage4BoardHooks(body,name,replace){
+ if(name==='stage3_equipment_options')body=replace(body,"ml_private.stage3_equipped(s,a,definition)","(case when s->>'version'='web-v0.1.7' then exists(select 1 from ml_private.arr(s#>array['stage3','equipment',a::text]) item where split_part(item#>>'{}','#',1)=definition) else ml_private.stage3_equipped(s,a,definition) end)");
+ if(name==='stage3_equipped')body=replace(body,"split_part(c#>>'{}','#',1)=definition","ml_private.stage4_equipment_definition(s,c#>>'{}')=definition and (s->>'version'<>'web-v0.1.7' or ml_private.character_effect_allowed((s#>array['stage3','equipmentSources',c#>>'{}'])||jsonb_build_object('origin','equipment'),a,s#>>array['players',a::text,'character']))");
+ if(name==='stage3_mount_blocked')body=replace(body,"as $$ select", "as $$ select (s->>'version'='web-v0.1.7' and s#>array['stage4','tongBlocked',a::text] is not null and ml_private.stage4_board_effect(s,a,s#>array['stage4','tongBlocked',a::text])) or");
+ if(name==='stage3_play')body=replace(body,"effect:=quoted->'effect';", "effect:=quoted->'effect';if s->>'version'='web-v0.1.7' and coalesce(cmd->>'as','')<>'elbow' then effect:=ml_private.stage4_attack_effect(s,a,card,effect);end if;");
+ if(name==='stage3_damage'){
+  body=replace(body,'blocked:=case when environment',"if s->>'version'='web-v0.1.7' then s:=ml_private.stage4_prepare_hit(s,h,environment);h:=s->'_hit';s:=s-'_hit';if h='null'::jsonb then continue;end if;end if;\n blocked:=case when h->>'trueDamage'='true' then 0 when environment");
+  body=replace(body,"for a in select ml_private.n(x)::int from ml_private.arr(s->'order') x loop", "if s->>'version'='web-v0.1.7' then s:=ml_private.stage4_after_damage(s,injured,environment);triggers:=s->'_gearTriggers';s:=s-'_gearTriggers';end if;\n for a in select ml_private.n(x)::int from ml_private.arr(s->'order') x loop");
+ }
+ if(name==='stage3_turn_end')body=replace(body,"split_part(c#>>'{}','#',1)='basic-067'","ml_private.stage4_equipment_definition(s,c#>>'{}')='basic-067'");
+ if(name==='stage3_gain_ap'){
+  body=replace(body,"(q->>'hp')::int>0", "(q->>'hp')::int>0 and (s->>'version'<>'web-v0.1.7' or ml_private.stage4_on_board(s,(q->>'seat')::int) and not ml_private.stage3_equipped(s,a,'basic-065'))");
+ }
+ if(name==='stage3_death')body=replace(body,"r:=jsonb_set(r,'{equipmentSources}',", "if s->>'version'='web-v0.1.7' then s:=jsonb_set(s,array['stage4','terrainIgnore',a::text],'false');s:=jsonb_set(s,'{stage4,watches}',(s#>'{stage4,watches}')-(c#>>'{}'));s:=jsonb_set(s,'{stage4,copies}',(s#>'{stage4,copies}')-(c#>>'{}'));s:=jsonb_set(s,'{stage4,durability}',(s#>'{stage4,durability}')-(c#>>'{}'));end if;r:=jsonb_set(r,'{equipmentSources}',");
+ if(name==='pump'){
+  body=replace(body,"when 'walk' then s:=ml_private.classic_walk(s,coalesce(t->'path','[]'),at);", "when 'walk' then if s->>'version'='web-v0.1.7' then s:=ml_private.stage4_resume_walk(s,coalesce(t->'path','[]'),at);else s:=ml_private.classic_walk(s,coalesce(t->'path','[]'),at);end if;");
+  body=replace(body,"s:=ml_private.select_choice(s,'water-discard',a,at,jsonb_build_object('count',1,'cards',p->'hand'));", "if s->>'version'='web-v0.1.7' and ml_private.stage4_combat_gear(s,a,'basic-069') is not null and coalesce(t#>>'{data,noTang}','false')<>'true' then if ml_private.stage4_ignore_location(s,a) then null;else s:=ml_private.select_choice(s,'gear-terrain',a,at,jsonb_build_object('data',jsonb_build_object('task',t)));end if;else s:=ml_private.select_choice(s,'water-discard',a,at,jsonb_build_object('count',1,'cards',p->'hand'));end if;");
+  body=replace(body,"exit when jsonb_array_length(s->'queue')=0;", "if s->>'version'='web-v0.1.7' then s:=ml_private.stage4_begin_interrupt(s,at);if s->>'_interruptBegan'='true' then s:=s-'_interruptBegan';continue;end if;s:=s-'_interruptBegan';end if;\n exit when jsonb_array_length(s->'queue')=0;");
+  body=replace(body,"when 'turn-start' then", "when 'turn-start' then\n if t#>>'{data,resuming}' is distinct from 'true' then");
+  body=replace(body,'s:=ml_private.stage3_start_gain_allowed(s,a);',"if s->>'version'='web-v0.1.7' and s#>>array['stage4','offMap',a::text]='true' then s:=ml_private.stage3_prepend(s,jsonb_build_array(jsonb_build_object('kind','turn-start','actor',a,'data',jsonb_build_object('resuming',true))));s:=ml_private.stage4_return(s,a,at);continue;end if;end if;\n s:=ml_private.stage3_start_gain_allowed(s,a);");
+  body=replace(body,"if (p->>'hp')::int>0 then p:=p||jsonb_build_object('skillUsed'", "if (p->>'hp')::int>0 and (s->>'version'<>'web-v0.1.7' or ml_private.stage4_on_board(s,a)) then p:=p||jsonb_build_object('skillUsed'");
+  body=replace(body,"p->>'character'='character-027' and (p->>'hp')::int>0 and ml_private.budget", "p->>'character'='character-027' and (p->>'hp')::int>0 and (s->>'version'<>'web-v0.1.7' or ml_private.stage4_on_board(s,a)) and ml_private.budget");
+ }
+ if(name==='end_turn')body=replace(body,"s:=s||jsonb_build_object('phase','resolving','queue'", "if s->>'version'='web-v0.1.7' then s:=jsonb_set(s,'{queue}',(s->'queue')||jsonb_build_array(ml_private.stage3_task('gear-end',jsonb_build_object('actor',a))));end if;\n if s->>'version'='web-v0.1.7' and ml_private.stage4_desert(s,a) is not null then s:=jsonb_set(s,'{queue}',(s->'queue')||jsonb_build_array(ml_private.stage3_task('board-desert',jsonb_build_object('actor',a))));end if;\n s:=s||jsonb_build_object('phase','resolving','queue'");
+ if(name==='classic_walk'){
+  body=replace(body,'tail jsonb;begin','tail jsonb;arrival jsonb;water_due boolean;begin');
+  body=replace(body,'if jsonb_array_length(pushed)>0 then',`if s->>'version'='web-v0.1.7' then arrival:=ml_private.stage4_arrival_tasks(s,a,origin,cell);water_due:=ml_private.classic_owes_water(s,a,origin);
+ if jsonb_array_length(pushed)>0 or water_due or jsonb_array_length(arrival)>0 then s:=ml_private.stage3_prepend(s,pushed||case when water_due then jsonb_build_array(jsonb_build_object('kind','water','actor',a,'data',jsonb_build_object('entry',true))) else '[]'::jsonb end||arrival||jsonb_build_array(jsonb_build_object('kind','walk','path',tail)));return jsonb_set(s,'{phase}','"resolving"');end if;end if;
+ if jsonb_array_length(pushed)>0 then`);
+ }
+ if(name==='dispatch'){
+  body=replace(body,"s:=ml_private.emit(s,'cost',ml_private.name(s,a)||case when cost=0", "if s->>'version'='web-v0.1.7' then s:=jsonb_set(s,'{movement,gearRoot}',s->'revision');end if;s:=ml_private.emit(s,'cost',ml_private.name(s,a)||case when cost=0");
+  body=replace(body,"if typ='location' then", "if typ='skill' and s->>'version'='web-v0.1.7' then perform ml_private.need((not(cmd ? 'accept') or jsonb_typeof(cmd->'accept')='boolean') and (not(cmd ? 'cell') or jsonb_typeof(cmd->'cell')='string') and (not(cmd ? 'cards') or jsonb_typeof(cmd->'cards')='array' and not exists(select 1 from ml_private.arr(cmd->'cards') input_card where jsonb_typeof(input_card)<>'string')),'技能输入无效');end if;\n if typ='location' then");
+  body=replace(body,"elsif previous->>'version'='web-v0.1.7' and typ='skill'", "elsif previous->>'version'='web-v0.1.7' and typ='play' and split_part(cmd->>'card','#',1)='basic-017' then s:=ml_private.stage4_reserve_interrupt(s,cmd);\n  elsif previous->>'version'='web-v0.1.7' and typ='skill' and cmd->>'kind'='terrain' then s:=ml_private.stage3_skill(s,cmd,at);\n  elsif previous->>'version'='web-v0.1.7' and typ='skill'");
+  body=replace(body,"perform ml_private.need(s->'choice'='null'::jsonb,'请先完成当前选择');", "perform ml_private.need(s->'choice'='null'::jsonb,'请先完成当前选择');perform ml_private.need(s->>'version'<>'web-v0.1.7' or ml_private.stage4_on_board(s,a) or typ='end','离场期间只能结束行动');");
+  body=replace(body,"cmd->>'action' in ('draw','steal')", "(cmd->>'action' in ('draw','steal') or previous->>'version'='web-v0.1.7' and cmd->>'action'='ap')");
+ }
+ if(name==='next_turn')body=replace(body,"s:=ml_private.stage3_turn_end(s,(s->>'active')::int);","if coalesce(s#>>'{stage4,interruptSkipEnd}','false')<>'true' then s:=ml_private.stage3_turn_end(s,(s->>'active')::int);end if;if s->>'version'='web-v0.1.7' then s:=jsonb_set(s,'{stage4,interruptSkipEnd}','false');end if;");
+ if(name==='next_turn')body=replace(body,"cursor:=(s->>'cursor')::int+1;", "if s->>'version'='web-v0.1.7' and s#>'{stage4,interruptTurn}'<>'null'::jsonb then a:=(s#>>'{stage4,interruptTurn}')::int;s:=jsonb_set(s,'{stage4,interruptTurn}','null');s:=s||jsonb_build_object('order',(select jsonb_agg((a+i)%4 order by i) from generate_series(0,3) i),'round',(s->>'round')::int+1,'cursor',0);return ml_private.start_round(s,at);end if;\n cursor:=(s->>'cursor')::int+1;");
+ if(name==='settle_movement_before_stage3'){
+  body=replace(body,"(p->>'ap')::int>=1,'移动结算需要1AP'", "(s->>'version'='web-v0.1.7' or (p->>'ap')::int>=1),'移动结算需要1AP'");
+  body=replace(body,"'ap',(p->>'ap')::int-1", "'ap',greatest(0,(p->>'ap')::int-1)");
+  body=replace(body,"||' 移动结束支付1AP'", "||' 移动结束支付'||least(1,(p->>'ap')::int)||'AP'");
+ }
+ if(name==='settle_movement')body=replace(body,"return ml_private.settle_movement_before_stage3(s);", "if s->>'version'='web-v0.1.7' and jsonb_array_length(m->'path')>1 and coalesce(m->>'gearQueued','false')<>'true' then s:=jsonb_set(s,'{movement,gearQueued}','true');s:=jsonb_set(s,'{queue}',(s->'queue')||ml_private.stage4_landing_tasks(s,(s->>'active')::int,ml_private.stage3_direction(s,m#>>'{path,-2}',m#>>'{path,-1}')));end if;return ml_private.settle_movement_before_stage3(s);");
+ if(name==='finish_before_stage3')body=replace(body,"s:=s||jsonb_build_object('result',jsonb_build_object('reason'","if s->>'version'='web-v0.1.7' then s:=ml_private.stage4_discard_interrupts(s);end if;\n s:=s||jsonb_build_object('result',jsonb_build_object('reason'");
+ if(name==='targets'){
+  body=replace(body,"(d->>'range'='global' or ml_private.game_data(s,'map')#>>array[q->>'cell','region']=ml_private.game_data(s,'map')#>>array[p->>'cell','region'] or (d->>'range'='adjacent' and ml_private.stage3_same_near(p->>'cell',q->>'cell')))","(case when s->>'version'='web-v0.1.7' then ml_private.stage4_card_range(s,a,d,q->>'cell') else (d->>'range'='global' or ml_private.game_data(s,'map')#>>array[q->>'cell','region']=ml_private.game_data(s,'map')#>>array[p->>'cell','region'] or (d->>'range'='adjacent' and ml_private.stage3_same_near(p->>'cell',q->>'cell'))) end)");
+  body=replace(body,"(q->>'seat')::int<>a", "(q->>'seat')::int<>a and (s->>'version'<>'web-v0.1.7' or split_part(card,'#',1)<>'basic-006' or not ml_private.stage3_equipped(s,(q->>'seat')::int,'basic-057'))");
+  body=replace(body,'lemon integer;','lemon integer;lmm integer;');
+  body=replace(body,"(q->>'hp')::int>0", "(q->>'hp')::int>0 and (s->>'version'<>'web-v0.1.7' or ml_private.stage4_on_board(s,(q->>'seat')::int) and (d->>'group'='true' or not ml_private.stage4_single_protected(s,a,(q->>'seat')::int)))");
+  body=replace(body,"select (q->>'seat')::int into lemon", "if s->>'version'='web-v0.1.7' and coalesce(d->>'group','false')<>'true' then lmm:=ml_private.stage4_lmm_target(s,a,result);if lmm is not null then return jsonb_build_array(lmm);end if;end if;\n select (q->>'seat')::int into lemon");
+ }
+ if(name==='stage3_jj_targets')body=replace(body,'if jj is null or',"if jj is null or (s->>'version'='web-v0.1.7' and (not ml_private.stage4_on_board(s,jj) or d->>'type'='attack' and coalesce(d->>'group','false')<>'true' and (ml_private.stage4_single_protected(s,a,jj) or ml_private.stage4_lmm_target(s,a,targets) is not null))) or");
+ return body;
+}

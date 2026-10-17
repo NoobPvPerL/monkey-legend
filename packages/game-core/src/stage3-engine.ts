@@ -1,3 +1,6 @@
+import {ignoreLocation,terrainCard,terrainEffect,terrainMoveCost} from './stage4-terrain';
+import {stage4CardRange} from './stage4-combat';
+import {onBoard,boardSingleProtected,boardLmmTarget} from './stage4-board';
 import type {GameState,Command,Task,ChoiceKind} from './types';
 import type {ResourceState,EquipmentSource} from './stage3-resources';
 import * as resources from './stage3-resources';
@@ -5,7 +8,7 @@ import * as roles from './stage3-roles';
 import * as stack from './stage3-card-stack';
 import {STAGE3_CARDS} from '../../game-data/src/stage3';
 import source from '../../game-data/src/source-catalog.json';
-import {mapForVersion,neighboringForVersion} from '../../game-data/src/index';
+import {mapForVersion,neighboringForVersion,runtimeForVersion} from '../../game-data/src/index';
 import {locationCardAllowed,locationEffectAllowed,locationDestinations,basicMoveCost} from './locations';
 import {roleEffectAllowed,modifiedByRole} from './character-effects';
 import {integer} from './random';
@@ -18,9 +21,10 @@ export interface Stage3Ports {
  select:(s:GameState,kind:ChoiceKind,actor:number,now:number,extra?:Partial<NonNullable<GameState['choice']>>)=>void;
  draw:(s:GameState,actor:number,count:number)=>void;
  heal:(s:GameState,actor:number,amount:number,food?:boolean)=>void;
- damage:(s:GameState,hits:{target:number;amount:number;source:number|null;category:'attack'|'response'|'environment'}[],environment?:boolean,suppressPursuit?:boolean)=>Task[];
- relocate:(s:GameState,actor:number,cell:string,voluntary:boolean,carry?:boolean)=>Task[];
+ damage:(s:GameState,hits:{target:number;amount:number;source:number|null;category:'attack'|'response'|'environment';trueDamage?:boolean;reflected?:boolean;directHp?:boolean;extra?:boolean}[],environment?:boolean,suppressPursuit?:boolean)=>Task[];
+ relocate:(s:GameState,actor:number,cell:string,voluntary:boolean,carry?:boolean,reactive?:boolean)=>Task[];
  finish:(s:GameState,forced:boolean,now:number)=>boolean;
+ endTurn?:(s:GameState,now:number,timeout?:boolean)=>void;
 }
 const need=(value:unknown,message:string):void=>{if(!value)throw Error(message);};
 const state=(s:GameState):State=>{need(s.stage3&&s.cardStack,'阶段三状态缺失');return s as State;};
@@ -28,21 +32,23 @@ const board=(s:State):roles.RoleBoard=>({...s,farmClosed:s.classic?.farmClosed??
 const task=(action:string,extra:Partial<Task>={}):Task=>({kind:'stage3',action,...extra});
 const seatName=(a:number)=>`S${a+1}`;
 const cardId=(card:string)=>card.split('#')[0];
+const cards=(s:GameState)=>runtimeForVersion(s.version).cards as Record<string,import('../../game-data/src/legacy').CardDefinition>;
 const alive=(s:GameState,a:number)=>s.players[a]?.hp>0;
 const prepend=(s:GameState,...tasks:Task[])=>s.queue.unshift(...tasks);
 export function stage3Overflow(s:GameState,now:number,p:Stage3Ports):boolean {
  const st=state(s),due=resources.overflowDonors(st,s.order)[0];if(!due)return false;
  p.select(s,'xiao-overflow',due.actor,now,{source:due.collector,count:due.count,cards:[...s.players[due.actor].hand]});return true;
 }
-export function stage3Play(s:GameState,cmd:Play,now:number,p:Stage3Ports){
- const st=state(s),actor=cmd.actor,user=s.players[actor],def=STAGE3_CARDS[cardId(cmd.card)],converted=cmd.as==='elbow';
+export function stage3Play(s:GameState,cmd:Play,now:number,p:Stage3Ports,costOverride?:ReturnType<typeof resources.cardApCost>){
+ const st=state(s),actor=cmd.actor,user=s.players[actor],def=cards(s)[cardId(cmd.card)],converted=cmd.as==='elbow';
  need(user.hand.includes(cmd.card)&&def,'手中没有该实体牌');need(!st.stage3.breadBlocked[actor],'面包：本个人回合不能主动出牌');
  const elbow=user.character==='character-023'&&(converted||def.id==='basic-002');need(!converted||user.character==='character-023','只有牢大可以转换肘击');
  need(def.type!=='response'||elbow,'响应牌只能在相应窗口使用');
  need(user.character!=='character-005'||converted||!(source.cards[def.id as keyof typeof source.cards].tags as readonly string[]).includes('建民'),'QB不能使用建民牌');
- const boosted=user.character==='character-045'&&def.id==='basic-010';need(boosted||converted||locationCardAllowed(s.version,user.cell,def.id),'当前位置禁止使用此牌');
- let quoted=converted?{cost:resources.fixedApCost(st,actor,2),effect:{origin:'role-active' as const,actor,faction:user.faction,roleModifiers:[{actor,kind:'conversion' as const}]}}:resources.cardApCost(st,actor,cmd.card,def.randomCost?st.stage3.costLocks[cmd.card]?.turn===st.stage3.turn?st.stage3.costLocks[cmd.card].cost:undefined:undefined);
+ const boosted=user.character==='character-045'&&def.id==='basic-010';need(boosted||converted||terrainCard(s,actor,def.id),'当前位置禁止使用此牌');
+ let quoted=costOverride??(converted?{cost:resources.fixedApCost(st,actor,2),effect:{origin:'role-active' as const,actor,faction:user.faction,roleModifiers:[{actor,kind:'conversion' as const}]}}:resources.cardApCost(st,actor,cmd.card,def.randomCost?st.stage3.costLocks[cmd.card]?.turn===st.stage3.turn?st.stage3.costLocks[cmd.card].cost:undefined:undefined));
  if(elbow&&!converted)quoted.effect={...modifiedByRole(quoted.effect,{actor,kind:'other'}),faction:quoted.effect.faction};
+ if(!converted)quoted.effect=resources.attackEquipmentEffect(st,actor,cmd.card,quoted.effect);
  if(boosted)quoted.effect={...modifiedByRole(quoted.effect,{actor,kind:'target'}),faction:quoted.effect.faction};
  need(user.ap>=quoted.cost,`需要${quoted.cost}AP`);need(new Set(cmd.targets).size===cmd.targets.length,'目标不能重复');
  let targets=[...cmd.targets];
@@ -64,35 +70,36 @@ export function stage3Play(s:GameState,cmd:Play,now:number,p:Stage3Ports){
  s.phase='resolving';prepend(s,task('counter',{serial:pending.serial}),task('continue',{serial:pending.serial}));
 }
 export function stage3AttackTargets(s:GameState,actor:number,card:string):number[]{
- const st=state(s),def=STAGE3_CARDS[cardId(card)];if(!def||def.type!=='attack')return [];
+ const st=state(s),def=cards(s)[cardId(card)];if(!def||def.type!=='attack')return [];
  if(def.id==='basic-010')return roles.monkeyTargets(board(st),actor);
- const user=s.players[actor],map=mapForVersion(s.version),ids=s.players.filter(q=>q.hp>0&&q.seat!==actor&&(s.mode==='ffa'||q.team!==user.team)&&!(def.group&&q.character==='character-027'&&q.hand.length===1)&&locationCardAllowed(s.version,user.cell,def.id)&&(def.range==='global'||map.map[q.cell].region===map.map[user.cell].region||(def.range==='adjacent'&&neighboringForVersion(s.version,map.map[user.cell].region,map.map[q.cell].region)))).map(q=>q.seat);
+ const user=s.players[actor],map=mapForVersion(s.version),ids=s.players.filter(q=>onBoard(s,q.seat)&&(!s.stage4||def.group||!boardSingleProtected(s,actor,q.seat))&&q.seat!==actor&&(!s.stage4||def.id!=='basic-006'||!resources.equipped(st,q.seat,'basic-057'))&&(s.mode==='ffa'||q.team!==user.team)&&!(def.group&&q.character==='character-027'&&q.hand.length===1)&&terrainCard(s,actor,def.id)&&(s.stage4?stage4CardRange(s,actor,def,q.cell):(def.range==='global'||map.map[q.cell].region===map.map[user.cell].region||(def.range==='adjacent'&&neighboringForVersion(s.version,map.map[user.cell].region,map.map[q.cell].region))))).map(q=>q.seat);
+ const lmm=boardLmmTarget(st,actor,ids);if(!def.group&&lmm!==null)return [lmm];
  const lemon=ids.find(a=>s.players[a].character==='character-004');return !def.group&&lemon!==undefined?[lemon]:ids;
 }
 export function stage3Actions(s:GameState,actor:number){
  const st=state(s),p=s.players[actor],b=board(st),free=s.phase==='action'&&!s.choice&&s.active===actor&&alive(s,actor);
  const locationInput={...s,shipUsed:s.classic!.shipUsed,farmClosed:s.classic!.farmClosed};
- const destinations=(kind:'ship'|'commute')=>resources.mountMovementBlocked(st,actor)?[]:locationDestinations({...locationInput,players:kind==='ship'&&st.stage3.jjFree[actor]?s.players.map(q=>q.seat===actor?{...q,ap:Math.max(1,q.ap)}:q):s.players},actor,kind).filter(c=>resources.canEnterWithMount(st,actor,c));
+ const destinations=(kind:'ship'|'commute')=>resources.mountMovementBlocked(st,actor)||ignoreLocation(s,actor)?[]:locationDestinations({...locationInput,players:kind==='ship'&&st.stage3.jjFree[actor]?s.players.map(q=>q.seat===actor?{...q,ap:Math.max(1,q.ap)}:q):s.players},actor,kind).filter(c=>resources.canEnterWithMount(st,actor,c));
  const revivalTargets=s.players.filter(q=>resources.revivalCells(st,q.seat,s.classic!.farmClosed).length>0).map(q=>q.seat);
  return {
   jj:free&&p.character==='character-003'&&!st.stage3.jjUsed[actor],
-  breadTargets:free&&resources.breadUseAllowed(st,actor)?s.players.filter(q=>q.hp>0&&q.seat!==actor).map(q=>q.seat):[],
+  breadTargets:free&&resources.breadUseAllowed(st,actor)?s.players.filter(q=>onBoard(s,q.seat)&&q.seat!==actor).map(q=>q.seat):[],
   revivalTargets,
   cards:Object.fromEntries(p.hand.map(card=>{
-   const def=STAGE3_CARDS[cardId(card)],quote=st.stage3.costLocks[card],quoted=quote?.turn===st.stage3.turn?quote.cost:undefined;
+   const def=cards(s)[cardId(card)],quote=st.stage3.costLocks[card],quoted=quote?.turn===st.stage3.turn?quote.cost:undefined;
    const cost=def.randomCost&&quoted===undefined?null:resources.cardApCost(st,actor,card,quoted).cost;
-   const targets=def.id==='basic-002'&&p.character==='character-023'?roles.elbowTargets(b,actor,false):def.type==='attack'?stage3AttackTargets(s,actor,card):def.id==='basic-037'?revivalTargets:def.id==='basic-016'?s.players.filter(q=>q.hp>0&&q.seat!==actor&&roles.mayVoluntarilyRelocate(st,actor)&&roles.emptyEntry(b,actor,q.cell,[actor,q.seat])&&roles.emptyEntry(b,q.seat,p.cell,[actor,q.seat])).map(q=>q.seat):[];
+   const targets=def.id==='basic-002'&&p.character==='character-023'?roles.elbowTargets(b,actor,false):def.type==='attack'?stage3AttackTargets(s,actor,card):def.id==='basic-037'?revivalTargets:def.id==='basic-016'?s.players.filter(q=>onBoard(s,q.seat)&&q.seat!==actor&&roles.mayVoluntarilyRelocate(st,actor)&&roles.emptyEntry(b,actor,q.cell,[actor,q.seat])&&roles.emptyEntry(b,q.seat,p.cell,[actor,q.seat])).map(q=>q.seat):[];
    return [card,{cost,needsQuote:def.randomCost===true&&quoted===undefined,targets,convertTargets:p.character==='character-023'?roles.elbowTargets(b,actor,true):[],equipment:def.type==='equipment'?resources.equipmentReplacements(st,actor,card):null,blocked:st.stage3.breadBlocked[actor]}];
   })),
   directionRequired:p.character==='character-040',basicMovesRemaining:Math.max(0,resources.basicMoveAllowance(st,actor)-st.stage3.basicUsed[actor]),
-  moveCost:resources.equipped(st,actor,'basic-071')?0:resources.fixedApCost(st,actor,basicMoveCost(s.version,p.cell)),movementBlocked:resources.mountMovementBlocked(st,actor),locations:{ship:destinations('ship'),commute:destinations('commute')},
+  moveCost:resources.equipped(st,actor,'basic-071')?0:resources.fixedApCost(st,actor,terrainMoveCost(s,actor)),movementBlocked:resources.mountMovementBlocked(st,actor),locations:{ship:destinations('ship'),commute:destinations('commute')},
   elbowPush:(p.character==='character-023'?Object.fromEntries(roles.elbowTargets(b,actor,false).map(target=>{const cells=roles.elbowPushCells(b,actor,target);return [target,Object.fromEntries(roles.DIRECTIONS.map(d=>[d,roles.nextInDirection(s.players[target].cell,d)]).filter(([,cell])=>cell!==null&&cells.includes(cell)))];})):{} ) as Record<number,Partial<Record<roles.Direction,string>>>,
  };
 }
 function responseOptions(s:State,a:number,card:stack.PendingCard):string[]{
  return s.players[a].hand.filter(c=>{const id=cardId(c);return ((id==='basic-001'&&card.definition!=='basic-009')||(id==='basic-002'&&card.definition==='basic-008'))&&s.players[a].ap>=resources.cardApCost(s,a,c).cost;});
 }
-function availableTargets(s:State,c:stack.PendingCard):number[]{return c.targets.filter(a=>alive(s,a)&&!c.cancelled.includes(a)&&roles.cardEffectAllowed(s,a,c.definition,c.effect)&&locationEffectAllowed('web-v0.1.5',s.players[a].cell,c.definition));}
+function availableTargets(s:State,c:stack.PendingCard):number[]{return c.targets.filter(a=>alive(s,a)&&!c.cancelled.includes(a)&&roles.cardEffectAllowed(s,a,c.definition,c.effect)&&(s.stage4?!c.stage4?.officeExempt?.includes(a):locationEffectAllowed('web-v0.1.5',s.players[a].cell,c.definition)));}
 function queueDamage(s:State,p:Stage3Ports,hits:Parameters<Stage3Ports['damage']>[1]){return p.damage(s,hits);}
 export function stage3Task(s:GameState,t:Task,now:number,p:Stage3Ports){
  const st=state(s),a=t.actor??s.active,user=s.players[a];
@@ -113,14 +120,14 @@ export function stage3Task(s:GameState,t:Task,now:number,p:Stage3Ports){
   p.select(s,'elbow-push',a,now,{source:target,cells,data:{origin:s.players[target].cell}});return;
  }
  if(t.action==='equip-install'){
-  const pending=stack.currentCard(st);if(alive(s,pending.actor)){st.stage3.equipment[pending.actor].push(pending.card);st.stage3.equipmentSources[pending.card]=structuredClone(pending.effect);s.resolving=s.resolving.filter(c=>c!==pending.card);pending.installed=true;st.stage3.doubleMove[pending.actor]=resources.equipped(st,pending.actor,'basic-066')&&st.stage3.previousBasic[pending.actor]===false;s.players[pending.actor].moved=st.stage3.basicUsed[pending.actor]>=resources.basicMoveAllowance(st,pending.actor);p.emit(s,'equip',`${seatName(pending.actor)} 装备${STAGE3_CARDS[pending.definition].name}`);}return;
+  const pending=stack.currentCard(st);if(alive(s,pending.actor)){st.stage3.equipment[pending.actor].push(pending.card);st.stage3.equipmentSources[pending.card]=structuredClone(pending.effect);s.resolving=s.resolving.filter(c=>c!==pending.card);pending.installed=true;st.stage3.doubleMove[pending.actor]=resources.equipped(st,pending.actor,'basic-066')&&st.stage3.previousBasic[pending.actor]===false;s.players[pending.actor].moved=st.stage3.basicUsed[pending.actor]>=resources.basicMoveAllowance(st,pending.actor);p.emit(s,'equip',`${seatName(pending.actor)} 装备${cards(s)[pending.definition].name}`);}return;
  }
  const c=stack.currentCard(st);need(t.serial===undefined||c.serial===t.serial,'卡牌结算编号过期');
  if(t.action==='counter'){if(c.counter)p.select(s,'easy',c.counter.actor,now,{deadline:c.counter.deadline,data:{serial:c.serial}});return;}
  if(t.action==='continue'){
   if(c.countered){prepend(s,task('cleanup',{serial:c.serial}));return;}
   if(c.responseTo!==null){prepend(s,task('cleanup',{serial:c.serial}));return;}
-  const def=STAGE3_CARDS[c.definition];
+  const def=cards(s)[c.definition];
   if(def.type==='attack'||c.definition==='basic-002'){
    s.attack={actor:c.actor,card:c.card,targets:c.targets,cancelled:c.cancelled,elbows:c.elbows};prepend(s,...s.order.filter(a=>availableTargets(st,c).includes(a)).map(actor=>task('response',{actor,serial:c.serial})),task('effect',{serial:c.serial}));
   }else prepend(s,task('effect',{serial:c.serial}));return;
@@ -132,7 +139,7 @@ export function stage3Task(s:GameState,t:Task,now:number,p:Stage3Ports){
   s.attack=null;if(!p.finish(s,false,now)){if(alive(s,s.active)){s.phase='action';}else prepend(s,{kind:'next'});}return;
  }
  if(t.action!=='effect')throw Error('未知阶段三结算任务');
- resources.recordCombo(st,c.actor,c.definition);const targets=availableTargets(st,c),def=STAGE3_CARDS[c.definition];const after:Task[]=[];
+ resources.recordCombo(st,c.actor,c.definition);const targets=availableTargets(st,c),def=cards(s)[c.definition];const after:Task[]=[];
  if(c.definition==='basic-002'){
   after.push(...targets.map(target=>task('elbow-hit',{actor:c.actor,target})));
  }else if(def.type==='attack'){
@@ -185,12 +192,12 @@ export function stage3Choose(s:GameState,cmd:Choose,now:number,p:Stage3Ports,tim
   const result=stack.counterCard(st,a,cmd.accept===true&&!timeout,now,()=>p.die(s,'easy 太简单了'));p.emit(s,'skill',result.attempted?`${seatName(a)} 反制支付1AP，${result.cancelled?'整牌失效':'判定失败'}`:`${seatName(a)} 结束反制`);return !result.done;
  }
  if(c.kind==='response'){
-  if(cmd.card){need(c.cards?.includes(cmd.card),'响应牌不可用');const parent=stack.currentCard(st),quoted=resources.cardApCost(st,a,cmd.card);s.players[a].ap-=quoted.cost;s.players[a].hand=s.players[a].hand.filter(x=>x!==cmd.card);s.resolving.push(cmd.card);const child=stack.beginCard(st,a,cmd.card,cardId(cmd.card),[],quoted.effect,now,parent.serial);prepend(s,task('counter',{serial:child.serial}),task('continue',{serial:child.serial}));p.emit(s,'response',`${seatName(a)} 使用${STAGE3_CARDS[child.definition].name}，支付${quoted.cost}AP`);}return false;
+  if(cmd.card){need(c.cards?.includes(cmd.card),'响应牌不可用');const parent=stack.currentCard(st),quoted=resources.cardApCost(st,a,cmd.card);s.players[a].ap-=quoted.cost;s.players[a].hand=s.players[a].hand.filter(x=>x!==cmd.card);s.resolving.push(cmd.card);const child=stack.beginCard(st,a,cmd.card,cardId(cmd.card),[],quoted.effect,now,parent.serial);prepend(s,task('counter',{serial:child.serial}),task('continue',{serial:child.serial}));p.emit(s,'response',`${seatName(a)} 使用${cards(s)[child.definition].name}，支付${quoted.cost}AP`);}return false;
  }
  if(c.kind==='xiao-overflow'){const cards=timeout?[...s.players[a].hand].sort().slice(0,c.count):cmd.cards??[];resources.transferOverflow(st,a,c.source!,cards);p.emit(s,'transfer',`${seatName(a)} 超限${cards.length}张交给${seatName(c.source!)}`);return false;}
  if(c.kind==='qb-pursuit'){if(cmd.accept&&alive(s,c.source!)){const target=p.die(s,'QB 纯菜')>=3?c.source!:a;prepend(s,...p.damage(s,[{target,amount:1,source:a,category:'response'}],false,true));}return false;}
  if(c.kind==='east-start'){
-  if(cmd.action){const target=cmd.target!;need(roles.eastTargets(st,a,cmd.action).includes(target),'领袖风范目标不合法');if(cmd.action==='draw'){p.draw(s,a,1);p.draw(s,target,1);}else{const hand=s.players[target].hand,index=integer(s.random,hand.length);s.players[a].hand.push(hand.splice(index,1)[0]);p.emit(s,'transfer',`${seatName(a)} 从${seatName(target)} 随机拿1张`);}}return false;
+  if(cmd.action==='ap')throw Error('领袖风范选项无效');if(cmd.action){const target=cmd.target!;need(roles.eastTargets(st,a,cmd.action).includes(target),'领袖风范目标不合法');if(cmd.action==='draw'){p.draw(s,a,1);p.draw(s,target,1);}else{const hand=s.players[target].hand,index=integer(s.random,hand.length);s.players[a].hand.push(hand.splice(index,1)[0]);p.emit(s,'transfer',`${seatName(a)} 从${seatName(target)} 随机拿1张`);}}return false;
  }
  if(c.kind==='xie-ledger'){if(cmd.target!==undefined){need(c.targets?.includes(cmd.target)&&alive(s,cmd.target),'阎王薄目标不合法');prepend(s,...p.damage(s,[{target:cmd.target,amount:1,source:a,category:'response'}]));}return false;}
  if(c.kind==='elbow-push'){

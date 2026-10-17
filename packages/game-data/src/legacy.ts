@@ -1,9 +1,10 @@
+import type sourceCatalog from './source-catalog.json';
 export const RULE_VERSION = 'web-v0.1.1' as const;
-export const hasInteractionRules=(version:string)=>['web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6'].includes(version);
-export const unlimitedAttacks=(version:string)=>['web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6'].includes(version);
-export type CardId = 'basic-001'|'basic-002'|'basic-003'|'basic-004'|'basic-005'|'basic-006'|'basic-008'|'basic-009'|'basic-039'|'basic-045'|'basic-046'|'basic-047'|'basic-010'|'basic-015'|'basic-016'|'basic-037'|'basic-041'|'basic-054'|'basic-063'|'basic-066'|'basic-067'|'basic-071'|'basic-072';
+export const hasInteractionRules=(version:string)=>['web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7'].includes(version);
+export const unlimitedAttacks=(version:string)=>['web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7'].includes(version);
+export type CardId = keyof typeof sourceCatalog.cards;
 export type CharacterId = 'character-004'|'character-027'|'character-031'|'character-037'|'character-002'|'character-003'|'character-005'|'character-006'|'character-010'|'character-023'|'character-026'|'character-040'|'character-043'|'character-044'|'character-045'|'character-048';
-export interface CardDefinition { id: CardId; name: string; copies: number; cost: number; type: 'attack'|'response'|'food'|'tactic'|'equipment'; range?: 'global'|'same'|'adjacent'; power?: number; group?: boolean; text: string;slot?:'hand'|'mount';randomCost?:true }
+export interface CardDefinition { id: CardId; name: string; copies: number; cost: number; type: 'attack'|'response'|'food'|'tactic'|'equipment'; range?: 'global'|'same'|'adjacent'; power?: number; group?: boolean; text: string;slot?:'body'|'hand'|'head'|'wrist'|'mount';randomCost?:true }
 export const CARDS: Record<CardId, CardDefinition> = Object.fromEntries([
  ['basic-001','防御姿态',8,1,'response',undefined,undefined,false,'取消本张攻击对自己的全部效果'],
  ['basic-002','肘击',4,0,'response',undefined,undefined,false,'仅响应头锤；反吸最多2AP，对方AP为0则造成1伤害'],

@@ -2,7 +2,9 @@ import {expect,it} from 'vitest';
 import {PGlite} from '@electric-sql/pglite';
 import {readFile,readdir} from 'node:fs/promises';
 import {createGame,dispatch} from '../../packages/game-core/src/index';
-import {databaseReady} from '../../packages/online/src/version';
+import {databaseReady as currentDatabaseReady,STAGE3_DATABASE_REQUIREMENT} from '../../packages/online/src/version';
+// This suite validates the frozen stage-three readiness contract.
+const databaseReady=(health:unknown)=>currentDatabaseReady(health,STAGE3_DATABASE_REQUIREMENT);
 const migration=await readFile('database/migrations/016_stage3_release.sql','utf8');
 const atomic=(sql:string)=>`DO $outer$ BEGIN EXECUTE $payload$${sql}$payload$; END $outer$;`;
 it('016 promotes the full engine atomically, preserves old matches/profiles/receipts and can reapply during an outstanding draft',async()=>{

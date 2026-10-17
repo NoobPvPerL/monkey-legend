@@ -1,3 +1,5 @@
+import {anytimeReason,stage4PlayReason} from './stage4-guards';
+import type {PlayOptions} from './stage4-guards';
 import {cardForVersion,definitionId,hasInteractionRules,unlimitedAttacks,hasStage3} from '../../../packages/game-data/src/index';
 import type {DraftPickIntent} from '../../../packages/online/src/draft-protocol';
 import type {Direction} from '../../../packages/game-core/src/stage3-roles';
@@ -13,12 +15,15 @@ export function actionBlockReason(game:OnlineGame,seat:number,busy:boolean,now:n
  if(now>=deadline)return game.choice?'选择时间已结束，正在同步':'行动时间已结束，正在同步';
  return null;
 }
-export function playBlockReason(game:OnlineGame,seat:number,card:string,targets:number[],busy:boolean,now:number,options:{as?:'elbow';replacement?:string;direction?:Direction}={}):string|null {
- const blocked=actionBlockReason(game,seat,busy,now);if(blocked)return blocked;
+export function playBlockReason(game:OnlineGame,seat:number,card:string,targets:number[],busy:boolean,now:number,options:PlayOptions={}):string|null {
+ const interrupt=Boolean(game.stage4&&definitionId(card)==='basic-017'&&options.as!=='elbow');
+ const blocked=interrupt?anytimeReason(game,seat,busy,now):actionBlockReason(game,seat,busy,now);if(blocked)return blocked;
+ if(interrupt)return stage4PlayReason(game,seat,card,targets,options);
  if(game.choice)return '请先完成当前选择';
  if(game.phase!=='action')return '请先结束移动';
  const player=game.players[seat],def=cardForVersion(definitionId(card),game.version);
  if(!player.hand?.includes(card)||!def)return '这张牌已不在手中';
+ if(game.stage4)return stage4PlayReason(game,seat,card,targets,options);
  if(hasStage3(game.version)){
   const info=game.actions.stage3?.cards[card];if(!info)return '正在同步卡牌可用条件';
   if(info.blocked)return '面包：本个人回合不能主动出牌';
@@ -50,10 +55,12 @@ export function prepareGameCommand(rendered:RoomSnapshot,latest:RoomSnapshot,int
  if(latest.role==='spectator'||!latest.game||!latest.matchId)return {error:'当前不能操作玩家座位'};
  if(rendered.roomId!==latest.roomId||rendered.memberId!==latest.memberId||rendered.epoch!==latest.epoch||rendered.matchId!==latest.matchId)return {error:'对局或身份已更新，请重新确认'};
  if(rendered.game?.revision!==latest.game.revision)return {error:'状态已更新，本次操作未发送，请重新确认'};
- const blocked=actionBlockReason(latest.game,latest.seat,false,now);if(blocked)return {error:blocked};
+ const anytime=Boolean(latest.game.stage4&&(intent.type==='play'&&intent.card.startsWith('basic-017#')&&!intent.as||intent.type==='skill'&&intent.kind==='terrain'));
+ const quote=Boolean(intent.type==='skill'&&intent.kind==='quote-cost'&&latest.game.choice?.kind==='card-counter'&&latest.game.choice.actor===latest.seat);
+ const blocked=anytime?anytimeReason(latest.game,latest.seat,false,now):actionBlockReason(latest.game,latest.seat,false,now);if(blocked)return {error:blocked};
  if(intent.type==='choose'){
   if(latest.game.choice?.id!==intent.choice)return {error:'原选择窗口已结束，本次操作未发送'};
- }else if(latest.game.choice)return {error:'请先完成当前选择'};
+ }else if(latest.game.choice&&!anytime&&!quote)return {error:'请先完成当前选择'};
  if(intent.type==='play'){
   const reason=playBlockReason(latest.game,latest.seat,intent.card,intent.targets,false,now,intent);if(reason)return {error:reason};
  }

@@ -2,9 +2,9 @@
 
 应猴传说：高唐之战。四人校园地图卡牌游戏。
 
-**当前本地完整阶段三：0.2.4-p2.5 / web-v0.1.6 / schema2 / engineRevision16，尚未部署。**
+**当前阶段四候选：0.2.5-p2.6 / web-v0.1.7 / schema2 / engineRevision18。**
 
-16角色三选一、23种85张、角色完整技能与必要装备接通，含v0.1.5环境／跑者等补丁。旧局保留原版本。规则见[web-v0.1.6](docs/web-rules-v0.1.6.md)，验证见[阶段三记录](docs/p2-stage3-validation.md)，部署见[WorkBuddy交接](docs/p2-stage3-workbuddy.md)。以下旧版本及上线记录保留为历史快照。
+16角色三选一、76种191实体基础牌、完整装备和坐骑、反制链、区域地形与插队均已接通；旧局与已开始选角保留原版本。规则见[web-v0.1.7](docs/web-rules-v0.1.7.md)，验证见[阶段四记录](docs/p2-stage4-validation.md)，部署见[WorkBuddy交接](docs/p2-stage4-workbuddy.md)。本地开发／交付与云端部署／真人验收分别记录，[P2完成审计](docs/p2-stage4-p2-audit.md)持续追踪待验项。以下旧版本及上线记录保留为历史快照。
 
 负责人批准由Codex补全网页版规则，完成记录见 [P0验收](docs/p0-acceptance-cases.md)。
 

@@ -1,20 +1,23 @@
 import * as legacy from './legacy';
+import {STAGE4_RULE_VERSION,STAGE4_RUNTIME_CARDS,STAGE4_ALL_CARDS} from './stage4';
 import {CLASSIC_CELLS,CLASSIC_MAP_ID} from './classic-map';
 import source from './source-catalog.json';
 import {CLASSIC_LEMON,CLASSIC_LOCATIONS} from './classic-policy';
 import type {CardId,CardDefinition,Cell} from './legacy';
 import {STAGE3_RULE_VERSION,STAGE3_CARDS,STAGE3_CARD_IDS,STAGE3_ALL_CARDS,STAGE3_CHARACTERS,STAGE3_CHARACTER_IDS} from './stage3';
 
-export const ACTIVE_RULE_VERSIONS=['web-v0.1.1','web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5',STAGE3_RULE_VERSION] as const;
-export type RuleVersion=typeof ACTIVE_RULE_VERSIONS[number]|typeof STAGE3_RULE_VERSION;
+export const ACTIVE_RULE_VERSIONS=['web-v0.1.1','web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5',STAGE3_RULE_VERSION,STAGE4_RULE_VERSION] as const;
+export type RuleVersion=typeof ACTIVE_RULE_VERSIONS[number]|typeof STAGE4_RULE_VERSION;
 export const CLASSIC_RULE_VERSION='web-v0.1.4' as const;
 export const PATCH_RULE_VERSION='web-v0.1.5' as const;
-export const isClassicVersion=(version:string)=>version===CLASSIC_RULE_VERSION||version===PATCH_RULE_VERSION||version===STAGE3_RULE_VERSION;
-export const hasClassicPatch=(version:string)=>version===PATCH_RULE_VERSION||version===STAGE3_RULE_VERSION;
-export const hasStage3=(version:string)=>version===STAGE3_RULE_VERSION;
+export const isClassicVersion=(version:string)=>version===CLASSIC_RULE_VERSION||version===PATCH_RULE_VERSION||version===STAGE3_RULE_VERSION||version===STAGE4_RULE_VERSION;
+export const hasClassicPatch=(version:string)=>version===PATCH_RULE_VERSION||version===STAGE3_RULE_VERSION||version===STAGE4_RULE_VERSION;
+export const hasStage3=(version:string)=>version===STAGE3_RULE_VERSION||version===STAGE4_RULE_VERSION;
+export const hasStage4=(version:string)=>version===STAGE4_RULE_VERSION;
 export const PROTECTED_REGIONS=['教学楼','操场','办公室'] as const;
 export type DataVersion=RuleVersion|typeof CLASSIC_RULE_VERSION;
-export const DATA_VERSIONS=[...ACTIVE_RULE_VERSIONS] as const;
+// Frozen catalog generation boundary for historical001–016.
+export const DATA_VERSIONS=['web-v0.1.1','web-v0.1.2','web-v0.1.3',CLASSIC_RULE_VERSION,PATCH_RULE_VERSION,STAGE3_RULE_VERSION] as const;
 export const LEGACY_MAP_ID='web-map-v1' as const;
 function frozen<T>(value:T):T {
  if(value&&typeof value==='object'){for(const child of Object.values(value))frozen(child);Object.freeze(value);}return value;
@@ -32,9 +35,9 @@ export interface RuntimeData {cards:Record<CardId,CardDefinition>;characters:typ
 export function isActiveRuleVersion(version:unknown):version is RuleVersion{return ACTIVE_RULE_VERSIONS.some(v=>v===version);}
 function makeManifest(version:DataVersion){
  const classic=isClassicVersion(version);
- return frozen({version,status:'playable',mapId:classic?CLASSIC_MAP_ID:LEGACY_MAP_ID,catalogId:hasStage3(version)?'stage3-content-v1':classic?'classic-content-v1':version,environmentId:hasClassicPatch(version)?'classic-regions-v2':classic?'classic-regions-v1':'legacy-cells-v1',spawnPolicy:classic?'fixed-region-random-empty':'legacy-fixed-cell',spawnConflicts:[] as string[]});
+ return frozen({version,status:'playable' as const,mapId:classic?CLASSIC_MAP_ID:LEGACY_MAP_ID,catalogId:hasStage4(version)?'stage4-content-v1':hasStage3(version)?'stage3-content-v1':classic?'classic-content-v1':version,environmentId:hasClassicPatch(version)?'classic-regions-v2':classic?'classic-regions-v1':'legacy-cells-v1',spawnPolicy:classic?'fixed-region-random-empty':'legacy-fixed-cell',spawnConflicts:[] as string[]});
 }
-const manifests=Object.fromEntries([...DATA_VERSIONS,STAGE3_RULE_VERSION].map(v=>[v,makeManifest(v)])) as Record<DataVersion,ReturnType<typeof makeManifest>>;
+const manifests=Object.fromEntries([...DATA_VERSIONS,STAGE4_RULE_VERSION].map(v=>[v,makeManifest(v)])) as Record<DataVersion,ReturnType<typeof makeManifest>>;
 export function ruleManifest(version:string){if(!Object.hasOwn(manifests,version))throw Error(`未知规则版本：${version}`);return manifests[version as DataVersion];}
 export function mapForVersion(version:string):MapDefinition{return ruleManifest(version).mapId===CLASSIC_MAP_ID?classicMap:legacyMap;}
 export function environmentForVersion(version:string){return hasClassicPatch(version)?frozen({...classicEnvironment,kind:'classic-regions-v2',poisonPool:'all-except-cave-and-protected',poisonRegionCount:11,protectedRegions:[...PROTECTED_REGIONS],protectedBombsAfterPoisonComplete:true,caveEveryPersonalEnds:3,caveApLoss:2,caveDamage:1}):ruleManifest(version).environmentId==='classic-regions-v1'?classicEnvironment:legacyEnvironment;}
@@ -44,9 +47,10 @@ const runtime=Object.fromEntries(ACTIVE_RULE_VERSIONS.filter(version=>!hasStage3
  cardTags:Object.fromEntries(legacy.CARD_IDS.map(id=>[id,[...source.cards[id].tags]])),
 })])) as Record<RuleVersion,RuntimeData>;
 export function runtimeForVersion(version:string):RuntimeData {
- ruleManifest(version);if(hasStage3(version))return stage3Runtime;if(!isActiveRuleVersion(version))throw Error('经典图数据基础已完成，后续规则未启用');return runtime[version];
+ ruleManifest(version);if(hasStage4(version))return stage4Runtime;if(hasStage3(version))return stage3Runtime;if(!isActiveRuleVersion(version))throw Error('经典图数据基础已完成，后续规则未启用');return runtime[version];
 }
 const stage3Runtime=frozen({cards:structuredClone(STAGE3_CARDS) as Record<CardId,CardDefinition>,characters:Object.fromEntries(STAGE3_CHARACTER_IDS.map(id=>{const c=STAGE3_CHARACTERS[id];return [id,{...c,id:id as legacy.CharacterId,spawn:classicMap.cells.find(cell=>cell.region===c.spawnRegion)!.id}];})) as unknown as RuntimeData['characters'],characterIds:[...STAGE3_CHARACTER_IDS] as RuntimeData['characterIds'],allCards:[...STAGE3_ALL_CARDS],cells:classicMap.cells,map:classicMap.map,cardTags:Object.fromEntries(STAGE3_CARD_IDS.map(id=>[id,[...source.cards[id as keyof typeof source.cards].tags]]))});
+const stage4Runtime=frozen({...stage3Runtime,cards:structuredClone(STAGE4_RUNTIME_CARDS),allCards:[...STAGE4_ALL_CARDS],cardTags:Object.fromEntries(Object.keys(STAGE4_RUNTIME_CARDS).map(id=>[id,[...source.cards[id as keyof typeof source.cards].tags]]))});
 function makeSourceCatalog(classic:boolean){
  return frozen({sourceHashFormat:source.sourceHashFormat,sources:{...source.sources},cards:Object.fromEntries(Object.entries(source.cards).filter(([id])=>classic||legacy.CARD_IDS.includes(id as CardId))),characters:Object.fromEntries(Object.entries(source.characters).filter(([id])=>classic||legacy.CHARACTER_IDS.includes(id as legacy.CharacterId)))});
 }

@@ -4,6 +4,7 @@ import type {Socket} from 'socket.io-client';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {once} from 'node:events';
 import {database} from './database';
+import {STAGE3_DATABASE_REQUIREMENT} from '../../packages/online/src/version';
 import {createGateway} from '../../apps/server/src/gateway';
 import {attachSchema,commandSchema} from '../../packages/online/src/protocol';
 import type {Reply,RoomReply,Rpc,Snapshot} from '../../packages/online/src/protocol';
@@ -18,7 +19,7 @@ const rpc:Rpc=async(name,args)=>{
  if(loseNext&&name==='ml_room'&&(args.p_request as {op:string}).op==='ready'){loseNext=false;lost=true;throw Error('simulated lost database response after commit');}
  return result;
 };
-async function start(){server=createGateway({rpc,origin:'https://test.example',pollMs:500,maintenanceMs:60000,allowLoopback:true});server.http.listen(0,'127.0.0.1');await once(server.http,'listening');url=`http://127.0.0.1:${(server.http.address() as {port:number}).port}`;}
+async function start(){server=createGateway({rpc,databaseRequirement:STAGE3_DATABASE_REQUIREMENT,origin:'https://test.example',pollMs:500,maintenanceMs:60000,allowLoopback:true});server.http.listen(0,'127.0.0.1');await once(server.http,'listening');url=`http://127.0.0.1:${(server.http.address() as {port:number}).port}`;}
 async function client(transport:'polling'|'upgrade'='polling'){
  const s=io(url,{autoConnect:false,transports:transport==='polling'?['polling']:['polling','websocket'],reconnection:false,extraHeaders:{Origin:'https://test.example'}});sockets.push(s);const connected=socketEvent(s,'connect');s.connect();await connected;return s;
 }
@@ -41,12 +42,12 @@ it('P2-N02 one-port static/health/readiness; no source/config leakage and wrong 
  const bad=io(url,{autoConnect:false,transports:['polling'],reconnection:false,extraHeaders:{Origin:'https://wrong.example'}});sockets.push(bad);const failure=socketEvent(bad,'connect_error');bad.connect();await failure;expect(bad.connected).toBe(false);bad.disconnect();
 });
 it('readiness returns 503 for schema 2 without the required rule patch revision',async()=>{
- let health:Record<string,unknown>={ok:true,schemaVersion:2,ruleVersion:'web-v0.1.6'};
+ let health:Record<string,unknown>={ok:true,schemaVersion:2,ruleVersion:'web-v0.1.7'};
  const probe=createGateway({rpc:async()=>health,origin:'https://test.example',maintenanceMs:60000});
  probe.http.listen(0,'127.0.0.1');await once(probe.http,'listening');const base=`http://127.0.0.1:${(probe.http.address() as {port:number}).port}`;
  try{
   expect((await fetch(base+'/ready')).status).toBe(503);
-  health={...health,engineRevision:16,draftReady:true,characterSkillsReady:true,stage3Ready:true,classicPatchReady:true,feedbackRulesReady:true,versionedDataReady:true,locationDataReady:true,locationRulesReady:true,waterRulesReady:true,environmentRulesReady:true,classicPlayable:true};expect((await fetch(base+'/ready')).status).toBe(200);
+  health={...health,engineRevision:18,stage4Ready:true,cardDefinitions:76,cardInstances:191,draftReady:true,characterSkillsReady:true,stage3Ready:true,classicPatchReady:true,feedbackRulesReady:true,versionedDataReady:true,locationDataReady:true,locationRulesReady:true,waterRulesReady:true,environmentRulesReady:true,classicPlayable:true};expect((await fetch(base+'/ready')).status).toBe(200);
   health={...health,feedbackRulesReady:false};expect((await fetch(base+'/ready')).status).toBe(503);
  }finally{await probe.close();}
 });
