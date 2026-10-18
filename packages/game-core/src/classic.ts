@@ -1,3 +1,4 @@
+import {hasPlaytestRules} from '../../game-data/src/index';
 import {ignoreLocation} from './stage4-terrain';
 import {onBoard,boardWater,boardEmptyEntry} from './stage4-board';
 import {CLASSIC_RULE_VERSION,isClassicVersion,hasClassicPatch,PROTECTED_REGIONS,mapForVersion,characterTraitsForVersion,distanceForVersion} from '../../game-data/src/index';
@@ -63,14 +64,15 @@ export function nativeLandings(s:GameState,a:number):string[]{
  const found=new Set<string>();
  for(const [dr,dc] of [[1,0],[-1,0],[0,1],[0,-1]]){
   let r=origin.row+dr,c=origin.col+dc,cell=map.map[`r${r}c${c}`];if(!cell||!water(s,cell.id,a))continue;
-  while(cell&&water(s,cell.id,a)){r+=dr;c+=dc;cell=map.map[`r${r}c${c}`];}
+  while(cell&&water(s,cell.id,a)){if(hasPlaytestRules(s.version)&&s.players.some(p=>p.seat!==a&&onBoard(s,p.seat)&&p.cell===cell.id)){cell=undefined!;break;}r+=dr;c+=dc;cell=map.map[`r${r}c${c}`];}
   if(!cell)continue;
   if(empty(cell.id))found.add(cell.id);
-  else if(s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell.id))for(const near of map.cells)if(!water(s,near.id,a)&&distanceForVersion(s.version,cell.id,near.id)===1&&empty(near.id))found.add(near.id);
+  else if(!hasPlaytestRules(s.version)&&s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell.id))for(const near of map.cells)if(!water(s,near.id,a)&&distanceForVersion(s.version,cell.id,near.id)===1&&empty(near.id))found.add(near.id);
  }return map.cells.filter(c=>found.has(c.id)).map(c=>c.id);
 }
 export function stepCost(s:GameState,a:number,cell:string):number|null{
  if(!enterAllowed(s,cell))return null;
+ if(hasPlaytestRules(s.version)&&native(s,a)&&water(s,cell,a))return null;
  if(nativeLandings(s,a).includes(cell))return 1;
  return distanceForVersion(s.version,s.players[a].cell,cell)===1?(water(s,cell,a)&&!ignoreLocation(s,a)?2:1):null;
 }

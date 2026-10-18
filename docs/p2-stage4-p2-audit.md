@@ -1,3 +1,11 @@
+## 2026-10-18 搏击操与地图二次修订（截图及交付包验证通过）
+
+候选0.2.7-p2.8／web-v0.1.9／修订20；搏击操基础费用3／4／5AP、按实体最初获得者的入弃回复、免费高等级防御已实现。地图采用PC分栏；移动长页已被否决并返修为主界面单屏布局，见[p2-mobile-single-screen-validation.md](p2-mobile-single-screen-validation.md)。67文件560项本地测试通过，见[p2-exercise-validation.md](p2-exercise-validation.md)与[新规则](web-rules-v0.1.9.md)。旧地图截图验收结论已更正。负责人已通过PC／移动截图审核，授权先构建WorkBuddy交付包、之后上传GitHub；最终结果见[p2-exercise-delivery.md](p2-exercise-delivery.md)。未部署，P2未结项。下文保留历史记录。
+
+## 当前补充：真人反馈修订（2026-10-18）
+
+0.2.5-p2.6已上线；本会话只读GET首页、health及ready均200，主JS／CSS SHA-256与本地现有构建一致。下文“尚未部署”是阶段四打包时快照。现新增0.2.6-p2.7／v0.1.8／019修订，本地64文件542项回归通过，规则、回归及云端验收见[p2-playtest-validation.md](p2-playtest-validation.md)。当前仍缺新版真实SQL权限／部署包原始哈希、两模式完整真人局、真机及负责人验收；不能据此结项。
+
 # P2 完成审计（阶段四）
 
 2026-10-18核对：原P2数据库权威好友房、第一／二批体验改进、第三批阶段1—4以及GitHub Issue [#13](https://github.com/NoobPvPerL/monkey-legend/issues/13)的16条评论、[#14](https://github.com/NoobPvPerL/monkey-legend/issues/14)的7条回复。公开评论是需求来源；负责人在本会话的后续裁定优先，转述中的“印象／建议问作者”不冒充确定规则。

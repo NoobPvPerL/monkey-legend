@@ -1,3 +1,6 @@
+import {discardCards,rememberExerciseOwner} from './exercise';
+import {choiceWindowMs,roleChoice,relocationCell} from './playtest';
+import {hasPlaytestRules} from '../../game-data/src/index';
 import {stage4PublicState} from './stage4-view';
 import {ignoreLocation,terrainMoveCost,terrainDraw,terrainAp,terrainHealing,terrainCard,terrainEffect,terrainStops,terrainThrough} from './stage4-terrain';
 import {landingPush,reactiveInjury,stage4MovementChoose} from './stage4-movement';
@@ -50,7 +53,7 @@ function draw(s:GameState,actor:number,count:number):void {
    s.discard=[];s.reshuffleCount++;emit(s,'shuffle','抽牌堆空：将弃牌重洗（结算区保留）');
   }
   if(!s.deck.length)break;
-  p.hand.push(s.deck.shift()!); actual++;
+  const card=s.deck.shift()!;rememberExerciseOwner(s,actor,card);p.hand.push(card); actual++;
  }
  emit(s,'draw',`${name(s,actor)} 摸${actual}张`,{actor,count:actual});
 }
@@ -63,7 +66,9 @@ export function teleportCells(s:GameState,actor:number):string[] {
  const p=s.players[actor]; if(hasStage3(s.version)&&resources.mountMovementBlocked(resourceState(s),actor))return [];return mapForVersion(s.version).cells.filter(c=>(hasStage4(s.version)?!water(s,c.id,actor)&&resources.canEnterWithMount(resourceState(s),actor,c.id):c.terrain==='land')&&enterAllowed(s,c.id)&&distanceForVersion(s.version,p.cell,c.id)<=3&&!s.players.some(o=>onBoard(s,o.seat)&&o.cell===c.id)).map(c=>c.id);
 }
 function stage3Relocate(s:GameState,actor:number,cell:string,voluntary:boolean,carry=true,reactive=true):Task[]{
- const p=s.players[actor],from=p.cell;if(from===cell||voluntary&&resources.mountMovementBlocked(resourceState(s),actor))return [];
+ const p=s.players[actor],from=p.cell;
+ if(hasPlaytestRules(s.version)){const resolved=relocationCell(s,actor,from,cell);if(!resolved)return [];cell=resolved;}
+ if(from===cell||voluntary&&resources.mountMovementBlocked(resourceState(s),actor))return [];
  const snapshots=carry?roles.carryCandidates(resourceState(s),actor,from):[];
  relocated(s,actor,from,cell);p.cell=cell;if(voluntary)s.stage3!.voluntaryMoved[actor]=true;
  emit(s,'move',`${name(s,actor)} → ${cell}`);
@@ -81,9 +86,9 @@ function applyCollision(s:GameState,cell:string):Task[]{
  for(const to of path)tasks.push(...stage3Relocate(s,target.seat,to,false,false));if(carry.length)tasks.push({kind:'stage3',action:'carry',actor:target.seat,data:carry});return tasks;
 }
 function select(s:GameState,kind:ChoiceKind,actor:number,now:number,extra:Partial<NonNullable<GameState['choice']>>={}):void {
- const paused=kind!=='draw-start'&&kind!=='draw-end';
+ const paused=roleChoice(s.version,kind)||kind!=='draw-start'&&kind!=='draw-end';
  if(paused)pause(s,now);else resume(s,now);
- const window=kind==='discard'&&hasInteractionRules(s.version)?20000:10000;
+ const window=choiceWindowMs(s.version,kind);
  s.phase='choice'; s.choice={id:++s.choiceSerial,kind,actor,deadline:now+Math.min(window,paused?window:budget(s,now)),paused,...extra};
  emit(s,'choice',`${name(s,actor)} 等待选择：${kind}`);
 }
@@ -102,7 +107,7 @@ function damage(s:GameState,hits:Hit[],environment=false,suppressPursuit=false):
   emit(s,'damage',`${name(s,h.target)} ${environment?'环境':'普通'}伤害${h.amount}，护盾抵挡${blocked}，实际失血${loss}`,{...h,blocked,loss,batch:s.batch});
   if(loss>0)injured.push({...h,loss});
  }
- for(const p of s.players)if(p.hp===0&&p.eliminated===null){p.eliminated=s.batch;p.ap=0;p.shield=0;s.discard.push(...p.hand);p.hand=[];if(hasStage3(s.version))resources.recordDeathResources(resourceState(s),p.seat);emit(s,'eliminate',`${name(s,p.seat)} 淘汰（批次${s.batch}）`);}
+ for(const p of s.players)if(p.hp===0&&p.eliminated===null){p.eliminated=s.batch;p.ap=0;p.shield=0;discardCards(s,p.hand);p.hand=[];if(hasStage3(s.version))resources.recordDeathResources(resourceState(s),p.seat);emit(s,'eliminate',`${name(s,p.seat)} 淘汰（批次${s.batch}）`);}
  const tasks:Task[]=hasStage4(s.version)?[...stage4AfterDamage(s,injured,environment,stage3Ports),...reactiveInjury(s,injured)]:[];
  for(const actor of s.order){
   const p=s.players[actor];const h=injured.find(x=>x.target===actor);if(!h||!alive(p))continue;
@@ -216,7 +221,7 @@ function pump(s:GameState,now:number):void {
    case 'response':if(s.attack&&!s.attack.cancelled.includes(actor)&&alive(p)){const cards=responseCards(s,actor,s.attack);if(cards.length)select(s,'response',actor,now,{cards});}break;
    case 'resolve':resolveAttack(s);break;
    case 'cleanup':
-    s.discard.push(...s.resolving);s.resolving=[];s.attack=null;
+    discardCards(s,s.resolving);s.resolving=[];s.attack=null;
     if(!finish(s,false,now)){if(alive(s.players[s.active])){s.phase='action';resume(s,now);}else s.queue.unshift({kind:'next'});}break;
    case 'trigger':{
     if(!alive(p))break;
@@ -274,7 +279,7 @@ export function legalSteps(s:GameState):string[] {
   if(hasStage3(s.version)){
    if(!resources.canEnterWithMount(resourceState(s),p.seat,c.id)||s.movement!.direction&&!roles.westStepAllowed(p.cell,c.id,s.movement!.direction))return false;
    const target=s.players.find(q=>q.hp>0&&q.seat!==p.seat&&q.cell===c.id);
-   if(target&&p.character==='character-040')return false;
+   if(target&&(p.character==='character-040'||hasPlaytestRules(s.version)&&p.character!=='character-045'))return false;
    if(target&&p.character==='character-045')return cost!==null&&cost<=s.movement!.remaining&&terrainThrough(s,p.seat,c.id,true)&&roles.collisionPath({...resourceState(s),farmClosed:s.classic!.farmClosed},p.seat,target.seat,stepDirection(s,p.cell,c.id)).length>0;
   }
   return cost!==null&&cost<=s.movement!.remaining&&canEscape(s,p.seat,c.id,s.movement!.remaining-cost);
@@ -311,7 +316,7 @@ export function legalLocations(s:GameState,actor:number){
  if(ignoreLocation(s,actor))return {ship:[],commute:[]};
  const input={...s,shipUsed:s.classic?.shipUsed??[],farmClosed:s.classic?.farmClosed??false};
  if(hasStage3(s.version)&&s.stage3!.jjFree[actor])input.players=s.players.map(p=>p.seat===actor?{...p,ap:Math.max(1,p.ap)}:p);
- const allowed=(cells:string[])=>hasStage3(s.version)?resources.mountMovementBlocked(resourceState(s),actor)?[]:cells.filter(c=>resources.canEnterWithMount(resourceState(s),actor,c)):cells;
+ const allowed=(cells:string[])=>hasStage3(s.version)?resources.mountMovementBlocked(resourceState(s),actor)?[]:cells.filter(c=>resources.canEnterWithMount(resourceState(s),actor,c)&&(!hasPlaytestRules(s.version)||relocationCell(s,actor,s.players[actor].cell,c)!==null)):cells;
  return {ship:allowed(locationDestinations(input,actor,'ship')),commute:allowed(locationDestinations({...input,players:s.players},actor,'commute'))};
 }
 function choose(s:GameState,cmd:Extract<Command,{type:'choose'}>,now:number,timeout=false):void {
@@ -333,7 +338,7 @@ function choose(s:GameState,cmd:Extract<Command,{type:'choose'}>,now:number,time
   case 'teleport':if(cmd.cell){requireRule(c.cells?.includes(cmd.cell)&&teleportCells(s,c.actor).includes(cmd.cell),'传送须为距离≤3的空陆地');if(hasStage3(s.version))s.queue.unshift(...stage3Relocate(s,c.actor,cmd.cell,true));else{const from=p.cell;p.cell=cmd.cell;relocated(s,c.actor,from,cmd.cell);}p.skillUsed=true;emit(s,'teleport',`${name(s,c.actor)} 传送至${cmd.cell}${s.safe.includes(cmd.cell)?'':'（毒圈外）'}`);}break;
   case 'water-discard':case 'discard':{
    const cards=cmd.cards??[];requireRule(cards.length===c.count&&new Set(cards).size===cards.length&&cards.every(card=>p.hand.includes(card)),'请选择准确数量的不同手牌弃置');
-   p.hand=p.hand.filter(card=>!cards.includes(card));s.discard.push(...cards);emit(s,timeout?'timeout-discard':'discard',`${name(s,c.actor)} ${timeout?'超时代弃':'自选弃牌'}${cards.length}张`,cards);break;
+   p.hand=p.hand.filter(card=>!cards.includes(card));discardCards(s,cards);emit(s,timeout?'timeout-discard':'discard',`${name(s,c.actor)} ${timeout?'超时代弃':'自选弃牌'}${cards.length}张`,cards);break;
   }
  }
  if(timeout)emit(s,'timeout',`${name(s,c.actor)} 选择超时：${c.kind}`);
@@ -377,7 +382,7 @@ export function validateState(s:GameState):void {
  requireRule((isActiveRuleVersion(s.version)||hasStage3(s.version))&&s.players.length===4&&Number.isSafeInteger(s.round)&&s.round>=1&&(isClassic(s)||s.round<=12),'状态版本/轮次/人数无效');requireRule((hasStage3(s.version)?new Set(s.players.map(p=>p.character)).size===4&&s.players.every(p=>runtimeForVersion(s.version).characterIds.includes(p.character)):sameSet(s.players.map(p=>p.character),runtimeForVersion(s.version).characterIds))&&sameSet(s.order,[0,1,2,3]),'角色/顺序无效');
  const zones=[...s.deck,...s.discard,...s.resolving,...s.players.flatMap(p=>p.hand),...(hasStage3(s.version)?s.stage3!.equipment.flat():[])];requireRule(sameSet(zones,runtimeForVersion(s.version).allCards),hasStage3(s.version)?'实体不守恒或实体重复':'64张实体不守恒或实体重复');
  for(const p of s.players){requireRule(Number.isInteger(p.hp)&&p.hp>=0&&p.hp<=p.maxHp&&p.maxHp===runtimeForVersion(s.version).characters[p.character].hp,'生命状态无效');requireRule(Number.isInteger(p.ap)&&p.ap>=0&&Number.isInteger(p.shield)&&p.shield>=0&&p.shield<=2,'AP/护盾无效');requireRule(Boolean(mapForVersion(s.version).map[p.cell]),'位置无效');if(!alive(p))requireRule(p.ap===0&&p.shield===0&&p.hand.length===0&&p.eliminated!==null,'淘汰清理无效');}
- const occupied=s.players.filter(p=>onBoard(s,p.seat));const overlap=occupied.some((p,i)=>occupied.slice(i+1).some(q=>q.cell===p.cell));if(overlap)requireRule((s.phase==='moving'||s.choice?.kind==='water-discard')&&s.movement!==null,'稳定落点不能重叠');
+ const occupied=s.players.filter(p=>onBoard(s,p.seat));const overlap=occupied.some((p,i)=>occupied.slice(i+1).some(q=>q.cell===p.cell));if(overlap)requireRule(!hasPlaytestRules(s.version)&&(s.phase==='moving'||s.choice?.kind==='water-discard')&&s.movement!==null,'稳定落点不能重叠');
  requireRule(s.clock.remaining>=0&&Number.isFinite(s.clock.remaining),'计时预算无效');
 }
 export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResult {
@@ -385,13 +390,13 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
   requireRule(cmd!==null&&typeof cmd==='object'&&!Array.isArray(cmd),'命令必须为对象');
   requireRule(Number.isSafeInteger(cmd.actor)&&cmd.actor>=0&&cmd.actor<4&&Number.isSafeInteger(cmd.revision)&&cmd.revision>=0,'座位/命令版本必须为有效整数');
   requireRule(['play','move','step','stop','end','choose','tick','location',...(hasStage3(previous.version)?['skill']:[])].includes(cmd.type),'未知命令');
-  if(cmd.type==='play')requireRule(typeof cmd.card==='string'&&Array.isArray(cmd.targets)&&cmd.targets.every(t=>Number.isInteger(t)&&t>=0&&t<4),'出牌/目标输入无效');
+  if(cmd.type==='play')requireRule((cmd.northGroup===undefined||cmd.northGroup==='north'||cmd.northGroup==='others')&&typeof cmd.card==='string'&&Array.isArray(cmd.targets)&&cmd.targets.every(t=>Number.isInteger(t)&&t>=0&&t<4),'出牌/目标输入无效');
   if(cmd.type==='location')requireRule((cmd.kind==='ship'||cmd.kind==='commute')&&typeof cmd.cell==='string','地点动作输入无效');
   if(cmd.type==='step')requireRule(Array.isArray(cmd.path)&&cmd.path.every(c=>typeof c==='string'),'路径必须为格子数组');
   if(cmd.type==='skill')requireRule(['jj','bread','revival-quote',...(hasStage4(previous.version)?['quote-cost','watch','flight','gift','terrain']:[])].includes(cmd.kind)&&(cmd.target===undefined||Number.isInteger(cmd.target)&&cmd.target>=0&&cmd.target<4)&&(cmd.card===undefined||typeof cmd.card==='string')&&(cmd.cell===undefined||typeof cmd.cell==='string')&&(cmd.cards===undefined||Array.isArray(cmd.cards)&&cmd.cards.every(c=>typeof c==='string'))&&(cmd.accept===undefined||typeof cmd.accept==='boolean'),'技能输入无效');
   if((cmd.type==='move'||cmd.type==='play')&&cmd.direction!==undefined)requireRule(roles.DIRECTIONS.includes(cmd.direction),'方向输入无效');
   if(cmd.type==='play'&&cmd.x!==undefined)requireRule(hasStage4(previous.version)&&Number.isSafeInteger(cmd.x)&&cmd.x>=1,'X必须为阶段四正整数');
-  if(cmd.type==='play')requireRule((cmd.as===undefined||cmd.as==='elbow')&&(cmd.replacement===undefined||typeof cmd.replacement==='string'),'转换或替换输入无效');
+  if(cmd.type==='play')requireRule((cmd.northGroup===undefined||cmd.northGroup==='north'||cmd.northGroup==='others')&&(cmd.as===undefined||cmd.as==='elbow')&&(cmd.replacement===undefined||typeof cmd.replacement==='string'),'转换或替换输入无效');
   if(cmd.type==='play'&&cmd.region!==undefined)requireRule(hasStage4(previous.version)&&typeof cmd.region==='string','地区输入无效');
   if(cmd.type==='choose'){
    requireRule((cmd.option===undefined||typeof cmd.option==='string')&&(cmd.guess===undefined||Number.isInteger(cmd.guess)&&cmd.guess>=1&&cmd.guess<=6),'地图选择输入无效');
@@ -454,7 +459,7 @@ export function dispatch(previous:GameState,cmd:Command,now:number):DispatchResu
       if(hasInteractionRules(s.version))s.clock={remaining:60000,since:now};
       p.ap-=def.cost;p.hand.splice(p.hand.indexOf(cmd.card),1);s.resolving.push(cmd.card);emit(s,'play',`${name(s,p.seat)} 使用${def.name}，支付${def.cost}AP${def.type==='attack'?`，目标${cmd.targets.map(t=>name(s,t)).join('、')}`:''}`,{actor:p.seat,card:cmd.card,targets:cmd.targets});
       if(def.type==='attack'){p.attacks++;s.attack={actor:p.seat,card:cmd.card,targets:[...cmd.targets],cancelled:cmd.targets.filter(t=>!locationEffectAllowed(s.version,s.players[t].cell,def.id)),elbows:[]};s.phase='resolving';s.queue.push(...s.order.filter(t=>cmd.targets.includes(t)).map(actor=>({kind:'response' as const,actor})),{kind:'resolve'});pump(s,now);}
-      else {heal(s,p.seat,def.id==='basic-046'?2:1,true);if(def.id==='basic-045'){const gained=Math.min(1,2-p.shield);p.shield+=gained;emit(s,'shield',`${name(s,p.seat)} 获得${gained}护盾 → ${p.shield}`);}if(def.id==='basic-047')draw(s,p.seat,2);s.discard.push(...s.resolving);s.resolving=[];finish(s,false,now);}
+      else {heal(s,p.seat,def.id==='basic-046'?2:1,true);if(def.id==='basic-045'){const gained=Math.min(1,2-p.shield);p.shield+=gained;emit(s,'shield',`${name(s,p.seat)} 获得${gained}护盾 → ${p.shield}`);}if(def.id==='basic-047')draw(s,p.seat,2);discardCards(s,s.resolving);s.resolving=[];finish(s,false,now);}
      }}else fail('未知命令');
     }
    }

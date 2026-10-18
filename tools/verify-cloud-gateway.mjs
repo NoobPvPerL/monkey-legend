@@ -38,6 +38,14 @@ try {
  await start();for(let i=0;i<4;i++)await connect(i);
  for(let i=0;i<4;i++)await command(i,'ready',{ready:true});await command(0,'start');
  await rpc(0,'view');let s=states[0];
+ // Stage3+ starts with an authoritative draft, not a GameState.
+ for(let n=0;s.status==='drafting'&&n<4;n++){
+  const actor=s.draft?.offer?.actor;need(Number.isInteger(actor),'Missing draft actor');await rpc(actor,'view');const v=states[actor],offer=v.draft?.offer;
+  need(offer?.candidates?.length>0,'Missing private draft offer');
+  const reply=await clients[actor].timeout(25000).emitWithAck('command',{op:'draft-pick',requestId:randomUUID(),matchId:v.matchId,revision:v.draft.revision,offer:offer.id,character:offer.candidates[0]});
+  need(reply.ok,reply.error??'Draft rejected');await rpc(0,'view');s=states[0];
+ }
+ need(s.game,'Draft did not produce a game');
  // Clear only voluntary opening choices using the same permitted UI intent.
  for(let n=0;s.game.choice&&n<8;n++){const a=s.game.choice.actor;await command(a,'game',{intent:{type:'choose',choice:s.game.choice.id,accept:false}});s=states[a];}
  need(!s.game.choice&&s.game.phase==='action','No action clock to observe');

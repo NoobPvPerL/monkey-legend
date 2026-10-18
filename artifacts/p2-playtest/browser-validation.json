@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-18",
+  "provenance": "Local synthetic fixtures, production React components and real TypeScript dispatch; not cloud SQL or real mobile hardware",
+  "checks": {
+    "bobPreselectedCopyAndReplacementSurviveQuote": true,
+    "bobConfirmEnabledAfterQuote": true,
+    "west": {
+      "origin": "r1c1",
+      "destination": "r2c1",
+      "passengerOrigin": "r1c2",
+      "passengerDestination": "r2c2",
+      "westAp": 19,
+      "passengerAp": 20
+    },
+    "browserBackShowsConfirmation": true,
+    "stayKeepsMatch": true,
+    "spectatorPublicCosts": [
+      "X AP",
+      "0/1/2 AP（随机）",
+      "2/3/4 AP（随机）",
+      "1-6 AP（随机）"
+    ]
+  },
+  "layouts": [
+    {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390,
+      "boardWidth": 390,
+      "handHeight": 181,
+      "handScrollHeight": 181,
+      "cardsHeight": 147,
+      "cardsScrollHeight": 147,
+      "cardsWidth": 375,
+      "cardsScrollWidth": 806,
+      "outsideBadges": 0
+    },
+    {
+      "width": 360,
+      "height": 640,
+      "documentWidth": 360,
+      "boardWidth": 360,
+      "handHeight": 178,
+      "handScrollHeight": 178,
+      "cardsHeight": 144,
+      "cardsScrollHeight": 144,
+      "cardsWidth": 345,
+      "cardsScrollWidth": 806,
+      "outsideBadges": 0
+    }
+  ],
+  "remaining": [
+    "Android/iOS real edge gestures",
+    "real four-player FFA and2v2",
+    "cloud19 deploy ACL hashes and restart evidence"
+  ]
+}

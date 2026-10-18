@@ -42,12 +42,12 @@ it('P2-N02 one-port static/health/readiness; no source/config leakage and wrong 
  const bad=io(url,{autoConnect:false,transports:['polling'],reconnection:false,extraHeaders:{Origin:'https://wrong.example'}});sockets.push(bad);const failure=socketEvent(bad,'connect_error');bad.connect();await failure;expect(bad.connected).toBe(false);bad.disconnect();
 });
 it('readiness returns 503 for schema 2 without the required rule patch revision',async()=>{
- let health:Record<string,unknown>={ok:true,schemaVersion:2,ruleVersion:'web-v0.1.7'};
+ let health:Record<string,unknown>={ok:true,schemaVersion:2,ruleVersion:'web-v0.1.9'};
  const probe=createGateway({rpc:async()=>health,origin:'https://test.example',maintenanceMs:60000});
  probe.http.listen(0,'127.0.0.1');await once(probe.http,'listening');const base=`http://127.0.0.1:${(probe.http.address() as {port:number}).port}`;
  try{
   expect((await fetch(base+'/ready')).status).toBe(503);
-  health={...health,engineRevision:18,stage4Ready:true,cardDefinitions:76,cardInstances:191,draftReady:true,characterSkillsReady:true,stage3Ready:true,classicPatchReady:true,feedbackRulesReady:true,versionedDataReady:true,locationDataReady:true,locationRulesReady:true,waterRulesReady:true,environmentRulesReady:true,classicPlayable:true};expect((await fetch(base+'/ready')).status).toBe(200);
+  health={...health,engineRevision:20,stage4Ready:true,cardDefinitions:76,cardInstances:191,draftReady:true,characterSkillsReady:true,stage3Ready:true,classicPatchReady:true,feedbackRulesReady:true,versionedDataReady:true,locationDataReady:true,locationRulesReady:true,waterRulesReady:true,environmentRulesReady:true,classicPlayable:true};expect((await fetch(base+'/ready')).status).toBe(200);
   health={...health,feedbackRulesReady:false};expect((await fetch(base+'/ready')).status).toBe(503);
  }finally{await probe.close();}
 });
@@ -69,9 +69,10 @@ it('P2-N03 four polling-only clients, lost committed response retry, private sna
   const r=await emit(clients[a],'command',{op:'draft-pick',requestId:randomUUID(),matchId:v.matchId,revision:v.draft!.revision,offer:v.draft!.offer!.id,character:v.draft!.offer!.candidates![0]});expect(r.ok,r.error).toBe(true);started.snapshot=r.snapshot;
  }
  expect(started.snapshot!.game!.version).toBe('web-v0.1.6');
- const game=started.snapshot!.game!;const actor=game.choice?.actor??game.active;
+ let game=started.snapshot!.game!;const actor=game.choice?.actor??game.active;
  for(let i=0;i<4;i++){
   const reply=await rpc('ml_room',{p_request:{...people[i],op:'view',roomId:states[i].roomId,epoch:states[i].epoch}}) as Reply;const v=reply.snapshot!.game!;
+  if(i===actor)game=v;
   expect('random' in v||'deck' in v||'queue' in v).toBe(false);for(const p of v.players)expect('hand' in p).toBe(p.seat===i);
   expect(clients[i].io.engine.transport.name).toBe('polling');
  }

@@ -1,3 +1,5 @@
+**当前本地候选：0.2.7-p2.8 / web-v0.1.9 / 修订20。** 搏击操与地图二次修订完成，67文件560项测试通过。手机长页已返修为单屏布局，[新截图记录](docs/p2-mobile-single-screen-validation.md)已获负责人通过；WorkBuddy包已构建并独立验证，随后按授权上传GitHub，见[交付记录](docs/p2-exercise-delivery.md)，尚未部署、P2未结项。见[规则](docs/web-rules-v0.1.9.md)、[验证及截图流程](docs/p2-exercise-validation.md)。下文版本与交付说明保留为历史记录。
+
 # monkey-legend
 
 应猴传说：高唐之战。四人校园地图卡牌游戏。

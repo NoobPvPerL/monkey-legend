@@ -1,0 +1,213 @@
+{
+  "source": "local synthetic states, production components, real TS dispatch; viewport screenshots only",
+  "candidate": "0.2.7-p2.8",
+  "screenshotApproval": "approved by owner on 2026-10-18",
+  "workbuddyPackageBuilt": false,
+  "githubUploaded": false,
+  "phone390": {
+    "cells": 32,
+    "controls": {
+      "bottom": 840,
+      "height": 98,
+      "left": 6,
+      "right": 384,
+      "top": 742,
+      "width": 378,
+      "x": 6,
+      "y": 742
+    },
+    "document": [
+      390,
+      844
+    ],
+    "grid": {
+      "bottom": 644,
+      "height": 436,
+      "left": 6,
+      "right": 384,
+      "top": 208,
+      "width": 378,
+      "x": 6,
+      "y": 208
+    },
+    "hand": {
+      "bottom": 738,
+      "height": 90,
+      "left": 6,
+      "right": 384,
+      "top": 648,
+      "width": 378,
+      "x": 6,
+      "y": 648
+    },
+    "overflow": 0,
+    "scrollTop": 0,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "phone360": {
+    "cells": 32,
+    "controls": {
+      "bottom": 636,
+      "height": 98,
+      "left": 6,
+      "right": 354,
+      "top": 538,
+      "width": 348,
+      "x": 6,
+      "y": 538
+    },
+    "document": [
+      360,
+      640
+    ],
+    "grid": {
+      "bottom": 440,
+      "height": 232,
+      "left": 6,
+      "right": 354,
+      "top": 208,
+      "width": 348,
+      "x": 6,
+      "y": 208
+    },
+    "hand": {
+      "bottom": 534,
+      "height": 90,
+      "left": 6,
+      "right": 354,
+      "top": 444,
+      "width": 348,
+      "x": 6,
+      "y": 444
+    },
+    "panelOverflow": [
+      0,
+      0
+    ],
+    "viewport": [
+      360,
+      640
+    ]
+  },
+  "short520": {
+    "controls": {
+      "bottom": 516,
+      "height": 78,
+      "left": 6,
+      "right": 354,
+      "top": 438,
+      "width": 348,
+      "x": 6,
+      "y": 438
+    },
+    "count": 32,
+    "document": [
+      360,
+      520
+    ],
+    "grid": {
+      "bottom": 364,
+      "height": 212,
+      "left": 6,
+      "right": 354,
+      "top": 152,
+      "width": 348,
+      "x": 6,
+      "y": 152
+    },
+    "overflow": 0,
+    "viewport": [
+      360,
+      520
+    ]
+  },
+  "westCarry": {
+    "actions": {
+      "bottom": 636,
+      "height": 98,
+      "left": 6,
+      "right": 354,
+      "top": 538,
+      "width": 348,
+      "x": 6,
+      "y": 538
+    },
+    "actionsContent": 97,
+    "actionsHeight": 97,
+    "document": [
+      360,
+      640
+    ],
+    "grid": {
+      "bottom": 440,
+      "height": 232,
+      "left": 6,
+      "right": 354,
+      "top": 208,
+      "width": 348,
+      "x": 6,
+      "y": 208
+    }
+  },
+  "spectator": {
+    "document": [
+      360,
+      640
+    ],
+    "grid": {
+      "bottom": 516,
+      "height": 308,
+      "left": 6,
+      "right": 354,
+      "top": 208,
+      "width": 348,
+      "x": 6,
+      "y": 208
+    },
+    "hand": {
+      "height": 115,
+      "rect": {
+        "bottom": 636,
+        "height": 116,
+        "left": 6,
+        "right": 354,
+        "top": 520,
+        "width": 348,
+        "x": 6,
+        "y": 520
+      },
+      "scroll": 115
+    },
+    "viewport": [
+      360,
+      640
+    ]
+  },
+  "freeResponse": {
+    "actionOverflow": 0,
+    "document": [
+      360,
+      640
+    ],
+    "grid": {
+      "bottom": 440,
+      "height": 232,
+      "left": 6,
+      "right": 354,
+      "top": 208,
+      "width": 348,
+      "x": 6,
+      "y": 208
+    },
+    "viewport": [
+      360,
+      640
+    ]
+  },
+  "bobSelectionSurvivesExpand": true,
+  "mainPageDownDoesNotScroll": true,
+  "detailsExpandable": true
+}

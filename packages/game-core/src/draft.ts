@@ -6,7 +6,7 @@ import type {Mode,RandomState} from './types';
 
 export const DRAFT_WINDOW_MS=30000;
 export const DRAFT_CATALOG_VERSION=CLASSIC_RULE_VERSION;
-export type DraftCatalogVersion=typeof DRAFT_CATALOG_VERSION|typeof STAGE3_RULE_VERSION|'web-v0.1.7';
+export type DraftCatalogVersion=typeof DRAFT_CATALOG_VERSION|typeof STAGE3_RULE_VERSION|'web-v0.1.7'|'web-v0.1.8'|'web-v0.1.9';
 export interface DraftSetup {mode:Mode;order:number[];teams:string[];pools:Record<string,string[]>;random:RandomState;catalogVersion?:DraftCatalogVersion}
 export interface DraftOffer {id:number;actor:number;candidates:string[];deadline:number}
 export interface DraftEvent {seq:number;kind:'offer'|'pick';actor:number;at:number;character?:string;timedOut?:boolean}
@@ -31,7 +31,7 @@ function offerNext(s:DraftState,at:number){
 export function createDraft(setup:DraftSetup,now:number):DraftState {
  need(setup&&typeof setup==='object'&&!Array.isArray(setup),'选角输入必须为对象');
  need(Number.isFinite(now)&&now>=0,'选角时钟无效');
- const catalogVersion=setup.catalogVersion??DRAFT_CATALOG_VERSION;need(catalogVersion===DRAFT_CATALOG_VERSION||(catalogVersion===STAGE3_RULE_VERSION||catalogVersion==='web-v0.1.7'),'选角目录版本无效');
+ const catalogVersion=setup.catalogVersion??DRAFT_CATALOG_VERSION;need(catalogVersion===DRAFT_CATALOG_VERSION||(catalogVersion===STAGE3_RULE_VERSION||catalogVersion==='web-v0.1.7'||catalogVersion==='web-v0.1.8'||catalogVersion==='web-v0.1.9'),'选角目录版本无效');
  need(Array.isArray(setup.order)&&same(setup.order,[0,1,2,3]),'选角需要四个固定座位的行动顺序');
  need(setup.mode==='ffa'||setup.mode==='team','选角模式无效');
  need(Array.isArray(setup.teams)&&setup.teams.length===4,'选角阵营需要四个座位');
@@ -58,7 +58,7 @@ function pick(s:DraftState,character:string,at:number,timedOut:boolean){
  s.cursor++;offerNext(s,at);
 }
 export function validateDraft(s:DraftState){
- need((s.status==='choosing'||s.status==='complete')&&s.version==='draft-v1'&&(s.catalogVersion===DRAFT_CATALOG_VERSION||s.catalogVersion===STAGE3_RULE_VERSION||s.catalogVersion==='web-v0.1.7')&&same(s.order,[0,1,2,3])&&s.selected.length===4,'选角状态版本或座位无效');
+ need((s.status==='choosing'||s.status==='complete')&&s.version==='draft-v1'&&(s.catalogVersion===DRAFT_CATALOG_VERSION||s.catalogVersion===STAGE3_RULE_VERSION||s.catalogVersion==='web-v0.1.7'||s.catalogVersion==='web-v0.1.8'||s.catalogVersion==='web-v0.1.9')&&same(s.order,[0,1,2,3])&&s.selected.length===4,'选角状态版本或座位无效');
  const chosen=s.selected.filter(id=>id!==null);need(chosen.length===s.cursor&&new Set(chosen).size===chosen.length&&chosen.every(id=>ids(s.catalogVersion).includes(id)),'已选角色无效或重复');
  need(s.order.every((a,i)=>(s.selected[a]!==null)===(i<s.cursor)),'选角顺序不一致');
  need(Object.values(s.pools).every(pool=>pool.every(id=>!chosen.includes(id))),'已选角色没有移出牌池');

@@ -1,3 +1,5 @@
+import {relocationCell} from './playtest';
+import {hasPlaytestRules} from '../../game-data/src/index';
 import {onBoard,boardSingleProtected,boardLmmTarget} from './stage4-board';
 import {distanceForVersion,mapForVersion,neighboringForVersion} from '../../game-data/src/index';
 import {STAGE3_CARDS} from '../../game-data/src/stage3';
@@ -20,7 +22,7 @@ const sameOrNear=(a:string,b:string)=>map.map[a].region===map.map[b].region||nei
 const enemy=(s:RoleBoard,a:number,b:number)=>a!==b&&(s.mode==='ffa'||s.players[a].team!==s.players[b].team);
 export function cardEffectAllowed(s:ResourceState,target:number,card:string,effect:EquipmentSource):boolean {
  const p=s.players[target],id=card.split('#')[0];if(!p||s.stage4?.offMap[target]||!roleEffectAllowed(effect,p))return false;
- if(p.character==='character-006'&&effect.actor!==target&&effect.faction!=='机械猴子')return false;
+ if(!hasPlaytestRules(s.version)&&p.character==='character-006'&&effect.actor!==target&&effect.faction!=='机械猴子')return false;
  // A conversion supplies basic-002 here, not the material's printed identity.
  if(p.character==='character-005'&&(source.cards[id as keyof typeof source.cards]?.tags as readonly string[]|undefined)?.includes('建民'))return false;
  return true;
@@ -55,7 +57,7 @@ export function westStepAllowed(from:string,to:string,direction:Direction):boole
  const a=map.map[from],b=map.map[to];if(!a||!b)return false;const [dr,dc]=vector[direction];return dr===0?a.row===b.row&&Math.sign(b.col-a.col)===dc:a.col===b.col&&Math.sign(b.row-a.row)===dr;
 }
 export function emptyEntry(s:RoleBoard,a:number,cell:string,ignore:readonly number[]=[]):boolean {
- return Boolean(map.map[cell])&&!(s.farmClosed&&map.map[cell].region==='高唐农场')&&canEnterWithMount(s,a,cell)&&!s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell&&!ignore.includes(p.seat));
+ return (!hasPlaytestRules(s.version)||relocationCell(s,a,s.players[a].cell,cell,ignore)!==null)&&Boolean(map.map[cell])&&!(s.farmClosed&&map.map[cell].region==='高唐农场')&&canEnterWithMount(s,a,cell)&&!s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell&&!ignore.includes(p.seat));
 }
 export function elbowPushCells(s:RoleBoard,user:number,target:number):string[]{
  if(!alive(s,target))return [];return DIRECTIONS.map(d=>nextInDirection(s.players[target].cell,d)).filter((c):c is string=>c!==null&&emptyEntry(s,target,c,[target]));

@@ -43,7 +43,7 @@ it('decodes all printed costs; two tiers split3/3 and three tiers split2/2/2, pr
 it('keeps017 passive while018 separately registers the complete playable catalog and leaves legacy decks intact',async()=>{
  expect(ACTIVE_RULE_VERSIONS).toContain('web-v0.1.7');expect(ruleManifest('web-v0.1.7').status).toBe('playable');
  expect(runtimeForVersion('web-v0.1.6').allCards).toHaveLength(85);
- for(const v of ACTIVE_RULE_VERSIONS.filter(v=>v!=='web-v0.1.6'&&v!=='web-v0.1.7'))expect(runtimeForVersion(v).allCards).toHaveLength(64);
+ for(const v of ACTIVE_RULE_VERSIONS.filter(v=>v!=='web-v0.1.6'&&v!=='web-v0.1.7'&&v!=='web-v0.1.8'&&v!=='web-v0.1.9'))expect(runtimeForVersion(v).allCards).toHaveLength(64);
  const health=await scalar('select public.ml_health() v');expect(health).toMatchObject({ruleVersion:'web-v0.1.6',engineRevision:16,stage3Ready:true});
  expect(await scalar('select ml_private.stage4_content() v')).toEqual({cards:STAGE4_CARDS,allCards:STAGE4_ALL_CARDS,policy:STAGE4_FOUNDATION_POLICY});
 });

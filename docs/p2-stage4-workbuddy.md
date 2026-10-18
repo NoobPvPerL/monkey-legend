@@ -1,3 +1,5 @@
+> 2026-10-18补充：后续真人反馈修订见[web-v0.1.8](web-rules-v0.1.8.md)、[补丁验证](p2-playtest-validation.md)及[WorkBuddy补丁交接](p2-playtest-workbuddy.md)。本文保留原阶段历史；0.2.5-p2.6已经上线，新的019补丁尚未部署。
+
 # WorkBuddy：阶段四部署交接
 
 版本 **0.2.5-p2.6 / web-v0.1.7 / schema2 / engineRevision18**，16角色、76种191实体、92份浏览器参考素材。配套ZIP及校验位于 `releases/monkey-legend-0.2.5-p2.6-stage4-workbuddy/`，该目录是交付入口，勿混用旧阶段三包。

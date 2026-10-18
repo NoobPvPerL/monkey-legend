@@ -1,3 +1,8 @@
+import {discardCards,higherExerciseResponse} from './exercise';
+import {northTargets,relocationCell,nearestShore} from './playtest';
+import {boardWater} from './stage4-board';
+import {native} from './classic';
+import {hasPlaytestRules} from '../../game-data/src/index';
 import {ignoreLocation,terrainCard,terrainEffect,terrainMoveCost} from './stage4-terrain';
 import {stage4CardRange} from './stage4-combat';
 import {onBoard,boardSingleProtected,boardLmmTarget} from './stage4-board';
@@ -59,10 +64,11 @@ export function stage3Play(s:GameState,cmd:Play,now:number,p:Stage3Ports,costOve
  }else if(def.id==='basic-016')need(targets.length===1&&targets[0]!==actor&&alive(s,targets[0])&&roles.mayVoluntarilyRelocate(st,actor)&&roles.emptyEntry(board(st),actor,s.players[targets[0]].cell,[actor,targets[0]])&&roles.emptyEntry(board(st),targets[0],user.cell,[actor,targets[0]]),'交换目标或坐骑位移限制不合法');
  else if(def.id==='basic-037')need(targets.length===1&&resources.revivalCells(st,targets[0],s.classic!.farmClosed).length>0,'当前没有合法复活目标');
  else{need(targets.length===0,'此牌不接受外部目标');targets=def.id==='basic-041'?roles.assamTargets(board(st),actor):[actor];}
+ targets=northTargets(st,targets,cmd.northGroup,def.type!=='attack'&&!elbow&&def.id!=='basic-016'&&def.id!=='basic-037');
  if(!converted&&def.type==='equipment'){const options=resources.equipmentReplacements(st,actor,cmd.card);need(options.allowed&&(!options.required||cmd.replacement!==undefined)&&(!cmd.replacement||options.cards.includes(cmd.replacement)),'请先选择合法装备替换对象');need(def.id!=='basic-063'||mapForVersion(s.version).map[user.cell].terrain!=='water','水中不能装备禁水的哈基米');}
  if(cmd.direction)need(roles.DIRECTIONS.includes(cmd.direction),'撞飞方向无效');
  if(elbow){const cells=roles.elbowPushCells(board(st),actor,targets[0]);need(!cells.length||cmd.direction!==undefined&&cells.includes(roles.nextInDirection(s.players[targets[0]].cell,cmd.direction)??''),'请先选择合法撞飞方向');}
- const exposed=roles.withExposedJj(st,actor,elbow?'basic-002':cmd.card,targets,quoted.effect);targets=exposed.targets;
+ const exposed=roles.withExposedJj(st,actor,elbow?'basic-002':cmd.card,targets,quoted.effect);targets=northTargets(st,exposed.targets);
  user.ap-=quoted.cost;user.hand.splice(user.hand.indexOf(cmd.card),1);s.resolving.push(cmd.card);s.clock={remaining:60000,since:now};
  const pending=stack.beginCard(st,actor,cmd.card,elbow?'basic-002':def.id,targets,exposed.effect,now);if(elbow){pending.converted=converted;pending.pushDirection=cmd.direction;}if(cmd.replacement)pending.replacement=cmd.replacement;
  if(def.type==='attack'||elbow)user.attacks++;
@@ -79,7 +85,7 @@ export function stage3AttackTargets(s:GameState,actor:number,card:string):number
 export function stage3Actions(s:GameState,actor:number){
  const st=state(s),p=s.players[actor],b=board(st),free=s.phase==='action'&&!s.choice&&s.active===actor&&alive(s,actor);
  const locationInput={...s,shipUsed:s.classic!.shipUsed,farmClosed:s.classic!.farmClosed};
- const destinations=(kind:'ship'|'commute')=>resources.mountMovementBlocked(st,actor)||ignoreLocation(s,actor)?[]:locationDestinations({...locationInput,players:kind==='ship'&&st.stage3.jjFree[actor]?s.players.map(q=>q.seat===actor?{...q,ap:Math.max(1,q.ap)}:q):s.players},actor,kind).filter(c=>resources.canEnterWithMount(st,actor,c));
+ const destinations=(kind:'ship'|'commute')=>resources.mountMovementBlocked(st,actor)||ignoreLocation(s,actor)?[]:locationDestinations({...locationInput,players:kind==='ship'&&st.stage3.jjFree[actor]?s.players.map(q=>q.seat===actor?{...q,ap:Math.max(1,q.ap)}:q):s.players},actor,kind).filter(c=>resources.canEnterWithMount(st,actor,c)&&(!hasPlaytestRules(s.version)||relocationCell(s,actor,s.players[actor].cell,c)!==null));
  const revivalTargets=s.players.filter(q=>resources.revivalCells(st,q.seat,s.classic!.farmClosed).length>0).map(q=>q.seat);
  return {
   jj:free&&p.character==='character-003'&&!st.stage3.jjUsed[actor],
@@ -87,7 +93,7 @@ export function stage3Actions(s:GameState,actor:number){
   revivalTargets,
   cards:Object.fromEntries(p.hand.map(card=>{
    const def=cards(s)[cardId(card)],quote=st.stage3.costLocks[card],quoted=quote?.turn===st.stage3.turn?quote.cost:undefined;
-   const cost=def.randomCost&&quoted===undefined?null:resources.cardApCost(st,actor,card,quoted).cost;
+   const cost=s.choice?.kind==='response'&&s.choice.actor===actor&&s.choice.cards?.includes(card)&&higherExerciseResponse(s.version,s.cardStack?.stack.at(-1)?.definition??'',card)?0:def.randomCost&&quoted===undefined?null:resources.cardApCost(st,actor,card,quoted).cost;
    const targets=def.id==='basic-002'&&p.character==='character-023'?roles.elbowTargets(b,actor,false):def.type==='attack'?stage3AttackTargets(s,actor,card):def.id==='basic-037'?revivalTargets:def.id==='basic-016'?s.players.filter(q=>onBoard(s,q.seat)&&q.seat!==actor&&roles.mayVoluntarilyRelocate(st,actor)&&roles.emptyEntry(b,actor,q.cell,[actor,q.seat])&&roles.emptyEntry(b,q.seat,p.cell,[actor,q.seat])).map(q=>q.seat):[];
    return [card,{cost,needsQuote:def.randomCost===true&&quoted===undefined,targets,convertTargets:p.character==='character-023'?roles.elbowTargets(b,actor,true):[],equipment:def.type==='equipment'?resources.equipmentReplacements(st,actor,card):null,blocked:st.stage3.breadBlocked[actor]}];
   })),
@@ -97,7 +103,7 @@ export function stage3Actions(s:GameState,actor:number){
  };
 }
 function responseOptions(s:State,a:number,card:stack.PendingCard):string[]{
- return s.players[a].hand.filter(c=>{const id=cardId(c);return ((id==='basic-001'&&card.definition!=='basic-009')||(id==='basic-002'&&card.definition==='basic-008'))&&s.players[a].ap>=resources.cardApCost(s,a,c).cost;});
+ return s.players[a].hand.filter(c=>{const id=cardId(c);return higherExerciseResponse(s.version,card.definition,c)||((id==='basic-001'&&card.definition!=='basic-009')||(id==='basic-002'&&card.definition==='basic-008'))&&s.players[a].ap>=resources.cardApCost(s,a,c).cost;});
 }
 function availableTargets(s:State,c:stack.PendingCard):number[]{return c.targets.filter(a=>alive(s,a)&&!c.cancelled.includes(a)&&roles.cardEffectAllowed(s,a,c.definition,c.effect)&&(s.stage4?!c.stage4?.officeExempt?.includes(a):locationEffectAllowed('web-v0.1.5',s.players[a].cell,c.definition)));}
 function queueDamage(s:State,p:Stage3Ports,hits:Parameters<Stage3Ports['damage']>[1]){return p.damage(s,hits);}
@@ -158,13 +164,17 @@ export function stage3Task(s:GameState,t:Task,now:number,p:Stage3Ports){
   for(const target of targets){p.heal(s,target,c.definition==='basic-046'?2:1,true);if(c.definition==='basic-045'){const gained=Math.min(1,2-s.players[target].shield);s.players[target].shield+=gained;}if(c.definition==='basic-047')p.draw(s,target,2);}
  }else if(c.definition==='basic-015'){for(const target of targets){const gain=resources.coffeeTaken(st,target);p.emit(s,'ap',`${seatName(target)} 咖啡获得${gain.gained}AP，晓虫收取${gain.taken}AP`);}}
  else if(c.definition==='basic-016'){
-  for(const target of targets){if(!roles.cardEffectAllowed(st,c.actor,c.definition,c.effect)||!resources.canEnterWithMount(st,c.actor,s.players[target].cell)||!resources.canEnterWithMount(st,target,s.players[c.actor].cell))continue;const from=s.players[c.actor].cell,to=s.players[target].cell;after.push(...p.relocate(s,c.actor,to,true),...p.relocate(s,target,from,false));}
+  for(const target of targets){if(!roles.cardEffectAllowed(st,c.actor,c.definition,c.effect)||!resources.canEnterWithMount(st,c.actor,s.players[target].cell)||!resources.canEnterWithMount(st,target,s.players[c.actor].cell))continue;const from=s.players[c.actor].cell,to=s.players[target].cell;
+   if(hasPlaytestRules(s.version)){
+    const first=relocationCell(s,c.actor,from,to,[target]),second=relocationCell(s,target,to,from,[c.actor]);if(!first||!second||first===second)continue;
+    s.stage4!.offMap[target]=true;after.push(...p.relocate(s,c.actor,first,true));s.stage4!.offMap[target]=false;after.push(...p.relocate(s,target,second,false));
+   }else after.push(...p.relocate(s,c.actor,to,true),...p.relocate(s,target,from,false));}
  }else if(c.definition==='basic-037'){
   // Dead targets are deliberately absent from availableTargets: revive them
   // through their dedicated legal-death window rather than an alive-only path.
-  for(const target of c.targets){if(!roles.cardEffectAllowed(st,target,c.definition,c.effect))continue;const cells=resources.revivalCells(st,target,s.classic!.farmClosed);if(!cells.length)continue;const cell=cells[integer(s.random,cells.length)];resources.reviveResourcePlayer(st,target,cell,s.classic!.farmClosed);s.classic!.exposure[target]={region:null,streak:0};s.classic!.caveEnds![target]=0;p.emit(s,'revive',`${seatName(target)} 紫檀木复活于${cell}：1HP、0AP、空手`);}
+  for(const target of c.targets){if(!roles.cardEffectAllowed(st,target,c.definition,c.effect))continue;const cells=resources.revivalCells(st,target,s.classic!.farmClosed);if(!cells.length)continue;const cell=cells[integer(s.random,cells.length)];resources.reviveResourcePlayer(st,target,cell,s.classic!.farmClosed);if(hasPlaytestRules(s.version)&&native(s,target)&&boardWater(st,cell,target))after.push(task('board-shore',{actor:target,data:{cells:nearestShore(st,target)}}));s.classic!.exposure[target]={region:null,streak:0};s.classic!.caveEnds![target]=0;p.emit(s,'revive',`${seatName(target)} 紫檀木复活于${cell}：1HP、0AP、空手`);}
  }else if(def.type==='equipment'){
-  if(c.replacement){const old=c.replacement,oldSource=st.stage3.equipmentSources[old];st.stage3.equipment[c.actor]=st.stage3.equipment[c.actor].filter(x=>x!==old);delete st.stage3.equipmentSources[old];s.discard.push(old);
+  if(c.replacement){const old=c.replacement,oldSource=st.stage3.equipmentSources[old];st.stage3.equipment[c.actor]=st.stage3.equipment[c.actor].filter(x=>x!==old);delete st.stage3.equipmentSources[old];discardCards(s,[old]);
    if(oldSource&&roles.cardEffectAllowed(st,c.actor,old,{...oldSource,origin:'equipment'})){
     const cells=cardId(old)==='basic-063'?mapForVersion(s.version).cells.filter(cell=>cell.region==='山洞'&&roles.emptyEntry(board(st),c.actor,cell.id)).map(cell=>cell.id):undefined;
     if(cardId(old)==='basic-054'||cells?.length)p.select(s,'equipment-loss',c.actor,now,{cells,data:{card:old}});
@@ -192,7 +202,7 @@ export function stage3Choose(s:GameState,cmd:Choose,now:number,p:Stage3Ports,tim
   const result=stack.counterCard(st,a,cmd.accept===true&&!timeout,now,()=>p.die(s,'easy 太简单了'));p.emit(s,'skill',result.attempted?`${seatName(a)} 反制支付1AP，${result.cancelled?'整牌失效':'判定失败'}`:`${seatName(a)} 结束反制`);return !result.done;
  }
  if(c.kind==='response'){
-  if(cmd.card){need(c.cards?.includes(cmd.card),'响应牌不可用');const parent=stack.currentCard(st),quoted=resources.cardApCost(st,a,cmd.card);s.players[a].ap-=quoted.cost;s.players[a].hand=s.players[a].hand.filter(x=>x!==cmd.card);s.resolving.push(cmd.card);const child=stack.beginCard(st,a,cmd.card,cardId(cmd.card),[],quoted.effect,now,parent.serial);prepend(s,task('counter',{serial:child.serial}),task('continue',{serial:child.serial}));p.emit(s,'response',`${seatName(a)} 使用${cards(s)[child.definition].name}，支付${quoted.cost}AP`);}return false;
+  if(cmd.card){need(c.cards?.includes(cmd.card),'响应牌不可用');const parent=stack.currentCard(st);need(responseOptions(st,a,parent).includes(cmd.card),'响应牌已失效');const quoted=higherExerciseResponse(s.version,parent.definition,cmd.card)?{cost:0,effect:{origin:'card' as const,actor:a,faction:s.players[a].faction,roleModifiers:[]}}:resources.cardApCost(st,a,cmd.card);s.players[a].ap-=quoted.cost;s.players[a].hand=s.players[a].hand.filter(x=>x!==cmd.card);s.resolving.push(cmd.card);const child=stack.beginCard(st,a,cmd.card,cardId(cmd.card),[],quoted.effect,now,parent.serial);prepend(s,task('counter',{serial:child.serial}),task('continue',{serial:child.serial}));p.emit(s,'response',`${seatName(a)} 使用${cards(s)[child.definition].name}，支付${quoted.cost}AP`);}return false;
  }
  if(c.kind==='xiao-overflow'){const cards=timeout?[...s.players[a].hand].sort().slice(0,c.count):cmd.cards??[];resources.transferOverflow(st,a,c.source!,cards);p.emit(s,'transfer',`${seatName(a)} 超限${cards.length}张交给${seatName(c.source!)}`);return false;}
  if(c.kind==='qb-pursuit'){if(cmd.accept&&alive(s,c.source!)){const target=p.die(s,'QB 纯菜')>=3?c.source!:a;prepend(s,...p.damage(s,[{target,amount:1,source:a,category:'response'}],false,true));}return false;}

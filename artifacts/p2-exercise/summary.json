@@ -1,0 +1,28 @@
+{
+  "version": "0.2.7-p2.8",
+  "ruleVersion": "web-v0.1.9",
+  "engineRevision": 20,
+  "testFiles": 67,
+  "tests": 560,
+  "passed": 560,
+  "failed": 0,
+  "checks": [
+    "typecheck",
+    "test",
+    "build",
+    "verify:catalog",
+    "verify:data",
+    "verify:classic-map"
+  ],
+  "frozenMigrations": "000–019 unchanged",
+  "migration019Sha256": "fa82f62863c17458ca74b99b145e0bf8619c81099448b51776c1bd01e401bb12",
+  "workbuddyPackageBuilt": true,
+  "githubUploaded": false,
+  "cloudDeployed": false,
+  "screenshotApproval": "approved by owner on 2026-10-18",
+  "mobileLongPageRejected": true,
+  "mobileRevisionEvidence": "artifacts/p2-mobile-single-screen/summary.json",
+  "packageIndependentlyValidated": true,
+  "sourceSnapshotSha256": "7bd48effd13f105362ac22b6afa4458fc030f07fdf56586106802286d683d826",
+  "deliveryDirectory": "releases/monkey-legend-0.2.7-p2.8-exercise-workbuddy"
+}

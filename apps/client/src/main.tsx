@@ -1,3 +1,4 @@
+import {useNavigationGuard} from './use-navigation-guard';
 import {lazy,Suspense,useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {io} from 'socket.io-client';
@@ -25,6 +26,7 @@ function App(){
  const [showLobby,setShowLobby]=useState(false),[showSpectators,setShowSpectators]=useState(false),[animations,setAnimations]=useState(true),[dealMatchId,setDealMatchId]=useState<string|null>(null);
  useEffect(()=>setShowLobby(false),[room?.roomId,room?.matchId]);
  const socket=useRef<Socket|null>(null),credential=useRef<Credential|null>(null),pending=useRef<OnlineCommand|null>(null),sending=useRef(false),snapshot=useRef<RoomSnapshot|null>(null),pendingKey=useRef('');
+ const navigation=useNavigationGuard(Boolean(room&&(room.status==='playing'||room.status==='drafting')));
  const acceptedAt=useRef(performance.now());
  const accept=(s:RoomSnapshot)=>{const old=snapshot.current;if(old?.roomId===s.roomId&&(s.epoch<old.epoch||s.roomRevision<old.roomRevision||s.serverTime<old.serverTime))return;if(old?.roomId===s.roomId&&s.matchId&&old.matchId!==s.matchId)setDealMatchId(s.matchId);snapshot.current=s;acceptedAt.current=performance.now();setRoom(s);};
  const clearPending=()=>{pending.current=null;if(pendingKey.current)sessionStorage.removeItem(pendingKey.current);setBusy(false);setUncertain(false);};
@@ -87,7 +89,7 @@ function App(){
   <button className="link" disabled={Boolean(attachment)} onClick={()=>setLocal(true)}>打开本地测试桌 / 复现工具</button></>}{errorPanel}<footer>web-v0.1.7 · 16角色 · 76种191张 · 三选一 · 四人好友房 · 各自为战 / 双人同盟<br/>同名恢复依赖本浏览器凭据；断线和关闭页面均继续计时。</footer></section></main>;
  const watching=room.role==='spectator';
  const host=!watching&&room.host===room.memberId,pre=room.status==='lobby'||room.status==='finished',disabled=busy||!connected||revoked;
- return <div className="table-app online-app"><header className="topbar"><div className="wordmark">应猴传说</div><span className="local-badge">房间 {room.code}</span><span className="online-identity" title={name}>{name} · {room.role==='spectator'?'观众':`S${room.seat+1}`}</span><span className="top-spacer"/><RoomChat transport={socket.current} room={room} connected={connected&&!revoked}/><button className="spectator-count" onClick={()=>setShowSpectators(true)}>观众 {room.spectators?.length??0}</button><span className={`connection-status ${connected?'connected':''}`} role="status">{revoked?'连接失效':connected?'已连接':'重连中'}</span><button onClick={leaveScreen}>返回入口</button></header>
+ return <div className="table-app online-app">{navigation.confirming&&<Dialog title="离开当前对局？" onClose={navigation.cancel}><p>浏览器返回操作已拦截。留在对局可继续操作；离开后可用原身份恢复，游戏仍会继续计时。</p><button className="primary" onClick={navigation.cancel}>留在对局</button><button onClick={navigation.leave}>离开此页面</button></Dialog>}<header className="topbar"><div className="wordmark">应猴传说</div><span className="local-badge">房间 {room.code}</span><span className="online-identity" title={name}>{name} · {room.role==='spectator'?'观众':`S${room.seat+1}`}</span><span className="top-spacer"/><RoomChat transport={socket.current} room={room} connected={connected&&!revoked}/><button className="spectator-count" onClick={()=>setShowSpectators(true)}>观众 {room.spectators?.length??0}</button><span className={`connection-status ${connected?'connected':''}`} role="status">{revoked?'连接失效':connected?'已连接':'重连中'}</span><button onClick={leaveScreen}>返回入口</button></header>
   <div className="online-notices">{errorPanel}{uncertain&&<button disabled={!connected||sending.current||revoked} onClick={flush}>重试原操作</button>}{revoked&&<button onClick={leaveScreen}>返回入口</button>}</div>
   {room.game&&<MatchEffects room={room} dealMatchId={dealMatchId} enabled={animations}/>}
   {room.status==='drafting'&&room.draft&&<DraftBoard draft={room.draft} seat={watching?null:room.seat} members={room.members} serverTime={room.serverTime} busy={disabled} send={draft}/>}

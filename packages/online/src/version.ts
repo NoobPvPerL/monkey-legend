@@ -1,8 +1,9 @@
-export const APPLICATION_VERSION='0.2.5-p2.6';
-export const CURRENT_RULE_VERSION='web-v0.1.7';
-export const REQUIRED_ENGINE_REVISION=18;
+export const APPLICATION_VERSION='0.2.7-p2.8';
+export const CURRENT_RULE_VERSION='web-v0.1.9';
+export const REQUIRED_ENGINE_REVISION=20;
 export interface DatabaseRequirement {ruleVersion:string;engineRevision:number;stage4:boolean}
 export const STAGE3_DATABASE_REQUIREMENT:DatabaseRequirement={ruleVersion:'web-v0.1.6',engineRevision:16,stage4:false};
+export const STAGE4_DATABASE_REQUIREMENT:DatabaseRequirement={ruleVersion:'web-v0.1.7',engineRevision:18,stage4:true};
 export const CURRENT_DATABASE_REQUIREMENT:DatabaseRequirement={ruleVersion:CURRENT_RULE_VERSION,engineRevision:REQUIRED_ENGINE_REVISION,stage4:true};
 export function databaseReady(health:unknown,required:DatabaseRequirement=CURRENT_DATABASE_REQUIREMENT):boolean {
  if(!health||typeof health!=='object')return false;

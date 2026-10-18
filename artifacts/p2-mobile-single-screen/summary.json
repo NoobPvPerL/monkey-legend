@@ -1,0 +1,21 @@
+{
+  "candidate": "0.2.7-p2.8",
+  "rulesUnchanged": true,
+  "uiTestFiles": 4,
+  "uiTests": 22,
+  "uiPassed": 22,
+  "uiFailed": 0,
+  "checks": [
+    "typecheck",
+    "UI regression",
+    "production build",
+    "git diff --check"
+  ],
+  "mainPageVerticalScroll": false,
+  "screenshots": "viewport only, no fullPage/stitch/scale",
+  "approval": "approved by owner on 2026-10-18",
+  "packageBuilt": false,
+  "githubUploaded": false,
+  "cloudDeployed": false,
+  "screenshotApproval": "approved by owner on 2026-10-18"
+}

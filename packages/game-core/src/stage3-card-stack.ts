@@ -1,3 +1,5 @@
+import {discardCards} from './exercise';
+import {hasPlaytestRules} from '../../game-data/src/index';
 import type {EquipmentSource,ResourceState} from './stage3-resources';
 import type {Direction} from './stage3-roles';
 export interface PendingCard {
@@ -18,7 +20,7 @@ export function beginCard(s:CardStackState,actor:number,card:string,definition:s
  need(Number.isFinite(at)&&at>=0,'卡牌窗口时钟无效');need(s.resolving.includes(card)&&!s.cardStack.stack.some(c=>c.card===card),'待结算实体牌无效');
  if(responseTo!==null)need(currentCard(s).serial===responseTo&&!currentCard(s).counter,'父牌尚不可响应');
  const easy=s.players.find(p=>p.hp>0&&p.character==='character-002'&&p.ap>=1);
- const pending:PendingCard={serial:++s.cardStack.serial,actor,card,definition,targets:[...targets],effect:structuredClone(effect),cancelled:[],elbows:[],countered:false,counter:easy?{actor:easy.seat,deadline:at+10000}:null,responseTo,responseActor:responseTo===null?null:actor};s.cardStack.stack.push(pending);return pending;
+ const pending:PendingCard={serial:++s.cardStack.serial,actor,card,definition,targets:[...targets],effect:structuredClone(effect),cancelled:[],elbows:[],countered:false,counter:easy?{actor:easy.seat,deadline:at+(hasPlaytestRules(s.version)?30000:10000)}:null,responseTo,responseActor:responseTo===null?null:actor};s.cardStack.stack.push(pending);return pending;
 }
 export function counterCard(s:CardStackState,actor:number,accept:boolean,at:number,roll:()=>number):{attempted:boolean;roll:number|null;cancelled:boolean;done:boolean}{
  const pending=currentCard(s),window=pending.counter;need(window&&window.actor===actor,'不是当前反制者');
@@ -35,5 +37,5 @@ export function closePending(s:CardStackState):PendingCard {
   const parent=s.cardStack.stack.at(-2);need(parent?.serial===pending.responseTo,'响应父牌已过期');
   if(!pending.countered){if(pending.stage4?.counter){if(pending.stage4.counterEffective)parent!.countered=true;}else{const a=pending.responseActor!;if(!parent!.cancelled.includes(a))parent!.cancelled.push(a);if(pending.definition==='basic-002')parent!.elbows.push(a);}}
  }
- s.cardStack.stack.pop();s.resolving=s.resolving.filter(c=>c!==pending.card);s.discard.push(pending.card);return pending;
+ s.cardStack.stack.pop();s.resolving=s.resolving.filter(c=>c!==pending.card);discardCards(s,[pending.card]);return pending;
 }

@@ -1,3 +1,5 @@
+import {northTargets} from './playtest';
+import {hasPlaytestRules} from '../../game-data/src/index';
 import {terrainCard,terrainEffect} from './stage4-terrain';
 import {stage4MovementTask} from './stage4-movement';
 import {stage4CombatTask} from './stage4-combat';
@@ -77,7 +79,8 @@ export function stage4Play(s:GameState,cmd:Extract<Command,{type:'play'}>,now:nu
   const cells=roles.elbowPushCells({...st,farmClosed:s.classic!.farmClosed},actor,targets[0]);
   need(!cells.length||cmd.direction!==undefined&&cells.includes(roles.nextInDirection(s.players[targets[0]].cell,cmd.direction)??''),'请先指定合法撞飞方向');
  }else if(['basic-007','basic-018','basic-019','basic-022','basic-029','basic-030','basic-035','basic-036','basic-021','basic-024'].includes(def.id))need(targets.length===1&&stage4Targets(s,actor,cmd.card).includes(targets[0]),'目标不合法');
- else{need(targets.length===0,'此牌不接受外部目标');targets=['basic-011','basic-012','basic-014','basic-013','basic-031','basic-026'].includes(def.id)?s.players.filter(q=>onBoard(s,q.seat)&&(!['basic-013','basic-031','basic-026'].includes(def.id)||q.seat!==actor)&&(def.id!=='basic-026'||s.mode==='ffa'||q.team!==user.team)&&!(q.character==='character-027'&&q.hand.length===1)).map(q=>q.seat):def.id==='basic-040'?s.players.filter(q=>q.hp>0&&q.faction==='帝汶家族').map(q=>q.seat):[actor];}
+ else{need(targets.length===0,'此牌不接受外部目标');targets=['basic-011','basic-012','basic-014','basic-013','basic-031','basic-026'].includes(def.id)?s.players.filter(q=>onBoard(s,q.seat)&&(!['basic-013','basic-031','basic-026',...(hasPlaytestRules(s.version)?['basic-012','basic-014']:[])].includes(def.id)||q.seat!==actor)&&(def.id!=='basic-026'||s.mode==='ffa'||q.team!==user.team)&&!(q.character==='character-027'&&q.hand.length===1)).map(q=>q.seat):def.id==='basic-040'?s.players.filter(q=>q.hp>0&&q.faction==='帝汶家族').map(q=>q.seat):[actor];}
+ targets=northTargets(st,targets,cmd.northGroup,!tea&&!['basic-007','basic-018','basic-019','basic-022','basic-029','basic-030','basic-035','basic-036','basic-021','basic-024'].includes(def.id));
  if(def.id==='basic-024')validateStage4Steal(s,cmd);
  if(['basic-023','basic-032','basic-033'].includes(def.id))need(typeof cmd.region==='string'&&Object.hasOwn(mapForVersion(s.version).regions,cmd.region),'请选择合法地区');
  const isX=def.cost.kind==='variable';
@@ -87,6 +90,7 @@ export function stage4Play(s:GameState,cmd:Extract<Command,{type:'play'}>,now:nu
  const quoted=tea?{cost:0,effect:{origin:'card' as const,actor,faction:user.faction,roleModifiers:[...(st.stage4.buffSources[`${actor}:tea`]?.roleModifiers??[]),...(user.character==='character-023'?[{actor,kind:'other' as const}]:[])]}}:isX?
   {cost:raw!,effect:{origin:'card' as const,actor,faction:user.faction,roleModifiers:[]}}:resources.cardApCost(st,actor,cmd.card,raw);
  const fee=stage4FeePlan(user.ap,quoted.cost,false,isX),exposed=roles.withExposedJj(st,actor,cmd.card,targets,resources.attackEquipmentEffect(st,actor,cmd.card,quoted.effect));
+ northTargets(st,exposed.targets);
  user.ap-=fee.spend;if(fee.gain)resources.gainAp(st,actor,fee.gain);
  user.hand.splice(user.hand.indexOf(cmd.card),1);s.resolving.push(cmd.card);s.clock={remaining:60000,since:now};
  const pending=stack.beginCard(st,actor,cmd.card,def.id,exposed.targets,exposed.effect,now);

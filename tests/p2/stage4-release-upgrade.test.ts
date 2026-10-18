@@ -3,7 +3,9 @@ import {readFile} from 'node:fs/promises';
 import {database} from './database';
 import {createGame,dispatch} from '../../packages/game-core/src/index';
 import {createStage3Draft,dispatchDraft} from '../../packages/game-core/src/draft';
-import {databaseReady} from '../../packages/online/src/version';
+import {databaseReady as ready,STAGE4_DATABASE_REQUIREMENT} from '../../packages/online/src/version';
+// Frozen018 upgrade contract; the new019 gate is tested separately.
+const databaseReady=(h:unknown)=>ready(h,STAGE4_DATABASE_REQUIREMENT);
 const migration=await readFile('database/migrations/018_stage4_release.sql','utf8');
 const atomic=(sql:string)=>`DO $stage4_outer$ BEGIN EXECUTE $stage4_body$${sql}$stage4_body$;END $stage4_outer$;`;
 it('018 upgrades atomically, preserves old games/drafts/profiles/identities and opens only new matches with191 cards',async()=>{

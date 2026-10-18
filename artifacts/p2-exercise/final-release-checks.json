@@ -1,0 +1,13 @@
+{
+  "version": "0.2.7-p2.8",
+  "typecheck": true,
+  "productionBuild": true,
+  "catalogIncludingFrozen000to019": true,
+  "data187Images4Documents": true,
+  "classicMap32Cells15Regions": true,
+  "screenshotApproval": "approved by owner on 2026-10-18",
+  "productionWrites": false,
+  "testFiles": 67,
+  "tests": 560,
+  "testFailures": 0
+}

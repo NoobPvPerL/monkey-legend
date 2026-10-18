@@ -1,3 +1,5 @@
+> 2026-10-18补充：后续真人反馈修订见[web-v0.1.8](web-rules-v0.1.8.md)、[补丁验证](p2-playtest-validation.md)及[WorkBuddy补丁交接](p2-playtest-workbuddy.md)。本文保留原阶段历史；0.2.5-p2.6已经上线，新的019补丁尚未部署。
+
 # Issue #13 后续处理与不限攻击次数验证
 
 日期：2026-10-17（Asia/Hong_Kong）。本地候选 `0.2.2-p2.3`，新联机局 `web-v0.1.3`，数据库 schema 2／engineRevision 9。基线提交 `a5e84e1`；本轮代码尚未提交、推送、发布或部署，没有生成新版完整源码ZIP。

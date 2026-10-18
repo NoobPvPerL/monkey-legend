@@ -1,0 +1,39 @@
+{
+  "version": "0.2.6-p2.7",
+  "at": "2026-10-18T07:10:16.388Z",
+  "sourceSnapshotSha256": "2eba81ef111f18b0d50bdc009249d39ef8359029e757ef5ba2f4a0582b4f060e",
+  "checks": [
+    "extracted source/SQL manifests, every file hash, same snapshot and all migration bytes",
+    "public configuration whitelist, no runtime/private inputs, and92 built reference assets",
+    "fresh schema1→19 single-statement install, readiness/ACL/verify/reapply",
+    "existing complete18→19 single-statement install, readiness/ACL/verify/reapply and room identity preservation",
+    "independent locked npm ci --offline and production client/server build",
+    "extracted built server starts with offline endpoint; HTML/JS/CSS and92 references load; source/config hidden",
+    "dedicated complete018→019 single prepared statement, repeat execution and frozen catalogs"
+  ],
+  "passed": true,
+  "cloudDeployed": false,
+  "sourceCommit": "c8e26f04dc4060d6e8bb6169e74a98592e22ace7",
+  "sourceDirty": true,
+  "independentNpmCi": true,
+  "independentBuild": true,
+  "runtime": "v24.19.0",
+  "health": {
+    "ok": true,
+    "version": "0.2.6-p2.7",
+    "ruleVersion": "web-v0.1.8",
+    "requiredEngineRevision": 19
+  },
+  "runtimeEndpoint": "https://isolated.invalid",
+  "cloudRpcInvoked": false,
+  "finishedAt": "2026-10-18T07:10:24.919Z",
+  "archives": {
+    "monkey-legend-0.2.6-p2.7-database-playtest-workbuddy.zip": "192106428ea32a145d9b9d47fa51bf73af06334a377f815ffc8602b2cdd008e9",
+    "monkey-legend-0.2.6-p2.7-online-source-playtest-workbuddy.zip": "ebbeefff50a43d0ebb475b2d7744788c33a8016482a8d27c3e934928f74c2b8d"
+  },
+  "outerDeliverySha256": {
+    "monkey-legend-0.2.6-p2.7-online-source-playtest-workbuddy.zip": "ebbeefff50a43d0ebb475b2d7744788c33a8016482a8d27c3e934928f74c2b8d",
+    "monkey-legend-0.2.6-p2.7-database-playtest-workbuddy.zip": "192106428ea32a145d9b9d47fa51bf73af06334a377f815ffc8602b2cdd008e9",
+    "UPGRADE-FROM-018-ONE-STATEMENT.sql": "cd3151956c43b63ccf57e0bdc127e6d743e987afa8a06dc3cb98b1adb85e4a1c"
+  }
+}

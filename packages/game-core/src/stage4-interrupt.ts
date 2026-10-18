@@ -1,3 +1,4 @@
+import {discardCards} from './exercise';
 import type {GameState,Command,Task} from './types';
 import type {Stage3Ports} from './stage3-engine';
 import type {ResourceState} from './stage3-resources';
@@ -28,7 +29,7 @@ export function beginStage4Interrupt(s:GameState,now:number,p:Stage3Ports):boole
  if(st.stage4.interruptTurn!==null||s.choice||s.queue.length&&!boundary||st.cardStack.stack.length||!st.stage4.interrupts.length)return false;
  const intent=st.stage4.interrupts.shift()!;
  if(!onBoard(st,intent.actor)){
-  s.resolving=s.resolving.filter(c=>c!==intent.card);s.discard.push(intent.card);p.emit(s,'interrupt-expired',`S${intent.actor+1} 已离场或淘汰，插队意图失效`);return true;
+  s.resolving=s.resolving.filter(c=>c!==intent.card);discardCards(s,[intent.card]);p.emit(s,'interrupt-expired',`S${intent.actor+1} 已离场或淘汰，插队意图失效`);return true;
  }
  const resumePhase=s.movement?'moving':'action',pending=stack.beginCard(st,intent.actor,intent.card,'basic-017',[],intent.effect,now);
  pending.stage4={interrupt:true,resumePhase,cardTeam:intent.team,...(boundary?{finishBoundary:boundary}:{})};if(boundary)s.queue=[];s.phase='resolving';
@@ -61,6 +62,6 @@ export function stage4InterruptTask(s:GameState,t:Task,now:number,p:Stage3Ports)
 }
 export function discardStage4Interrupts(s:GameState):void {
  const r=s.stage4!;
- for(const intent of r.interrupts){s.resolving=s.resolving.filter(c=>c!==intent.card);s.discard.push(intent.card);}
+ for(const intent of r.interrupts){s.resolving=s.resolving.filter(c=>c!==intent.card);discardCards(s,[intent.card]);}
  r.interrupts=[];r.interruptTurn=null;
 }

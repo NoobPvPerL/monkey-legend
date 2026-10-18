@@ -1,3 +1,4 @@
+import {discardCards} from './exercise';
 import {onBoard} from './stage4-board';
 import type {GameState,Command,Task} from './types';
 import type {Stage3Ports} from './stage3-engine';
@@ -64,7 +65,7 @@ export function stage4CounterTask(s:GameState,t:Task,now:number,p:Stage3Ports):b
 export function stage4CounterChoose(s:GameState,cmd:Extract<Command,{type:'choose'}>,now:number,p:Stage3Ports,timeout:boolean):void {
  const st=state(s),choice=s.choice!,a=choice.actor;
  if(choice.kind==='forced-card'){
-  if(cmd.card){need(choice.cards?.includes(cmd.card)&&st.players[a].hand.includes(cmd.card),'必须交出符合要求的手牌');st.players[a].hand=st.players[a].hand.filter(c=>c!==cmd.card);s.discard.push(cmd.card);p.emit(s,'deliver',`S${a+1} 交出1张牌（不发动牌效）`);}
+  if(cmd.card){need(choice.cards?.includes(cmd.card)&&st.players[a].hand.includes(cmd.card),'必须交出符合要求的手牌');st.players[a].hand=st.players[a].hand.filter(c=>c!==cmd.card);discardCards(s,[cmd.card]);p.emit(s,'deliver',`S${a+1} 交出1张牌（不发动牌效）`);}
   else s.queue.unshift(...p.damage(s,[{target:a,amount:1,source:choice.source!,category:'attack',directHp:true}]));return;
  }
  need(choice.kind==='card-counter','不是卡牌反制窗口');

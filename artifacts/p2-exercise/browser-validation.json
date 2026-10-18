@@ -1,0 +1,70 @@
+{
+  "source": "local synthetic game states, production components and real TS dispatch; not cloud/human acceptance",
+  "pcAfterBobQuote": {
+    "boardScroll": 0,
+    "count": 32,
+    "docWidth": 1440,
+    "fullyVisible": true,
+    "grid": {
+      "bottom": 718.5000305175781,
+      "height": 361.3333435058594,
+      "left": 18,
+      "right": 1064,
+      "top": 357.16668701171875,
+      "width": 1046,
+      "x": 18,
+      "y": 357.16668701171875
+    },
+    "overflow": 0,
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  "mobileFullMap360": {
+    "count": 32,
+    "docWidth": 360,
+    "fullyVisible": true,
+    "grid": {
+      "bottom": 563.6770935058594,
+      "height": 390,
+      "left": 18.666667938232425,
+      "right": 341.3333549499512,
+      "top": 173.67709350585938,
+      "width": 322.66668701171875,
+      "x": 18.666667938232425,
+      "y": 173.67709350585938
+    },
+    "overflow": 0,
+    "viewport": [
+      360,
+      640
+    ]
+  },
+  "mobile390": {
+    "viewport": [
+      390,
+      844
+    ],
+    "fullMapCount": 32,
+    "fullyVisible": true,
+    "overflow": 0,
+    "fullPageScreenshot": "mobile-bob-390-full.jpg"
+  },
+  "userScreenshotApproval": "pending",
+  "workbuddyPackageBuilt": false,
+  "githubUploaded": false,
+  "exerciseResponse": {
+    "initialAttackerAp": 20,
+    "fee": 3,
+    "initialDefenderAp": 0,
+    "defenderHpAfter": 5,
+    "attackerApAfter": 18,
+    "defenderApAfter": 1,
+    "otherApAfter": [
+      20,
+      20
+    ],
+    "withinOriginalResponseWindow": true
+  }
+}

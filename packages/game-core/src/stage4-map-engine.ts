@@ -1,4 +1,7 @@
+import {discardCards} from './exercise';
 import {reactiveArrival} from './stage4-movement';
+import {hasPlaytestRules} from '../../game-data/src/index';
+import {nearestShore} from './playtest';
 import {mapForVersion,distanceForVersion} from '../../game-data/src/index';
 import type {GameState,Task,Command} from './types';
 import type {Stage3Ports} from './stage3-engine';
@@ -14,7 +17,7 @@ const state=(s:GameState)=>s as State;
 const need=(v:unknown,message:string):void=>{if(!v)throw Error(message);};
 const task=(action:string,extra:Partial<Task>={}):Task=>({kind:'stage3',action,...extra});
 export const MAP_CARD_IDS=['basic-013','basic-020','basic-021','basic-023','basic-026','basic-031','basic-032','basic-033','basic-034'];
-export const isBoardChoice=(kind:string)=>['board-path','board-cell','board-guess','board-tax','board-return'].includes(kind);
+export const isBoardChoice=(kind:string)=>['board-path','board-cell','board-guess','board-tax','board-return','native-shore'].includes(kind);
 export function boardArrivalTasks(s:GameState,a:number,from:string,to:string,reactive=true):Task[]{
  const m=mapForVersion(s.version).map;
  return [...(m[from]?.region!==m[to]?.region&&currentDesert(s,a)?[task('board-desert',{actor:a})]:[]),...(reactive?reactiveArrival(s,a,from,to):[])];
@@ -42,7 +45,16 @@ export function stage4MapEffect(s:GameState,now:number,p:Stage3Ports):boolean {
  }
  if(c.definition==='basic-032')st.stage4.deserts[c.stage4!.region!]={owner:a,effect:structuredClone(c.effect)};
  if(c.definition==='basic-033'){
+  const prior=st.stage4.water[c.stage4!.region!];
   st.stage4.water[c.stage4!.region!]={owner:a,effect:structuredClone(c.effect)};
+  if(hasPlaytestRules(s.version)){
+   const reserved:string[]=[],plans:{actor:number;cells:string[]}[]=[];
+   for(const actor of s.order)if(onBoard(st,actor)&&water(s,s.players[actor].cell,actor)&&native(s,actor)){
+    const cells=nearestShore(st,actor,reserved);if(!cells.length){if(prior)st.stage4.water[c.stage4!.region!]=prior;else delete st.stage4.water[c.stage4!.region!];p.emit(s,'effect','汶泽无合法岸边，地形变化未生效');s.queue.unshift(task('cleanup',{serial:c.serial}));return true;}
+    plans.push({actor,cells});reserved.push(cells[0]);
+   }
+   for(const plan of plans)jobs.push(task('board-shore',{actor:plan.actor,data:{cells:plan.cells.filter(cell=>!reserved.some((r,i)=>r===cell&&plans[i].actor!==plan.actor))}}));
+  }
   for(const actor of s.order)if(onBoard(st,actor)&&mapForVersion(s.version).map[s.players[actor].cell].region===c.stage4!.region&&boardEffectAllowed(st,actor,c.effect)&&!native(s,actor)&&s.players[actor].hand.length)jobs.push({kind:'water',actor,data:{entry:true}});
  }
  if(c.definition==='basic-013'||c.definition==='basic-031'){
@@ -60,7 +72,7 @@ function pay(s:State,a:number,owner:number,mode:'desert'|'lmm'|'tribute',card:st
   const amount=Math.min(1,actor.ap);actor.ap-=amount;if(amount&&to.hp>0)resources.gainAp(s,owner,amount);missing=amount<1;
  }
  if(mode!=='desert'||!ap){
-  if(card){need(actor.hand.includes(card),'手中没有所选上交牌');actor.hand=actor.hand.filter(c=>c!==card);if(to.hp>0)to.hand.push(card);else s.discard.push(card);}
+  if(card){need(actor.hand.includes(card),'手中没有所选上交牌');actor.hand=actor.hand.filter(c=>c!==card);if(to.hp>0)to.hand.push(card);else discardCards(s,[card]);}
   else missing=true;
  }
  p.emit(s,'tax',`S${a+1} ${mode==='desert'?'沙漠税':mode==='lmm'?'LMM交牌':'上课铃上交'}${missing?'，资源不足受1伤':''}`);
@@ -69,6 +81,10 @@ function pay(s:State,a:number,owner:number,mode:'desert'|'lmm'|'tribute',card:st
 export function stage4MapTask(s:GameState,t:Task,now:number,p:Stage3Ports):boolean {
  if(!t.action?.startsWith('board-'))return false;
  const st=state(s),a=t.actor??s.active,c=st.cardStack.stack.at(-1);
+ if(t.action==='board-shore'){
+  const cells=(t.data as {cells:string[]}).cells.filter(cell=>boardEmptyEntry(st,a,cell,[a]));
+  need(cells.length>0,'上岸预留格失效');p.select(s,'native-shore',a,now,{cells});return true;
+ }
  if(t.action==='board-desert'){
   const desert=currentDesert(st,a);if(!desert)return true;
   if(s.players[a].hand.length||s.players[a].ap>0)p.select(s,'board-tax',a,now,{cards:[...s.players[a].hand],source:desert.owner,data:{mode:'desert'}});
@@ -116,6 +132,10 @@ function queuePath(s:State,a:number,path:string[],serial:number){
 /** True means a replacement choice was opened and must not be closed by caller. */
 export function stage4MapChoose(s:GameState,cmd:Extract<Command,{type:'choose'}>,now:number,p:Stage3Ports,timeout:boolean):void {
  const st=state(s),choice=s.choice!,a=choice.actor;
+ if(choice.kind==='native-shore'){
+  const cell=timeout?choice.cells?.[0]:cmd.cell;need(cell&&choice.cells?.includes(cell)&&boardEmptyEntry(st,a,cell,[a]),'请选择合法岸边');
+  s.queue.unshift(...p.relocate(s,a,cell!,false,false,false));return;
+ }
  if(choice.kind==='board-path'){
   const option=cmd.option??(timeout?Object.keys(choice.options!)[0]:undefined);need(option!==undefined&&Object.hasOwn(choice.options!,option),'请选择一条合法路径');
   queuePath(st,a,choice.options![option!],(choice.data as {serial:number}).serial);return;

@@ -1,3 +1,9 @@
+## 2026-10-18 搏击操与地图二次修订（截图及交付包验证通过）
+
+候选0.2.7-p2.8／web-v0.1.9／修订20；搏击操基础费用3／4／5AP、按实体最初获得者的入弃回复、免费高等级防御已实现。地图采用PC分栏；移动长页已被否决并返修为主界面单屏布局，见[p2-mobile-single-screen-validation.md](p2-mobile-single-screen-validation.md)。67文件560项本地测试通过，见[p2-exercise-validation.md](p2-exercise-validation.md)与[新规则](web-rules-v0.1.9.md)。旧地图截图验收结论已更正。负责人已通过PC／移动截图审核，授权先构建WorkBuddy交付包、之后上传GitHub；最终结果见[p2-exercise-delivery.md](p2-exercise-delivery.md)。未部署，P2未结项。下文保留历史记录。
+
+> 2026-10-18补充：后续真人反馈修订见[web-v0.1.8](web-rules-v0.1.8.md)、[补丁验证](p2-playtest-validation.md)及[WorkBuddy补丁交接](p2-playtest-workbuddy.md)。本文保留原阶段历史；0.2.5-p2.6已经上线，新的019补丁尚未部署。
+
 # 阶段四开发与验证记录
 
 日期2026-10-18，基线b76205e。目标和批准规则见[p2-stage4-decisions.md](p2-stage4-decisions.md)，负责人休息期间的新增自主裁定见[p2-stage4-autonomous-decisions.md](p2-stage4-autonomous-decisions.md)。

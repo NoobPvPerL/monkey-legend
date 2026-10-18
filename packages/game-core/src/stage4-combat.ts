@@ -1,3 +1,4 @@
+import {discardCards} from './exercise';
 import {mapForVersion,neighboringForVersion,runtimeForVersion} from '../../game-data/src/index';
 import type {CardDefinition} from '../../game-data/src/legacy';
 import type {GameState,Task,Command} from './types';
@@ -33,7 +34,7 @@ export function prepareStage4Hit(s:GameState,hit:CombatHit,environment:boolean,p
  if(guard&&!environment&&h.category==='attack'&&!h.directHp&&h.amount>0){
   const left=(s.stage4!.durability[guard]??2)-1;s.stage4!.durability[guard]=left;
   p.emit(s,'block',`S${h.target+1} 无一骑抵挡本次普通攻击，剩余${left}次`);
-  if(left===0){s.stage3!.equipment[h.target]=s.stage3!.equipment[h.target].filter(c=>c!==guard);delete s.stage3!.equipmentSources[guard];delete s.stage4!.copies[guard];delete s.stage4!.durability[guard];s.discard.push(guard);p.emit(s,'break',`S${h.target+1} 无一骑损坏`);}
+  if(left===0){s.stage3!.equipment[h.target]=s.stage3!.equipment[h.target].filter(c=>c!==guard);delete s.stage3!.equipmentSources[guard];delete s.stage4!.copies[guard];delete s.stage4!.durability[guard];discardCards(s,[guard]);p.emit(s,'break',`S${h.target+1} 无一骑损坏`);}
   return null;
  }
  // While it remains equipped, vampire cannot draw HP even through a true-hit
@@ -99,7 +100,7 @@ export function stage4CombatChoose(s:GameState,cmd:Extract<Command,{type:'choose
  if(!cmd.accept)return;
  if(c.kind==='gear-reflect'){
   const g=gearSnapshot(s,a,card),left=(s.stage4!.durability[card]??3)-1;s.stage4!.durability[card]=left;
-  if(left===0){s.stage3!.equipment[a]=s.stage3!.equipment[a].filter(c=>c!==card);delete s.stage3!.equipmentSources[card];delete s.stage4!.copies[card];delete s.stage4!.durability[card];s.discard.push(card);p.emit(s,'break',`S${a+1} 正装损坏`);}
+  if(left===0){s.stage3!.equipment[a]=s.stage3!.equipment[a].filter(c=>c!==card);delete s.stage3!.equipmentSources[card];delete s.stage4!.copies[card];delete s.stage4!.durability[card];discardCards(s,[card]);p.emit(s,'break',`S${a+1} 正装损坏`);}
   s.queue.unshift(...p.damage(s,[{target,amount:1,source:a,category:'response',reflected:true}]));
  }else{need(s.players[a].ap>=1,'粉笔需要1AP');s.players[a].ap--;s.queue.unshift(...p.damage(s,[{target,amount:1,source:a,category:'response',extra:true}]));}
 }

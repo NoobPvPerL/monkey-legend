@@ -1,3 +1,5 @@
+import {hasPlaytestRules} from '../../../packages/game-data/src/index';
+import {northTargets} from '../../../packages/game-core/src/playtest';
 import {cardForVersion,definitionId} from '../../../packages/game-data/src/index';
 import type {Intent,OnlineGame} from '../../../packages/online/src/protocol';
 export type PlayOptions=Partial<Omit<Extract<Intent,{type:'play'}>,'type'|'card'|'targets'>>;
@@ -18,11 +20,13 @@ export function stage4PlayReason(game:OnlineGame,seat:number,card:string,targets
  const cost=converted?2:info.costKind==='variable'?options.x:info.cost;
  if(!converted&&info.costKind==='variable'&&(!Number.isInteger(options.x)||options.x!<1||options.x!>player.ap))return 'X必须为1至当前可付AP';
  if(cost===null||cost===undefined)return '正在同步费用';if(player.ap<Math.max(0,cost))return `AP不足：需要${cost} AP，当前${player.ap} AP`;
+ if(hasPlaytestRules(game.version)&&!converted&&['basic-011','basic-012','basic-014','basic-013','basic-031','basic-026','basic-040','basic-041'].includes(def.id)&&game.players.some(q=>q.hp>0&&q.character==='character-006')&&!options.northGroup)return '请选择北帝汶群体目标分支';
  const targeted=converted||info.targeted,legal=converted?info.convertTargets:info.targets;
  if(targeted){const max=!converted&&!info.elbow&&def.group?3:1;if(!targets.length)return '请先选择目标';if(targets.length>max||new Set(targets).size!==targets.length||targets.some(t=>!legal.includes(t)))return '目标已不可选，请重新选择';}
  else if(targets.length)return '这张牌不需要外部目标';
  if(converted||info.elbow){const directions=converted?game.actions.stage3?.elbowPush[targets[0]]:info.pushes[targets[0]];if(directions&&Object.keys(directions).length&&(!options.direction||!directions[options.direction]))return '请先选择撞飞方向';}
  if(!converted&&info.equipment){if(!info.equipment.allowed)return '不能重复装备同名装备';if(info.equipment.required&&!options.replacement)return '请先选择要替换的装备';if(options.replacement&&!info.equipment.cards.includes(options.replacement))return '替换对象已更新';}
+ try{northTargets(game,targets);}catch{return '北帝汶与其他非机械猴子不能同时指定';}
  if(!converted&&info.region&&(!options.region||!a!.regions.includes(options.region)))return '请选择作用地区';
  if(!converted&&def.id==='basic-073'&&!a!.copyMounts.some(g=>g.card===options.copy))return '请选择场上他人的非Bob坐骑';
  if(!converted&&def.id==='basic-024'){

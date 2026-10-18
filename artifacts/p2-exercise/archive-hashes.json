@@ -1,0 +1,27 @@
+{
+  "version": "0.2.7-p2.8",
+  "sourceSnapshotSha256": "7bd48effd13f105362ac22b6afa4458fc030f07fdf56586106802286d683d826",
+  "files": [
+    {
+      "name": "monkey-legend-0.2.7-p2.8-online-source-exercise-workbuddy.zip",
+      "sha256": "7ed3e24d36717d88c494aa1d2e4bfa41ebe3c2c660676ceef6e5d77d532bad59",
+      "bytes": 69045124
+    },
+    {
+      "name": "monkey-legend-0.2.7-p2.8-database-exercise-workbuddy.zip",
+      "sha256": "cbeab446f029977ff51759c3faec461fd36984a7d2d634d14d3eb0296496eb1b",
+      "bytes": 1445564
+    },
+    {
+      "name": "UPGRADE-FROM-018-ONE-STATEMENT.sql",
+      "sha256": "51c891e389741c2594521b6029ce2fa20057b6c6f604689abc13dd6301d8d2ab",
+      "bytes": 636700
+    },
+    {
+      "name": "UPGRADE-FROM-019-ONE-STATEMENT.sql",
+      "sha256": "d7594b5869afbc9e358fb1271599795f27a77f55962df1d794545674efc44ff5",
+      "bytes": 330428
+    }
+  ],
+  "allHashesMatch": true
+}

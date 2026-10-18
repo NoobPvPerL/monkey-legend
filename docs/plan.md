@@ -1,3 +1,11 @@
+## 2026-10-18 搏击操与地图二次修订（截图及交付包验证通过）
+
+候选0.2.7-p2.8／web-v0.1.9／修订20；搏击操基础费用3／4／5AP、按实体最初获得者的入弃回复、免费高等级防御已实现。地图采用PC分栏；移动长页已被否决并返修为主界面单屏布局，见[p2-mobile-single-screen-validation.md](p2-mobile-single-screen-validation.md)。67文件560项本地测试通过，见[p2-exercise-validation.md](p2-exercise-validation.md)与[新规则](web-rules-v0.1.9.md)。旧地图截图验收结论已更正。负责人已通过PC／移动截图审核，授权先构建WorkBuddy交付包、之后上传GitHub；最终结果见[p2-exercise-delivery.md](p2-exercise-delivery.md)。未部署，P2未结项。下文保留历史记录。
+
+## 2026-10-18 真人试玩反馈修订
+
+负责人已批准0.2.6-p2.7／v0.1.8／019：八项真人反馈及前批四项Bug；本地修复及64文件542项回归已通过，补丁独立交付复验结果见外层报告，云端与真人复验未完成。阶段四无需重做，旧0.2.5-p2.6已上线。以[p2-playtest-validation.md](p2-playtest-validation.md)追踪修复，以[p2-playtest-workbuddy.md](p2-playtest-workbuddy.md)交接；旧局／选角保持保存版本，P2仍待最终云端及真人验收。
+
 # 应猴传说网页游戏开发进度计划
 
 更新时间：2026-10-16。**P2好友联机已上线，负责人确认一轮真人游玩，GitHub发布与P2反馈Issue #13已开启。** 基线 [web-v0.1.1](web-rules-v0.1.md)，发布见[p2-release.md](p2-release.md)。由负责人批准采用网页版设计，原作未决扩展不再阻塞首版。

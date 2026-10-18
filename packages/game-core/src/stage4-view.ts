@@ -1,3 +1,5 @@
+import {hasExerciseRules} from '../../game-data/src/index';
+import {exerciseRank} from './exercise';
 import {mapForVersion,runtimeForVersion} from '../../game-data/src/index';
 import {STAGE4_CARDS} from '../../game-data/src/stage4';
 import type {Stage4CardId} from '../../game-data/src/stage4';
@@ -33,7 +35,7 @@ export function stage4Actions(s:GameState,a:number){
   const elbow=tea||id==='basic-002'&&user.character==='character-023';
   const pushes=elbow?Object.fromEntries(targets.map(target=>{const cells=roles.elbowPushCells({...st,farmClosed:s.classic!.farmClosed},a,target);return [target,Object.fromEntries(roles.DIRECTIONS.map(d=>[d,roles.nextInDirection(s.players[target].cell,d)]).filter(([,cell])=>cell!==null&&cells.includes(cell)))];})):{};
   return [card,{...info,cost:tea||exercise?0:def.cost.kind==='variable'?null:info.cost,needsQuote:!tea&&!exercise&&info.needsQuote,
-   costKind:def.cost.kind,printedCost:def.printedCost,targeted,targets,tea,elbow,pushes,
+   costKind:def.cost.kind,printedCost:hasExerciseRules(s.version)&&exerciseRank(card)?String(runtimeForVersion(s.version).cards[id].cost):def.printedCost,targeted,targets,tea,elbow,pushes,
    playable:(def.type!=='response'||elbow)&&!['basic-027','basic-028','basic-038'].includes(id),allowed:terrainCard(s,a,id),region:['basic-023','basic-032','basic-033'].includes(id),counter:['basic-027','basic-028','basic-038'].includes(id)}];
  }));
  const copyMounts=s.players.flatMap(q=>q.seat!==a&&onBoard(s,q.seat)?st.stage3.equipment[q.seat].filter(c=>c.split('#')[0]!=='basic-073'&&runtimeForVersion(s.version).cards[c.split('#')[0] as Stage4CardId].slot==='mount').map(card=>({owner:q.seat,card})):[]);

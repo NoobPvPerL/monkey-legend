@@ -1,0 +1,38 @@
+{
+  "version": "0.2.6-p2.7",
+  "ruleVersion": "web-v0.1.8",
+  "engineRevision": 19,
+  "schemaVersion": 2,
+  "baseline": "c8e26f04dc4060d6e8bb6169e74a98592e22ace7",
+  "testFiles": 64,
+  "tests": 542,
+  "passed": 542,
+  "failed": 0,
+  "checks": [
+    "typecheck",
+    "test",
+    "build",
+    "verify:catalog",
+    "verify:data",
+    "verify:classic-map"
+  ],
+  "frozenMigrationsUnchanged": "000–018",
+  "sourceDirty": true,
+  "cloudDeployed": false,
+  "productionWrites": false,
+  "pushed": false,
+  "issuesClosed": false,
+  "p2Complete": false,
+  "limitations": [
+    "original West human failure not reproduced; legal path verified",
+    "real Android/iOS gesture acceptance pending",
+    "cloud19 hashes ACL restore and real two-mode play pending"
+  ],
+  "packageValidated": true,
+  "sourceSnapshotSha256": "2eba81ef111f18b0d50bdc009249d39ef8359029e757ef5ba2f4a0582b4f060e",
+  "archives": {
+    "monkey-legend-0.2.6-p2.7-database-playtest-workbuddy.zip": "192106428ea32a145d9b9d47fa51bf73af06334a377f815ffc8602b2cdd008e9",
+    "monkey-legend-0.2.6-p2.7-online-source-playtest-workbuddy.zip": "ebbeefff50a43d0ebb475b2d7744788c33a8016482a8d27c3e934928f74c2b8d"
+  },
+  "delivery": "D:\\Users\\20753\\Desktop\\应猴传说\\monkey-legend\\releases\\monkey-legend-0.2.6-p2.7-playtest-workbuddy"
+}

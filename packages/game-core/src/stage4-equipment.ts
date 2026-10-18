@@ -1,3 +1,4 @@
+import {discardCards} from './exercise';
 import {mapForVersion,runtimeForVersion} from '../../game-data/src/index';
 import type {GameState,Command,Task} from './types';
 import type {Stage3Ports} from './stage3-engine';
@@ -43,7 +44,7 @@ function detach(s:State,a:number,snapshot:GearSnapshot,discard:boolean){
  if(snapshot.definition==='basic-069')s.stage4.terrainIgnore[a]=false;
  s.stage3.equipment[a]=s.stage3.equipment[a].filter(c=>c!==snapshot.card);delete s.stage3.equipmentSources[snapshot.card];
  delete s.stage4.watches[snapshot.card];delete s.stage4.copies[snapshot.card];delete s.stage4.durability[snapshot.card];
- if(discard)s.discard.push(snapshot.card);else s.resolving.push(snapshot.card);
+ if(discard)discardCards(s,[snapshot.card]);else s.resolving.push(snapshot.card);
  s.stage3.doubleMove[a]=resources.equipped(s,a,'basic-066')&&s.stage3.previousBasic[a]===false;
  s.players[a].moved=s.stage3.basicUsed[a]>=resources.basicMoveAllowance(s,a);
 }
@@ -92,7 +93,7 @@ export function stage4EquipmentTask(s:GameState,t:Task,now:number,p:Stage3Ports)
    }
   }
   if(canInstall(st,a,g))install(st,a,g,p);
-  else{s.resolving=s.resolving.filter(c=>c!==g.card);if(s.players[a].hp>0)s.players[a].hand.push(g.card);else s.discard.push(g.card);p.emit(s,'transfer',`S${a+1} 装配条件失效，装备转入${s.players[a].hp>0?'手牌':'弃牌堆'}`);}
+  else{s.resolving=s.resolving.filter(c=>c!==g.card);if(s.players[a].hp>0)s.players[a].hand.push(g.card);else discardCards(s,[g.card]);p.emit(s,'transfer',`S${a+1} 装配条件失效，装备转入${s.players[a].hp>0?'手牌':'弃牌堆'}`);}
   return true;
  }
  if(t.action==='equip-install'){

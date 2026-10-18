@@ -35,7 +35,7 @@ export const attachSchema=z.discriminatedUnion('op',[
 export type Attachment=z.infer<typeof attachSchema>;
 export interface Credential {name:string;token:string;roomId:string;kind?:'player'|'spectator'}
 const intent=z.discriminatedUnion('type',[
- z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(3),as:z.literal('elbow').optional(),direction:z.enum(['up','right','down','left']).optional(),replacement:z.string().max(40).optional(),x:z.number().int().min(1).max(Number.MAX_SAFE_INTEGER).optional(),region:z.string().max(30).optional(),take:z.enum(['hand','equipment']).optional(),item:z.string().max(40).optional(),copy:z.string().max(40).optional()}),
+ z.strictObject({type:z.literal('play'),card:z.string().max(40),targets:z.array(z.number().int().min(0).max(3)).max(3),as:z.literal('elbow').optional(),direction:z.enum(['up','right','down','left']).optional(),replacement:z.string().max(40).optional(),x:z.number().int().min(1).max(Number.MAX_SAFE_INTEGER).optional(),region:z.string().max(30).optional(),take:z.enum(['hand','equipment']).optional(),item:z.string().max(40).optional(),copy:z.string().max(40).optional(),northGroup:z.enum(['north','others']).optional()}),
  z.strictObject({type:z.literal('location'),kind:z.enum(['ship','commute']),cell:z.string().max(4)}),
  z.strictObject({type:z.literal('move'),direction:z.enum(['up','right','down','left']).optional()}),z.strictObject({type:z.literal('stop')}),z.strictObject({type:z.literal('end')}),
  z.strictObject({type:z.literal('step'),path:z.array(z.string().max(4)).min(1).max(6)}),

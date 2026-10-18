@@ -1,4 +1,5 @@
-import {mapForVersion,distanceForVersion} from '../../game-data/src/index';
+import {relocationCell} from './playtest';
+import {mapForVersion,distanceForVersion,hasPlaytestRules} from '../../game-data/src/index';
 import {roleEffectAllowed} from './character-effects';
 import type {Stage4State,RegionEffect} from './stage4-state';
 import type {EquipmentSource} from './stage3-resources';
@@ -10,7 +11,7 @@ const map=(s:BoardState)=>mapForVersion(s.version??'web-v0.1.6');
 export const onBoard=(s:Pick<BoardState,'players'|'stage4'>,a:number)=>s.players[a]?.hp>0&&!s.stage4?.offMap[a];
 export function boardEffectAllowed(s:BoardState,a:number,source:EquipmentSource,tag?:string):boolean {
  const p=s.players[a];return Boolean(p)&&roleEffectAllowed(source,p)&&
-  !(p.character==='character-006'&&source.actor!==a&&source.faction!=='机械猴子')&&!(p.character==='character-005'&&tag==='建民');
+  !(!hasPlaytestRules(s.version)&&p.character==='character-006'&&source.actor!==a&&source.faction!=='机械猴子')&&!(p.character==='character-005'&&tag==='建民');
 }
 export function boardWater(s:Pick<BoardState,'version'|'stage4'>,cell:string,a?:number):boolean {
  const c=mapForVersion(s.version??'web-v0.1.6').map[cell];if(!c)return false;
@@ -25,7 +26,7 @@ export function boardEntryAllowed(s:BoardState,a:number,cell:string):boolean {
   a!==b.owner&&!(s.mode==='team'&&s.players[a].team===s.players[b.owner].team)&&!b.exempt.includes(a)&&boardEffectAllowed(s,a,b.effect,'建民'));
 }
 export function boardEmptyEntry(s:BoardState,a:number,cell:string,ignore:readonly number[]=[]):boolean {
- return boardEntryAllowed(s,a,cell)&&!s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell&&!ignore.includes(p.seat));
+ return (!hasPlaytestRules(s.version)||relocationCell(s,a,s.players[a].cell,cell,ignore)!==null)&&boardEntryAllowed(s,a,cell)&&!s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell&&!ignore.includes(p.seat));
 }
 export function boardSingleProtected(s:BoardState,source:number,target:number):boolean {
  const effect=s.stage4?.toiletEffects[target];

@@ -1,3 +1,6 @@
+import {discardCards} from './exercise';
+import {hasPlaytestRules,characterTraitsForVersion} from '../../game-data/src/index';
+import {nearestShore} from './playtest';
 import {boardEntryAllowed,boardWater,onBoard} from './stage4-board';
 import type {Stage4State} from './stage4-state';
 import {STAGE3_CARDS,STAGE3_CHARACTERS,ANIMAL_IDS} from '../../game-data/src/stage3';
@@ -18,7 +21,7 @@ export interface Stage3Resources {
  jjFree:boolean[];jjExposed:boolean[];jjUsed:boolean[];
  combos:Record<string,string[]>;
 }
-export interface ResourceState {version?:string;stage4?:Stage4State;players:ResourcePlayer[];stage3:Stage3Resources;discard:string[]}
+export interface ResourceState {exercise?:import('./exercise').ExerciseOwnership;version?:string;stage4?:Stage4State;players:ResourcePlayer[];stage3:Stage3Resources;discard:string[]}
 const four=<T>(f:()=>T)=>Array.from({length:4},f);
 const id=(card:string)=>card.split('#')[0];
 const resourceCatalog=(s:ResourceState)=>s.version?runtimeForVersion(s.version).cards:STAGE3_CARDS;
@@ -95,14 +98,14 @@ export function recordDeathResources(s:ResourceState,a:number){
  const r=s.stage3;r.deathTurns[a]=r.turn;if(s.stage4)s.stage4.terrainIgnore[a]=false;r.jjFree[a]=false;r.jjExposed[a]=false;
  // Elimination is final before loss callbacks. A bread cannot resurrect its
  // owner and Hakimi cannot teleport a dead token out of the map.
- for(const card of r.equipment[a]){s.discard.push(card);delete r.equipmentSources[card];if(s.stage4){delete s.stage4.watches[card];delete s.stage4.copies[card];delete s.stage4.durability[card];}}r.equipment[a]=[];
+ for(const card of r.equipment[a]){discardCards(s,[card]);delete r.equipmentSources[card];if(s.stage4){delete s.stage4.watches[card];delete s.stage4.copies[card];delete s.stage4.durability[card];}}r.equipment[a]=[];
  r.horseLocks=r.horseLocks.filter(owner=>owner!==a);
  delete r.horseSources[a];
 }
 export function revivalCells(s:ResourceState,target:number,farmClosed:boolean):string[]{
  const p=s.players[target],death=s.stage3.deathTurns[target];if(!p||p.hp>0||death===null||s.stage3.completedTurn>death)return [];
  const region=STAGE3_CHARACTERS[p.character]?.spawnRegion;
- return mapForVersion('web-v0.1.5').cells.filter(c=>c.region===region&&(!s.stage4||boardEntryAllowed(s,target,c.id))&&!(farmClosed&&c.region==='高唐农场')&&!s.players.some(q=>onBoard(s,q.seat)&&q.cell===c.id)).map(c=>c.id);
+ return mapForVersion('web-v0.1.5').cells.filter(c=>c.region===region&&(!hasPlaytestRules(s.version)||!characterTraitsForVersion(s.version!,p.character).waterNative||!boardWater(s,c.id,target)||nearestShore({...s,players:s.players.map(q=>q.seat===target?{...q,hp:1,cell:c.id}:q)},target).length>0)&&(!s.stage4||boardEntryAllowed(s,target,c.id))&&!(farmClosed&&c.region==='高唐农场')&&!s.players.some(q=>onBoard(s,q.seat)&&q.cell===c.id)).map(c=>c.id);
 }
 export function reviveResourcePlayer(s:ResourceState,target:number,cell:string,farmClosed:boolean){
  need(revivalCells(s,target,farmClosed).includes(cell),'复活已过期或出生地区没有合法空格');
@@ -119,7 +122,7 @@ export function equipmentReplacements(s:ResourceState,a:number,card:string):{all
 }
 export function installEquipment(s:ResourceState,a:number,card:string,source:EquipmentSource,replacement:string|null){
  const options=equipmentReplacements(s,a,card);need(options.allowed&&(!options.required||replacement!==null)&&(!replacement||options.cards.includes(replacement)),'装备同名或替换对象不合法');
- if(replacement){s.stage3.equipment[a]=s.stage3.equipment[a].filter(c=>c!==replacement);s.discard.push(replacement);delete s.stage3.equipmentSources[replacement];}
+ if(replacement){s.stage3.equipment[a]=s.stage3.equipment[a].filter(c=>c!==replacement);discardCards(s,[replacement]);delete s.stage3.equipmentSources[replacement];}
  s.stage3.equipment[a].push(card);s.stage3.equipmentSources[card]=structuredClone(source);return replacement;
 }
 export function breadUseAllowed(s:ResourceState,a:number):boolean {return equipped(s,a,'basic-054')&&s.stage3.starts[a]>=s.stage3.breadReadyAt[a];}
