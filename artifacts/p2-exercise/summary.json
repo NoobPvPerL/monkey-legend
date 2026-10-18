@@ -17,12 +17,15 @@
   "frozenMigrations": "000–019 unchanged",
   "migration019Sha256": "fa82f62863c17458ca74b99b145e0bf8619c81099448b51776c1bd01e401bb12",
   "workbuddyPackageBuilt": true,
-  "githubUploaded": false,
+  "githubUploaded": true,
   "cloudDeployed": false,
   "screenshotApproval": "approved by owner on 2026-10-18",
   "mobileLongPageRejected": true,
   "mobileRevisionEvidence": "artifacts/p2-mobile-single-screen/summary.json",
   "packageIndependentlyValidated": true,
   "sourceSnapshotSha256": "7bd48effd13f105362ac22b6afa4458fc030f07fdf56586106802286d683d826",
-  "deliveryDirectory": "releases/monkey-legend-0.2.7-p2.8-exercise-workbuddy"
+  "deliveryDirectory": "releases/monkey-legend-0.2.7-p2.8-exercise-workbuddy",
+  "implementationCommit": "c61d4c77a12d5d4e60605d2b664c7a659fa932f8",
+  "remoteMainVerified": true,
+  "archiveImplementationMatchesCommit": true
 }
