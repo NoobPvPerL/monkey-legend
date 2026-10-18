@@ -5,7 +5,7 @@ import {spawn} from 'node:child_process';
 import {once} from 'node:events';
 import {join,resolve} from 'node:path';
 import assert from 'node:assert/strict';
-const current=JSON.parse(await readFile('.release-cache/exercise-package-current.json','utf8'));
+const current=JSON.parse(await readFile(process.argv[2]??'.release-cache/exercise-package-current.json','utf8'));
 const config=JSON.parse(await readFile(join(current.source,'config/workbuddy-public.json'),'utf8'));
 const offline=resolve(current.cache,'offline-public-config.json');
 await writeFile(offline,JSON.stringify({...config,endpoint:'https://isolated.invalid',oauthRelayBaseUrl:'https://isolated.invalid'}));

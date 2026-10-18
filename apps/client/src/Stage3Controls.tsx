@@ -1,3 +1,4 @@
+import CardEffectSummary from './CardEffectSummary';
 import {cardForVersion,definitionId} from '../../../packages/game-data/src/index';
 import type {Intent,OnlineGame} from '../../../packages/online/src/protocol';
 import type {Direction} from '../../../packages/game-core/src/stage3-roles';
@@ -38,9 +39,10 @@ export default function Stage3Controls(props:Stage3ControlProps){
   <button disabled={blocked||me.moved||actions.movementBlocked||me.ap<actions.moveCost||actions.directionRequired&&!direction} onClick={()=>send({type:'move',...(direction?{direction}:{})})}>移动 · {actions.moveCost===0?'免费':`结束扣${actions.moveCost} AP`}{actions.basicMovesRemaining>1?` · 余${actions.basicMovesRemaining}次`:''}</button>
   {actions.movementBlocked&&<span>小白马限制主动位移</span>}
   {locationMode?<button onClick={()=>setLocationMode(null)}>取消地点传送</button>:<>{actions.locations.ship.length>0&&<button disabled={blocked} onClick={()=>{setBreadMode(false);setLocationMode('ship');}}>飞船传送 · 免费</button>}{actions.locations.commute.length>0&&<button disabled={blocked} onClick={()=>{setBreadMode(false);setLocationMode('commute');}}>通校 · 耗尽AP</button>}</>}
-  {actions.jj&&<button disabled={blocked} onClick={()=>send({type:'skill',kind:'jj'})}>懒得喷 · 0 AP</button>}
-  {actions.breadTargets.length>0&&<button aria-pressed={breadMode} disabled={blocked} onClick={()=>{setBreadMode(!breadMode);setTargets([]);setLocationMode(null);}}>面包黏稠 · {game.stage3?.jjFree[seat]?0:2} AP</button>}
+  {me.character==='character-003'&&<button className="character-skill-button" disabled={blocked||!actions.jj} onClick={()=>send({type:'skill',kind:'jj'})}>{actions.jj?'懒得喷 · 0 AP':'懒得喷 · 本回合已发动'}</button>}
+  {actions.breadTargets.length>0&&<button className="character-skill-button" aria-pressed={breadMode} disabled={blocked} onClick={()=>{setBreadMode(!breadMode);setTargets([]);setLocationMode(null);}}>面包黏稠 · {game.stage3?.jjFree[seat]?0:2} AP</button>}
   {breadMode?<><button className="primary" disabled={blocked||targets.length!==1||me.ap<(game.stage3?.jjFree[seat]?0:2)} onClick={()=>send({type:'skill',kind:'bread',target:targets[0]})}>令所选角色下次不能出牌</button><button onClick={()=>{setBreadMode(false);setTargets([]);}}>取消技能</button></>:d&&selected&&info&&<>
+   <CardEffectSummary game={game} seat={seat} card={selected} asElbow={asElbow}/>
    {me.character==='character-023'&&d.id!=='basic-002'&&<button aria-pressed={asElbow} disabled={blocked} onClick={()=>{setAsElbow(!asElbow);setTargets([]);setReplacement('');setDirection('');}}>{asElbow?'恢复原牌用法':'当作肘击 · 总价2 AP'}</button>}
    {pushes&&(Object.keys(pushes).length?<label className="stage3-direction">撞飞方向 <select aria-label="牢大撞飞方向" value={direction} disabled={blocked} onChange={e=>setDirection(e.target.value as Direction|'')}><option value="">请选择</option>{Object.entries(pushes).map(([key,cell])=><option key={key} value={key}>{{up:'上 ↑',right:'右 →',down:'下 ↓',left:'左 ←'}[key]} · {cell}</option>)}</select></label>:<span>无合法撞飞落点，本次只造成伤害</span>)}
    {!asElbow&&info.equipment?.required&&<label className="stage3-replacement">替换装备 <select value={replacement} onChange={e=>setReplacement(e.target.value)} disabled={blocked}><option value="">请选择</option>{info.equipment.cards.map(card=><option key={card} value={card}>{cardForVersion(definitionId(card),game.version).name}</option>)}</select></label>}

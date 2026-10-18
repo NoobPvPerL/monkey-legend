@@ -1,0 +1,23 @@
+{
+  "baseCommit": "54d95111f3c1d78eea615ede472d3fc0f18ceeee",
+  "version": "0.2.7-p2.8 UI working tree revision",
+  "ruleVersion": "web-v0.1.9 unchanged",
+  "engineRevision": 20,
+  "testFiles": 68,
+  "tests": 564,
+  "failures": 0,
+  "focusedTestsAfterFinalEffectEdgeCases": 26,
+  "typecheck": true,
+  "productionBuild": true,
+  "screenshotApproval": "pending",
+  "newDeliveryPackageBuilt": true,
+  "githubUploaded": false,
+  "productionWrites": false,
+  "yinghaoImplementationChanged": false,
+  "packageIndependentlyValidated": true,
+  "deliveryId": "0.2.7-p2.8-hand-feedback-20261018",
+  "sourceSnapshotSha256": "9ca80ecee6a8302a1be9f285dd7558560d434110a5b120252755658713037a47",
+  "bundleSha256": "1824f1f27ac4555abf13e369b40b7c29e1ad06d2ba24ade7b198a93beb21d46b",
+  "packageRequestedBeforeSeparateScreenshotApproval": true,
+  "yinghaoFixIncluded": false
+}

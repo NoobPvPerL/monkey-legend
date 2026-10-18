@@ -1,0 +1,268 @@
+{
+  "engineRevision": 20,
+  "productionRpc": false,
+  "implementationChanged": false,
+  "results": [
+    {
+      "version": "web-v0.1.7",
+      "case": "land",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": true,
+      "sqlStep": true,
+      "tsCells": [
+        "r1c3",
+        "r1c8",
+        "r2c4",
+        "r2c5"
+      ],
+      "sqlCells": [
+        "r1c3",
+        "r1c8",
+        "r2c4",
+        "r2c5"
+      ],
+      "steps": [
+        "r1c1",
+        "r1c3",
+        "r2c2"
+      ]
+    },
+    {
+      "version": "web-v0.1.7",
+      "case": "native-water",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": true,
+      "sqlStep": true,
+      "tsCells": [
+        "r3c2",
+        "r3c8",
+        "r1c4",
+        "r1c5"
+      ],
+      "sqlCells": [
+        "r3c2",
+        "r3c8",
+        "r1c4",
+        "r1c5"
+      ],
+      "steps": [
+        "r2c1",
+        "r3c2",
+        "r4c1"
+      ]
+    },
+    {
+      "version": "web-v0.1.7",
+      "case": "Mei-immune",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": false,
+      "sqlStep": false,
+      "tsError": "移动路径不合法：检查步数、占用、封闭地区或越水落点",
+      "sqlError": "移动路径不合法：检查步数、占用、封闭地区或越水落点",
+      "tsCells": [
+        "r1c2",
+        "r1c3",
+        "r2c4",
+        "r2c5"
+      ],
+      "sqlCells": [
+        "r1c2",
+        "r1c3",
+        "r2c4",
+        "r2c5"
+      ],
+      "steps": [
+        "r1c1",
+        "r2c2"
+      ]
+    },
+    {
+      "version": "web-v0.1.8",
+      "case": "land",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": true,
+      "sqlStep": true,
+      "tsCells": [
+        "r1c3",
+        "r1c8",
+        "r2c4",
+        "r2c5"
+      ],
+      "sqlCells": [
+        "r1c3",
+        "r1c8",
+        "r2c4",
+        "r2c5"
+      ],
+      "steps": [
+        "r1c1",
+        "r1c3",
+        "r2c2"
+      ]
+    },
+    {
+      "version": "web-v0.1.8",
+      "case": "native-water",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": true,
+      "sqlStep": true,
+      "tsCells": [
+        "r3c2",
+        "r3c8",
+        "r1c4",
+        "r1c5"
+      ],
+      "sqlCells": [
+        "r3c2",
+        "r3c8",
+        "r1c4",
+        "r1c5"
+      ],
+      "steps": [
+        "r2c1",
+        "r3c2",
+        "r4c1"
+      ]
+    },
+    {
+      "version": "web-v0.1.8",
+      "case": "Mei-immune",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": false,
+      "sqlStep": false,
+      "tsError": "移动路径不合法：检查步数、占用、封闭地区或越水落点",
+      "sqlError": "移动路径不合法：检查步数、占用、封闭地区或越水落点",
+      "tsCells": [
+        "r1c2",
+        "r1c3",
+        "r2c4",
+        "r2c5"
+      ],
+      "sqlCells": [
+        "r1c2",
+        "r1c3",
+        "r2c4",
+        "r2c5"
+      ],
+      "steps": [
+        "r1c1",
+        "r2c2"
+      ]
+    },
+    {
+      "version": "web-v0.1.9",
+      "case": "land",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": true,
+      "sqlStep": true,
+      "tsCells": [
+        "r1c3",
+        "r1c8",
+        "r2c4",
+        "r2c5"
+      ],
+      "sqlCells": [
+        "r1c3",
+        "r1c8",
+        "r2c4",
+        "r2c5"
+      ],
+      "steps": [
+        "r1c1",
+        "r1c3",
+        "r2c2"
+      ]
+    },
+    {
+      "version": "web-v0.1.9",
+      "case": "native-water",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": true,
+      "sqlStep": true,
+      "tsCells": [
+        "r3c2",
+        "r3c8",
+        "r1c4",
+        "r1c5"
+      ],
+      "sqlCells": [
+        "r3c2",
+        "r3c8",
+        "r1c4",
+        "r1c5"
+      ],
+      "steps": [
+        "r2c1",
+        "r3c2",
+        "r4c1"
+      ]
+    },
+    {
+      "version": "web-v0.1.9",
+      "case": "Mei-immune",
+      "move": [
+        true,
+        true
+      ],
+      "tsStep": false,
+      "sqlStep": false,
+      "tsError": "移动路径不合法：检查步数、占用、封闭地区或越水落点",
+      "sqlError": "移动路径不合法：检查步数、占用、封闭地区或越水落点",
+      "tsCells": [
+        "r1c2",
+        "r1c3",
+        "r2c4",
+        "r2c5"
+      ],
+      "sqlCells": [
+        "r1c2",
+        "r1c3",
+        "r2c4",
+        "r2c5"
+      ],
+      "steps": [
+        "r1c1",
+        "r2c2"
+      ]
+    },
+    {
+      "case": "monkey-immune-missing",
+      "beforeHp": 4,
+      "tsOK": true,
+      "sqlOK": true,
+      "tsHp": 3,
+      "sqlHp": 3,
+      "tsEvents": [
+        "第1轮开始，毒区：红素洋、淘安泽",
+        "S1 涨佳选 开始行动",
+        "S1 使用猴子游戏，支付2AP",
+        "S2 猴子游戏：d6 = 1",
+        "S2 应豪 普通伤害1，护盾抵挡0，实际失血1"
+      ]
+    }
+  ]
+}

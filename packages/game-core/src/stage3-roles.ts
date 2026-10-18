@@ -1,12 +1,13 @@
 import {relocationCell} from './playtest';
-import {hasPlaytestRules} from '../../game-data/src/index';
+import {hasPlaytestRules,hasCardFeedbackRules} from '../../game-data/src/index';
+import {locationCardAllowed} from './locations';
 import {onBoard,boardSingleProtected,boardLmmTarget} from './stage4-board';
 import {distanceForVersion,mapForVersion,neighboringForVersion} from '../../game-data/src/index';
 import {STAGE3_CARDS} from '../../game-data/src/stage3';
 import {runtimeForVersion} from '../../game-data/src/versions';
 import source from '../../game-data/src/source-catalog.json';
 import type {ResourceState,EquipmentSource} from './stage3-resources';
-import {canEnterWithMount,mountMovementBlocked} from './stage3-resources';
+import {canEnterWithMount,mountMovementBlocked,equipped} from './stage3-resources';
 import {roleEffectAllowed,modifiedByRole} from './character-effects';
 import type {CharacterEffect} from './character-effects';
 
@@ -31,14 +32,15 @@ export function roleTargets(s:ResourceState,actor:number,origin:'role-active'|'r
  const effect:CharacterEffect={origin,actor,roleModifiers:[]};return s.players.filter(p=>p.seat!==actor&&onBoard(s,p.seat)&&roleEffectAllowed(effect,p)).map(p=>p.seat);
 }
 export function withExposedJj(s:ResourceState,actor:number,card:string,targets:number[],effect:EquipmentSource):{targets:number[];effect:EquipmentSource}{
- const def=((s.version?runtimeForVersion(s.version).cards:STAGE3_CARDS) as Record<string,import('../../game-data/src/stage3').Stage3Card>)[card.split('#')[0]],proactiveElbow=def?.id==='basic-002'&&s.players[actor].character==='character-023';if(!def||def.type==='equipment'||def.type==='response'&&!proactiveElbow||def.id==='basic-037')return {targets:[...targets],effect};
+ const def=((s.version?runtimeForVersion(s.version).cards:STAGE3_CARDS) as Record<string,import('../../game-data/src/stage3').Stage3Card>)[card.split('#')[0]],proactiveElbow=def?.id==='basic-002'&&(s.players[actor].character==='character-023'||hasCardFeedbackRules(s.version)&&s.stage4?.tea[actor]);if(!def||def.type==='equipment'||def.type==='response'&&!proactiveElbow||def.id==='basic-037')return {targets:[...targets],effect};
+ if(hasCardFeedbackRules(s.version)&&def.type!=='attack'&&!(def.id==='basic-002'&&(proactiveElbow||s.stage4?.tea[actor])))return {targets:[...targets],effect};
  const jj=s.players.find(p=>p.hp>0&&p.character==='character-003'&&p.seat!==actor&&s.stage3.jjExposed[p.seat]);
- if(!jj||!onBoard(s,jj.seat)||targets.includes(jj.seat)||s.stage4&&def.type==='attack'&&!def.group&&(boardSingleProtected(s,actor,jj.seat)||boardLmmTarget(s,actor,targets)!==null))return {targets:[...targets],effect};
+ if(!jj||!onBoard(s,jj.seat)||targets.includes(jj.seat)||s.stage4&&(def.type==='attack'||hasCardFeedbackRules(s.version)&&proactiveElbow)&&!def.group&&(boardSingleProtected(s,actor,jj.seat)||boardLmmTarget(s,actor,targets)!==null))return {targets:[...targets],effect};
  const changed={...modifiedByRole(effect,{actor:jj.seat,kind:'target'}),faction:effect.faction};
  return {targets:[...targets,jj.seat],effect:changed};
 }
 export function monkeyTargets(s:RoleBoard,a:number):number[]{
- const p=s.players[a],boost=p.character==='character-045';if(!boost&&['教学楼','秀松苑'].includes(map.map[p.cell].region))return [];
+ const p=s.players[a],boost=p.character==='character-045',ignore=hasCardFeedbackRules(s.version)&&s.stage4?.terrainIgnore[a]&&equipped(s,a,'basic-069');if(!boost&&!ignore&&(hasCardFeedbackRules(s.version)?!locationCardAllowed(s.version!,p.cell,'basic-010'):['教学楼','秀松苑'].includes(map.map[p.cell].region)))return [];
  return s.players.filter(q=>onBoard(s,q.seat)&&enemy(s,a,q.seat)&&!(q.character==='character-027'&&q.hand.length===1)&&(boost||sameOrNear(p.cell,q.cell))).map(q=>q.seat);
 }
 export function monkeyLedgerCandidates(s:ResourceState,xie:number,user:number,actualParticipants:readonly number[]):number[]{

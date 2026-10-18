@@ -4,7 +4,7 @@ import {PGlite} from '@electric-sql/pglite';
 import {database} from './database';
 import {STAGE4_CARDS,STAGE4_CARD_IDS,STAGE4_NEW_CARD_IDS,STAGE4_PROPOSED_COPIES,STAGE4_ALL_CARDS,STAGE4_FOUNDATION_POLICY,buildStage4Deck,parseStage4Cost,costForStage4Die} from '../../packages/game-data/src/stage4';
 import {STAGE3_CARDS,STAGE3_ALL_CARDS} from '../../packages/game-data/src/stage3';
-import {ACTIVE_RULE_VERSIONS,ruleManifest,runtimeForVersion} from '../../packages/game-data/src/index';
+import {ACTIVE_RULE_VERSIONS,ruleManifest,runtimeForVersion,hasStage3} from '../../packages/game-data/src/index';
 import {initialStage4Costs,quoteStage4Cost,nextStage4CostTurn,stage4FeePlan} from '../../packages/game-core/src/stage4-costs';
 import type {Stage4Costs} from '../../packages/game-core/src/stage4-costs';
 const db=await database(undefined,17);afterAll(()=>db.close());
@@ -43,7 +43,7 @@ it('decodes all printed costs; two tiers split3/3 and three tiers split2/2/2, pr
 it('keeps017 passive while018 separately registers the complete playable catalog and leaves legacy decks intact',async()=>{
  expect(ACTIVE_RULE_VERSIONS).toContain('web-v0.1.7');expect(ruleManifest('web-v0.1.7').status).toBe('playable');
  expect(runtimeForVersion('web-v0.1.6').allCards).toHaveLength(85);
- for(const v of ACTIVE_RULE_VERSIONS.filter(v=>v!=='web-v0.1.6'&&v!=='web-v0.1.7'&&v!=='web-v0.1.8'&&v!=='web-v0.1.9'))expect(runtimeForVersion(v).allCards).toHaveLength(64);
+ for(const v of ACTIVE_RULE_VERSIONS.filter(v=>!hasStage3(v)))expect(runtimeForVersion(v).allCards).toHaveLength(64);
  const health=await scalar('select public.ml_health() v');expect(health).toMatchObject({ruleVersion:'web-v0.1.6',engineRevision:16,stage3Ready:true});
  expect(await scalar('select ml_private.stage4_content() v')).toEqual({cards:STAGE4_CARDS,allCards:STAGE4_ALL_CARDS,policy:STAGE4_FOUNDATION_POLICY});
 });

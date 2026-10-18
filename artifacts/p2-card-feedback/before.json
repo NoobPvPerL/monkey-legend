@@ -1,0 +1,38 @@
+{
+  "weiwen": {
+    "guessKind": "board-guess",
+    "teleport": {
+      "kind": "board-cell",
+      "source": 1,
+      "cells": 29
+    },
+    "finalCell": "r4c8"
+  },
+  "revival": {
+    "ts": [
+      1
+    ],
+    "sql": [
+      1
+    ],
+    "base": [
+      1
+    ]
+  },
+  "location": [
+    {
+      "region": "教学楼",
+      "dodge": false,
+      "monkey": false
+    },
+    {
+      "region": "秀松苑",
+      "dodge": false,
+      "monkey": false
+    }
+  ],
+  "jjHeal": {
+    "self": 4,
+    "jj": 3
+  }
+}

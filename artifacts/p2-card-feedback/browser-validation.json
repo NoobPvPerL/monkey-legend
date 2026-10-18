@@ -1,0 +1,322 @@
+{
+  "kind": "local synthetic fixtures; real production components and TS dispatch; viewport simulation, not physical devices",
+  "interactions": {
+    "revival": "selected S2 dead, quoted 4AP, confirmed; caster AP20->16; S2 HP0->1 AP0 at r2c3",
+    "weiwen": "selected S2, fixed die3, S2 guessed1, caster chose r4c8; S2 moved r1c3->r4c8; card discarded"
+  },
+  "matrix": [
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "操作与设置"
+        },
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "S2 · 美丽学子"
+        },
+        {
+          "inside": true,
+          "text": "S3 · 梅梅涛"
+        },
+        {
+          "inside": true,
+          "text": "S4 · 跑者"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 2 AP"
+        }
+      ],
+      "cells": 32,
+      "document": [
+        360,
+        520
+      ],
+      "overflow": [],
+      "panel": [
+        132,
+        132
+      ],
+      "viewport": [
+        360,
+        520
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "操作与设置"
+        },
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "S2 · 美丽学子"
+        },
+        {
+          "inside": true,
+          "text": "S3 · 梅梅涛"
+        },
+        {
+          "inside": true,
+          "text": "S4 · 跑者"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 2 AP"
+        }
+      ],
+      "cells": 32,
+      "document": [
+        360,
+        560
+      ],
+      "overflow": [],
+      "panel": [
+        132,
+        132
+      ],
+      "viewport": [
+        360,
+        560
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "操作与设置"
+        },
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "S2 · 美丽学子"
+        },
+        {
+          "inside": true,
+          "text": "S3 · 梅梅涛"
+        },
+        {
+          "inside": true,
+          "text": "S4 · 跑者"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 2 AP"
+        }
+      ],
+      "cells": 32,
+      "document": [
+        360,
+        640
+      ],
+      "overflow": [],
+      "panel": [
+        159,
+        159
+      ],
+      "viewport": [
+        360,
+        640
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "操作与设置"
+        },
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "S2 · 美丽学子"
+        },
+        {
+          "inside": true,
+          "text": "S3 · 梅梅涛"
+        },
+        {
+          "inside": true,
+          "text": "S4 · 跑者"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 2 AP"
+        }
+      ],
+      "cells": 32,
+      "document": [
+        390,
+        844
+      ],
+      "overflow": [],
+      "panel": [
+        191,
+        191
+      ],
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ],
+  "pc": "1440x900 normal revival selection screenshot; heavy equipment keeps existing scroll within right controls"
+}

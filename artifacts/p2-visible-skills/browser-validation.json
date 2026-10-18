@@ -1,0 +1,259 @@
+{
+  "kind": "local synthetic fixtures; browser viewport simulation; no production RPC",
+  "matrix": [
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 3 AP"
+        }
+      ],
+      "cellChildOverflows": [],
+      "cells": 32,
+      "document": [
+        360,
+        520
+      ],
+      "panel": [
+        107,
+        107
+      ],
+      "viewport": [
+        360,
+        520
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 3 AP"
+        }
+      ],
+      "cellChildOverflows": [],
+      "cells": 32,
+      "document": [
+        360,
+        560
+      ],
+      "panel": [
+        107,
+        107
+      ],
+      "viewport": [
+        360,
+        560
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 3 AP"
+        }
+      ],
+      "cellChildOverflows": [],
+      "cells": 32,
+      "document": [
+        360,
+        640
+      ],
+      "panel": [
+        159,
+        159
+      ],
+      "viewport": [
+        360,
+        640
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "inside": true,
+          "text": "插队 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "唐车 · 忽略地点效果"
+        },
+        {
+          "inside": true,
+          "text": "移动 · 结束扣1 AP"
+        },
+        {
+          "inside": true,
+          "text": "通校 · 耗尽AP"
+        },
+        {
+          "inside": true,
+          "text": "懒得喷 · 0 AP"
+        },
+        {
+          "inside": true,
+          "text": "面包黏稠 · 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "结束行动 →"
+        },
+        {
+          "inside": true,
+          "text": "手表 · 回到r2c2"
+        },
+        {
+          "inside": true,
+          "text": "子腾 · 传送 2 AP"
+        },
+        {
+          "inside": true,
+          "text": "牌效与费用"
+        },
+        {
+          "inside": true,
+          "text": "确认出牌 · 3 AP"
+        }
+      ],
+      "cellChildOverflows": [],
+      "cells": 32,
+      "document": [
+        390,
+        844
+      ],
+      "panel": [
+        127,
+        127
+      ],
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ],
+  "interactions": {
+    "jj": "0 AP, visible with card selected; click succeeds, spent button stays disabled",
+    "west": "direction visible with card selected and selectable",
+    "bread": "activation, target confirmation and cancel visible",
+    "elbow": "direction visible; real conversion succeeded; actor AP20->18 r1c2->r1c3, target HP4->3 r1c3->r1c4"
+  }
+}

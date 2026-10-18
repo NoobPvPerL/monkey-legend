@@ -42,12 +42,12 @@ it('P2-N02 one-port static/health/readiness; no source/config leakage and wrong 
  const bad=io(url,{autoConnect:false,transports:['polling'],reconnection:false,extraHeaders:{Origin:'https://wrong.example'}});sockets.push(bad);const failure=socketEvent(bad,'connect_error');bad.connect();await failure;expect(bad.connected).toBe(false);bad.disconnect();
 });
 it('readiness returns 503 for schema 2 without the required rule patch revision',async()=>{
- let health:Record<string,unknown>={ok:true,schemaVersion:2,ruleVersion:'web-v0.1.9'};
+ let health:Record<string,unknown>={ok:true,schemaVersion:2,ruleVersion:'web-v0.1.10'};
  const probe=createGateway({rpc:async()=>health,origin:'https://test.example',maintenanceMs:60000});
  probe.http.listen(0,'127.0.0.1');await once(probe.http,'listening');const base=`http://127.0.0.1:${(probe.http.address() as {port:number}).port}`;
  try{
   expect((await fetch(base+'/ready')).status).toBe(503);
-  health={...health,engineRevision:20,stage4Ready:true,cardDefinitions:76,cardInstances:191,draftReady:true,characterSkillsReady:true,stage3Ready:true,classicPatchReady:true,feedbackRulesReady:true,versionedDataReady:true,locationDataReady:true,locationRulesReady:true,waterRulesReady:true,environmentRulesReady:true,classicPlayable:true};expect((await fetch(base+'/ready')).status).toBe(200);
+  health={...health,engineRevision:21,stage4Ready:true,cardDefinitions:76,cardInstances:191,draftReady:true,characterSkillsReady:true,stage3Ready:true,classicPatchReady:true,feedbackRulesReady:true,versionedDataReady:true,locationDataReady:true,locationRulesReady:true,waterRulesReady:true,environmentRulesReady:true,classicPlayable:true};expect((await fetch(base+'/ready')).status).toBe(200);
   health={...health,feedbackRulesReady:false};expect((await fetch(base+'/ready')).status).toBe(503);
  }finally{await probe.close();}
 });

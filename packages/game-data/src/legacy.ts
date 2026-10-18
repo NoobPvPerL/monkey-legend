@@ -1,7 +1,7 @@
 import type sourceCatalog from './source-catalog.json';
 export const RULE_VERSION = 'web-v0.1.1' as const;
-export const hasInteractionRules=(version:string)=>['web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7','web-v0.1.8','web-v0.1.9'].includes(version);
-export const unlimitedAttacks=(version:string)=>['web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7','web-v0.1.8','web-v0.1.9'].includes(version);
+export const hasInteractionRules=(version:string)=>['web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7','web-v0.1.8','web-v0.1.9','web-v0.1.10'].includes(version);
+export const unlimitedAttacks=(version:string)=>['web-v0.1.3','web-v0.1.4','web-v0.1.5','web-v0.1.6','web-v0.1.7','web-v0.1.8','web-v0.1.9','web-v0.1.10'].includes(version);
 export type CardId = keyof typeof sourceCatalog.cards;
 export type CharacterId = 'character-004'|'character-027'|'character-031'|'character-037'|'character-002'|'character-003'|'character-005'|'character-006'|'character-010'|'character-023'|'character-026'|'character-040'|'character-043'|'character-044'|'character-045'|'character-048';
 export interface CardDefinition { id: CardId; name: string; copies: number; cost: number; type: 'attack'|'response'|'food'|'tactic'|'equipment'; range?: 'global'|'same'|'adjacent'; power?: number; group?: boolean; text: string;slot?:'body'|'hand'|'head'|'wrist'|'mount';randomCost?:true }

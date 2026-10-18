@@ -1,6 +1,6 @@
-export const APPLICATION_VERSION='0.2.7-p2.8';
-export const CURRENT_RULE_VERSION='web-v0.1.9';
-export const REQUIRED_ENGINE_REVISION=20;
+export const APPLICATION_VERSION='0.2.8-p2.9';
+export const CURRENT_RULE_VERSION='web-v0.1.10';
+export const REQUIRED_ENGINE_REVISION=21;
 export interface DatabaseRequirement {ruleVersion:string;engineRevision:number;stage4:boolean}
 export const STAGE3_DATABASE_REQUIREMENT:DatabaseRequirement={ruleVersion:'web-v0.1.6',engineRevision:16,stage4:false};
 export const STAGE4_DATABASE_REQUIREMENT:DatabaseRequirement={ruleVersion:'web-v0.1.7',engineRevision:18,stage4:true};

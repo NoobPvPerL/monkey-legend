@@ -4,7 +4,7 @@ import {resolve,join} from 'node:path';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {PGlite} from '@electric-sql/pglite';
-const current=JSON.parse(await readFile('.release-cache/exercise-package-current.json','utf8'));
+const current=JSON.parse(await readFile(process.argv[2]??'.release-cache/exercise-package-current.json','utf8'));
 const source=resolve(current.source),sql=resolve(current.sql),report={version:'0.2.7-p2.8',at:new Date().toISOString(),sourceSnapshotSha256:current.snapshot,checks:[],passed:false,cloudDeployed:false};
 const mark=name=>{report.checks.push(name);console.log('PASS '+name);};
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');

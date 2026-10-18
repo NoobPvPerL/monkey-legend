@@ -1,0 +1,41 @@
+{
+  "cells": 32,
+  "controlsScroll": [
+    708,
+    708
+  ],
+  "document": [
+    1920,
+    1080
+  ],
+  "viewport": [
+    1920,
+    1080
+  ],
+  "visibleButtons": [
+    {
+      "inside": true,
+      "text": "移动 · 结束扣1 AP"
+    },
+    {
+      "inside": true,
+      "text": "通校 · 耗尽AP"
+    },
+    {
+      "inside": true,
+      "text": "结束行动 →"
+    },
+    {
+      "inside": true,
+      "text": "牌效与费用"
+    },
+    {
+      "inside": true,
+      "text": "S2 · 美丽学子 · 已阵亡"
+    },
+    {
+      "inside": true,
+      "text": "锁定本张费用 · 1-6"
+    }
+  ]
+}

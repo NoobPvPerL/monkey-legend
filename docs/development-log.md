@@ -1,3 +1,15 @@
+2026-10-19审核后：负责人通过截图，批准继续交付及上传；已移除提示音开关、默认启用并自动解锁，4文件18项相关回归与构建通过。正在构建独立WorkBuddy包，[验证记录](p2-card-feedback-validation.md)持续更新；尚未生产部署，下文待审核文字为历史状态。
+
+**2026-10-19 四项卡牌反馈候选已完成本地验证：** 0.2.8-p2.9／web-v0.1.10／修订21；地点禁牌与JJ攻击暴露已按确认更正，紫檀木选人与卫汶找你流程补齐直显入口及反馈。73文件588项回归、类型检查、构建及隔离房间RPC复验通过。见[验证与PC／手机截图](p2-card-feedback-validation.md)。待负责人截图审核后再构建WorkBuddy新包，尚未上传／部署；应豪两项仍待修，P2不能正式结项。以下旧版本和交付记录保留历史语境。
+
+**2026-10-18 角色技能按钮直显已完成本地验证：** JJ等现有技能与方向控件直接显示，选牌时保留；6文件30项相关测试、类型检查与构建通过，四种手机视口无主页面纵向滚动。见[验证与最新待修反馈](p2-visible-skills-validation.md)。本次尚未打新包、上传或部署，旧hand-feedback交付包不含此修订。卫汶找你／紫檀木／地点禁牌／JJ仅攻击牌四项新反馈已登记，待下一批处理。
+
+2026-10-18补记：负责人要求先给交付包，hand-feedback包已完成独立解压、构建、启动与SQL兼容复验；入口见[p2-hand-feedback-workbuddy.md](p2-hand-feedback-workbuddy.md)，结果见[p2-hand-feedback-validation.md](p2-hand-feedback-validation.md)。未上传／部署，应豪未修复。
+
+## 2026-10-18 电脑手牌浏览与完整牌效提示（待截图审核）
+
+鼠标拖动／滚轮横向浏览、出牌操作与动态弹窗完整牌效已在本地实现，68文件564项回归通过。当前本批未打新包／上传／部署，不属于已交付ZIP；见[p2-hand-feedback-validation.md](p2-hand-feedback-validation.md)。后续应豪新反馈已诊断，尚未改引擎。下文为此前交付记录。
+
 ## 2026-10-18 搏击操与地图二次修订（截图及交付包验证通过）
 
 候选0.2.7-p2.8／web-v0.1.9／修订20；搏击操基础费用3／4／5AP、按实体最初获得者的入弃回复、免费高等级防御已实现。地图采用PC分栏；移动长页已被否决并返修为主界面单屏布局，见[p2-mobile-single-screen-validation.md](p2-mobile-single-screen-validation.md)。67文件560项本地测试通过，见[p2-exercise-validation.md](p2-exercise-validation.md)与[新规则](web-rules-v0.1.9.md)。旧地图截图验收结论已更正。负责人已通过PC／移动截图审核，授权先构建WorkBuddy交付包、之后上传GitHub；最终结果见[p2-exercise-delivery.md](p2-exercise-delivery.md)。未部署，P2未结项。下文保留历史记录。

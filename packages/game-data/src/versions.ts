@@ -8,9 +8,11 @@ import {STAGE3_RULE_VERSION,STAGE3_CARDS,STAGE3_CARD_IDS,STAGE3_ALL_CARDS,STAGE3
 
 export const PLAYTEST_RULE_VERSION='web-v0.1.8' as const;
 export const EXERCISE_RULE_VERSION='web-v0.1.9' as const;
-export const hasExerciseRules=(version:string|undefined)=>version===EXERCISE_RULE_VERSION;
+export const CARD_FEEDBACK_RULE_VERSION='web-v0.1.10' as const;
+export const hasCardFeedbackRules=(version:string|undefined)=>version===CARD_FEEDBACK_RULE_VERSION;
+export const hasExerciseRules=(version:string|undefined)=>version===EXERCISE_RULE_VERSION||hasCardFeedbackRules(version);
 export const hasPlaytestRules=(version:string|undefined)=>version===PLAYTEST_RULE_VERSION||hasExerciseRules(version);
-export const ACTIVE_RULE_VERSIONS=['web-v0.1.1','web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5',STAGE3_RULE_VERSION,STAGE4_RULE_VERSION,PLAYTEST_RULE_VERSION,EXERCISE_RULE_VERSION] as const;
+export const ACTIVE_RULE_VERSIONS=['web-v0.1.1','web-v0.1.2','web-v0.1.3','web-v0.1.4','web-v0.1.5',STAGE3_RULE_VERSION,STAGE4_RULE_VERSION,PLAYTEST_RULE_VERSION,EXERCISE_RULE_VERSION,CARD_FEEDBACK_RULE_VERSION] as const;
 export type RuleVersion=typeof ACTIVE_RULE_VERSIONS[number]|typeof STAGE4_RULE_VERSION;
 export const CLASSIC_RULE_VERSION='web-v0.1.4' as const;
 export const PATCH_RULE_VERSION='web-v0.1.5' as const;
@@ -41,7 +43,7 @@ function makeManifest(version:DataVersion){
  const classic=isClassicVersion(version);
  return frozen({version,status:'playable' as const,mapId:classic?CLASSIC_MAP_ID:LEGACY_MAP_ID,catalogId:hasStage4(version)?'stage4-content-v1':hasStage3(version)?'stage3-content-v1':classic?'classic-content-v1':version,environmentId:hasClassicPatch(version)?'classic-regions-v2':classic?'classic-regions-v1':'legacy-cells-v1',spawnPolicy:classic?'fixed-region-random-empty':'legacy-fixed-cell',spawnConflicts:[] as string[]});
 }
-const manifests=Object.fromEntries([...DATA_VERSIONS,STAGE4_RULE_VERSION,PLAYTEST_RULE_VERSION,EXERCISE_RULE_VERSION].map(v=>[v,makeManifest(v)])) as Record<DataVersion,ReturnType<typeof makeManifest>>;
+const manifests=Object.fromEntries([...DATA_VERSIONS,STAGE4_RULE_VERSION,PLAYTEST_RULE_VERSION,EXERCISE_RULE_VERSION,CARD_FEEDBACK_RULE_VERSION].map(v=>[v,makeManifest(v)])) as Record<DataVersion,ReturnType<typeof makeManifest>>;
 export function ruleManifest(version:string){if(!Object.hasOwn(manifests,version))throw Error(`未知规则版本：${version}`);return manifests[version as DataVersion];}
 export function mapForVersion(version:string):MapDefinition{return ruleManifest(version).mapId===CLASSIC_MAP_ID?classicMap:legacyMap;}
 export function environmentForVersion(version:string){return hasClassicPatch(version)?frozen({...classicEnvironment,kind:'classic-regions-v2',poisonPool:'all-except-cave-and-protected',poisonRegionCount:11,protectedRegions:[...PROTECTED_REGIONS],protectedBombsAfterPoisonComplete:true,caveEveryPersonalEnds:3,caveApLoss:2,caveDamage:1}):ruleManifest(version).environmentId==='classic-regions-v1'?classicEnvironment:legacyEnvironment;}
@@ -51,7 +53,7 @@ const runtime=Object.fromEntries(ACTIVE_RULE_VERSIONS.filter(version=>!hasStage3
  cardTags:Object.fromEntries(legacy.CARD_IDS.map(id=>[id,[...source.cards[id].tags]])),
 })])) as Record<RuleVersion,RuntimeData>;
 export function runtimeForVersion(version:string):RuntimeData {
- ruleManifest(version);if(hasExerciseRules(version))return exerciseRuntime;if(hasPlaytestRules(version))return playtestRuntime;if(hasStage4(version))return stage4Runtime;if(hasStage3(version))return stage3Runtime;if(!isActiveRuleVersion(version))throw Error('经典图数据基础已完成，后续规则未启用');return runtime[version];
+ ruleManifest(version);if(hasCardFeedbackRules(version))return cardFeedbackRuntime;if(hasExerciseRules(version))return exerciseRuntime;if(hasPlaytestRules(version))return playtestRuntime;if(hasStage4(version))return stage4Runtime;if(hasStage3(version))return stage3Runtime;if(!isActiveRuleVersion(version))throw Error('经典图数据基础已完成，后续规则未启用');return runtime[version];
 }
 const stage3Runtime=frozen({cards:structuredClone(STAGE3_CARDS) as Record<CardId,CardDefinition>,characters:Object.fromEntries(STAGE3_CHARACTER_IDS.map(id=>{const c=STAGE3_CHARACTERS[id];return [id,{...c,id:id as legacy.CharacterId,spawn:classicMap.cells.find(cell=>cell.region===c.spawnRegion)!.id}];})) as unknown as RuntimeData['characters'],characterIds:[...STAGE3_CHARACTER_IDS] as RuntimeData['characterIds'],allCards:[...STAGE3_ALL_CARDS],cells:classicMap.cells,map:classicMap.map,cardTags:Object.fromEntries(STAGE3_CARD_IDS.map(id=>[id,[...source.cards[id as keyof typeof source.cards].tags]]))});
 const stage4Runtime=frozen({...stage3Runtime,cards:structuredClone(STAGE4_RUNTIME_CARDS),allCards:[...STAGE4_ALL_CARDS],cardTags:Object.fromEntries(Object.keys(STAGE4_RUNTIME_CARDS).map(id=>[id,[...source.cards[id as keyof typeof source.cards].tags]]))});
@@ -60,6 +62,7 @@ const playtestRuntime=frozen({...stage4Runtime,cards:{...stage4Runtime.cards,
  'basic-014':{...stage4Runtime.cards['basic-014'],text:stage4Runtime.cards['basic-014'].text+'（使用者不参与）'}},
  characters:{...stage4Runtime.characters,'character-006':{...stage4Runtime.characters['character-006'],text:'北鄙：同一张牌指定你时，不得同时指定其他当前非机械猴子角色；可同时指定机械猴子。真正的帝汶：帝汶词条牌正费用免费。'}}});
 const exerciseRuntime=frozen({...playtestRuntime,cards:{...playtestRuntime.cards,...Object.fromEntries(['basic-003','basic-004','basic-005'].map((id,i)=>[id,{...playtestRuntime.cards[id as CardId],cost:i+3,text:playtestRuntime.cards[id as CardId].text+'；进入弃牌堆时，本局最初获得者存活则回复1AP；可免费响应更低等级搏击操，仅抵消对自己的扣AP及不足转扣血。'}]))}});
+const cardFeedbackRuntime=frozen({...exerciseRuntime,characters:{...exerciseRuntime.characters,'character-003':{...exerciseRuntime.characters['character-003'],text:'懒得喷：每个人回合可主动发动一次，本回合固定正费用免费；从发动起至自己下次个人回合开始，其他人使用的攻击牌额外以你为目标。非攻击牌不因此作用于你，其他免疫及单体保护照常。'}}});
 function makeSourceCatalog(classic:boolean){
  return frozen({sourceHashFormat:source.sourceHashFormat,sources:{...source.sources},cards:Object.fromEntries(Object.entries(source.cards).filter(([id])=>classic||legacy.CARD_IDS.includes(id as CardId))),characters:Object.fromEntries(Object.entries(source.characters).filter(([id])=>classic||legacy.CHARACTER_IDS.includes(id as legacy.CharacterId)))});
 }
@@ -99,4 +102,4 @@ export function characterTraitsForVersion(version:string,id:string){
  if(hasStage3(version))return {faction:STAGE3_CHARACTERS[id].faction,familyRole:null,waterNative:entry.waterNative,spawnRegion:entry.spawnRegion,revivalRegion:entry.spawnRegion};
  return {faction:entry.printedFaction,familyRole:null,waterNative:entry.waterNative,spawnRegion:entry.spawnRegion,revivalRegion:null};
 }
-export function classicLocationPolicy(){return CLASSIC_LOCATIONS;}
+export function classicLocationPolicy(version?:string){return hasCardFeedbackRules(version)?{...CLASSIC_LOCATIONS,prohibitedCards:{'教学楼':['basic-009'],'秀松苑':['basic-010']}}:CLASSIC_LOCATIONS;}

@@ -1,0 +1,81 @@
+{
+  "environment": "localhost synthetic fixtures, production components and TS commands; no production RPC",
+  "playerMouseDrag": {
+    "fromScrollLeft": 0,
+    "toScrollLeft": 210,
+    "selected": 0,
+    "intents": 0
+  },
+  "playerWheel": {
+    "fromScrollLeft": 210,
+    "toScrollLeft": 1560,
+    "pageY": 0,
+    "rightEnd": 2543.333251953125,
+    "leftEnd": 0
+  },
+  "dragOutside": {
+    "dragging": false,
+    "intents": "0",
+    "left": 410,
+    "selected": 1
+  },
+  "spectatorMouseDrag": {
+    "fromScrollLeft": 0,
+    "toScrollLeft": 300,
+    "dialogs": 0,
+    "intents": 0
+  },
+  "spectatorWheel": {
+    "scrollLeft": 1489.3333740234375,
+    "pageY": 0
+  },
+  "mobile360": {
+    "actions": [
+      97,
+      97
+    ],
+    "document": [
+      360,
+      640
+    ],
+    "grid": true,
+    "viewport": [
+      360,
+      640
+    ]
+  },
+  "mobile390": {
+    "actions": [
+      97,
+      97
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "grid": true,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "mobilePageDown": {
+    "documentHeight": 640,
+    "pageY": 0
+  },
+  "freeResponse": {
+    "initialAP": 0,
+    "finalAP": 1,
+    "hpUnchanged": true,
+    "description": "only own AP loss and shortfall HP cancelled, no counterattack or effect on others"
+  },
+  "convertedEffect": {
+    "material": "奈雪",
+    "effect": "肘击",
+    "cost": 2,
+    "healingTextShown": false
+  },
+  "screenshotApproval": "pending",
+  "physicalPhoneTested": false,
+  "productionRpc": false
+}

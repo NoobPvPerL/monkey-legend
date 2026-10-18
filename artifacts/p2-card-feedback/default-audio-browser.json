@@ -1,0 +1,17 @@
+{
+  "cells": 32,
+  "document": [
+    360,
+    640
+  ],
+  "soundTogglePresent": false,
+  "toolbar": [
+    "玩家",
+    "日志",
+    "规则"
+  ],
+  "viewport": [
+    360,
+    640
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "version": "0.2.7-p2.8",
+  "at": "2026-10-18T14:01:29.819Z",
+  "sourceSnapshotSha256": "9ca80ecee6a8302a1be9f285dd7558560d434110a5b120252755658713037a47",
+  "checks": [
+    "extracted source/SQL manifests, every file hash, same snapshot and all migration bytes",
+    "public configuration whitelist, no runtime/private inputs, and92 built reference assets",
+    "fresh schema1→20 single-statement install, readiness/ACL/verify/reapply",
+    "existing complete18→20 single-statement install, readiness/ACL/verify/reapply and room identity preservation",
+    "existing complete19→20 single-statement install, readiness/ACL/verify/reapply and room identity preservation",
+    "independent locked npm ci --offline and production client/server build",
+    "extracted built server starts with offline endpoint; HTML/JS/CSS and92 references load; source/config hidden",
+    "UI markers present in actual built JS/CSS; core/data/server/migrations identical to previous validated delivery"
+  ],
+  "passed": true,
+  "cloudDeployed": false,
+  "sourceCommit": "54d95111f3c1d78eea615ede472d3fc0f18ceeee",
+  "sourceDirty": true,
+  "independentNpmCi": true,
+  "independentBuild": true,
+  "runtime": "v24.19.0",
+  "health": {
+    "ok": true,
+    "version": "0.2.7-p2.8",
+    "ruleVersion": "web-v0.1.9",
+    "requiredEngineRevision": 20
+  },
+  "runtimeEndpoint": "https://isolated.invalid",
+  "cloudRpcInvoked": false,
+  "finishedAt": "2026-10-18T14:02:14.475Z",
+  "deliveryId": "0.2.7-p2.8-hand-feedback-20261018",
+  "clientAssets": {
+    "/assets/index-tndfGFNC.js": "934cd037aa4438689ee571bac1e6c1f08955605c1a8c959665fd0521fbc49dcb",
+    "/assets/index-Bdv-LRoE.css": "5965dacf13355d54e5f0156be56ce858a100fae64ace97298745a57d0015baf1"
+  },
+  "unchangedEngineDataAndMigrationFilesComparedToPreviousDelivery": 96,
+  "previousDeliveryHashesUnchanged": true,
+  "uiIncluded": true,
+  "yinghaoFixIncluded": false,
+  "yinghaoStatus": {
+    "monkeyGameImmunity": "confirmed missing, pending implementation",
+    "collision": "original incident not reproduced; nine TS/SQL diagnostic cases saved"
+  },
+  "testFiles": 68,
+  "tests": 564,
+  "failures": 0,
+  "screenshotApproval": "not separately confirmed; owner explicitly requested package first",
+  "githubUploaded": false,
+  "productionWrites": false
+}

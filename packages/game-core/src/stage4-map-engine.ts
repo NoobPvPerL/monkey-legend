@@ -1,6 +1,6 @@
 import {discardCards} from './exercise';
 import {reactiveArrival} from './stage4-movement';
-import {hasPlaytestRules} from '../../game-data/src/index';
+import {hasPlaytestRules,hasCardFeedbackRules} from '../../game-data/src/index';
 import {nearestShore} from './playtest';
 import {mapForVersion,distanceForVersion} from '../../game-data/src/index';
 import type {GameState,Task,Command} from './types';
@@ -121,7 +121,8 @@ export function stage4MapTask(s:GameState,t:Task,now:number,p:Stage3Ports):boole
  if(t.action==='board-teleport'){
   if(!onBoard(st,t.target!)||!onBoard(st,c.actor))return true;
   const cells=mapForVersion(s.version).cells.filter(cell=>boardEmptyEntry(st,t.target!,cell.id,[t.target!])).map(cell=>cell.id);
-  if(cells.length)p.select(s,'board-cell',c.actor,now,{cells,source:t.target,data:{serial:c.serial}});return true;
+  if(cells.length)p.select(s,'board-cell',c.actor,now,{cells,source:t.target,data:{serial:c.serial}});
+  else if(hasCardFeedbackRules(s.version))p.emit(s,'effect','卫汶找你：没有合法传送落点，位置不变');return true;
  }
  throw Error('未知阶段四地图任务');
 }
@@ -151,10 +152,12 @@ export function stage4MapChoose(s:GameState,cmd:Extract<Command,{type:'choose'}>
   const c=stack.currentCard(st),die=c.stage4!.guessDie!;
   need(timeout||Number.isInteger(cmd.guess)&&cmd.guess!>=1&&cmd.guess!<=6,'请选择1—6');
   p.emit(s,'dice',`卫汶找你：d6 = ${die}`,die);
+  if(hasCardFeedbackRules(s.version))p.emit(s,'effect',timeout||cmd.guess!==die?`卫汶找你：S${a+1}${timeout?'猜点超时':'猜错'}，由S${c.actor+1}选择传送落点`:`卫汶找你：S${a+1}猜中，位置不变`);
   if(timeout||cmd.guess!==die)s.queue.unshift(task('board-teleport',{target:a,serial:c.serial}));return;
  }
  if(choice.kind==='board-cell'){
-  if(cmd.cell){need(choice.cells?.includes(cmd.cell)&&boardEmptyEntry(st,choice.source!,cmd.cell,[choice.source!]),'传送落点不合法');s.queue.unshift(...p.relocate(s,choice.source!,cmd.cell,false));}return;
+  if(cmd.cell){need(choice.cells?.includes(cmd.cell)&&boardEmptyEntry(st,choice.source!,cmd.cell,[choice.source!]),'传送落点不合法');s.queue.unshift(...p.relocate(s,choice.source!,cmd.cell,false));}
+  else if(hasCardFeedbackRules(s.version))p.emit(s,'effect',`卫汶找你：S${a+1}${timeout?'选择超时':'放弃传送'}，位置不变`);return;
  }
  if(choice.kind==='board-return'){
   const cells=(choice.cells??[]).filter(cell=>boardEmptyEntry(st,a,cell,[a]));need(cells.length>0,'当前无合法返回格');

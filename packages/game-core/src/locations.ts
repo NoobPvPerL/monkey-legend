@@ -16,7 +16,7 @@ export function foodHealing(version:string,p:LocationPlayer,base:number):number 
 }
 export function locationCardAllowed(version:string,cell:string,card:string):boolean {
  if(!isClassicVersion(version))return true;
- const prohibited:Record<string,readonly string[]>=policy.prohibitedCards;return !(prohibited[regionAt(version,cell)]??[]).includes(card.split('#')[0]);
+ const prohibited:Record<string,readonly string[]>=classicLocationPolicy(version).prohibitedCards;return !(prohibited[regionAt(version,cell)]??[]).includes(card.split('#')[0]);
 }
 export function locationEffectAllowed(version:string,cell:string,card:string):boolean {
  if(!isClassicVersion(version)||regionAt(version,cell)!=='办公室')return true;

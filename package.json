@@ -1,9 +1,9 @@
 {
   "name": "monkey-legend",
-  "version": "0.2.7-p2.8",
+  "version": "0.2.8-p2.9",
   "private": true,
   "type": "module",
-  "description": "web-v0.1.9 搏击操修订与完整76种191实体基础牌与数据库权威好友房",
+  "description": "web-v0.1.10 卡牌反馈修订与完整76种191实体基础牌与数据库权威好友房",
   "engines": {
     "node": ">=22.12.0 <23 || >=24.0.0 <25"
   },
@@ -19,8 +19,8 @@
     "test:p2": "vitest run tests/p2",
     "db:generate": "node tools/generate-db-data.mjs",
     "verify:db-data": "node tools/generate-db-data.mjs --check",
-    "catalog:generate": "node tools/generate-content-catalog.mjs && node tools/generate-versioned-data.mjs && node tools/generate-stage2-data.mjs && node tools/generate-classic-engine.mjs && node tools/generate-draft-engine.mjs && node tools/generate-classic-patch.mjs && node tools/generate-stage3-resources.mjs && node tools/generate-stage3-engine.mjs && node tools/generate-stage3-rooms.mjs && node tools/generate-stage3-release.mjs && node tools/generate-stage4-foundation.mjs && node tools/generate-stage4-engine.mjs && node tools/generate-stage4-rooms.mjs && node tools/generate-stage4-release.mjs && node tools/generate-playtest-patch.mjs && node tools/generate-exercise-patch.mjs",
-    "verify:catalog": "node tools/generate-content-catalog.mjs --check && node tools/generate-versioned-data.mjs --check && node tools/generate-stage2-data.mjs --check && node tools/generate-classic-engine.mjs --check && node tools/generate-draft-engine.mjs --check && node tools/generate-classic-patch.mjs --check && node tools/generate-stage3-resources.mjs --check && node tools/generate-stage3-engine.mjs --check && node tools/generate-stage3-rooms.mjs --check && node tools/generate-stage3-release.mjs --check && node tools/generate-stage4-foundation.mjs --check && node tools/generate-stage4-engine.mjs --check && node tools/generate-stage4-rooms.mjs --check && node tools/generate-stage4-release.mjs --check && node tools/generate-playtest-patch.mjs --check && node tools/generate-exercise-patch.mjs --check",
+    "catalog:generate": "node tools/generate-content-catalog.mjs && node tools/generate-versioned-data.mjs && node tools/generate-stage2-data.mjs && node tools/generate-classic-engine.mjs && node tools/generate-draft-engine.mjs && node tools/generate-classic-patch.mjs && node tools/generate-stage3-resources.mjs && node tools/generate-stage3-engine.mjs && node tools/generate-stage3-rooms.mjs && node tools/generate-stage3-release.mjs && node tools/generate-stage4-foundation.mjs && node tools/generate-stage4-engine.mjs && node tools/generate-stage4-rooms.mjs && node tools/generate-stage4-release.mjs && node tools/generate-playtest-patch.mjs && node tools/generate-exercise-patch.mjs && node tools/generate-card-feedback-patch.mjs",
+    "verify:catalog": "node tools/generate-content-catalog.mjs --check && node tools/generate-versioned-data.mjs --check && node tools/generate-stage2-data.mjs --check && node tools/generate-classic-engine.mjs --check && node tools/generate-draft-engine.mjs --check && node tools/generate-classic-patch.mjs --check && node tools/generate-stage3-resources.mjs --check && node tools/generate-stage3-engine.mjs --check && node tools/generate-stage3-rooms.mjs --check && node tools/generate-stage3-release.mjs --check && node tools/generate-stage4-foundation.mjs --check && node tools/generate-stage4-engine.mjs --check && node tools/generate-stage4-rooms.mjs --check && node tools/generate-stage4-release.mjs --check && node tools/generate-playtest-patch.mjs --check && node tools/generate-exercise-patch.mjs --check && node tools/generate-card-feedback-patch.mjs --check",
     "package:database": "node tools/package-database.mjs",
     "verify:cloud-database": "node tools/verify-cloud-database.mjs",
     "preview": "vite preview --host 127.0.0.1",

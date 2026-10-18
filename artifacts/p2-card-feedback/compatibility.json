@@ -1,0 +1,123 @@
+{
+  "baseline": "54d95111f3c1d78eea615ede472d3fc0f18ceeee",
+  "applicationVersion": "0.2.8-p2.9",
+  "ruleVersion": "web-v0.1.10",
+  "engineRevision": 21,
+  "frozenMigrations": [
+    {
+      "file": "database/migrations/000_schema.sql",
+      "sha256": "764b5f4a791e446cfc57131b2081b86bdd9a99dcf2ad5e8d97006b68a7d5517e",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/001_data.sql",
+      "sha256": "3807f7a364b526b7cc398ec9e711cadeeee725869e0935d9846654dba3139af1",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/002_engine.sql",
+      "sha256": "ee889ff2e82bc717f5f3372d895b01927e09c7b6b42d2a4afd2085b28c846a87",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/003_rooms.sql",
+      "sha256": "2a478f372e7c9f5fe639d77cfd7b1655e5454c2fdc7cf9483ecfbae8776fbef3",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/004_permissions.sql",
+      "sha256": "314893cfcb9a0c2a96fbff4b24aeb1368aa15ccbcd61ae2ebde955cd1a0eeced",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/005_deferred_movement.sql",
+      "sha256": "98ca01333d3cd2a616fa96fa14070763ac7059db1f706083658a2bf0420a6d77",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/006_social.sql",
+      "sha256": "2558fff2bd05d664f85a956128bc0e32590c2bd29b8e516c6d5dd1d9dba838e6",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/007_feedback_rules.sql",
+      "sha256": "1573c4fb698a4f5fa09cfe147ba3688219342d0d163098174b59d6830030c5ae",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/008_feedback_diagnostics.sql",
+      "sha256": "f1535f8adbdd06badaa33c67b0adbfa71c7b284a704fdca18cc5e8f3ce7ff69a",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/009_unlimited_attacks.sql",
+      "sha256": "9aee1392ded8743df865aa0bbe18669184f4971b2f14a75bc343e81cf3fb59da",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/010_versioned_catalog.sql",
+      "sha256": "59fba1a3a58d36c9e9682b90abf32c44f43c9ec5004f6c9498ee9e0acb9c1a21",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/011_classic_locations.sql",
+      "sha256": "64f7b4efccaf3ea37fd0732faf1848fdc7d372f3f301f345c114135208290ae7",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/012_classic_rules.sql",
+      "sha256": "70f9968f124342340d88f03ccde9b7aab71ff853716b4594f856469a038dbea0",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/013_draft_foundation.sql",
+      "sha256": "27fe642f255159e4e0548c194d47e08b1a1e15d9ac438b5e16f8970c3a0e82f0",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/014_classic_feedback_patch.sql",
+      "sha256": "11e692548ecd618031236ce75e836e82e6f431e8b41814c9365d842ee1419b6f",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/015_stage3_resources.sql",
+      "sha256": "dd64ee9bfd5e970803ae24f7a0c9465dc1bc944d4a0bed8424807c443b067011",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/016_stage3_release.sql",
+      "sha256": "acfeedf9e7b4860647aff3eb20c28afec5e36c1652c34df11280e44b710a9403",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/017_stage4_foundation.sql",
+      "sha256": "39b24f79e0315435073ceb60a3e560834ddb40b9b72202780ec2ea4095e1709b",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/018_stage4_release.sql",
+      "sha256": "095003f979080ba3c308c694318934545baba927e318960ac099e7fb68ddc7fb",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/019_p2_playtest_feedback.sql",
+      "sha256": "fa82f62863c17458ca74b99b145e0bf8619c81099448b51776c1bd01e401bb12",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    },
+    {
+      "file": "database/migrations/020_p2_exercise_rules.sql",
+      "sha256": "cfe00fc19d6a695561712f412c1ad8b89764d3851afa540fb7dd249692925c6f",
+      "matchesHeadIgnoringCheckoutLineEndings": true
+    }
+  ],
+  "clientAssets": {
+    "index-BxnUfD8A.js": "215b943c761265d257c7d86cb467663418f89b1edaaa960107597af50025871b",
+    "index-DPMHgnu8.css": "6bde2c1502c37b0a7b25c1dd613527dee2f66e91431c8b1938482d3d5eefcc07"
+  },
+  "sourceProvenance": "npm run verify:data passed; 187 images and 4 original card docs unchanged",
+  "productionWrites": false,
+  "githubUpload": false,
+  "newDeliveryBuilt": false,
+  "screenshotApproved": true,
+  "defaultAudioRequested": true
+}
