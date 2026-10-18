@@ -1,0 +1,34 @@
+{
+  "version": "0.2.5-p2.6",
+  "at": "2026-10-17T23:37:02.835Z",
+  "sourceSnapshotSha256": "f83c8517b059828244f6020d988f47e96bef43e795e67a8b6675e348c8c33a21",
+  "checks": [
+    "extracted source/SQL manifests, every file hash, same snapshot and all migration bytes",
+    "public configuration whitelist, no runtime/private inputs, and92 built reference assets",
+    "fresh schema1→18 single-statement install, readiness/ACL/verify/reapply",
+    "existing complete16→18 single-statement install, readiness/ACL/verify/reapply and room identity preservation",
+    "independent npm ci from lockfile and production client/server build",
+    "built server entry starts, local health18, HTML/JS/CSS and92 references load; source/config hidden"
+  ],
+  "passed": true,
+  "cloudDeployed": false,
+  "sourceCommit": "29f247337d56caecffac9953702be949a4399ff8",
+  "runtime": "v24.19.0",
+  "health": {
+    "ok": true,
+    "version": "0.2.5-p2.6",
+    "ruleVersion": "web-v0.1.7",
+    "requiredEngineRevision": 18
+  },
+  "independentNpmCi": true,
+  "independentBuild": true,
+  "buildWarnings": [
+    "Vite main chunk504.82kB exceeds500kB warning; build succeeds",
+    "npm11 reports pending esbuild postinstall; installed platform binary builds successfully"
+  ],
+  "archives": {
+    "monkey-legend-0.2.5-p2.6-online-source-stage4-workbuddy.zip": "b082745a0112da7ec974e42e0fdf785b799313afc0fc092b0a0508108949a8e8",
+    "monkey-legend-0.2.5-p2.6-database-stage4-workbuddy.zip": "981726b31482991c3f6d2d23baca9cdcaac5f0099578f055ea9e338d17098cb9"
+  },
+  "finishedAt": "2026-10-18T03:20:21.679Z"
+}

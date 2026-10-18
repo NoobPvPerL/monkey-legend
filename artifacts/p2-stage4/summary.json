@@ -6,9 +6,9 @@
     "4C",
     "4D",
     "4E",
-    "4F-development"
+    "4F"
   ],
-  "inProgress": "independent-package-validation",
+  "inProgress": "WorkBuddy cloud deployment and human acceptance",
   "engineDefinitionsImplemented": 76,
   "remainingDefinitions": 0,
   "deckDefinitions": 76,
@@ -22,8 +22,7 @@
   "buildPassed": true,
   "sourceAndCatalogChecksPassed": true,
   "deployed": false,
-  "githubPushed": false,
-  "packageDelivered": false,
+  "packageDelivered": true,
   "p2Complete": false,
   "frozenMigrationHashes": {
     "012_classic_rules.sql": "70f9968f124342340d88f03ccde9b7aab71ff853716b4594f856469a038dbea0",
@@ -31,6 +30,10 @@
   },
   "baseCommit": "b76205ec3c854d300b056d98b7af4319b0d55c0a",
   "fullRegressionBeforeLatestTerrainChanges": false,
-  "recordedAt": "2026-10-18T07:35:00+08:00",
-  "formalVersionScope": "local migration018; cloud deployment not executed"
+  "recordedAt": "2026-10-18T03:21:15.064379+00:00",
+  "formalVersionScope": "local migration018; cloud deployment not executed",
+  "packageSourceCommit": "29f247337d56caecffac9953702be949a4399ff8",
+  "packageSourceSnapshotSha256": "f83c8517b059828244f6020d988f47e96bef43e795e67a8b6675e348c8c33a21",
+  "independentPackageValidationPassed": true,
+  "githubPushStatus": "This record precedes the authorized push; verify the remote final commit separately"
 }

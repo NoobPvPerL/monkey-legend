@@ -93,7 +93,7 @@
 
 ## 当前进度
 
-4A—4E本地引擎及4F联机／客户端／正式升级已接通，当前进行最终交付复验；A—D全部裁定已批准，详见[p2-stage4-validation.md](p2-stage4-validation.md)。本地正式迁移默认v0.1.7，云端切换待WorkBuddy部署确认。负责人另行授权休息期间不再提问，新遇细节自主处理并保存到[p2-stage4-autonomous-decisions.md](p2-stage4-autonomous-decisions.md)，供醒后验收。
+4A—4E本地引擎及4F联机／客户端／正式升级已接通，独立交付复验已通过并已交付WorkBuddy包；A—D全部裁定已批准，详见[p2-stage4-validation.md](p2-stage4-validation.md)。本地正式迁移默认v0.1.7，云端切换待WorkBuddy部署确认。负责人另行授权休息期间不再提问，新遇细节自主处理并保存到[p2-stage4-autonomous-decisions.md](p2-stage4-autonomous-decisions.md)，供醒后验收。
 
 ## 交付与P2完成审计
 

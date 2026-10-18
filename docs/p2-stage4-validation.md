@@ -34,7 +34,7 @@ TS／SQL开发引擎逐步全状态对照通过14项专项，覆盖真实开局�
 
 新增装备19、战斗14、主动8、位移8、唐车9项专项及持续强化来源测试。最新全量报告是2026-10-18 06:44的55文件486项通过；该报告先于唐车完整扩展和最后两项补充，后续针对性验证已通过，仍需在4F完成后重跑完整回归。
 
-## 4F：本地集成完成，独立包复验中
+## 4F：本地集成与独立包复验完成
 
 已接入76牌的玩家操作、私密报价、公开装备／地形／离场、观战与协议，正式018迁移统一启用新局和健康检查18；旧版本profile、对局和未完成选角保持原规则。017单独安装仍不启用。两模式四个191实体完整游戏，在每次实际指令后比较TS与真实PostgreSQL全状态并验证实体守恒。
 
@@ -51,3 +51,20 @@ TS／SQL开发引擎逐步全状态对照通过14项专项，覆盖真实开局�
 部署包入口：releases/monkey-legend-0.2.5-p2.6-stage4-workbuddy/。完整步骤、已知云端验收项和回退要求见[p2-stage4-workbuddy.md](p2-stage4-workbuddy.md)。独立解压的源码／SQL快照一致性、npm ci及构建、单prepared statement安装／重跑／权限结果，以交付目录PACKAGE-VALIDATION.json为准；没有该报告的passed=true时不能当作可交付完成。
 
 严格先交付WorkBuddy包，再推送GitHub；本地开发验证不能替代云端迁移、真实手机和两模式真人局。本次P2未结项，原因与后续范围见[p2-stage4-p2-audit.md](p2-stage4-p2-audit.md)。
+
+## 最终交付结果
+
+2026-10-18已向负责人交付WorkBuddy包，随后才执行GitHub推送。源码与SQL取自干净提交`29f247337d56caecffac9953702be949a4399ff8`，sourceDirty=false；共同快照`f83c8517b059828244f6020d988f47e96bef43e795e67a8b6675e348c8c33a21`。交付外层PACKAGE-VALIDATION.json及仓库artifacts/p2-stage4/package-validation.json记录最终复验通过。ZIP中的开发记录是打包时的历史快照，外层报告另含打包之后的结果；不可用GitHub随后补充的文档提交替换已校验ZIP。
+
+独立解压npm ci、类型检查和客户端／服务器构建通过；原始manifest逐文件SHA、两包同快照和全部迁移字节一致；全新schema1安装005—018、完整016升级至018、单prepared DO事务、verify.sql、重复安装、两角色ACL及房间身份保留通过。独立构建服务器启动成功，/health=0.2.5-p2.6／v0.1.7／required18，入口、JS／CSS和92素材可访问，源码与公开配置直读404；验证过程未调用云RPC，临时服务器已停止。
+
+npm11提示esbuild postinstall尚未授权，但已安装的平台二进制成功完成构建；Vite体积提示保留，未全局放开脚本策略。最终启动检查曾因自动审批额度不足未执行，负责人继续后重新审查并通过；不把那次未执行记作测试成功。
+
+源码ZIP：64.46MiB；SQL增量ZIP：0.82MiB。准确ZIP哈希见下表及交付SHA256SUMS.txt。
+
+| 文件 | SHA256 |
+|---|---|
+| monkey-legend-0.2.5-p2.6-online-source-stage4-workbuddy.zip | b082745a0112da7ec974e42e0fdf785b799313afc0fc092b0a0508108949a8e8 |
+| monkey-legend-0.2.5-p2.6-database-stage4-workbuddy.zip | 981726b31482991c3f6d2d23baca9cdcaac5f0099578f055ea9e338d17098cb9 |
+
+P2仍不结项：云端018升级、两模式真人局及真实手机验收未执行；外观主题色建议和明确另批范围见完成审计。
