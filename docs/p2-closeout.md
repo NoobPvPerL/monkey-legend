@@ -51,7 +51,7 @@
 | [#13 P2游戏反馈](https://github.com/NoobPvPerL/monkey-legend/issues/13) | P2反馈主线结项；未实施建议和未修问题逐项移交后续，不声称每条评论均已技术解决 |
 | [#14 第三批规则补充](https://github.com/NoobPvPerL/monkey-legend/issues/14) | 经典图、选角、全基础牌及装备已经完成；后续会话裁定覆盖早期建议，按阶段完成关闭 |
 
-执行结果及评论链接写入[Issue回执](../artifacts/p2-closeout/github-issues.json)；表中处置须以该回执的实际远程状态为准。独立的 #2 卡牌数据格式、#8 P1反馈不在本次关闭范围，PR不作为Issue误关。
+执行结果及关联提交写入[Issue回执](../artifacts/p2-closeout/github-issues.json)；表中处置须以该回执的实际远程状态为准。GitHub连接器的评论／更新接口返回403，未写入独立评论；使用已授权的main结项提交及GitHub关闭关键字关联四项，说明由提交与本文承载，并在推送后逐项读取远端状态。独立的 #2 卡牌数据格式、#8 P1反馈不在本次关闭范围，PR不作为Issue误关。
 
 ## 后续保留项
 
