@@ -1,10 +1,69 @@
 {
-  "status": "closure_requested",
+  "status": "verified_closed",
+  "verifiedAt": "2026-10-19T00:48:21.084Z",
   "repository": "NoobPvPerL/monkey-legend",
-  "method": "GitHub closing keywords in the authorized default-branch closeout commit",
-  "documentation": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue",
-  "connectorWriteFailure": { "status": 403, "message": "Resource not accessible by integration", "commentPosted": false, "issueUpdated": false },
-  "issues": [9, 10, 13, 14],
-  "untouchedOpenIssues": [2, 8],
-  "verification": "Read remote state after pushing; do not assume closure from push alone."
+  "documentationCommit": "868d3cb4c02261c699587d5f82ffc7f89d74d754",
+  "closingCommit": "7dd9ec07bb566ac56a6c95fec9b6842c78246016",
+  "closingCommitUrl": "https://github.com/NoobPvPerL/monkey-legend/commit/7dd9ec07bb566ac56a6c95fec9b6842c78246016",
+  "method": "Authorized GitHub closing keywords pushed to default branch main; fetched every issue after push",
+  "connectorWriteFailure": {
+    "status": 403,
+    "message": "Resource not accessible by integration",
+    "commentPosted": false,
+    "issueUpdated": false,
+    "resolvedBy": "Default-branch closing-keyword commit; independent read-back confirmed completed state"
+  },
+  "issues": [
+    {
+      "n": 9,
+      "title": "简化界面",
+      "state": "closed",
+      "reason": "completed",
+      "closedAt": "2026-10-19T00:46:37Z",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/issues/9"
+    },
+    {
+      "n": 10,
+      "title": "每局对战开启时加一个发牌动画",
+      "state": "closed",
+      "reason": "completed",
+      "closedAt": "2026-10-19T00:46:37Z",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/issues/10"
+    },
+    {
+      "n": 13,
+      "title": "P2 游戏反馈：好友联机版 v0.2.0-p2.1",
+      "state": "closed",
+      "reason": "completed",
+      "closedAt": "2026-10-19T00:46:38Z",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/issues/13"
+    },
+    {
+      "n": 14,
+      "title": "第三批规则补充：经典地图、随机出生、地点／水域／环境、选角与装备",
+      "state": "closed",
+      "reason": "completed",
+      "closedAt": "2026-10-19T00:46:38Z",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/issues/14"
+    }
+  ],
+  "untouchedIssues": [
+    {
+      "n": 2,
+      "title": "卡牌数据储存形式",
+      "state": "open",
+      "reason": null,
+      "closedAt": null,
+      "url": "https://github.com/NoobPvPerL/monkey-legend/issues/2"
+    },
+    {
+      "n": 8,
+      "title": "P1 开发意见征集：本地测试版 v0.1.0-p1.1",
+      "state": "open",
+      "reason": null,
+      "closedAt": null,
+      "url": "https://github.com/NoobPvPerL/monkey-legend/issues/8"
+    }
+  ],
+  "documentation": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue"
 }

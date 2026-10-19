@@ -1,8 +1,16 @@
 {
-  "localLinksChecked": 184,
+  "baseline": "b67a7521bda74bf91ab7096d51558eb1fb397fb8",
+  "localLinksChecked": 186,
   "problems": [],
   "runtimeAndMigrationsUnchanged": true,
   "frozenZipSha256": "5d9431391a70dd59bfe744c1e48debb8adc609e6746985c213f63c579668d0a4",
   "zipUnchanged": true,
-  "checks": "Documentation links and JSON, runtime diff, existing delivery hash; no game tests rerun for documentation-only closeout."
+  "p2IssuesVerifiedClosed": true,
+  "unrelatedIssuesRemainOpen": true,
+  "remainingOpenIssueNumbers": [
+    2,
+    8
+  ],
+  "newAgentPromptExists": true,
+  "checks": "Documentation links and JSON, diff against closeout baseline, existing delivery hash, GitHub issue read-back; game tests not rerun for documentation-only closeout."
 }

@@ -209,5 +209,7 @@
     2,
     8
   ],
-  "issueClosureStatus": "pending"
+  "issueClosureStatus": "verified_closed",
+  "closingCommit": "7dd9ec07bb566ac56a6c95fec9b6842c78246016",
+  "issueReceipt": "github-issues.json"
 }

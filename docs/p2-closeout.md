@@ -42,6 +42,8 @@
 
 ## GitHub收尾
 
+**远端结果已复核：#9、#10、#13、#14均为closed／completed。** 关闭时间2026-10-19 08:46（Asia/Hong_Kong），关联[结项提交7dd9ec0](https://github.com/NoobPvPerL/monkey-legend/commit/7dd9ec07bb566ac56a6c95fec9b6842c78246016)。#2和#8保持open。
+
 已完整读取所有开放Issue，并复核 #9、#10、#13、#14 正文及全部评论（分别1、1、16、6条）。P2范围如下：
 
 | Issue | 结项归属与处置 |

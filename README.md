@@ -36,4 +36,4 @@ npm start
 
 最终WorkBuddy总包保存在本机releases目录（Git忽略），版本0.2.8-p2.9，准确路径和哈希见交付记录。GitHub上的[v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)为早期P2归档，不能当作最新部署包。P1的Windows一键本地包和操作说明仍见[历史P1发布](docs/p1-release.md)。
 
-P2反馈Issue #9、#10、#13、#14按负责人结项授权收尾，实际状态见结项回执；独立的卡牌格式Issue #2／PR #3和P1反馈#8保留。后续普通角色扩展需先确定批次，神牌与课程仍属P4，3—6人／3v3不自动纳入当前范围。
+P2反馈Issue #9、#10、#13、#14已关闭并逐项复核远端completed状态，见结项回执；独立的卡牌格式Issue #2／PR #3和P1反馈#8保留。后续普通角色扩展需先确定批次，神牌与课程仍属P4，3—6人／3v3不自动纳入当前范围。

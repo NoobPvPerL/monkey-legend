@@ -6,6 +6,8 @@
 
 本次工具GET公网首页／health／ready均因DNS失败未取得响应，上线及真人验收依据负责人确认；没有补造云端权限／设备／局数记录。只改文档、查询及已授权Issue收尾，不改游戏代码、规则、迁移、生产数据或既有ZIP，不重新启动P3实现。
 
+最终回执：文档提交868d3cb已推送；连接器评论及Issue更新接口返回403，未写入独立评论，改用默认main结项提交7dd9ec0的关闭关键字。2026-10-19 08:46关闭#9／#10／#13／#14，随后逐项读取GitHub确认closed／completed；#2、#8仍open。完整回执见[github-issues.json](../artifacts/p2-closeout/github-issues.json)。本地文档链接、JSON、运行代码与迁移未改及交付ZIP哈希核对见[文档验证](../artifacts/p2-closeout/document-validation.json)。
+
 ## 以下为历史开发及交付记录
 
 下文“未部署／待审核／P2未结项”等为当时状态，已由本次正式验收替代；原始测试、版本、包哈希和未实施事实不变。
