@@ -1,0 +1,8 @@
+{
+  "localLinksChecked": 184,
+  "problems": [],
+  "runtimeAndMigrationsUnchanged": true,
+  "frozenZipSha256": "5d9431391a70dd59bfe744c1e48debb8adc609e6746985c213f63c579668d0a4",
+  "zipUnchanged": true,
+  "checks": "Documentation links and JSON, runtime diff, existing delivery hash; no game tests rerun for documentation-only closeout."
+}

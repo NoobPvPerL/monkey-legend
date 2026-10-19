@@ -1,0 +1,30 @@
+{
+  "status": "pending",
+  "repository": "NoobPvPerL/monkey-legend",
+  "issues": [
+    {
+      "number": 9,
+      "status": "pending",
+      "reason": "负责人确认P2上线并通过真人验收，授权结项关闭；未实施项移交docs/p3-backlog.md"
+    },
+    {
+      "number": 10,
+      "status": "pending",
+      "reason": "负责人确认P2上线并通过真人验收，授权结项关闭；未实施项移交docs/p3-backlog.md"
+    },
+    {
+      "number": 13,
+      "status": "pending",
+      "reason": "负责人确认P2上线并通过真人验收，授权结项关闭；未实施项移交docs/p3-backlog.md"
+    },
+    {
+      "number": 14,
+      "status": "pending",
+      "reason": "负责人确认P2上线并通过真人验收，授权结项关闭；未实施项移交docs/p3-backlog.md"
+    }
+  ],
+  "untouched": [
+    2,
+    8
+  ]
+}

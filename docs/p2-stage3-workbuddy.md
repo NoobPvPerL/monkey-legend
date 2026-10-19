@@ -1,3 +1,5 @@
+> 阶段状态更新（2026-10-19）：负责人已确认上线与真人验收，P2正式完成。当前结论见[P2结项记录](p2-closeout.md)，后续见[P3交接](p3-handoff.md)。以下正文保留该批次当时的版本、待部署及待验收状态；其中旧的未结项结论已由本次确认替代，未实施功能仍以[P3待办](p3-backlog.md)为准。
+
 # WorkBuddy：阶段三完整部署交接
 
 交付版本 **0.2.4-p2.5／web-v0.1.6／schema2／engineRevision16**，16角色、23种85张、39份浏览器参考素材。配套源码ZIP与数据库增量ZIP位于 `releases/monkey-legend-0.2.4-p2.5-stage3-workbuddy/`。使用该目录的SHA256SUMS.txt和PACKAGE-VALIDATION.json；旧0.2.3-p2.4草稿仍暂停交付。

@@ -1,3 +1,5 @@
+> 阶段状态更新（2026-10-19）：负责人已确认上线与真人验收，P2正式完成。当前结论见[P2结项记录](p2-closeout.md)，后续见[P3交接](p3-handoff.md)。以下正文保留该批次当时的版本、待部署及待验收状态；其中旧的未结项结论已由本次确认替代，未实施功能仍以[P3待办](p3-backlog.md)为准。
+
 # P2 全栈部署交接给 WorkBuddy
 
 当前状态：本交接已经执行。WorkBuddy已回报同域上线与公网客户端/重启恢复，负责人确认一轮真人游玩；[在线游戏](https://monkey-legend-p2.app.workbuddy.host/)及[反馈Issue #13](https://github.com/NoobPvPerL/monkey-legend/issues/13)已可使用。以下为后续复现或重新部署保留的操作约定；发布状态见[p2-release.md](p2-release.md)。

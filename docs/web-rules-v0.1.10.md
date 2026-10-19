@@ -1,5 +1,7 @@
 # web-v0.1.10：地点禁牌与JJ攻击暴露更正
 
+> 2026-10-19状态更新：本版已交付，负责人确认游戏上线并通过真人验收，P2正式完成；见[P2结项](p2-closeout.md)。以下“候选／未结项”为制定及本地交付时的历史状态，规则正文不因本次文档收尾而改变。应豪遗留免疫仍未实现，见[P3待办](p3-backlog.md)。
+
 负责人于2026-10-18要求继续处理四项试玩反馈，并确认JJ持续期沿用现有截止点。本文件为本次确认的网页版更正，不覆盖原图、原始卡牌文档或来源目录。应用候选0.2.8-p2.9，schema2，engineRevision21；继承[web-v0.1.9](web-rules-v0.1.9.md)及其引用规则，以下差异仅适用于新版本对局。
 
 ## 地点禁用范围
@@ -27,4 +29,4 @@
 
 web-v0.1.1—v0.1.9进行中的对局与已开始选角保留其保存版本；000—020迁移及历史目录冻结。021只追加新规则目录、所需兼容函数和新局默认版本，不清库或重写房间、身份、回执。UI目标入口可用于旧局，但不改变旧局的费用、复活期或结算。
 
-开发验证与截图见[p2-card-feedback-validation.md](p2-card-feedback-validation.md)，后续部署复验说明见[p2-card-feedback-workbuddy.md](p2-card-feedback-workbuddy.md)。本地实现不代表已经部署或正式验收，P2仍未结项。
+开发验证与截图见[p2-card-feedback-validation.md](p2-card-feedback-validation.md)，部署复验说明见[p2-card-feedback-workbuddy.md](p2-card-feedback-workbuddy.md)。本地实现与正式验收分别记录；负责人随后于2026-10-19确认上线和真人验收，P2正式结项，见[p2-closeout.md](p2-closeout.md)。本次文档收尾不改变规则语义。

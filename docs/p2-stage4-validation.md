@@ -1,3 +1,5 @@
+> 阶段状态更新（2026-10-19）：负责人已确认上线与真人验收，P2正式完成。当前结论见[P2结项记录](p2-closeout.md)，后续见[P3交接](p3-handoff.md)。以下正文保留该批次当时的版本、待部署及待验收状态；其中旧的未结项结论已由本次确认替代，未实施功能仍以[P3待办](p3-backlog.md)为准。
+
 ## 2026-10-18 搏击操与地图二次修订（截图及交付包验证通过）
 
 候选0.2.7-p2.8／web-v0.1.9／修订20；搏击操基础费用3／4／5AP、按实体最初获得者的入弃回复、免费高等级防御已实现。地图采用PC分栏；移动长页已被否决并返修为主界面单屏布局，见[p2-mobile-single-screen-validation.md](p2-mobile-single-screen-validation.md)。67文件560项本地测试通过，见[p2-exercise-validation.md](p2-exercise-validation.md)与[新规则](web-rules-v0.1.9.md)。旧地图截图验收结论已更正。负责人已通过PC／移动截图审核，授权先构建WorkBuddy交付包、之后上传GitHub；最终结果见[p2-exercise-delivery.md](p2-exercise-delivery.md)。未部署，P2未结项。下文保留历史记录。
