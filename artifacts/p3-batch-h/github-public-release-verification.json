@@ -1,0 +1,29 @@
+{
+  "id": 421531465,
+  "tag": "v0.3.8-p3.9",
+  "draft": false,
+  "target": "8342fa0e30e829915ff12ebe9c3bde10662e6ead",
+  "url": "https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.3.8-p3.9",
+  "publishedAt": "2026-10-23T07:41:31Z",
+  "assets": [
+    {
+      "id": 668255123,
+      "name": "monkey-legend-0.3.8-p3.9-p3-workbuddy-all.zip",
+      "bytes": 118012571,
+      "digest": "sha256:5d380b2490d9d4156589984be77e850c63bbbab6518caa678f27113d6611e8d1",
+      "state": "uploaded",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/releases/download/v0.3.8-p3.9/monkey-legend-0.3.8-p3.9-p3-workbuddy-all.zip"
+    },
+    {
+      "id": 668364796,
+      "name": "monkey-legend-0.3.8-p3.9-p3-workbuddy-all.zip.sha256",
+      "bytes": 113,
+      "digest": "sha256:b8c3029f040fe88552efe612e98b4a05dad29ef2dfdf779d6f8e9aabf1f2b08c",
+      "state": "uploaded",
+      "url": "https://github.com/NoobPvPerL/monkey-legend/releases/download/v0.3.8-p3.9/monkey-legend-0.3.8-p3.9-p3-workbuddy-all.zip.sha256"
+    }
+  ],
+  "method": "Independent GitHub connector GET of published release after full asset downloads",
+  "passed": true,
+  "productionDeployed": false
+}

@@ -1,0 +1,17 @@
+{
+  "attempts": [
+    {
+      "result": "failed",
+      "stage": "full-stream remote asset read",
+      "error": "TimeoutError; uploaded asset retained; no publication"
+    },
+    {
+      "result": "failed",
+      "stage": "source commit GET before upload",
+      "error": "HTTP502; existing uploaded asset retained"
+    }
+  ],
+  "recovery": "Bounded 1MiB ranges with six read-only workers and ignored per-range checkpoints; safe GET retries only, no automatic retry of ambiguous writes; completed full bytes hashed before publication. Original sequential bounded download was stopped deliberately after preserving its prefix to improve throughput.",
+  "packageRebuilt": false,
+  "productionDeployed": false
+}

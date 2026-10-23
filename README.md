@@ -8,7 +8,7 @@
 
 当前P3本地候选：**0.3.8-p3.9／web-v0.1.19／schema2／修订30，52角色、76种191实体**。A—H普通新局／选角及数据库权威链路已接通本地候选，030已生成并在隔离库验证，000—029冻结。H的N-03—N-13与G的N-01／N-02已由负责人核对并批准按当前实现交付；008大帝汶另批。C—F84张及H技能81张截图保留，新增正常H选角／出生／开局20张PC／手机视口截图。旧局和旧选角保持保存版本；旧v14初始化修复已含030后继工厂，不改冻结迁移或已有状态。
 
-本次源码已固定为8342fa0e30e829915ff12ebe9c3bde10662e6ead，完整回归1507／1507通过；实际WorkBuddy包已构建并独立解压、安装、构建及验证，总包112.55MiB。GitHub上传回执随后补齐；没有执行生产写入。详见[P3交付记录](docs/p3-delivery.md)，云端执行与P3阶段验收另需授权及证据。
+本次源码已固定为8342fa0e30e829915ff12ebe9c3bde10662e6ead，完整回归1507／1507通过；实际WorkBuddy包已构建并独立解压、安装、构建及验证，总包112.55MiB。GitHub源码与[本次Release](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.3.8-p3.9)已上传并下载核对；没有执行生产写入。详见[P3交付记录](docs/p3-delivery.md)，云端执行与P3阶段验收另需授权及证据。
 
 [H验收入口](docs/p3-batch-h-review.md) · [完整候选验证及20张截图](docs/p3-h-activation-validation.md) · [交付核对表](docs/p3-release-readiness.md)
 
@@ -40,6 +40,6 @@ npm start
 
 本地检查用`npm test -- --maxWorkers=2`、`npm run typecheck`、`npm run verify:data`、`npm run verify:db-data`、`npm run verify:catalog`；数据生成器修改前先了解历史快照与迁移冻结关系。
 
-最终WorkBuddy总包保存在本机releases目录（Git忽略），版本0.2.8-p2.9，准确路径和哈希见交付记录。GitHub上的[v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)为早期P2归档，不能当作最新部署包。P1的Windows一键本地包和操作说明仍见[历史P1发布](docs/p1-release.md)。
+本次P3 WorkBuddy总包0.3.8-p3.9保存在本机releases目录（Git忽略），准确路径、SHA256及独立验包回执见[P3交付记录](docs/p3-delivery.md)。0.2.8-p2.9总包保留为P2历史交付。GitHub上的[v0.2.0-p2.1](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.2.0-p2.1)为早期P2归档，不能当作最新部署包。P1的Windows一键本地包和操作说明仍见[历史P1发布](docs/p1-release.md)。
 
 P2反馈Issue #9、#10、#13、#14已关闭并逐项复核远端completed状态，见结项回执；独立的卡牌格式Issue #2／PR #3和P1反馈#8保留。后续普通角色扩展需先确定批次，神牌与课程仍属P4，3—6人／3v3不自动纳入当前范围。

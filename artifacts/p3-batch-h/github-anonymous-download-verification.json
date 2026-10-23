@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-23T07:45:35.967942+00:00",
+  "method": "Anonymous HTTPS, no credentials; entire public SHA sidecar and first64KiB archive range checked against local validated files",
+  "archiveBytes": 118012571,
+  "sidecarSha256": "b8c3029f040fe88552efe612e98b4a05dad29ef2dfdf779d6f8e9aabf1f2b08c",
+  "prefixBytes": 65536,
+  "passed": true,
+  "fullArchiveDownloadEvidence": "github-release-upload.json",
+  "productionDeployed": false
+}

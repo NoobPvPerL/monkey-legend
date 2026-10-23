@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-23T07:46:57.764408+00:00",
+  "sourceCommit": "8342fa0e30e829915ff12ebe9c3bde10662e6ead",
+  "sourceSnapshotSha256": "5b1e95d66eccb6b97687d9d966d3c7509d1897326370fcb3387cd21681ddef3c",
+  "appVersion": "0.3.8-p3.9",
+  "ruleVersion": "web-v0.1.19",
+  "engineRevision": 30,
+  "characterDefinitions": 52,
+  "fullTestsPassed": 1507,
+  "testFiles": 142,
+  "actualPackageChecks": 16,
+  "completeRemoteAssetDownloads": 2,
+  "anonymousPublicDownloadVerified": true,
+  "runtimeAndDatabaseUnchangedAfterPackage": true,
+  "documentationLinksChecked": 168,
+  "changedInputsSensitivePatternScanPassed": true,
+  "releaseUrl": "https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.3.8-p3.9",
+  "passed": true,
+  "finalDocumentationPushPending": true,
+  "productionDeployed": false,
+  "phaseAccepted": false
+}

@@ -1,6 +1,6 @@
 # 0.3.8-p3.9 P3交付记录
 
-2026-10-23，Asia/Hong_Kong。负责人已核对当前规则／截图并授权继续构建、独立验包与GitHub上传；见[审核记录](p3-approval.md)。当前完成本地交付包构建及独立验证，GitHub上传回执后补。未执行生产迁移／部署，也未将本次构建当作P3真人验收或阶段结项。
+2026-10-23，Asia/Hong_Kong。负责人已核对当前规则／截图并授权继续构建、独立验包与GitHub上传；见[审核记录](p3-approval.md)。本次开发、实际交付包构建、独立验证及GitHub上传／完整下载核对均已完成。未执行生产迁移／部署，也未将本次构建当作P3真人验收或阶段结项。
 
 ## 实际产物
 
@@ -27,4 +27,8 @@
 
 ## GitHub与生产边界
 
-源码及本次总包待上传并独立读取远端回执；不拿旧P2 Release代替本次包。008大帝汶、神牌／课程、人数及主题色保持原另批范围。生产迁移／部署与新阶段真人验收另需对应授权及真实证据；操作说明见[P3 WorkBuddy交接](p3-workbuddy.md)。
+源码已正常推送main；[v0.3.8-p3.9 Release](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.3.8-p3.9)于2026-10-23 07:41:31 UTC公开发布，指向上述固定源码提交。独立GitHub连接器读取提交／版本及公开Release通过；总包和113字节哈希附件已从远端完整下载并计算SHA256，均与本地一致。正式下载链接与摘要见[上传回执](../artifacts/p3-batch-h/github-release-upload.json)和[独立发布核对](../artifacts/p3-batch-h/github-public-release-verification.json)。
+
+首轮长流下载超时、另次大提交差异查询502均保留记录；改用小型Git提交对象、安全GET重试及六路1MiB范围下载／断点缓存，完整合并后重新计算哈希才发布。后续只读重跑复用完整下载文件，核对发布后正式URL；没有覆盖原附件或重建ZIP。详情见[失败记录](../artifacts/p3-batch-h/github-release-upload-first-timeout.json)、[重试说明](../artifacts/p3-batch-h/github-upload-retry-notes.json)。
+
+制包后仅交付文档、回执及上传工具的网络恢复逻辑发生变化；应用／规则／数据库字节仍是固定8342fa0，包内共同快照不因后续记录提交倒改。008大帝汶、神牌／课程、人数及主题色保持原另批范围。生产迁移／部署与新阶段真人验收另需对应授权及真实证据；操作说明见[P3 WorkBuddy交接](p3-workbuddy.md)。
