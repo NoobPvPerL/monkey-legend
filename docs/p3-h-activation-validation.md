@@ -1,5 +1,7 @@
 # H完整本地候选验证
 
+2026-10-23最终交付更新：当前规则／截图已核对，1507项回归及真实WorkBuddy包独立验证通过，GitHub源码与[v0.3.8-p3.9 Release](https://github.com/NoobPvPerL/monkey-legend/releases/tag/v0.3.8-p3.9)已上传且完整下载校验一致。见[交付记录](p3-delivery.md)。以下较早待审核、未制包／未上传为历史检查点，保留原证据；生产部署与P3真人验收仍未执行。
+
 2026-10-23审核更新：负责人已核对当前规则与截图，批准继续构建、独立验包及GitHub上传；[审核记录](p3-approval.md)。以下较早“待审核／等待审核阻塞”是当时检查点，已由本次授权替代。实际制包／上传结果另据真实回执更新，生产执行和P3阶段结项仍未授权。
 
 2026-10-23。当前应用0.3.8-p3.9／web-v0.1.19／schema2／修订30／52角色／76种191实体。依据[候选接线方案](p3-h-activation-candidate.md)继续完成可审核实现；本页取代此前“普通入口仍G43、无030”的当前状态描述，原检查点和失败报告保留。
@@ -49,12 +51,12 @@ node tools/verify-p3-h-activation-browser.mjs
 node tools/verify-p3-h-activation-browser-sql.mjs
 ```
 
-## 待审核与交付
+## 历史待审核与交付（最新结果见页首）
 
 九角色的[N-03—N-13](p3-batch-h-review.md)及N-01／N-02仍待负责人验收。应用／数据库／素材／交付脚本输入已统一30／v19／52，但未执行WorkBuddy构建、独立包验证、Git提交／推送、GitHub上传或生产写入。下一步须按[交付核对表](p3-release-readiness.md)取得规则／截图及构建审核，再构建和独立验证后上传；生产执行与阶段验收另需授权及证据。
 
 
-## 最终检查点（2026-10-23）
+## 审核前最终检查点（2026-10-23，后续交付见页首）
 
 阵营转换修复后[全量1477／1477通过](../artifacts/p3-batch-h/full-regression-activation-share-final.json)，140个测试文件／144套件，无失败或跳过。全量同时重跑私有及普通030工厂各26场，每组2666条指令、191实体完整状态比较并自然结束；此前逐场报告保留于pre-conversion-fix-games目录。
 
