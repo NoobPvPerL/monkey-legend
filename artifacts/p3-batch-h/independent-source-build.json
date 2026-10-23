@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-23T06:19:16.131655+00:00",
+  "sourceCommit": "8342fa0e30e829915ff12ebe9c3bde10662e6ead",
+  "sourceDirty": false,
+  "sourceSnapshotSha256": "5b1e95d66eccb6b97687d9d966d3c7509d1897326370fcb3387cd21681ddef3c",
+  "independentSource": "D:\\Users\\20753\\Desktop\\应猴传说\\monkey-legend\\.release-cache\\p3-package-20261023T061450181190Z\\独立解压验证\\monkey-legend-0.3.8-p3.9-online-source-p3-workbuddy",
+  "commands": [
+    "npm ci --offline --cache C:/Users/20753/AppData/Local/npm-cache",
+    "npm run build"
+  ],
+  "passed": true,
+  "dependenciesInstalled": 72,
+  "globalAllowScriptsChanged": false,
+  "warnings": [
+    "esbuild postinstall not covered by allowScripts; build succeeded using installed platform binary",
+    "Vite chunk larger than500kB"
+  ],
+  "assets": {
+    "dist/index.html": "70156996660c3126fa4bfc98d873f42085c419121919c6393e842c4b8e39d31c",
+    "server-dist/index.mjs": "026a76642cbbfd3be0f07eb5588922aefd25a5b160f59e10f90487a8ca77e40f",
+    "dist/assets/index-Bc79hvb9.css": "1529b4dd2a99255603e901c2e5f5cbbf4c5cf1d8b345e2bbbdb8c0e0966f9240",
+    "dist/assets/index-kyaogXvo.js": "f70e5be6a121444805bd608a533e4463cf07ea7cf82ee7ecfd03ea2b39d220ef",
+    "dist/assets/LocalTable-DUS3sxQc.js": "c45f9d516fcda9bafbd4add1fe17e2211995d747ff87defa688ba2bfa7e569b2"
+  }
+}

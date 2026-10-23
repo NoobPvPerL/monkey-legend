@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-23T06:32:13.465368+00:00",
+  "archive": "monkey-legend-0.3.8-p3.9-p3-workbuddy-all.zip",
+  "bytes": 118012571,
+  "sha256": "5d380b2490d9d4156589984be77e850c63bbbab6518caa678f27113d6611e8d1",
+  "sourceCommit": "8342fa0e30e829915ff12ebe9c3bde10662e6ead",
+  "sourceDirty": false,
+  "sourceSnapshotSha256": "5b1e95d66eccb6b97687d9d966d3c7509d1897326370fcb3387cd21681ddef3c",
+  "outerFilesVerified": 18,
+  "innerArchivesVerified": 2,
+  "passed": true,
+  "productionDeployed": false
+}
