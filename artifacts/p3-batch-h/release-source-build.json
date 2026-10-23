@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-23T06:06:03.115940+00:00",
+  "command": "npm run build",
+  "passed": true,
+  "references": 128,
+  "warning": "Vite chunk exceeds500kB; non-blocking, no functionality changed",
+  "assets": {
+    "dist/index.html": "70156996660c3126fa4bfc98d873f42085c419121919c6393e842c4b8e39d31c",
+    "server-dist/index.mjs": "026a76642cbbfd3be0f07eb5588922aefd25a5b160f59e10f90487a8ca77e40f",
+    "dist/assets/index-Bc79hvb9.css": "1529b4dd2a99255603e901c2e5f5cbbf4c5cf1d8b345e2bbbdb8c0e0966f9240",
+    "dist/assets/index-kyaogXvo.js": "f70e5be6a121444805bd608a533e4463cf07ea7cf82ee7ecfd03ea2b39d220ef",
+    "dist/assets/LocalTable-DUS3sxQc.js": "c45f9d516fcda9bafbd4add1fe17e2211995d747ff87defa688ba2bfa7e569b2"
+  }
+}

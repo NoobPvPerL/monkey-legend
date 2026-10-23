@@ -1,0 +1,176 @@
+[
+  {
+    "path": "artifacts/p3-batch-f/cdef-mobile-sheet01.png",
+    "screenshots": [
+      "artifacts/p3-batch-c/feather-start-mobile.png",
+      "artifacts/p3-batch-c/feather-target-mobile.png",
+      "artifacts/p3-batch-c/feather-result-mobile.png",
+      "artifacts/p3-batch-c/feather-fail-start-mobile.png",
+      "artifacts/p3-batch-c/feather-fail-result-mobile.png",
+      "artifacts/p3-batch-c/primitive-start-mobile.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-mobile-sheet02.png",
+    "screenshots": [
+      "artifacts/p3-batch-c/primitive-result-mobile.png",
+      "artifacts/p3-batch-d/dragon-start-mobile.png",
+      "artifacts/p3-batch-d/dragon-target-mobile.png",
+      "artifacts/p3-batch-d/dragon-result-mobile.png",
+      "artifacts/p3-batch-d/clan-start-mobile.png",
+      "artifacts/p3-batch-d/clan-result-mobile.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-mobile-sheet03.png",
+    "screenshots": [
+      "artifacts/p3-batch-d/encourage-start-mobile.png",
+      "artifacts/p3-batch-d/encourage-discard-mobile.png",
+      "artifacts/p3-batch-d/encourage-result-mobile.png",
+      "artifacts/p3-batch-e/gas-start-mobile.png",
+      "artifacts/p3-batch-e/gas-consent-mobile.png",
+      "artifacts/p3-batch-e/gas-egg-mobile.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-mobile-sheet04.png",
+    "screenshots": [
+      "artifacts/p3-batch-e/gas-result-mobile.png",
+      "artifacts/p3-batch-e/escape-start-mobile.png",
+      "artifacts/p3-batch-e/escape-direction-mobile.png",
+      "artifacts/p3-batch-e/escape-result-mobile.png",
+      "artifacts/p3-batch-e/highest-start-mobile.png",
+      "artifacts/p3-batch-e/highest-direction-mobile.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-mobile-sheet05.png",
+    "screenshots": [
+      "artifacts/p3-batch-e/highest-result-mobile.png",
+      "artifacts/p3-batch-f/execute-start-mobile.png",
+      "artifacts/p3-batch-f/execute-target-mobile.png",
+      "artifacts/p3-batch-f/execute-result-mobile.png",
+      "artifacts/p3-batch-f/tenacity-start-mobile.png",
+      "artifacts/p3-batch-f/tenacity-tenacity-mobile.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-mobile-sheet06.png",
+    "screenshots": [
+      "artifacts/p3-batch-f/tenacity-result-mobile.png",
+      "artifacts/p3-batch-f/monkey5-start-mobile.png",
+      "artifacts/p3-batch-f/monkey5-result-mobile.png",
+      "artifacts/p3-batch-f/home-start-mobile.png",
+      "artifacts/p3-batch-f/home-result-mobile.png",
+      "artifacts/p3-batch-f/self-start-mobile.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-mobile-sheet07.png",
+    "screenshots": [
+      "artifacts/p3-batch-f/self-discard-mobile.png",
+      "artifacts/p3-batch-f/self-result-mobile.png",
+      "artifacts/p3-batch-f/sting-start-mobile.png",
+      "artifacts/p3-batch-f/sting-result-mobile.png",
+      "artifacts/p3-batch-f/bccb-start-mobile.png",
+      "artifacts/p3-batch-f/bccb-result-mobile.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet01.png",
+    "screenshots": [
+      "artifacts/p3-batch-c/feather-start-desktop.png",
+      "artifacts/p3-batch-c/feather-target-desktop.png",
+      "artifacts/p3-batch-c/feather-result-desktop.png",
+      "artifacts/p3-batch-c/feather-fail-start-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet02.png",
+    "screenshots": [
+      "artifacts/p3-batch-c/feather-fail-result-desktop.png",
+      "artifacts/p3-batch-c/primitive-start-desktop.png",
+      "artifacts/p3-batch-c/primitive-result-desktop.png",
+      "artifacts/p3-batch-d/dragon-start-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet03.png",
+    "screenshots": [
+      "artifacts/p3-batch-d/dragon-target-desktop.png",
+      "artifacts/p3-batch-d/dragon-result-desktop.png",
+      "artifacts/p3-batch-d/clan-start-desktop.png",
+      "artifacts/p3-batch-d/clan-result-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet04.png",
+    "screenshots": [
+      "artifacts/p3-batch-d/encourage-start-desktop.png",
+      "artifacts/p3-batch-d/encourage-discard-desktop.png",
+      "artifacts/p3-batch-d/encourage-result-desktop.png",
+      "artifacts/p3-batch-e/gas-start-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet05.png",
+    "screenshots": [
+      "artifacts/p3-batch-e/gas-consent-desktop.png",
+      "artifacts/p3-batch-e/gas-egg-desktop.png",
+      "artifacts/p3-batch-e/gas-result-desktop.png",
+      "artifacts/p3-batch-e/escape-start-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet06.png",
+    "screenshots": [
+      "artifacts/p3-batch-e/escape-direction-desktop.png",
+      "artifacts/p3-batch-e/escape-result-desktop.png",
+      "artifacts/p3-batch-e/highest-start-desktop.png",
+      "artifacts/p3-batch-e/highest-direction-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet07.png",
+    "screenshots": [
+      "artifacts/p3-batch-e/highest-result-desktop.png",
+      "artifacts/p3-batch-f/execute-start-desktop.png",
+      "artifacts/p3-batch-f/execute-target-desktop.png",
+      "artifacts/p3-batch-f/execute-result-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet08.png",
+    "screenshots": [
+      "artifacts/p3-batch-f/tenacity-start-desktop.png",
+      "artifacts/p3-batch-f/tenacity-tenacity-desktop.png",
+      "artifacts/p3-batch-f/tenacity-result-desktop.png",
+      "artifacts/p3-batch-f/monkey5-start-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet09.png",
+    "screenshots": [
+      "artifacts/p3-batch-f/monkey5-result-desktop.png",
+      "artifacts/p3-batch-f/home-start-desktop.png",
+      "artifacts/p3-batch-f/home-result-desktop.png",
+      "artifacts/p3-batch-f/self-start-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet10.png",
+    "screenshots": [
+      "artifacts/p3-batch-f/self-discard-desktop.png",
+      "artifacts/p3-batch-f/self-result-desktop.png",
+      "artifacts/p3-batch-f/sting-start-desktop.png",
+      "artifacts/p3-batch-f/sting-result-desktop.png"
+    ]
+  },
+  {
+    "path": "artifacts/p3-batch-f/cdef-desktop-sheet11.png",
+    "screenshots": [
+      "artifacts/p3-batch-f/bccb-start-desktop.png",
+      "artifacts/p3-batch-f/bccb-result-desktop.png"
+    ]
+  }
+]

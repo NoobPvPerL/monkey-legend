@@ -3,9 +3,9 @@ import {readFile} from 'node:fs/promises';
 import {database} from './database';
 import {createGame,dispatch} from '../../packages/game-core/src/index';
 import {createStage3Draft,dispatchDraft} from '../../packages/game-core/src/draft';
-import {databaseReady as ready,CURRENT_DATABASE_REQUIREMENT} from '../../packages/online/src/version';
+import {databaseReady as ready} from '../../packages/online/src/version';
 // Revision21 atomic upgrade and new-match gate.
-const databaseReady=(h:unknown)=>ready(h,CURRENT_DATABASE_REQUIREMENT);
+const databaseReady=(h:unknown)=>ready(h,{ruleVersion:'web-v0.1.10',engineRevision:21,stage4:true});
 const migration=await readFile('database/migrations/021_p2_card_feedback.sql','utf8');
 const atomic=(sql:string)=>`DO $stage4_outer$ BEGIN EXECUTE $stage4_body$${sql}$stage4_body$;END $stage4_outer$;`;
 it('021 upgrades atomically, preserves old games/drafts/profiles/identities and opens only new matches with191 cards',async()=>{

@@ -1,0 +1,35 @@
+{
+  "scope": "Normal H factories and isolated030 SQL; no production deployment",
+  "mode": "ffa",
+  "seed": 1202,
+  "characters": [
+    "character-030",
+    "character-019",
+    "character-025",
+    "character-042"
+  ],
+  "commands": 172,
+  "rounds": 15,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    2
+  ],
+  "events": 395,
+  "choiceResolutionsAndSkills": {
+    "card-counter": 12,
+    "response": 1,
+    "skill:cooperate": 5,
+    "h-cooperate": 5,
+    "g-math": 5,
+    "skill:quote-cost": 20,
+    "discard": 19,
+    "gear-cloak": 1,
+    "forced-card": 1,
+    "skill:mayi": 6,
+    "board-guess": 1,
+    "board-cell": 1,
+    "board-tax": 1,
+    "board-path": 1
+  }
+}

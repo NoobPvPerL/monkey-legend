@@ -1,12 +1,18 @@
 # 应猴传说：高唐之战
 
-四人校园地图卡牌游戏，支持各自为战与2对2。**2026-10-19，负责人确认已上线并通过真人游玩验收，P2正式完成。** 当前进入P3规划交接。
+2026-10-23审核更新：负责人已核对当前规则与截图，批准继续构建、独立验包及GitHub上传；[审核记录](docs/p3-approval.md)。以下较早“待审核／等待审核阻塞”是当时检查点，已由本次授权替代。实际制包／上传结果另据真实回执更新，生产执行和P3阶段结项仍未授权。
 
-[进入游戏](https://monkey-legend-p2.app.workbuddy.host/) · [当前计划](docs/plan.md) · [P2结项与证据](docs/p2-closeout.md) · [P3新agent交接](docs/p3-handoff.md)
+四人校园地图卡牌游戏，支持各自为战与2对2。2026-10-19负责人确认上线并通过真人游玩验收，P2正式完成；P3当前为待审核本地候选。
 
-当前代码版本：**0.2.8-p2.9／web-v0.1.10／schema2／engineRevision21**。16角色、76种191实体基础牌，经典4×8地图；装备坐骑、反制、地形控制、普通复活和插队已实现。旧局及已开始选角保留其保存版本。上线／真人验收来自负责人确认，本次收尾环境DNS查询失败，未独立复测公网资产。
+[进入游戏](https://monkey-legend-p2.app.workbuddy.host/) · [当前计划](docs/plan.md) · [P2结项](docs/p2-closeout.md) · [P3交接](docs/p3-handoff.md)
 
-P2还包括好友房、数据库权威状态、身份恢复、聊天观战、结算再开、完整地图和手机主界面单屏、技能按钮直显、PC手牌拖动与滚轮、完整牌效提示及默认提示音。应豪两项历史反馈及未来建议继续登记在[P3待办](docs/p3-backlog.md)。
+当前P3本地候选：**0.3.8-p3.9／web-v0.1.19／schema2／修订30，52角色、76种191实体**。A—H普通新局／选角及数据库权威链路已接通本地候选，030已生成并在隔离库验证，000—029冻结。H九角色暂定N-03—N-13与G的N-01／N-02仍待规则验收；008大帝汶另批。C—F84张及H技能81张截图保留，新增正常H选角／出生／开局20张PC／手机视口截图。旧局和旧选角保持保存版本；旧v14初始化修复已含030后继工厂，不改冻结迁移或已有状态。
+
+当前只完成本地候选及验证；尚未获得本次最终规则／截图／构建审核，未构建WorkBuddy交付包、提交／上传GitHub或写入生产。审核后按构建、独立包验证、上传顺序交付；云端执行与P3阶段验收另需授权及证据。
+
+[H验收入口](docs/p3-batch-h-review.md) · [完整候选验证及20张截图](docs/p3-h-activation-validation.md) · [交付核对表](docs/p3-release-readiness.md)
+
+P2已验收基线：0.2.8-p2.9／web-v0.1.10／schema2／修订21，16角色、76种191实体。上线及真人验收依据负责人确认；收尾工具未独立取得最终公网回执。当前本地候选不代表线上已升级。
 
 ## 开发与运行
 
@@ -28,7 +34,7 @@ npm start
 
 ## 规则、验证与交付
 
-- [最新网页规则v0.1.10](docs/web-rules-v0.1.10.md)及其引用链；[历史规格索引](docs/rules-spec.md)、[原作资料](docs/cards/README.md)、[裁定来源](docs/rule-decisions.md)。
+- [当前H候选规则v0.1.19](docs/web-rules-v0.1.19.md)与[P2已验收v0.1.10](docs/web-rules-v0.1.10.md)及其引用链；[历史规格索引](docs/rules-spec.md)、[原作资料](docs/cards/README.md)、[裁定来源](docs/rule-decisions.md)。
 - [最终开发验证与截图](docs/p2-card-feedback-validation.md)、[最终交付包及SHA-256](docs/p2-card-feedback-delivery.md)、[P2正式结项](docs/p2-closeout.md)。
 - [P3交接](docs/p3-handoff.md)、[遗留待办](docs/p3-backlog.md)、[开发日志](docs/development-log.md)、[协作规则](docs/AGENTS.md)。
 

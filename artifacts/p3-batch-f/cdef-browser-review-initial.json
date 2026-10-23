@@ -1,0 +1,45 @@
+{
+  "scope": "Actual local OnlineBoard clicks and core dispatch using controlled C-F scenarios. Headless Edge viewport emulation, not physical mobile, production or user acceptance.",
+  "screenshots": [
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-start-mobile.png",
+      "sha256": "2e6230181ff1393f784003722637bc6fc03d69070379d438bfe9078eda0c1cc7",
+      "bytes": 68603,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-failed-attempt-mobile.png",
+      "sha256": "5dbbd3034fbe14ac7462814383cf6b9b365039a826c7e94ee9063d212df39eed",
+      "bytes": 71139,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    }
+  ],
+  "flows": [],
+  "errors": [
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "error": "ReferenceError: r is not defined\n    at act (file:///D:/Users/20753/Desktop/%E5%BA%94%E7%8C%B4%E4%BC%A0%E8%AF%B4/monkey-legend/.release-cache/p3-cdef-browser.mjs:11:228)\n    at async file:///D:/Users/20753/Desktop/%E5%BA%94%E7%8C%B4%E4%BC%A0%E8%AF%B4/monkey-legend/.release-cache/p3-cdef-browser.mjs:25:4"
+    }
+  ]
+}

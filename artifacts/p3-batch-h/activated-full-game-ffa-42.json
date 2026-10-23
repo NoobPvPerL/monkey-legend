@@ -1,0 +1,35 @@
+{
+  "scope": "Normal H factories and isolated030 SQL; no production deployment",
+  "mode": "ffa",
+  "seed": 42,
+  "characters": [
+    "character-001",
+    "character-015",
+    "character-039",
+    "character-021"
+  ],
+  "commands": 190,
+  "rounds": 14,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    2
+  ],
+  "events": 464,
+  "choiceResolutionsAndSkills": {
+    "skill:freeze": 7,
+    "discard": 17,
+    "h-attract": 6,
+    "skill:quote-cost": 31,
+    "h-reroll": 12,
+    "g-food": 3,
+    "forced-card": 4,
+    "h-six": 4,
+    "card-counter": 3,
+    "board-guess": 1,
+    "board-cell": 1,
+    "board-tax": 1,
+    "gear-react": 2,
+    "gear-loss": 1
+  }
+}

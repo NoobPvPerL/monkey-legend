@@ -1,0 +1,9 @@
+{
+  "version": "0.3.8-p3.9",
+  "ruleVersion": "web-v0.1.19",
+  "schemaVersion": 2,
+  "engineRevision": 30,
+  "characterDefinitions": 52,
+  "cardDefinitions": 76,
+  "cardInstances": 191
+}

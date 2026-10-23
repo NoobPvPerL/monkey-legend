@@ -21,7 +21,7 @@ from pg_proc p join pg_namespace n on n.oid=p.pronamespace
 where n.nspname='public' and p.proname in ('ml_room','ml_health','ml_maintenance','ml_watch','ml_chat');
 
 -- schemaVersion alone cannot detect an omitted feedback-rules migration.
-select coalesce((public.ml_health()->>'engineRevision')::int>=21,false) as engine_revision_ready,
+select coalesce((public.ml_health()->>'engineRevision')::int>=30,false) as engine_revision_ready,
        coalesce((public.ml_health()->>'feedbackRulesReady')::boolean,false) as feedback_rules_ready;
 
 select coalesce((public.ml_health()->>'versionedDataReady')::boolean,false) as versioned_data_ready,
@@ -33,7 +33,7 @@ select coalesce((public.ml_health()->>'locationRulesReady')::boolean,false) as l
        coalesce((public.ml_health()->>'waterRulesReady')::boolean,false) as water_rules_ready,
        coalesce((public.ml_health()->>'environmentRulesReady')::boolean,false) as environment_rules_ready;
 
-select public.ml_health()->>'ruleVersion'='web-v0.1.9' as current_rule_ready,
+select public.ml_health()->>'ruleVersion'='web-v0.1.19' as current_rule_ready,
        coalesce((public.ml_health()->>'classicPatchReady')::boolean,false) as classic_patch_ready;
 
 select coalesce((public.ml_health()->>'draftReady')::boolean,false) as draft_ready,
@@ -43,3 +43,22 @@ select coalesce((public.ml_health()->>'draftReady')::boolean,false) as draft_rea
 select coalesce((public.ml_health()->>'stage4Ready')::boolean,false) as stage4_ready,
        public.ml_health()->>'cardDefinitions'='76' as card_definitions_ready,
        public.ml_health()->>'cardInstances'='191' as card_instances_ready;
+
+select coalesce((public.ml_health()->>'yinghaoRulesReady')::boolean,false) as yinghao_rules_ready,
+       coalesce((public.ml_health()->>'p3CharactersReady')::boolean,false) as p3_characters_ready,
+       coalesce((public.ml_health()->>'potatoRulesReady')::boolean,false) as potato_rules_ready,
+       public.ml_health()->>'characterDefinitions'='52' as character_definitions_ready;
+
+select coalesce((public.ml_health()->>'batchCReady')::boolean,false) as batch_c_ready;
+
+select coalesce((public.ml_health()->>'batchDReady')::boolean,false) as batch_d_ready;
+
+select coalesce((public.ml_health()->>'batchEReady')::boolean,false) as batch_e_ready;
+
+select coalesce((public.ml_health()->>'batchFReady')::boolean,false) as batch_f_ready;
+
+select coalesce((public.ml_health()->>'batchGReady')::boolean,false) as batch_g_ready;
+
+select coalesce((public.ml_health()->>'batchHReady')::boolean,false) as batch_h_ready,
+       to_regprocedure('ml_private.p3h_birth_begin(jsonb,double precision)') is not null as h_birth_ready,
+       to_regprocedure('ml_private.p3h_gear_cards(jsonb,integer)') is not null as h_equipment_ready;

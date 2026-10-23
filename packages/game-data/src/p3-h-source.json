@@ -1,0 +1,103 @@
+{
+  "characters": {
+    "character-001": {
+      "id": "character-001",
+      "name": "6+6",
+      "source": "docs/cards/角色牌.md#character-001",
+      "text": "- 锁定技 组织部部长：你的回合开始的时候，场上的所有人都要向自己移动一格。\n- 主动技 6：场上只要有人甩出6，你就可以摸两张牌。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "4",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-011": {
+      "id": "character-011",
+      "name": "二幻神",
+      "source": "docs/cards/角色牌.md#character-011",
+      "text": "- 锁定技 又开始叫了：废掉和你相同地块的角色的主动技能（队友无效）。\n- 主动技 画圆：和你相同或相邻地块的角色无法移动出相同或相邻地块（但是可以在这之内移动），他们可以选择支付一点行动点，消除此效果一次。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "3",
+      "spawnRegion": "办公室",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-015": {
+      "id": "character-015",
+      "name": "猴三",
+      "source": "docs/cards/角色牌.md#character-015",
+      "text": "- 锁定技 拖动进度条：每当你成为场上血量最少的角色时，本回合直接结束，并跳到你的回合。\n- 主动技 狂叫：当你对你投出的点数不满意时，你可以再投一次（每次行动只能使用一次）。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "4",
+      "spawnRegion": "办公室",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-030": {
+      "id": "character-030",
+      "name": "南帝汶",
+      "source": "docs/cards/角色牌.md#character-030",
+      "text": "- 主动技 南南合作：选择一个人，和他互换任意张手牌，若此做，则在下一个回合，你和他一起扣血，一起回血（他不用和你一起扣血）。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "5",
+      "spawnRegion": "帝汶岛",
+      "printedFaction": null,
+      "waterNative": true
+    },
+    "character-034": {
+      "id": "character-034",
+      "name": "壬人心",
+      "source": "docs/cards/角色牌.md#character-034",
+      "text": "- 锁定技 做自己喜欢的教育：当他人对你造成伤害的时候，你可以让他向后推退一格，也可以让自己往后退一格（也可以两个都要）。\n- 主动技 厌蠢：当有人在你相同或相邻地块受到伤害的时候，你可以把他赶出与你相同或相邻的地块。\n- 主动技 化学金牌教练：你可以和相同或相邻地块的人进行拼点（对同一个角色只能成功一次），但是你可以投两次（取最大），如果你获胜则可以获得对方所有的行动点+手牌+装备+坐骑，若你失败，则你扣1/2/3点血（由拼点次数决定）。\n- 被动技 字迹潦草+口齿不清：每回合少获得一个行动点。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "3",
+      "spawnRegion": "办公室",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-035": {
+      "id": "character-035",
+      "name": "三幻神",
+      "source": "docs/cards/角色牌.md#character-035",
+      "text": "- 锁定技 世界是多元的：你的出生地自定义。\n- 锁定技 Leap：移动自定义（传送）。\n- 主动技 respect：你Leap的区域原本存在的角色会被你赶出去。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "3",
+      "spawnRegion": "???",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-039": {
+      "id": "character-039",
+      "name": "忘尘雪",
+      "source": "docs/cards/角色牌.md#character-039",
+      "text": "- 主动技 冰封之力：消耗2点行动点，使一个角色直接跳过他的回合（因为过于强大，所以两回合使用一次）。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "4",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-041": {
+      "id": "character-041",
+      "name": "小帝汶",
+      "source": "docs/cards/角色牌.md#character-041",
+      "text": "- 主动技 小：不占格位，若在移动的时候越过其他角色，则可以进行判定，1-3他人扣一滴血，4-6你抽他两张牌。\n- 锁定技（未命名）：你无法被躲避球选中。【最高等级】",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "3",
+      "spawnRegion": "帝汶岛",
+      "printedFaction": null,
+      "waterNative": true
+    },
+    "character-050": {
+      "id": "character-050",
+      "name": "中饭",
+      "source": "docs/cards/角色牌.md#character-050",
+      "text": "- 锁定技 装备哥：你装备装备时可以再摸一张牌，并且你和队友的装备共享。",
+      "notes": "原始牌面保留；H暂定解释见docs/p3-batch-h-provisional-plan.md，尚待负责人验收。",
+      "printedHp": "4",
+      "spawnRegion": "操场",
+      "printedFaction": null,
+      "waterNative": false
+    }
+  }
+}

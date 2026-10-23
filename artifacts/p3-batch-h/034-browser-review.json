@@ -1,0 +1,159 @@
+{
+  "scope": "H034 private localhost actual OnlineBoard; no physical mobile or cloud acceptance",
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:5187/review?scenario=ren",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/ren-source-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 48514,
+      "sha256": "5fa77660e9c9b80d2c5083bd91c8de09fb9a53aac5a81d202958e6091b1f3288"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-win-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 51229,
+      "sha256": "0d161ce8e42411a6d305a4f912f16bba226c0cb054b4ec9b8e771c13b068cf0f"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-gear-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 49952,
+      "sha256": "e9bd9f12bde4612e68b374f335957b416ffe92cda78e26dcbb39e3c35e320494"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-gear-complete-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 50490,
+      "sha256": "427e85765d16a34b7f80d13e7aa7471d2ff7fd02c3296c3013a2749ea8a6c745"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-retreat-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 48408,
+      "sha256": "2cfbddf530ae9307cb385020f3881e8706ad401c203c775420dcfb2613e404c4"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-back-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 48715,
+      "sha256": "156578a105202bd0c0609bcdaa0ba93b736f604a7c856688ff9be205940023a6"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-expel-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 51402,
+      "sha256": "75fa13e1b52ce10b7243bb124fed41d68343572470e0ee244092d83aac633686"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-source-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 93535,
+      "sha256": "417404da53162391781321f6b62c5fd714125cef7b96399a9fd5ad0bd2134767"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-win-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 98434,
+      "sha256": "3124ce21dfcf1b0a43b0847dc7bb2f8187dcdc404670d6dddcd0ac2be0762cba"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-gear-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 99474,
+      "sha256": "47791cb0643075bdca4239de8475d08a55cbd1ee18c109252ba505a35862f535"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-retreat-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 94208,
+      "sha256": "91c81115dd266c65752937d7db0b94eb7f4e3dc8fc4820a44766f4aa5c0275d3"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-expel-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 98141,
+      "sha256": "526bed4a355dcc5cb44d352f32e96543efa64b9244abc29526adbcb8550e5622"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-source-narrow-320.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 45978,
+      "sha256": "75493fb599c447ab7bc34a845530abb6ac83d6a6af9f599a1775391113f4d4d1"
+    },
+    {
+      "path": "artifacts/p3-batch-h/ren-source-landscape.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 46125,
+      "sha256": "6fff064fa6410bc27071df3e66df7c07565f466f728a46cd4243a6fd036d59d2"
+    }
+  ],
+  "priorScreenshotHashesVerified": 32,
+  "measurements": [
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320,
+      "controlsRect": [
+        6,
+        499.667,
+        314,
+        736
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "mapRect": [
+        6,
+        118,
+        467.927,
+        386
+      ],
+      "controlsRect": [
+        471.927,
+        118,
+        838,
+        386
+      ]
+    },
+    {
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200
+    }
+  ],
+  "verified": [
+    "all14 saved PNGs opened and inspected",
+    "mobile actual duel win, gear replacement, both retreat directions and expel completed",
+    "desktop actual duel and highlighted map-cell expel completed",
+    "narrow portrait has no document horizontal overflow; landscape map and actions side by side",
+    "whole OnlineBoard map-cell highlight tests added after missing choice allowlist found",
+    "temporary own tab closed, viewport reset, localhost server stopped"
+  ],
+  "caveats": [
+    "gear-complete mobile retains temporary toast over upper map; no claim that every screenshot is toast-free",
+    "30sec live choices not extended; isolated harness uses monotonic real time",
+    "no full-suite rerun after034; older030 suite retains one legacy failure"
+  ]
+}

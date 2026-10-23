@@ -1,0 +1,118 @@
+{
+  "auditedAt": "2026-10-22T10:37:17.894345+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "privateH": {
+    "version": "web-v0.1.19",
+    "characters": 51,
+    "implemented": [
+      "001",
+      "011",
+      "015",
+      "030",
+      "034",
+      "035",
+      "039",
+      "041"
+    ],
+    "remaining": [
+      "050"
+    ]
+  },
+  "normalCandidate": {
+    "version": "web-v0.1.18",
+    "characters": 43,
+    "engineRevision": 29
+  },
+  "frozenReferenceHashesVerified": 35,
+  "oldMigrationCatalogCheck": "npm run verify:catalog passed",
+  "migration029Sha256": "f5179b99332e27585cd1db7dd7f1d12c640656e828b24710949eca1abef2b473",
+  "originalTrackedFilesUnchanged": 196,
+  "originalAssetsVerified": 191,
+  "documentationLinksChecked": 479,
+  "reports": {
+    "041-runtime-initial": {
+      "files": 2,
+      "total": 53,
+      "passed": 0,
+      "failed": 0
+    },
+    "041-runtime-recheck1": {
+      "files": 2,
+      "total": 53,
+      "passed": 0,
+      "failed": 0
+    },
+    "041-runtime-recheck2": {
+      "files": 2,
+      "total": 53,
+      "passed": 53,
+      "failed": 0
+    },
+    "041-integrated-initial": {
+      "files": 1,
+      "total": 15,
+      "passed": 7,
+      "failed": 8
+    },
+    "041-integrated-recheck1": {
+      "files": 1,
+      "total": 15,
+      "passed": 0,
+      "failed": 0
+    },
+    "041-integrated-recheck2": {
+      "files": 1,
+      "total": 15,
+      "passed": 14,
+      "failed": 1
+    },
+    "041-integrated-recheck3": {
+      "files": 1,
+      "total": 15,
+      "passed": 15,
+      "failed": 0
+    },
+    "041-targeted-final": {
+      "files": 4,
+      "total": 97,
+      "passed": 97,
+      "failed": 0
+    },
+    "041-combinations-final": {
+      "files": 2,
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "041-integrated-games-final": {
+      "files": 3,
+      "total": 72,
+      "passed": 72,
+      "failed": 0
+    },
+    "full-regression-030-local-network": {
+      "files": 131,
+      "total": 1213,
+      "passed": 1212,
+      "failed": 1
+    }
+  },
+  "fullGames": {
+    "games": 22,
+    "commands": 2284,
+    "entities": 191
+  },
+  "screenshots": {
+    "priorHashesVerified": 57,
+    "newRasterInspected": 8
+  },
+  "typecheck": "passed",
+  "gitDiffCheck": "passed",
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "uploaded": false,
+  "productionWritten": false,
+  "unresolvedLegacyDefect": "026 saved v14 initialization missing C state before setup xiao-overflow, reproduced without H; not fixed",
+  "earlierFailuresRetained": true
+}

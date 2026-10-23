@@ -1,0 +1,27 @@
+{
+  "kind": "private local TS fixture and real production components; not cloud/device acceptance",
+  "replacement": "Browser tab: 10, Title: \"P3 G双装备本地审核\", URL: \"http://127.0.0.1:5185/review?scenario=replace\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 158-162, 171-192\n~\t\t15 container S1 质数第二份正装，不重复支付费用\n~\t\t\t16 text S1\n+\t\t\t171 text  质数第二份正装，不重复支付费用\n~\t\t\t\t\t27 text AP  9\n~\t\t\t\t\t31 text ▤  0\n~\t\t\t\t78 cell r1c2 教学楼 安全 陆地 黄虫装备审核 · 黄虫，生命3，AP9\n~\t\t\t\t150 text 你的手牌  ·  0  张\n~\t\t\t\t152 button 牌堆 188 / 弃牌 2\n~\t\t\t\t\t156 text 2\n+\t\t\t\t172 text 暂无手牌\n~\t\t\t165 text 选择手牌出牌，或移动、结束行动。\n+\t\t173 text 战场动态\n+\t\t174 container S1 质数第二份正装，不重复支付费用\n+\t\t\t175 text S1\n+\t\t\t176 text  质数第二份正装，不重复支付费用\n+\t\t177 container\n+\t\t\t178 text 正装  · 牌效说明 善良高贵：你每次受到伤害都可以反伤一点（轰炸区/毒圈无效）。【特性：易碎，只可以使用3次，自动报废】\n+\t\t179 text 是否命中、反制及最终数值以实际结算为准；对局计时继续。\n+\t\t180 button 关闭动作提示\nThe focused UI element is 1 AXWebArea P3 G双装备本地审核, URL: 127.0.0.1:5185/review?scenario=replace",
+  "watch": "Browser tab: 10, Title: \"P3 G双装备本地审核\", URL: \"http://127.0.0.1:5185/review?scenario=watch\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 86-87, 204, 207-211\n~\t\t14 container S1 手表回到上次个人开始格\n~\t\t\t16 text  手表回到上次个人开始格\n~\t\t\t\t83 cell r1c2 教学楼 安全 陆地\n~\t\t\t\t91 cell r1c4 秀松苑 安全 陆地 黄虫装备审核 · 黄虫，生命3，AP10\n+\t\t\t\t\t224 container 黄虫装备审核 · 黄虫\n+\t\t\t\t\t\t225 text S 1\n~\t\t\t202 button 手表 · 回到r1c1\nThe focused UI element is 1 AXWebArea P3 G双装备本地审核, URL: 127.0.0.1:5185/review?scenario=watch",
+  "terrain": "Browser tab: 10, Title: \"P3 G双装备本地审核\", URL: \"http://127.0.0.1:5185/review?scenario=terrain\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 176\n~\t\t\t168 checkbox 唐车 2 · 恢复地点效果, Value: 1\n~\t\t\t\t172 text 恢复地点效果\nThe focused UI element is 168 checkbox 唐车 2 · 恢复地点效果, Value: 1",
+  "bread": "Browser tab: 10, Title: \"P3 G双装备本地审核\", URL: \"http://127.0.0.1:5185/review?scenario=bread\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 179\n~\t\t\t\t9 text 48s\n~\t\t15 container S1 面包黏稠，支付2AP\n~\t\t\t17 text  面包黏稠，支付2AP\n~\t\t\t\t\t28 text AP  7\n~\t\t\t\t82 cell r1c2 教学楼 安全 陆地 黄虫装备审核 · 黄虫，生命3，AP7\n~\t\t\t\t176 pop up button (collapsed, settable) Description: 面包装备件, Value: 面包 1 · 已就绪, Secondary Actions: Expand\n~\t\t\t\t\t\t178 (selected) 面包 1 · 已就绪\nThe focused UI element is 180 button 令所选角色下次不能出牌",
+  "measurements": [
+    {
+      "buttons": [
+        "爆浆冰淇淋面包",
+        "爆浆冰淇淋面包",
+        "面包黏稠 · 2 AP"
+      ],
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "buttons": [
+        "爆浆冰淇淋面包",
+        "爆浆冰淇淋面包",
+        "面包黏稠 · 2 AP"
+      ],
+      "scroll": 844,
+      "width": 844
+    }
+  ]
+}

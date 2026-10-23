@@ -1,0 +1,233 @@
+{
+  "scope": "Replay the exact commands/timestamps recorded by local browser UI through isolated frozen000-029 SQL dispatch; complete state comparison after every command. Not production RPC or live-device evidence.",
+  "browserFlowSha256": "bf40f6a9945805e1aa9570b485330f8d52072ae3b4d61fbdab6c315af07f89c4",
+  "results": [
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "version": "web-v0.1.14",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "mobile",
+      "version": "web-v0.1.14",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "mobile",
+      "version": "web-v0.1.14",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "version": "web-v0.1.15",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "mobile",
+      "version": "web-v0.1.15",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "mobile",
+      "version": "web-v0.1.15",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "mobile",
+      "version": "web-v0.1.16",
+      "commands": 4,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "mobile",
+      "version": "web-v0.1.16",
+      "commands": 4,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "mobile",
+      "version": "web-v0.1.16",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "mobile",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "mobile",
+      "version": "web-v0.1.17",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "mobile",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "mobile",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "mobile",
+      "version": "web-v0.1.17",
+      "commands": 3,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "mobile",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "mobile",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "desktop",
+      "version": "web-v0.1.14",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "desktop",
+      "version": "web-v0.1.14",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "desktop",
+      "version": "web-v0.1.14",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "desktop",
+      "version": "web-v0.1.15",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "desktop",
+      "version": "web-v0.1.15",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "desktop",
+      "version": "web-v0.1.15",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "desktop",
+      "version": "web-v0.1.16",
+      "commands": 4,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "desktop",
+      "version": "web-v0.1.16",
+      "commands": 4,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "desktop",
+      "version": "web-v0.1.16",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "desktop",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "desktop",
+      "version": "web-v0.1.17",
+      "commands": 2,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "desktop",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "desktop",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "desktop",
+      "version": "web-v0.1.17",
+      "commands": 3,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "desktop",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "desktop",
+      "version": "web-v0.1.17",
+      "commands": 1,
+      "allStatesCompared": true
+    }
+  ],
+  "passed": true,
+  "flows": 32,
+  "commands": 56
+}

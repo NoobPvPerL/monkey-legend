@@ -1,0 +1,222 @@
+- main:
+  - generic: 应猴传说 本地审核 · v14
+  - generic: 房间 0382
+  - region "当前行动状态":
+    - strong: 轮到你行动
+    - generic: 第 1 轮 · 各自为战
+    - generic "剩余操作时间": 57s
+    - navigation "对局工具":
+      - button "日志"
+      - button "规则"
+  - status:
+    - generic: 最新动作
+    - paragraph:
+      - generic "S1 手长：本个人回合攻击牌不限距离":
+        - generic: S1
+        - text: 手长：本个人回合攻击牌不限距离
+    - button "查看完整动作日志": 展开
+  - region "战场玩家":
+    - article:
+      - generic: S1
+      - strong: 审核玩家 · 你
+      - generic "在线"
+      - button "羽毛人": 羽毛人
+      - paragraph:
+        - generic "生命": ♥ 4/4
+        - generic "行动点": AP 12
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 4
+      - generic "S1已装备":
+        - generic: 未装备
+        - generic: 手长全图
+    - article:
+      - generic: S2
+      - strong: 远处玩家
+      - generic "在线"
+      - button "涨佳选": 涨佳选
+      - paragraph:
+        - generic "生命": ♥ 5/5
+        - generic "行动点": AP 12
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 0
+      - generic "S2已装备":
+        - generic: 未装备
+      - button "已选目标 ✓" [pressed]
+    - article:
+      - generic: S3
+      - strong: 同场玩家
+      - generic "在线"
+      - button "原始人": 原始人
+      - paragraph:
+        - generic "生命": ♥ 4/4
+        - generic "行动点": AP 12
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 0
+      - generic "S3已装备":
+        - generic: 未装备
+        - generic: 睡觉待结算
+      - button "选择目标"
+    - article:
+      - generic: S4
+      - strong: 免疫玩家
+      - generic "在线"
+      - button "梅梅涛": 梅梅涛
+      - paragraph:
+        - generic "生命": ♥ 4/4
+        - generic "行动点": AP 12
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 0
+      - generic "S4已装备":
+        - generic: 未装备
+  - region "校园战场":
+    - strong: 校园战场 · 32格
+    - button "查看全图"
+    - generic: 永久毒区 2/11 区 · 轮末轰炸2区
+    - generic: 第5轮封闭高唐农场 · 无轰炸预告
+    - generic: 尚未进行轮末轰炸
+    - grid "32格校园棋盘":
+      - gridcell "r1c1 高唐农场 安全 陆地":
+        - generic: r1c1
+        - generic: 高唐农场
+      - gridcell "r1c2 教学楼 安全 陆地":
+        - generic: r1c2
+        - generic: 教学楼
+      - gridcell "r1c3 教学楼 安全 陆地":
+        - generic: r1c3
+        - generic: 教学楼
+      - gridcell "r1c4 秀松苑 安全 陆地":
+        - generic: r1c4
+        - generic: 秀松苑
+      - gridcell "r1c5 秀松苑 安全 陆地":
+        - generic: r1c5
+        - generic: 秀松苑
+      - gridcell "r1c6 尚德荟 安全 陆地":
+        - generic: r1c6
+        - generic: 尚德荟
+      - gridcell "r1c7 食堂 安全 陆地":
+        - generic: r1c7
+        - generic: 食堂
+      - gridcell "r1c8 飞船 安全 陆地":
+        - generic: r1c8
+        - generic: 飞船
+      - gridcell "r2c1 XDF 安全 陆地":
+        - generic: r2c1
+        - generic: XDF
+      - gridcell "r2c2 教学楼 安全 陆地 同场玩家 · 原始人，生命4，AP12":
+        - generic: r2c2
+        - generic: 教学楼
+        - generic "同场玩家 · 原始人": S3
+      - gridcell "r2c3 教学楼 安全 陆地":
+        - generic: r2c3
+        - generic: 教学楼
+      - gridcell "r2c4 操场 安全 陆地 审核玩家 · 羽毛人，生命4，AP12":
+        - generic: r2c4
+        - generic: 操场
+        - generic "审核玩家 · 羽毛人": S1
+      - gridcell "r2c5 秀松苑 安全 陆地":
+        - generic: r2c5
+        - generic: 秀松苑
+      - gridcell "r2c6 秀松苑 安全 陆地 免疫玩家 · 梅梅涛，生命4，AP12":
+        - generic: r2c6
+        - generic: 秀松苑
+        - generic "免疫玩家 · 梅梅涛": S4
+      - gridcell "r2c7 食堂 安全 陆地":
+        - generic: r2c7
+        - generic: 食堂
+      - gridcell "r2c8 山洞 安全 陆地":
+        - generic: r2c8
+        - generic: 山洞
+      - gridcell "r3c1 帝汶岛 安全 陆地":
+        - generic: r3c1
+        - generic: 帝汶岛
+      - gridcell "r3c2 帝汶岛 安全 陆地":
+        - generic: r3c2
+        - generic: 帝汶岛
+      - gridcell "r3c3 红素洋 毒圈 水域":
+        - generic: r3c3
+        - generic: 红素洋
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r3c4 操场 安全 陆地":
+        - generic: r3c4
+        - generic: 操场
+      - gridcell "r3c5 樱花大道 安全 陆地":
+        - generic: r3c5
+        - generic: 樱花大道
+      - gridcell "r3c6 樱花大道 安全 陆地":
+        - generic: r3c6
+        - generic: 樱花大道
+      - gridcell "r3c7 樱花大道 安全 陆地":
+        - generic: r3c7
+        - generic: 樱花大道
+      - gridcell "r3c8 樱花大道 安全 陆地":
+        - generic: r3c8
+        - generic: 樱花大道
+      - gridcell "r4c1 帝汶岛 安全 陆地":
+        - generic: r4c1
+        - generic: 帝汶岛
+      - gridcell "r4c2 帝汶岛 安全 陆地":
+        - generic: r4c2
+        - generic: 帝汶岛
+      - gridcell "r4c3 红素洋 毒圈 水域":
+        - generic: r4c3
+        - generic: 红素洋
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r4c4 办公室 安全 陆地":
+        - generic: r4c4
+        - generic: 办公室
+      - gridcell "r4c5 办公室 安全 陆地":
+        - generic: r4c5
+        - generic: 办公室
+      - gridcell "r4c6 淘安泽 毒圈 水域":
+        - generic: r4c6
+        - generic: 淘安泽
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r4c7 淘安泽 毒圈 水域":
+        - generic: r4c7
+        - generic: 淘安泽
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r4c8 云上学府 安全 陆地 远处玩家 · 涨佳选，生命5，AP12" [active]:
+        - generic: r4c8
+        - generic: 云上学府
+        - generic "远处玩家 · 涨佳选": S2
+  - region "你的手牌":
+    - strong: 你的手牌 · 4 张
+    - generic: AP 12 · 攻击已出0张 · 不限次数 · 移动可用
+    - button "牌效详情"
+    - button "牌堆 187 / 弃牌 0"
+    - generic "左右滑动查看手牌":
+      - button "躲避球，1 AP，同/相邻区域；骰4—6伤1；不能用防御姿态抵挡" [pressed]:
+        - text: 攻击
+        - generic: 1 AP
+        - strong: 躲避球
+        - generic: 同/相邻区域；骰4—6伤1；不能用防御姿态抵挡
+      - button "搏击操Ⅰ，3 AP，全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体；进入弃牌堆时，本局最初获得者存活则回复1AP；可免费响应更低等级搏击操，仅抵消对自己的扣AP及不足转扣血。":
+        - text: 攻击
+        - generic: 3 AP
+        - strong: 搏击操Ⅰ
+        - generic: 全图选1—3名敌人：各扣1AP，不足转普通伤害；始终为群体；进入弃牌堆时，本局最初获得者存活则回复1AP；可免费响应更低等级搏击操，仅抵消对自己的扣AP及不足转扣血。
+      - button "猴子游戏，2 AP，同区／相邻区选1—3名敌人，各自掷d6，单数受1伤；始终按群体判定。":
+        - text: 攻击
+        - generic: 2 AP
+        - strong: 猴子游戏
+        - generic: 同区／相邻区选1—3名敌人，各自掷d6，单数受1伤；始终按群体判定。
+      - button "奈雪，1 AP，自己回复1生命":
+        - text: 补给
+        - generic: 1 AP
+        - strong: 奈雪
+        - generic: 自己回复1生命
+  - region "操作区":
+    - status: 躲避球：同/相邻区域；骰4—6伤1；不能用防御姿态抵挡 · 已选 1 个目标
+    - button "移动 · 免费"
+    - button "手长 · 本回合已发动" [disabled]
+    - button "结束行动 →"
+    - region "本次卡牌效果":
+      - strong: 躲避球 · 本次1 AP
+      - paragraph: 同/相邻区域；骰4—6伤1；不能用防御姿态抵挡
+      - paragraph: 手长：本次攻击牌不限距离；主动技能免疫与地点禁牌照常。
+      - button "牌效与费用"
+    - button "确认出牌 · 1 AP"

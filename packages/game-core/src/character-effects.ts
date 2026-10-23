@@ -2,7 +2,7 @@
 // complete skills and room flow exist; callers must propagate current-action
 // role modifiers through every derived effect, including equipment effects.
 export type EffectOrigin='card'|'role-active'|'role-passive'|'role-locked'|'equipment'|'location'|'environment';
-export interface RoleModifier {actor:number;kind:'cost'|'target'|'damage'|'movement'|'conversion'|'other'}
+export interface RoleModifier {actor:number;kind:'cost'|'target'|'damage'|'movement'|'conversion'|'other'|'active-range'|'active'}
 export interface CharacterEffect {origin:EffectOrigin;actor:number|null;roleModifiers:readonly RoleModifier[]}
 export interface CharacterEffectTarget {seat:number;character:string}
 export function roleEffectAllowed(effect:CharacterEffect,target:CharacterEffectTarget):boolean {
@@ -11,7 +11,7 @@ export function roleEffectAllowed(effect:CharacterEffect,target:CharacterEffectT
  // Mei's veto is evaluated before any card-specific target override. The
  // caller drops this target's entire effect, not merely the added damage.
  if(target.character==='character-026'&&(otherRole||modifiedByOtherRole))return false;
- if(target.character==='character-044'&&effect.origin==='role-active'&&effect.actor!==target.seat)return false;
+ if(target.character==='character-044'&&(effect.origin==='role-active'&&effect.actor!==target.seat||effect.roleModifiers.some(m=>m.actor!==target.seat&&(m.kind==='active-range'||m.kind==='active'))))return false;
  return true;
 }
 export function modifiedByRole(effect:CharacterEffect,modifier:RoleModifier):CharacterEffect {

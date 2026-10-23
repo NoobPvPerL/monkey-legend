@@ -1,0 +1,36 @@
+{
+  "auditedAt": "2026-10-20T23:36:37.844588+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "frozenFilesUnchanged": 35,
+  "originalTrackedFilesUnchanged": 196,
+  "originalImagesAndTranscriptsUnchanged": 191,
+  "documentationLinksChecked": 302,
+  "characters": {
+    "source": 53,
+    "current": 35,
+    "GApprovedInDevelopment": 8,
+    "HNeedRulings": 9,
+    "separate008": 1
+  },
+  "regression": {
+    "files": 123,
+    "suites": 127,
+    "tests": 1054,
+    "passed": 1054
+  },
+  "laterGRegression": {
+    "files": 21,
+    "tests": 294,
+    "passed": 294
+  },
+  "fullGames": {
+    "games": 4,
+    "commands": 340,
+    "entities": 191
+  },
+  "newEquipmentScreenshots": 12,
+  "GActive": false,
+  "migration29Created": false,
+  "productionWritten": false
+}

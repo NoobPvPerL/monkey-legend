@@ -1,0 +1,156 @@
+{
+  "scope": "Local headless Edge via bundled Playwright, actual components and core dispatch; viewport emulation, not physical mobile or cloud/user acceptance",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/equipment-install-mobile.png",
+      "sha256": "dad43d14c9882757c86cab5945b282b9cb54f750e9416696bf59b3e9d992577a",
+      "bytes": 65331,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "mapRect": {
+        "x": 6,
+        "y": 170,
+        "width": 378,
+        "height": 474
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-drawn-mobile.png",
+      "sha256": "c0c4f55fc1aab0afc34b155e518913a0841208c90ef8b1a8d549acd46c7d91cf",
+      "bytes": 67385,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "mapRect": {
+        "x": 6,
+        "y": 170,
+        "width": 378,
+        "height": 474
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-install-desktop.png",
+      "sha256": "1977971e2be0da3ae9e8bf09f94c536bd5fd1734f55fb4cbdef5b83b96fba6a7",
+      "bytes": 103387,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bodyWidth": 1200,
+      "mapRect": {
+        "x": 18,
+        "y": 299,
+        "width": 806,
+        "height": 442.5
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-drawn-desktop.png",
+      "sha256": "7fe11d68c7c43a345fb091dbb0358538ca6e0583f330659ebe96ecb5c38bcaee",
+      "bytes": 106485,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bodyWidth": 1200,
+      "mapRect": {
+        "x": 18,
+        "y": 299,
+        "width": 806,
+        "height": 442.5
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-install-narrow-320.png",
+      "sha256": "3b5f86d3feec40771277e72bcc10b706a594c47312341c521b9f94ce6a1e7f45",
+      "bytes": 63073,
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320,
+      "bodyWidth": 320,
+      "mapRect": {
+        "x": 6,
+        "y": 170,
+        "width": 308,
+        "height": 370
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-install-landscape.png",
+      "sha256": "8292e0112f164e77477408fd03611405ee53b463b48b0ac6b20f08971735bd00",
+      "bytes": 57551,
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "bodyWidth": 844,
+      "mapRect": {
+        "x": 6,
+        "y": 118,
+        "width": 461.921875,
+        "height": 268
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-shared-mobile.png",
+      "sha256": "2a4e2464f8e1704693c77e542e0b2667c95a167628a4d21414574e4ced776643",
+      "bytes": 70562,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "mapRect": {
+        "x": 6,
+        "y": 170,
+        "width": 378,
+        "height": 427
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-shared-desktop.png",
+      "sha256": "5c442adf6174f62c0a7e7c8cdc5bd3fc698ba3beaff31b98ba5fd86bc78d19b9",
+      "bytes": 117108,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bodyWidth": 1200,
+      "mapRect": {
+        "x": 18,
+        "y": 324,
+        "width": 806,
+        "height": 442.5
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-shared-narrow-320.png",
+      "sha256": "f4bb18c1b051492d2f9f793f143d8bf5719129b2f1596c8dd02e93c6b6266971",
+      "bytes": 67744,
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320,
+      "bodyWidth": 320,
+      "mapRect": {
+        "x": 6,
+        "y": 170,
+        "width": 308,
+        "height": 291
+      }
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-shared-landscape.png",
+      "sha256": "d8ed751d3dd992378fa6a06fa1a55ce9a382a7eb484901c5a55bb6bca1c21ee0",
+      "bytes": 63643,
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "bodyWidth": 844,
+      "mapRect": {
+        "x": 6,
+        "y": 118,
+        "width": 461.921875,
+        "height": 268
+      }
+    }
+  ],
+  "errors": []
+}

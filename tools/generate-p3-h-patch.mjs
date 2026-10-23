@@ -1,0 +1,33 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {build} from 'esbuild';
+import {replace} from './p3-patch.mjs';
+import {hDevelopmentSQL} from './p3-h-runtime-patch.mjs';
+// Local candidate only. Never connects to a DB or mutates frozen000-029.
+const bundle=await build({entryPoints:['packages/game-data/src/index.ts'],bundle:true,write:false,format:'esm',platform:'node'});
+const d=await import('data:text/javascript;base64,'+Buffer.from(bundle.outputFiles[0].contents).toString('base64'));
+const version='web-v0.1.19',path='database/migrations/030_p3_batch_h.sql';
+const previous=await readFile('database/migrations/029_p3_batch_g.sql','utf8');
+const oldProfile=JSON.parse(previous.match(/values\('ruleset:web-v0\.1\.18','([\s\S]*?)'::jsonb\)/)[1].replaceAll("''","'"));
+const added=['character-001','character-011','character-015','character-030','character-034','character-035','character-039','character-041','character-050'];
+const source=JSON.parse(await readFile('packages/game-data/src/p3-h-source.json','utf8'));
+const transcript=(await readFile('docs/cards/角色牌.md','utf8')).replaceAll('\r\n','\n');
+for(const id of added){const c=source.characters[id],block=transcript.split('## '+id+' · ')[1]?.split('\n## ')[0];if(!c||!block||block.split('\n')[0]!==c.name||block.match(/### 能力文本（牌面）\n([\s\S]*?)(?=\n### )/)?.[1].trim()!==c.text)throw Error('H original-source drift: '+id);}
+const runtime=d.runtimeForVersion(version);
+if(runtime.characterIds.length!==52||runtime.characterIds.includes('character-008')||runtime.allCards.length!==191||Object.keys(runtime.cards).length!==76)throw Error('H candidate content boundary mismatch');
+const profile={manifest:d.ruleManifest(version),mapDefinition:d.mapForVersion(version),environment:d.environmentForVersion(version),sourceCatalog:d.sourceCatalogForVersion(version),runtimeData:runtime,locationPolicy:d.classicLocationPolicy(version),characterTraits:Object.fromEntries(runtime.characterIds.map(id=>[id,d.characterTraitsForVersion(version,id)])),p3:{...oldProfile.p3,characters:[...oldProfile.p3.characters,...added],batchH:true}};
+let health=previous.match(/create or replace function public\.ml_health\(\)[\s\S]*?\$\$;/)[0];
+health=health.replaceAll('ruleset:web-v0.1.18','ruleset:web-v0.1.19').replaceAll("'web-v0.1.18'","'web-v0.1.19'").replace("'engineRevision',29","'engineRevision',30").replace("'characterDefinitions',43","'characterDefinitions',52").replace("characterIds}')=43","characterIds}')=52");
+health=health.replaceAll(JSON.stringify(oldProfile.p3.characters),JSON.stringify(profile.p3.characters));
+health=replace(health,'count(*)=18 from ml_private.catalog','count(*)=19 from ml_private.catalog');
+health=replace(health,"'ruleset:web-v0.1.19'))","'ruleset:web-v0.1.18','ruleset:web-v0.1.19'))");
+health=replace(health,"value#>>'{manifest,status}'='playable'","value#>>'{manifest,status}'='playable' and value#>>'{p3,batchH}'='true'");
+const required=['p3h_initial_state()','p3h_birth_begin(jsonb,double precision)','p3h_birth_choose(jsonb,jsonb,double precision,boolean)','p3h_cooperate_begin(jsonb,integer,integer,jsonb)','p3h_ren_begin(jsonb,integer,integer)','p3h_small(jsonb,integer)','p3h_gear_cards(jsonb,integer)','p3h_gear_public(jsonb)'];
+health=replace(health,'as ready)',required.map(sig=>`and to_regprocedure('ml_private.${sig}') is not null`).join('\n ')+' as ready)');
+health=replace(health,"'engine','postgresql'","'batchHReady',ready,'engine','postgresql'");
+let out=`-- Complete local H candidate; N-01-N-13 reviewed by owner2026-10-23.\n-- Frozen000-029, stored games/drafts, room identities and receipts are never rewritten.\nDO $$ BEGIN IF coalesce((public.ml_health()->>'engineRevision')::int,0)<29 THEN RAISE EXCEPTION 'Apply complete29 before30';END IF;END $$;\n`;
+out+=`DO $$ BEGIN IF EXISTS(select 1 from ml_private.catalog where key='ruleset:web-v0.1.19' and value<>'${JSON.stringify(profile).replaceAll("'","''")}'::jsonb) THEN RAISE EXCEPTION 'H candidate catalog conflict; never overwrite saved private/candidate rules';END IF;END $$;\n`;
+out+=await hDevelopmentSQL(profile,{activate:true});
+out+=health+'\nrevoke all on all functions in schema ml_private from public,anon,authenticated;\n';
+out=out.replaceAll('\r\n','\n').replace(/[\t ]+$/gm,'');
+if(process.argv.includes('--check')){if(await readFile(path,'utf8')!==out)throw Error(path+' differs from generator');}else await writeFile(path,out);
+console.log('030: local H v19 candidate,52 roles; owner-reviewed rules; release verification pending. No DB contacted.');

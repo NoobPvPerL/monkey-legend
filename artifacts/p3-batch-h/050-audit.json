@@ -1,0 +1,118 @@
+{
+  "auditedAt": "2026-10-22T15:01:08.214096+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "privateH": {
+    "version": "web-v0.1.19",
+    "characters": 52,
+    "implemented": [
+      "001",
+      "011",
+      "015",
+      "030",
+      "034",
+      "035",
+      "039",
+      "041",
+      "050"
+    ],
+    "ruleReviewPending": [
+      "N-03",
+      "N-04",
+      "N-05",
+      "N-06",
+      "N-07",
+      "N-08",
+      "N-09",
+      "N-10",
+      "N-11",
+      "N-12",
+      "N-13"
+    ]
+  },
+  "normalCandidate": {
+    "version": "web-v0.1.18",
+    "characters": 43,
+    "engineRevision": 29
+  },
+  "frozenReferenceHashesVerified": 35,
+  "migration029Sha256": "f5179b99332e27585cd1db7dd7f1d12c640656e828b24710949eca1abef2b473",
+  "originalTrackedFilesUnchanged": 196,
+  "originalAssetsVerified": 191,
+  "documentationLinksChecked": 545,
+  "reports": {
+    "050-equipment-matrix-final": {
+      "files": 3,
+      "total": 71,
+      "passed": 71,
+      "failed": 0
+    },
+    "050-integrated-games-recheck1": {
+      "files": 5,
+      "total": 103,
+      "passed": 103,
+      "failed": 0
+    },
+    "full-regression-050": {
+      "files": 137,
+      "total": 1394,
+      "passed": 1384,
+      "failed": 10
+    },
+    "full-regression-050-final": {
+      "files": 137,
+      "total": 1397,
+      "passed": 1397,
+      "failed": 0
+    },
+    "compatibility-before-fix": {
+      "files": 1,
+      "total": 29,
+      "passed": 20,
+      "failed": 9
+    },
+    "compatibility-recheck1": {
+      "files": 1,
+      "total": 29,
+      "passed": 29,
+      "failed": 0
+    },
+    "full-regression-compatibility-final": {
+      "files": 138,
+      "total": 1426,
+      "passed": 1426,
+      "failed": 0
+    }
+  },
+  "fullGames": {
+    "games": 26,
+    "commands": 2666,
+    "entities": 191
+  },
+  "screenshots": {
+    "priorHashesVerified": 65,
+    "newRasterInspected": 16,
+    "browser": "isolated headless Edge via bundled Playwright",
+    "caveat": "local viewport emulation; not physical mobile, cloud or user acceptance"
+  },
+  "typecheck": "passed",
+  "catalogCheck": "passed",
+  "gitDiffCheck": "passed",
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "uploaded": false,
+  "productionWritten": false,
+  "legacyInitializationRepair": {
+    "scope": "new TS factories and private successor SQL only; no rewrite of saved states or frozen migrations",
+    "deterministicBefore": {
+      "passed": 20,
+      "failed": 9
+    },
+    "deterministicAfter": {
+      "passed": 29,
+      "failed": 0
+    },
+    "deployment": "not installed in normal revision29 or production"
+  },
+  "earlierFailuresRetained": true
+}

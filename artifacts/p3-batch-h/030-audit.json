@@ -1,0 +1,137 @@
+{
+  "auditedAt": "2026-10-21T12:13:53.279024+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "privateH": {
+    "version": "web-v0.1.19",
+    "characters": 48,
+    "implemented": [
+      "001",
+      "011",
+      "015",
+      "030",
+      "039"
+    ],
+    "remaining": [
+      "034",
+      "035",
+      "041",
+      "050"
+    ]
+  },
+  "normalCandidate": {
+    "version": "web-v0.1.18",
+    "characters": 43,
+    "engineRevision": 29
+  },
+  "frozenReferenceHashesVerified": 35,
+  "oldMigrationCatalogCheck": "npm run verify:catalog passed",
+  "migration029Sha256": "f5179b99332e27585cd1db7dd7f1d12c640656e828b24710949eca1abef2b473",
+  "originalTrackedFilesUnchanged": 196,
+  "originalAssetsVerified": 191,
+  "documentationLinksChecked": 414,
+  "reports": {
+    "030-foundation-initial": {
+      "files": 1,
+      "suites": 1,
+      "total": 19,
+      "passed": 19,
+      "failed": 0
+    },
+    "030-integration-initial": {
+      "files": 1,
+      "suites": 1,
+      "total": 15,
+      "passed": 0,
+      "failed": 0
+    },
+    "030-wire-initial": {
+      "files": 2,
+      "suites": 2,
+      "total": 57,
+      "passed": 0,
+      "failed": 0
+    },
+    "030-ui-runtime-initial": {
+      "files": 3,
+      "suites": 3,
+      "total": 53,
+      "passed": 8,
+      "failed": 0
+    },
+    "030-integration-recheck1": {
+      "files": 2,
+      "suites": 2,
+      "total": 34,
+      "passed": 24,
+      "failed": 10
+    },
+    "030-integration-recheck2": {
+      "files": 1,
+      "suites": 1,
+      "total": 15,
+      "passed": 5,
+      "failed": 10
+    },
+    "030-integration-recheck3": {
+      "files": 1,
+      "suites": 1,
+      "total": 15,
+      "passed": 12,
+      "failed": 3
+    },
+    "030-integration-recheck4": {
+      "files": 1,
+      "suites": 1,
+      "total": 15,
+      "passed": 15,
+      "failed": 0
+    },
+    "030-combinations-initial": {
+      "files": 1,
+      "suites": 1,
+      "total": 24,
+      "passed": 24,
+      "failed": 0
+    },
+    "030-integrated-games-initial": {
+      "files": 3,
+      "suites": 3,
+      "total": 49,
+      "passed": 49,
+      "failed": 0
+    },
+    "full-regression-030-serial": {
+      "files": 131,
+      "suites": 135,
+      "total": 1213,
+      "passed": 1206,
+      "failed": 7
+    },
+    "full-regression-030-local-network": {
+      "files": 131,
+      "suites": 135,
+      "total": 1213,
+      "passed": 1212,
+      "failed": 1
+    }
+  },
+  "fullGames": {
+    "games": 10,
+    "commands": 1213,
+    "entities": 191
+  },
+  "screenshots": {
+    "priorHashesVerified": 25,
+    "newRasterInspected": 7
+  },
+  "typecheck": "passed",
+  "gitDiffCheck": "passed",
+  "remoteFetch": "prior github.com DNS unresolved, no freshness claim",
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "uploaded": false,
+  "productionWritten": false,
+  "unresolvedLegacyDefect": "026 saved v14 initialization missing C state before setup xiao-overflow, reproduced without H; not fixed",
+  "earlierFailuresRetained": true
+}

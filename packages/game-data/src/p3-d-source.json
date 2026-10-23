@@ -1,0 +1,37 @@
+{
+  "characters": {
+    "character-020": {
+      "id": "character-020",
+      "name": "猴一",
+      "source": "docs/cards/角色牌.md#character-020",
+      "text": "- 锁定技 战斗欲望：你第一个出牌。\n- 主动技 鼓励队友：当你队友受到伤害的时候，你可以进行判定，单数则你获得两张牌，双数则伤害来源失去两张牌。",
+      "notes": "首位与插队等关系、鼓励队友费用/次数待确认。",
+      "printedHp": "4",
+      "spawnRegion": "秀松苑",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-029": {
+      "id": "character-029",
+      "name": "奶龙大帝",
+      "source": "docs/cards/角色牌.md#character-029",
+      "text": "- 锁定技 准：你的躲避球可以直接生效，且别人的躲避球对你无效。\n- 主动技 变：你可以将任何一张牌当作躲避球打出，但是你还是要多消耗一点行动点。\n- 被动技 摇：你受到伤害时，会进行判定，1左2右3上4下，5-6不动。",
+      "notes": "摇的移动距离未写明、边界处理待确认。",
+      "printedHp": "4",
+      "spawnRegion": "秀松苑",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-053": {
+      "id": "character-053",
+      "name": "朱重四",
+      "source": "docs/cards/角色牌.md#character-053",
+      "text": "- 锁定技 乞讨：当你消耗完所有行动点时，你的所有队友恢复2点行动点。\n- 主动技 一人得道，鸡犬升天：每回合限一次，你弃掉所有手牌，你的所有队友（包括自己）恢复2点行动点。",
+      "notes": "乞讨次数、零行动点能否重复触发、主动技费用、空手牌能否发动待确认。",
+      "printedHp": "4",
+      "spawnRegion": "操场",
+      "printedFaction": null,
+      "waterNative": false
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "scope": "isolated frozen migrations 000-026, saved v14 create_game; no source or migration modified",
+  "cases": [
+    {
+      "first": 0,
+      "role": "character-013",
+      "ok": false,
+      "error": "C批角色状态无效"
+    },
+    {
+      "first": 1,
+      "role": "character-047",
+      "ok": false,
+      "error": "C批角色状态无效"
+    },
+    {
+      "first": 2,
+      "role": "character-031",
+      "ok": false,
+      "error": "C批角色状态无效"
+    },
+    {
+      "first": 3,
+      "role": "character-043",
+      "ok": false,
+      "error": "C批角色状态无效"
+    }
+  ],
+  "diagnosticOnlyValidationBypass": {
+    "note": "Only this disposable DB removed final create_game validation to inspect invalid intermediate state, not a fix",
+    "stage3": {
+      "ends": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "turn": 0,
+      "combos": {},
+      "jjFree": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "jjUsed": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "starts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "basicUsed": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "costLocks": {},
+      "equipment": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "jjExposed": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "deathTurns": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "doubleMove": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "horseLocks": [],
+      "coffeeRound": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "breadBlocked": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "breadPending": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "breadReadyAt": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "horseSources": {},
+      "completedTurn": 0,
+      "previousBasic": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "voluntaryMoved": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "coffeeUntilStart": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "equipmentSources": {}
+    },
+    "choice": {
+      "id": 1,
+      "kind": "xiao-overflow",
+      "actor": 2,
+      "cards": [
+        "basic-008#05",
+        "basic-015#01",
+        "basic-010#02",
+        "basic-008#01"
+      ],
+      "count": 1,
+      "paused": true,
+      "source": 3,
+      "deadline": 31000
+    },
+    "phase": "choice",
+    "queue": [
+      {
+        "kind": "water",
+        "actor": 0
+      },
+      {
+        "kind": "water",
+        "actor": 1
+      },
+      {
+        "kind": "water",
+        "actor": 2
+      },
+      {
+        "kind": "water",
+        "actor": 3
+      },
+      {
+        "kind": "classic-start"
+      }
+    ]
+  }
+}

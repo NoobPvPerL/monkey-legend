@@ -1,0 +1,89 @@
+{
+  "auditedAt": "2026-10-21T15:21:32.127380+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "privateH": {
+    "version": "web-v0.1.19",
+    "characters": 49,
+    "implemented": [
+      "001",
+      "011",
+      "015",
+      "030",
+      "034",
+      "039"
+    ],
+    "remaining": [
+      "035",
+      "041",
+      "050"
+    ]
+  },
+  "normalCandidate": {
+    "version": "web-v0.1.18",
+    "characters": 43,
+    "engineRevision": 29
+  },
+  "frozenReferenceHashesVerified": 35,
+  "oldMigrationCatalogCheck": "npm run verify:catalog passed",
+  "migration029Sha256": "f5179b99332e27585cd1db7dd7f1d12c640656e828b24710949eca1abef2b473",
+  "originalTrackedFilesUnchanged": 196,
+  "originalAssetsVerified": 191,
+  "documentationLinksChecked": 438,
+  "reports": {
+    "034-foundation-initial": {
+      "files": 1,
+      "total": 23,
+      "passed": 20,
+      "failed": 3
+    },
+    "034-integrated-initial": {
+      "files": 1,
+      "total": 20,
+      "passed": 14,
+      "failed": 6
+    },
+    "034-integrated-games-initial": {
+      "files": 3,
+      "total": 51,
+      "passed": 46,
+      "failed": 5
+    },
+    "034-integrated-games-final": {
+      "files": 4,
+      "total": 74,
+      "passed": 74,
+      "failed": 0
+    },
+    "034-board-ui-final": {
+      "files": 1,
+      "total": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "full-regression-030-local-network": {
+      "files": 131,
+      "total": 1213,
+      "passed": 1212,
+      "failed": 1
+    }
+  },
+  "fullGames": {
+    "games": 14,
+    "commands": 1615,
+    "entities": 191
+  },
+  "screenshots": {
+    "priorHashesVerified": 32,
+    "newRasterInspected": 14
+  },
+  "typecheck": "passed",
+  "gitDiffCheck": "passed",
+  "remoteFetch": "git fetch --prune origin succeeded; HEAD...origin/main 0 0 at584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "uploaded": false,
+  "productionWritten": false,
+  "unresolvedLegacyDefect": "026 saved v14 initialization missing C state before setup xiao-overflow, reproduced without H; not fixed",
+  "earlierFailuresRetained": true
+}

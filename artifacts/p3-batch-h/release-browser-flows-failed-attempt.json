@@ -1,0 +1,8 @@
+{
+  "scope": "Normal H TS draft/create factories rendered by production DraftBoard/OnlineBoard; controlled local seed, no hidden catalog/state injection. Headless viewport emulation, not cloud or physical mobile.",
+  "screenshots": [],
+  "flows": [],
+  "errors": [
+    "page.goto: net::ERR_CONNECTION_TIMED_OUT at http://127.0.0.1:5189/review?mode=ffa\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:5189/review?mode=ffa\", waiting until \"load\"\u001b[22m\n\n    at D:\\Users\\20753\\Desktop\\应猴传说\\monkey-legend\\tools\\verify-p3-h-activation-browser.mjs:11:138"
+  ]
+}

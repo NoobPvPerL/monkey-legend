@@ -1,12 +1,12 @@
-import {CLASSIC_RULE_VERSION,sourceCatalogForVersion} from '../../game-data/src/index';
+import {CLASSIC_RULE_VERSION,sourceCatalogForVersion,runtimeForVersion,mapForVersion,hasP3DRules,hasP3HRules} from '../../game-data/src/index';
 import {integer,shuffled} from './random';
-import {STAGE3_CHARACTER_IDS,STAGE3_RULE_VERSION} from '../../game-data/src/stage3';
+import {STAGE3_RULE_VERSION} from '../../game-data/src/stage3';
 import {factionDraftPools} from '../../game-data/src/character-affiliation';
 import type {Mode,RandomState} from './types';
 
 export const DRAFT_WINDOW_MS=30000;
 export const DRAFT_CATALOG_VERSION=CLASSIC_RULE_VERSION;
-export type DraftCatalogVersion=typeof DRAFT_CATALOG_VERSION|typeof STAGE3_RULE_VERSION|'web-v0.1.7'|'web-v0.1.8'|'web-v0.1.9'|'web-v0.1.10';
+export type DraftCatalogVersion=typeof DRAFT_CATALOG_VERSION|typeof STAGE3_RULE_VERSION|'web-v0.1.7'|'web-v0.1.8'|'web-v0.1.9'|'web-v0.1.10'|'web-v0.1.11'|'web-v0.1.12'|'web-v0.1.13'|'web-v0.1.14'|'web-v0.1.15'|'web-v0.1.16'|'web-v0.1.17'|'web-v0.1.18'|'web-v0.1.19';
 export interface DraftSetup {mode:Mode;order:number[];teams:string[];pools:Record<string,string[]>;random:RandomState;catalogVersion?:DraftCatalogVersion}
 export interface DraftOffer {id:number;actor:number;candidates:string[];deadline:number}
 export interface DraftEvent {seq:number;kind:'offer'|'pick';actor:number;at:number;character?:string;timedOut?:boolean}
@@ -19,10 +19,27 @@ export type DraftCommand={id:string;revision:number;actor:number}&({type:'pick';
 export interface DraftDispatch {state:DraftState;ok:boolean;error?:string;duplicate?:boolean}
 const need=(value:unknown,message:string):void=>{if(!value)throw Error(message);};
 const ids=(version:DraftCatalogVersion)=>Object.keys(sourceCatalogForVersion(version).characters);
+const customSpawn=(version:string,id:string)=>hasP3HRules(version)&&id==='character-035';
 const same=(a:unknown[],b:unknown[])=>a.length===b.length&&[...a].sort().every((v,i)=>v===[...b].sort()[i]);
+function spawnPool(s:Pick<DraftState,'catalogVersion'|'selected'>,pool:string[]){
+ if(!hasP3DRules(s.catalogVersion))return [...pool];
+ const catalog=sourceCatalogForVersion(s.catalogVersion).characters,cells=mapForVersion(s.catalogVersion).cells;
+ return pool.filter(id=>{if(customSpawn(s.catalogVersion,id))return true;const region=catalog[id].spawnRegion;return s.selected.filter(p=>p!==null&&catalog[p].spawnRegion===region).length<cells.filter(c=>c.region===region).length;});
+}
+// Four seats only. Broad production pools pass the bound immediately; narrow
+// custom pools are checked over all possible prefixes before any RNG is used.
+function spawnSafe(s:Pick<DraftState,'catalogVersion'|'selected'|'pools'|'teams'|'order'|'cursor'>):boolean{
+ if(s.cursor===4||!hasP3DRules(s.catalogVersion))return true;
+ const catalog=sourceCatalogForVersion(s.catalogVersion).characters,cells=mapForVersion(s.catalogVersion).cells;
+ const future=s.order.slice(s.cursor).map(a=>spawnPool(s,s.pools[s.teams[a]]).filter(id=>!s.selected.includes(id)));
+ if(future.some(p=>p.length<3))return false;
+ const safe=future.every((pool,i)=>{let extra=0;for(const region of new Set(pool.filter(id=>!customSpawn(s.catalogVersion,id)).map(id=>catalog[id].spawnRegion))){const slots=cells.filter(c=>c.region===region).length-s.selected.filter(id=>id!==null&&catalog[id].spawnRegion===region).length;if(slots<=i)extra+=Math.max(0,pool.filter(id=>catalog[id].spawnRegion===region).length-slots);}return pool.length-i-extra>=3;});
+ if(safe)return true;
+ return future[0].every(id=>{const selected=[...s.selected];selected[s.order[s.cursor]]=id;return spawnSafe({...s,selected,cursor:s.cursor+1});});
+}
 function offerNext(s:DraftState,at:number){
  if(s.cursor===4){s.status='complete';s.offer=null;return;}
- const actor=s.order[s.cursor],pool=[...s.pools[s.teams[actor]]],candidates:string[]=[];
+ const actor=s.order[s.cursor],pool=spawnPool(s,s.pools[s.teams[actor]]),candidates:string[]=[];
  need(pool.length>=3,'角色池不足三个候选，不能开始选择');
  for(let i=0;i<3;i++)candidates.push(pool.splice(integer(s.random,pool.length),1)[0]);
  s.offer={id:++s.offerSerial,actor,candidates,deadline:at+DRAFT_WINDOW_MS};
@@ -31,7 +48,7 @@ function offerNext(s:DraftState,at:number){
 export function createDraft(setup:DraftSetup,now:number):DraftState {
  need(setup&&typeof setup==='object'&&!Array.isArray(setup),'选角输入必须为对象');
  need(Number.isFinite(now)&&now>=0,'选角时钟无效');
- const catalogVersion=setup.catalogVersion??DRAFT_CATALOG_VERSION;need(catalogVersion===DRAFT_CATALOG_VERSION||(catalogVersion===STAGE3_RULE_VERSION||catalogVersion==='web-v0.1.7'||catalogVersion==='web-v0.1.8'||catalogVersion==='web-v0.1.9'||catalogVersion==='web-v0.1.10'),'选角目录版本无效');
+ const catalogVersion=setup.catalogVersion??DRAFT_CATALOG_VERSION;need(catalogVersion===DRAFT_CATALOG_VERSION||(catalogVersion===STAGE3_RULE_VERSION||catalogVersion==='web-v0.1.7'||catalogVersion==='web-v0.1.8'||catalogVersion==='web-v0.1.9'||catalogVersion==='web-v0.1.10'||catalogVersion==='web-v0.1.11'||catalogVersion==='web-v0.1.12'||catalogVersion==='web-v0.1.13'||catalogVersion==='web-v0.1.14'||catalogVersion==='web-v0.1.15'||catalogVersion==='web-v0.1.16'||catalogVersion==='web-v0.1.17'||catalogVersion==='web-v0.1.18'||catalogVersion==='web-v0.1.19'),'选角目录版本无效');
  need(Array.isArray(setup.order)&&same(setup.order,[0,1,2,3]),'选角需要四个固定座位的行动顺序');
  need(setup.mode==='ffa'||setup.mode==='team','选角模式无效');
  need(Array.isArray(setup.teams)&&setup.teams.length===4,'选角阵营需要四个座位');
@@ -48,6 +65,7 @@ export function createDraft(setup:DraftSetup,now:number):DraftState {
  }
  need(setup.random&&Number.isInteger(setup.random.seed)&&setup.random.seed>=0&&setup.random.seed<=0xffffffff,'选角随机源无效');
  const state:DraftState={mode:setup.mode,order:[...setup.order],teams:[...setup.teams],pools:structuredClone(setup.pools),random:structuredClone(setup.random),version:'draft-v1',catalogVersion,revision:0,time:now,status:'choosing',cursor:0,offerSerial:0,offer:null,selected:[null,null,null,null],events:[],requests:[]};
+ need(spawnSafe(state),'出生容量过滤后角色池可能不足三个候选，请补齐角色池');
  offerNext(state,now);validateDraft(state);return state;
 }
 function pick(s:DraftState,character:string,at:number,timedOut:boolean){
@@ -58,12 +76,13 @@ function pick(s:DraftState,character:string,at:number,timedOut:boolean){
  s.cursor++;offerNext(s,at);
 }
 export function validateDraft(s:DraftState){
- need((s.status==='choosing'||s.status==='complete')&&s.version==='draft-v1'&&(s.catalogVersion===DRAFT_CATALOG_VERSION||s.catalogVersion===STAGE3_RULE_VERSION||s.catalogVersion==='web-v0.1.7'||s.catalogVersion==='web-v0.1.8'||s.catalogVersion==='web-v0.1.9'||s.catalogVersion==='web-v0.1.10')&&same(s.order,[0,1,2,3])&&s.selected.length===4,'选角状态版本或座位无效');
+ need((s.status==='choosing'||s.status==='complete')&&s.version==='draft-v1'&&(s.catalogVersion===DRAFT_CATALOG_VERSION||s.catalogVersion===STAGE3_RULE_VERSION||s.catalogVersion==='web-v0.1.7'||s.catalogVersion==='web-v0.1.8'||s.catalogVersion==='web-v0.1.9'||s.catalogVersion==='web-v0.1.10'||s.catalogVersion==='web-v0.1.11'||s.catalogVersion==='web-v0.1.12'||s.catalogVersion==='web-v0.1.13'||s.catalogVersion==='web-v0.1.14'||s.catalogVersion==='web-v0.1.15'||s.catalogVersion==='web-v0.1.16'||s.catalogVersion==='web-v0.1.17'||s.catalogVersion==='web-v0.1.18'||s.catalogVersion==='web-v0.1.19')&&same(s.order,[0,1,2,3])&&s.selected.length===4,'选角状态版本或座位无效');
  const chosen=s.selected.filter(id=>id!==null);need(chosen.length===s.cursor&&new Set(chosen).size===chosen.length&&chosen.every(id=>ids(s.catalogVersion).includes(id)),'已选角色无效或重复');
+ if(hasP3DRules(s.catalogVersion)){const catalog=sourceCatalogForVersion(s.catalogVersion).characters,cells=mapForVersion(s.catalogVersion).cells;need(chosen.every(id=>customSpawn(s.catalogVersion,id)||chosen.filter(p=>catalog[p!].spawnRegion===catalog[id!].spawnRegion).length<=cells.filter(c=>c.region===catalog[id!].spawnRegion).length),'已选角色超过出生地区容量');}
  need(s.order.every((a,i)=>(s.selected[a]!==null)===(i<s.cursor)),'选角顺序不一致');
  need(Object.values(s.pools).every(pool=>pool.every(id=>!chosen.includes(id))),'已选角色没有移出牌池');
  if(s.status==='complete')need(s.cursor===4&&s.offer===null,'选角结束状态无效');
- else need(s.cursor>=0&&s.cursor<4&&s.offer&&s.offer.actor===s.order[s.cursor]&&s.offer.id===s.offerSerial&&s.offer.candidates.length===3&&new Set(s.offer.candidates).size===3&&s.offer.candidates.every(id=>s.pools[s.teams[s.offer!.actor]].includes(id))&&Number.isFinite(s.offer.deadline),'当前候选或选择期限无效');
+ else need(s.cursor>=0&&s.cursor<4&&s.offer&&s.offer.actor===s.order[s.cursor]&&s.offer.id===s.offerSerial&&s.offer.candidates.length===3&&new Set(s.offer.candidates).size===3&&s.offer.candidates.every(id=>spawnPool(s,s.pools[s.teams[s.offer!.actor]]).includes(id))&&Number.isFinite(s.offer.deadline),'当前候选或选择期限无效');
 }
 export function dispatchDraft(previous:DraftState,cmd:DraftCommand,now:number):DraftDispatch {
  try{
@@ -101,6 +120,7 @@ export type DraftView=ReturnType<typeof draftView>;
 export function createStage3Draft(mode:Mode,random:RandomState,now:number,catalogVersion:DraftCatalogVersion=STAGE3_RULE_VERSION):DraftState {
  const rng=structuredClone(random),first=integer(rng,4),pair=shuffled(rng,[0,1,2,3]).slice(0,2);
  const teams=mode==='team'?[0,1,2,3].map(a=>pair.includes(a)?'机械猴子':'帝汶家族'):[0,1,2,3].map(a=>`S${a+1}`);
- const pools=mode==='team'?factionDraftPools(STAGE3_CHARACTER_IDS):Object.fromEntries(teams.map(t=>[t,[...STAGE3_CHARACTER_IDS]]));
+ const available=runtimeForVersion(catalogVersion).characterIds;
+ const pools=mode==='team'?factionDraftPools(available):Object.fromEntries(teams.map(t=>[t,[...available]]));
  return createDraft({mode,order:[0,1,2,3].map(i=>(first+i)%4),teams,pools,random:rng,catalogVersion},now);
 }

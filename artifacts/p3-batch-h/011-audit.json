@@ -1,0 +1,94 @@
+{
+  "auditedAt": "2026-10-21T11:11:54.814199+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "privateH": {
+    "version": "web-v0.1.19",
+    "characters": 47,
+    "implemented": [
+      "001",
+      "011",
+      "015",
+      "039"
+    ],
+    "remaining": [
+      "030",
+      "034",
+      "035",
+      "041",
+      "050"
+    ]
+  },
+  "normalCandidate": {
+    "version": "web-v0.1.18",
+    "characters": 43,
+    "engineRevision": 29
+  },
+  "frozenReferenceHashesVerified": 35,
+  "oldMigrationCatalogCheck": "npm run verify:catalog passed; no database contacted",
+  "migration029Sha256": "f5179b99332e27585cd1db7dd7f1d12c640656e828b24710949eca1abef2b473",
+  "originalTrackedFilesUnchanged": 196,
+  "originalAssetsVerified": 191,
+  "documentationLinksChecked": 382,
+  "reports": {
+    "011-integration-final": {
+      "files": 6,
+      "suites": 6,
+      "total": 99,
+      "passed": 98,
+      "failed": 1
+    },
+    "011-equipment-ui-recheck": {
+      "files": 1,
+      "suites": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    "011-final-ui": {
+      "files": 2,
+      "suites": 2,
+      "total": 13,
+      "passed": 13,
+      "failed": 0
+    },
+    "full-regression-with-011": {
+      "files": 129,
+      "suites": 133,
+      "total": 1159,
+      "passed": 1158,
+      "failed": 1
+    },
+    "011-legacy-install-recheck": {
+      "files": 1,
+      "suites": 1,
+      "total": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "full-regression-011-serial": {
+      "files": 129,
+      "suites": 133,
+      "total": 1159,
+      "passed": 1159,
+      "failed": 0
+    }
+  },
+  "fullGames": {
+    "games": 6,
+    "commands": 673,
+    "entities": 191
+  },
+  "screenshots": {
+    "priorHashesVerified": 16,
+    "newRasterInspected": 9
+  },
+  "typecheck": "passed",
+  "gitDiffCheck": "passed; existing line ending warnings",
+  "remoteFetch": "github.com DNS unresolved, no freshness claim",
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "uploaded": false,
+  "productionWritten": false,
+  "earlierFailuresRetained": true
+}

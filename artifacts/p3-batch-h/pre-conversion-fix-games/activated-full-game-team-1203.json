@@ -1,0 +1,36 @@
+{
+  "scope": "Normal H factories and isolated030 SQL; no production deployment",
+  "mode": "team",
+  "seed": 1203,
+  "characters": [
+    "character-030",
+    "character-011",
+    "character-039",
+    "character-015"
+  ],
+  "commands": 82,
+  "rounds": 4,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    2,
+    3
+  ],
+  "events": 184,
+  "choiceResolutionsAndSkills": {
+    "skill:quote-cost": 12,
+    "gear-plant": 2,
+    "skill:cooperate": 2,
+    "h-cooperate": 2,
+    "card-counter": 7,
+    "skill:circle": 4,
+    "skill:freeze": 2,
+    "response": 1,
+    "discard": 3,
+    "gear-react": 2,
+    "forced-card": 2,
+    "h-reroll": 1,
+    "gear-loss": 1,
+    "h-circle-pay": 1
+  }
+}

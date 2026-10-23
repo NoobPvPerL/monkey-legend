@@ -1,0 +1,1381 @@
+{
+  "success": true,
+  "startTime": 1792499085436,
+  "numTotalTestSuites": 13,
+  "numTotalTests": 114,
+  "numPassedTests": 114,
+  "numFailedTests": 0,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "all three G discounts use actual identity, only free positive costs, and preserve signed/X fees",
+          "status": "passed",
+          "title": "all three G discounts use actual identity, only free positive costs, and preserve signed/X fees",
+          "duration": 45.39870000000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "real Jianmin, alien and food submissions pay zero after the matching role discount",
+          "status": "passed",
+          "title": "real Jianmin, alien and food submissions pay zero after the matching role discount",
+          "duration": 27.567200000000014,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "Jianmin leader draws on paid submission before easy even when that card is later countered",
+          "status": "passed",
+          "title": "Jianmin leader draws on paid submission before easy even when that card is later countered",
+          "duration": 8.46120000000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "prime Jianmin pays once but triggers leader separately on each logical submission",
+          "status": "passed",
+          "title": "prime Jianmin pays once but triggers leader separately on each logical submission",
+          "duration": 6.486500000000035,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "prime food opens two independent store discards with20s windows before either counter/result",
+          "status": "passed",
+          "title": "prime food opens two independent store discards with20s windows before either counter/result",
+          "duration": 9.188300000000027,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "own food is free and causes no store discard, while another persons countered food still does",
+          "status": "passed",
+          "title": "own food is free and causes no store discard, while another persons countered food still does",
+          "duration": 11.535699999999963,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "easy precedes the role counter, which precedes other card-counter windows",
+          "status": "passed",
+          "title": "easy precedes the role counter, which precedes other card-counter windows",
+          "duration": 9.212699999999984,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a successful role counter cancels the whole logical group card once, with payment and use consumed",
+          "status": "passed",
+          "title": "a successful role counter cancels the whole logical group card once, with payment and use consumed",
+          "duration": 5.492199999999968,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "failed role counter still consumes its one personal-turn attempt; next personal start refreshes it",
+          "status": "passed",
+          "title": "failed role counter still consumes its one personal-turn attempt; next personal start refreshes it",
+          "duration": 10.168000000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "active-immune casters and the counter owners own cards cannot be countered by this role",
+          "status": "passed",
+          "title": "active-immune casters and the counter owners own cards cannot be countered by this role",
+          "duration": 11.768699999999967,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "response cards get their own role-counter window after the parent attempt was declined",
+          "status": "passed",
+          "title": "response cards get their own role-counter window after the parent attempt was declined",
+          "duration": 8.634900000000016,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "white eye replaces only normal start draw and selects at most two different opponents without deck fallback",
+          "status": "passed",
+          "title": "white eye replaces only normal start draw and selects at most two different opponents without deck fallback",
+          "duration": 6.90259999999995,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "white-eye timeout chooses action-order enemies, skips teammates and immune targets, and draws no fallback",
+          "status": "passed",
+          "title": "white-eye timeout chooses action-order enemies, skips teammates and immune targets, and draws no fallback",
+          "duration": 6.345700000000022,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "white eye opens no first-round/blocked/empty normal draw window and extra card draw still uses the deck",
+          "status": "passed",
+          "title": "white eye opens no first-round/blocked/empty normal draw window and extra card draw still uses the deck",
+          "duration": 14.57589999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499355173,
+      "endTime": 1792499355355.576,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-card-rules.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "role discounts preserve whole cost lineage and signed/X prices identically in TS/SQL",
+          "status": "passed",
+          "title": "role discounts preserve whole cost lineage and signed/X prices identically in TS/SQL",
+          "duration": 44.00630000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "logical submission tasks and their serial guards match TS/SQL before easy",
+          "status": "passed",
+          "title": "logical submission tasks and their serial guards match TS/SQL before easy",
+          "duration": 23.148400000000038,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "Jianmin submission draw updates original exercise ownership and complete events in TS/SQL",
+          "status": "passed",
+          "title": "Jianmin submission draw updates original exercise ownership and complete events in TS/SQL",
+          "duration": 20.65000000000009,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "store chosen discard and timeout preserve original discard income identically in TS/SQL",
+          "status": "passed",
+          "title": "store chosen discard and timeout preserve original discard income identically in TS/SQL",
+          "duration": 20.790199999999913,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "role counter waits for programming and resumes its one paid attempt once in TS/SQL",
+          "status": "passed",
+          "title": "role counter waits for programming and resumes its one paid attempt once in TS/SQL",
+          "duration": 35.64589999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "declining the counter keeps the attempt and invalid requests roll back the whole G ledger in TS/SQL",
+          "status": "passed",
+          "title": "declining the counter keeps the attempt and invalid requests roll back the whole G ledger in TS/SQL",
+          "duration": 15.873299999999745,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "white-eye target filters and its no-card-stack start window match TS/SQL including teams and immunity",
+          "status": "passed",
+          "title": "white-eye target filters and its no-card-stack start window match TS/SQL including teams and immunity",
+          "duration": 12.738599999999678,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "chosen and timeout white-eye transfers preserve random order, original ownership and whole state in TS/SQL",
+          "status": "passed",
+          "title": "chosen and timeout white-eye transfers preserve random order, original ownership and whole state in TS/SQL",
+          "duration": 30.283300000000054,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "dog target protections, fee and queued direction preserve the full TS/SQL state",
+          "status": "passed",
+          "title": "dog target protections, fee and queued direction preserve the full TS/SQL state",
+          "duration": 10.419100000000071,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499358667,
+      "endTime": 1792499358881.4192,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-card-sql.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "white eye and the paid counter have visible controls during their own server windows",
+          "status": "passed",
+          "title": "white eye and the paid counter have visible controls during their own server windows",
+          "duration": 40.56619999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "programming, final1–6 and store discard controls are visible and never send a result field",
+          "status": "passed",
+          "title": "programming, final1–6 and store discard controls are visible and never send a result field",
+          "duration": 20.003499999999974,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "G intents accept selected targets or final option only and reject authoritative fields",
+          "status": "passed",
+          "title": "G intents accept selected targets or final option only and reject authoritative fields",
+          "duration": 3.6381000000000085,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "dog has target and direction controls even before a card is selected",
+          "status": "passed",
+          "title": "dog has target and direction controls even before a card is selected",
+          "duration": 5.3104000000000156,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499368559,
+      "endTime": 1792499368628.3103,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-card-ui.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "every existing SQL public d6 site has a classified owner, random fee and hidden reveal hooks compile",
+          "status": "passed",
+          "title": "every existing SQL public d6 site has a classified owner, random fee and hidden reveal hooks compile",
+          "duration": 2.1273000000001048,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "the hidden die stays hidden until the target locks a guess, and its owner is the card caster",
+          "status": "passed",
+          "title": "the hidden die stays hidden until the target locks a guess, and its owner is the card caster",
+          "duration": 64.65599999999995,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "later choices cannot replace the locked guess and final math has priority over the programming reroll",
+          "status": "passed",
+          "title": "later choices cannot replace the locked guess and final math has priority over the programming reroll",
+          "duration": 22.121599999999944,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "declining both modifications retains the original hidden result without consuming another die",
+          "status": "passed",
+          "title": "declining both modifications retains the original hidden result without consuming another die",
+          "duration": 20.260400000000118,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "classified SQL preserves actual v17 movement, private quote behaviour and public state",
+          "status": "passed",
+          "title": "classified SQL preserves actual v17 movement, private quote behaviour and public state",
+          "duration": 122.34130000000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "Tangche settings remain usable during both die windows and survive replay with one event per submitted intent",
+          "status": "passed",
+          "title": "Tangche settings remain usable during both die windows and survive replay with one event per submitted intent",
+          "duration": 40.597099999999955,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "invalid waiting-time equipment settings roll back the private intent ledger as well as visible state",
+          "status": "passed",
+          "title": "invalid waiting-time equipment settings roll back the private intent ledger as well as visible state",
+          "duration": 10.1567,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499355183,
+      "endTime": 1792499355465.1567,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-dice-owners.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "persisted programming then final math preserves one spend/draw and every private/event field in TS and SQL",
+          "status": "passed",
+          "title": "persisted programming then final math preserves one spend/draw and every private/event field in TS and SQL",
+          "duration": 60.58150000000023,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "generated entropy and multiple decisions retain random identity and programming once per turn in TS/SQL",
+          "status": "passed",
+          "title": "generated entropy and multiple decisions retain random identity and programming once per turn in TS/SQL",
+          "duration": 86.95150000000012,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "both timeouts and early ticks preserve current dice and the paused action clock identically",
+          "status": "passed",
+          "title": "both timeouts and early ticks preserve current dice and the paused action clock identically",
+          "duration": 24.990999999999985,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "one late tick catches up every expired die window with one request revision in TS/SQL",
+          "status": "passed",
+          "title": "one late tick catches up every expired die window with one request revision in TS/SQL",
+          "duration": 38.07920000000013,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a historical timeout die starts its windows at the logical trigger, not the late arrival time",
+          "status": "passed",
+          "title": "a historical timeout die starts its windows at the logical trigger, not the late arrival time",
+          "duration": 16.782799999999952,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "invalid actors, windows, revisions, acceptance types and final points roll back TS/SQL exactly",
+          "status": "passed",
+          "title": "invalid actors, windows, revisions, acceptance types and final points roll back TS/SQL exactly",
+          "duration": 72.98739999999998,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "initial own-turn judgement resumes after opening hands without dealing twice in either authority",
+          "status": "passed",
+          "title": "initial own-turn judgement resumes after opening hands without dealing twice in either authority",
+          "duration": 19.82049999999981,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "secure database entropy is sampled once per original draw, even when a suspended command is replayed",
+          "status": "passed",
+          "title": "secure database entropy is sampled once per original draw, even when a suspended command is replayed",
+          "duration": 23.72589999999991,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "helpers do not activate G or modify the current35-role catalog or health revision",
+          "status": "passed",
+          "title": "helpers do not activate G or modify the current35-role catalog or health revision",
+          "duration": 157.04970000000003,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499349355,
+      "endTime": 1792499349857.0498,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-dice-sql.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "programming precedes the owners final choice; spending/draw/random effects happen exactly once after a persisted reconnect",
+          "status": "passed",
+          "title": "programming precedes the owners final choice; spending/draw/random effects happen exactly once after a persisted reconnect",
+          "duration": 14.084800000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "successive dice in one command retain each final value and programming use; an unused choice is available on the later die",
+          "status": "passed",
+          "title": "successive dice in one command retain each final value and programming use; an unused choice is available on the later die",
+          "duration": 6.634899999999988,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "an accepted programming choice is not reopened for a second die in the same personal turn",
+          "status": "passed",
+          "title": "an accepted programming choice is not reopened for a second die in the same personal turn",
+          "duration": 9.165100000000024,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "timeouts retain the current value and never extend the action budget; non-expired tick is unchanged",
+          "status": "passed",
+          "title": "timeouts retain the current value and never extend the action budget; non-expired tick is unchanged",
+          "duration": 8.45750000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "invalid actors, stale windows/revisions, repeated IDs and malformed points roll back every private field",
+          "status": "passed",
+          "title": "invalid actors, stale windows/revisions, repeated IDs and malformed points roll back every private field",
+          "duration": 8.77600000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a rejected driver never persists a checkpoint or random trace; a failed continuation preserves its pending window",
+          "status": "passed",
+          "title": "a rejected driver never persists a checkpoint or random trace; a failed continuation preserves its pending window",
+          "duration": 9.8322,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "initial turn-start can suspend and resume without repeating previously dealt opening cards",
+          "status": "passed",
+          "title": "initial turn-start can suspend and resume without repeating previously dealt opening cards",
+          "duration": 3.655300000000011,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "d6 ownership and existing immunity exclude inappropriate programming, while non-role integer draws never prompt",
+          "status": "passed",
+          "title": "d6 ownership and existing immunity exclude inappropriate programming, while non-role integer draws never prompt",
+          "duration": 11.577300000000037,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "generated dice retain the committed entropy sequence across programming and multiple suspended decisions",
+          "status": "passed",
+          "title": "generated dice retain the committed entropy sequence across programming and multiple suspended decisions",
+          "duration": 4.4827999999999975,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "replay rejects changed random bounds and preserves the authoritative pending state",
+          "status": "passed",
+          "title": "replay rejects changed random bounds and preserves the authoritative pending state",
+          "duration": 3.8222999999999843,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499370610,
+      "endTime": 1792499370690.8223,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-dice.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "one physical equipment installs two same-name pieces with independent durability and one backing entity",
+          "status": "passed",
+          "title": "one physical equipment installs two same-name pieces with independent durability and one backing entity",
+          "duration": 24.8973,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "bodyguard pieces spend and break separately before the single backing entity is discarded",
+          "status": "passed",
+          "title": "bodyguard pieces spend and break separately before the single backing entity is discarded",
+          "duration": 31.036599999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a countered first copy strips no old gear; the second replaces only one selected item",
+          "status": "passed",
+          "title": "a countered first copy strips no old gear; the second replaces only one selected item",
+          "duration": 13.646600000000007,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "both hand-slot loss effects have separate choices and the old physical enters discard once",
+          "status": "passed",
+          "title": "both hand-slot loss effects have separate choices and the old physical enters discard once",
+          "duration": 12.530000000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a stolen paired piece goes directly to equipment and continues sharing one physical source across owners",
+          "status": "passed",
+          "title": "a stolen paired piece goes directly to equipment and continues sharing one physical source across owners",
+          "duration": 9.950999999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "bread pieces have separate cooldowns and the explicitly selected ready piece is used",
+          "status": "passed",
+          "title": "bread pieces have separate cooldowns and the explicitly selected ready piece is used",
+          "duration": 8.793200000000013,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "stolen bread preserves remaining starts of cooldown at the new owner without refreshing it",
+          "status": "passed",
+          "title": "stolen bread preserves remaining starts of cooldown at the new owner without refreshing it",
+          "duration": 10.964500000000044,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "two cloaks offer distinct attempts and the second can block after the first fails",
+          "status": "passed",
+          "title": "two cloaks offer distinct attempts and the second can block after the first fails",
+          "duration": 11.747500000000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "reflection pieces use separate durability and produce two nonrecursive reflected hits",
+          "status": "passed",
+          "title": "reflection pieces use separate durability and produce two nonrecursive reflected hits",
+          "duration": 12.472499999999968,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "two sugar pieces each deduct one AP and extra damage cannot repeat either item within the logical root",
+          "status": "passed",
+          "title": "two sugar pieces each deduct one AP and extra damage cannot repeat either item within the logical root",
+          "duration": 7.159999999999968,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "two chalks each offer once on each logical attack and their extra hits do not recurse",
+          "status": "passed",
+          "title": "two chalks each offer once on each logical attack and their extra hits do not recurse",
+          "duration": 14.45799999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "range bonuses from both pieces add one region edge each",
+          "status": "passed",
+          "title": "range bonuses from both pieces add one region edge each",
+          "duration": 21.554200000000037,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "watch pieces can each return once and selecting a used piece does not spend the other",
+          "status": "passed",
+          "title": "watch pieces can each return once and selecting a used piece does not spend the other",
+          "duration": 10.404800000000023,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "one Tang setting can remain active when the other is switched off or stolen",
+          "status": "passed",
+          "title": "one Tang setting can remain active when the other is switched off or stolen",
+          "duration": 11.04079999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "Guan pieces react separately within one root with current cells rechecked after each reaction",
+          "status": "passed",
+          "title": "Guan pieces react separately within one root with current cells rechecked after each reaction",
+          "duration": 10.488300000000038,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "changed installation capacity leaves a paired piece at its original owner instead of putting it into a hand",
+          "status": "passed",
+          "title": "changed installation capacity leaves a paired piece at its original owner instead of putting it into a hand",
+          "duration": 11.483600000000024,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "private entity validation rejects missing ledgers, virtual hands and duplicated pieces",
+          "status": "passed",
+          "title": "private entity validation rejects missing ledgers, virtual hands and duplicated pieces",
+          "duration": 5.601299999999981,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499354696,
+      "endTime": 1792499354924.6013,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-equipment.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "each personal start refreshes programming and own-expiry G statuses identically in TS/SQL",
+          "status": "passed",
+          "title": "each personal start refreshes programming and own-expiry G statuses identically in TS/SQL",
+          "duration": 25.54379999999992,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "signed final costs and active skill lineage apply once after free effects identically in TS/SQL",
+          "status": "passed",
+          "title": "signed final costs and active skill lineage apply once after free effects identically in TS/SQL",
+          "duration": 41.34349999999995,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "pair creation, cross-owner retention and final physical discard match whole TS/SQL ledger states",
+          "status": "passed",
+          "title": "pair creation, cross-owner retention and final physical discard match whole TS/SQL ledger states",
+          "duration": 21.962200000000394,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a first broken piece cannot discard the backing entity while its second logical install is still open",
+          "status": "passed",
+          "title": "a first broken piece cannot discard the backing entity while its second logical install is still open",
+          "duration": 11.628100000000359,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "bread readiness, selected-piece use and source cooldown snapshot match TS/SQL with independent items",
+          "status": "passed",
+          "title": "bread readiness, selected-piece use and source cooldown snapshot match TS/SQL with independent items",
+          "duration": 41.68359999999984,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499363957,
+      "endTime": 1792499364099.6836,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-ledger-sql.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "real classic refresh/environment staging hooks match every TS state, RNG and hazard hit field",
+          "status": "passed",
+          "title": "real classic refresh/environment staging hooks match every TS state, RNG and hazard hit field",
+          "duration": 69.93499999999995,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "new-round forecast lifecycle matches TS for temporarily absent, dead and revived observers",
+          "status": "passed",
+          "title": "new-round forecast lifecycle matches TS for temporarily absent, dead and revived observers",
+          "duration": 37.08739999999989,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a reserved forecast survives owner death and consumes no further bomb RNG at round end",
+          "status": "passed",
+          "title": "a reserved forecast survives owner death and consumes no further bomb RNG at round end",
+          "duration": 7.406500000000051,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "forecast and checkpoint privacy match for all four player projections and the spectator projection",
+          "status": "passed",
+          "title": "forecast and checkpoint privacy match for all four player projections and the spectator projection",
+          "duration": 11.569700000000012,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "no-observer and saved v17 keep the same refresh/environment behavior in TS and SQL",
+          "status": "passed",
+          "title": "no-observer and saved v17 keep the same refresh/environment behavior in TS and SQL",
+          "duration": 42.5621000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "card identity targeting matches TS/SQL for all76 cards, self/other viewers and legacy versions",
+          "status": "passed",
+          "title": "card identity targeting matches TS/SQL for all76 cards, self/other viewers and legacy versions",
+          "duration": 165.84810000000016,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "end task list, one30s invisibility window and duplicate-task suppression match TS/SQL",
+          "status": "passed",
+          "title": "end task list, one30s invisibility window and duplicate-task suppression match TS/SQL",
+          "duration": 15.19439999999986,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "successful, failed, declined and timed-out invisibility choices preserve the whole TS/SQL state",
+          "status": "passed",
+          "title": "successful, failed, declined and timed-out invisibility choices preserve the whole TS/SQL state",
+          "duration": 28.792199999999866,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "actual player and spectator projection hooks never borrow seat1 privacy permissions",
+          "status": "passed",
+          "title": "actual player and spectator projection hooks never borrow seat1 privacy permissions",
+          "duration": 195.43989999999985,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499343590,
+      "endTime": 1792499344164.44,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-observer-sql.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "forecast text renders only from authorized server projections and names the current round",
+          "status": "passed",
+          "title": "forecast text renders only from authorized server projections and names the current round",
+          "duration": 17.60929999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "invisibility has visible free/decline controls, respects busy disable, and shows its expiration status",
+          "status": "passed",
+          "title": "invisibility has visible free/decline controls, respects busy disable, and shows its expiration status",
+          "duration": 15.358599999999996,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499373240,
+      "endTime": 1792499373273.3586,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-observer-ui.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "reserves after poison update, keeps the forecast private, and reuses the exact result after later RNG",
+          "status": "passed",
+          "title": "reserves after poison update, keeps the forecast private, and reuses the exact result after later RNG",
+          "duration": 12.795599999999979,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "temporary absence keeps later-round forecasts, death stops new forecasts and revival resumes at the next round",
+          "status": "passed",
+          "title": "temporary absence keeps later-round forecasts, death stops new forecasts and revival resumes at the next round",
+          "duration": 5.135799999999989,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "forecast pool includes protected regions only after all poisonable regions have become poisoned",
+          "status": "passed",
+          "title": "forecast pool includes protected regions only after all poisonable regions have become poisoned",
+          "duration": 4.77200000000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "games without a living observer and saved v17 keep the original poison/bomb RNG flow",
+          "status": "passed",
+          "title": "games without a living observer and saved v17 keep the original poison/bomb RNG flow",
+          "duration": 13.9067,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "own end offers a free30s optional invisibility roll without renewing60s; success expires at own next start",
+          "status": "passed",
+          "title": "own end offers a free30s optional invisibility roll without renewing60s; success expires at own next start",
+          "duration": 22.161599999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "decline, failed roll and timeout never grant invisibility or spend AP; timeout does not roll",
+          "status": "passed",
+          "title": "decline, failed roll and timeout never grant invisibility or spend AP; timeout does not roll",
+          "duration": 14.696699999999993,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "programming can modify the invisibility die without repeating the end window or consuming AP",
+          "status": "passed",
+          "title": "programming can modify the invisibility die without repeating the end window or consuming AP",
+          "duration": 7.381499999999988,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "single attack, tactic, swap and tea menus and direct submissions all exclude invisible others",
+          "status": "passed",
+          "title": "single attack, tactic, swap and tea menus and direct submissions all exclude invisible others",
+          "duration": 25.263199999999983,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "actual group identity stays group with only one target, while self cards and role targeting still work",
+          "status": "passed",
+          "title": "actual group identity stays group with only one target, while self cards and role targeting still work",
+          "duration": 14.871100000000013,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "invisible casters block enemy single response/counter cards, but self defense and group responses remain legal",
+          "status": "passed",
+          "title": "invisible casters block enemy single response/counter cards, but self defense and group responses remain legal",
+          "duration": 17.695400000000006,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "environment hazards keep damaging invisible observers and old versions ignore the G targeting flag",
+          "status": "passed",
+          "title": "environment hazards keep damaging invisible observers and old versions ignore the G targeting flag",
+          "duration": 2.3272999999999797,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "equipment reflection still damages an invisible caster without treating the gear as a single card",
+          "status": "passed",
+          "title": "equipment reflection still damages an invisible caster without treating the gear as a single card",
+          "duration": 7.111099999999965,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499363003,
+      "endTime": 1792499363152.111,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-observer.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "an early real-engine G tick has no revision, clock or checkpoint side effects",
+          "status": "passed",
+          "title": "an early real-engine G tick has no revision, clock or checkpoint side effects",
+          "duration": 11.07480000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "programming is available again at the next real personal start",
+          "status": "passed",
+          "title": "programming is available again at the next real personal start",
+          "duration": 20.083499999999987,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "private G data does not open incomplete roles in formal setup, draft or active manifests",
+          "status": "passed",
+          "title": "private G data does not open incomplete roles in formal setup, draft or active manifests",
+          "duration": 1.6040000000000134,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "one physical food pays final fee plus1 once, resolves twice, and enters discard once",
+          "status": "passed",
+          "title": "one physical food pays final fee plus1 once, resolves twice, and enters discard once",
+          "duration": 12.281200000000013,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "each logical attack has fresh responses, but its original exercise entity grants discard income once",
+          "status": "passed",
+          "title": "each logical attack has fresh responses, but its original exercise entity grants discard income once",
+          "duration": 11.305700000000002,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "countering the first logical food does not cancel the second or charge again",
+          "status": "passed",
+          "title": "countering the first logical food does not cancel the second or charge again",
+          "duration": 8.352499999999992,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "a free higher exercise response costs1AP, supplies two child chains and discards its entity once",
+          "status": "passed",
+          "title": "a free higher exercise response costs1AP, supplies two child chains and discards its entity once",
+          "duration": 11.97399999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "the second logical attack drops a now illegal original target rather than retargeting",
+          "status": "passed",
+          "title": "the second logical attack drops a now illegal original target rather than retargeting",
+          "duration": 6.3945999999999685,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "both logical copies retain the prime active skill lineage for existing character immunity",
+          "status": "passed",
+          "title": "both logical copies retain the prime active skill lineage for existing character immunity",
+          "duration": 8.603700000000003,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "prime final costs apply after temporary free effects, preserve signed fees and add1 to declared X",
+          "status": "passed",
+          "title": "prime final costs apply after temporary free effects, preserve signed fees and add1 to declared X",
+          "duration": 5.807900000000018,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "prime interrupt pays once and resolves both logical cards before ending the original personal turn",
+          "status": "passed",
+          "title": "prime interrupt pays once and resolves both logical cards before ending the original personal turn",
+          "duration": 4.865000000000009,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499364389,
+      "endTime": 1792499364491.865,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-prime.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "dog moves a global target orthogonally for1AP without using basic movement or refreshing60s",
+          "status": "passed",
+          "title": "dog moves a global target orthogonally for1AP without using basic movement or refreshing60s",
+          "duration": 23.802999999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "dog refuses wrong roles, immune targets, the East Dimon and its current team",
+          "status": "passed",
+          "title": "dog refuses wrong roles, immune targets, the East Dimon and its current team",
+          "duration": 18.129999999999995,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "blocked, off-board or farm-closed directions leave the target still and consume the fee",
+          "status": "passed",
+          "title": "blocked, off-board or farm-closed directions leave the target still and consume the fee",
+          "duration": 14.708200000000005,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "monkey18 chooses consent for dog displacement and timeout/refusal keeps the token in place",
+          "status": "passed",
+          "title": "monkey18 chooses consent for dog displacement and timeout/refusal keeps the token in place",
+          "duration": 17.341999999999985,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "dog obeys jelly exit dice and shark mount locks without spending targets movement allowance",
+          "status": "passed",
+          "title": "dog obeys jelly exit dice and shark mount locks without spending targets movement allowance",
+          "duration": 14.292300000000012,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1792499367257,
+      "endTime": 1792499367345.2922,
+      "status": "passed",
+      "message": "",
+      "name": "D:/Users/20753/Desktop/应猴传说/monkey-legend/tests/p2/p3-g-skills.test.ts"
+    }
+  ]
+}

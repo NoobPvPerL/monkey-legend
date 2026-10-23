@@ -1,0 +1,92 @@
+{
+  "characters": {
+    "character-009": {
+      "id": "character-009",
+      "name": "大幻神",
+      "source": "docs/cards/角色牌.md#character-009",
+      "text": "- 锁定技 白眼：你瞧不起牌堆，所以说在摸牌阶段，你只能从每个对手手上摸一张牌（最多为两张）。\n- 主动技 好奇怪哦：每回合可发动一次，消耗一个行动点，进行判定，1-3则阻止一张卡牌的效果。",
+      "notes": "摸牌选取方式、对手不足牌时处理、响应时机待确认。",
+      "printedHp": "4",
+      "spawnRegion": "办公室",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-012": {
+      "id": "character-012",
+      "name": "观察者",
+      "source": "docs/cards/角色牌.md#character-012",
+      "text": "- 锁定技 观察：你可以提前知道下一个轰炸区的位置。\n- 主动技 隐身：在你回合结束之后可以进行判定，4-6则直到下一个回合，你无法被单体卡牌选中。",
+      "notes": "隐身费用及持续终点待确认。",
+      "printedHp": "3",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-021": {
+      "id": "character-021",
+      "name": "黄虫",
+      "source": "docs/cards/角色牌.md#character-021",
+      "text": "- 主动技 质数：你打出的所有卡牌必须增加一个行动点，并视作打出两张。\n- 主动技 过境：你可以花两点行动点霸占他人的食物效果。",
+      "notes": "视作两张是否重复效果；霸占取代还是复制、距离/时机待确认。",
+      "printedHp": "3",
+      "spawnRegion": "高唐农场",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-022": {
+      "id": "character-022",
+      "name": "假原始人",
+      "source": "docs/cards/角色牌.md#character-022",
+      "text": "- 锁定技 建民首领：场上有人打出带有建民词条的卡牌时，你可以摸一张牌，且你使用建民卡牌不用行动点。\n- 主动技 狗头军师：消耗一个行动点，使一个角色朝指定方向移动一格（可以无限次数使用）。",
+      "notes": "移动目标距离、地形/越界处理待确认。",
+      "printedHp": "3",
+      "spawnRegion": "食堂",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-028": {
+      "id": "character-028",
+      "name": "魔方小子",
+      "source": "docs/cards/角色牌.md#character-028",
+      "text": "- 锁定技 魔法有方：每回合开局都要进行一次判定，获得一次当前回合限定效果，1无法攻击，2无法移动，3多摸两张牌，4多拥有两个行动点（可以突破体力上限），5被你伤害的目标下次受到的伤害+1，6移动改为指定传送。",
+      "notes": "5的标记持续/叠加、6的传送范围待确认。",
+      "printedHp": "4",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-033": {
+      "id": "character-033",
+      "name": "人机",
+      "source": "docs/cards/角色牌.md#character-033",
+      "text": "- 锁定技 高科技：你使用外星卡牌时不需要消耗行动点。\n- 主动技 编程：每人每回合限使用一次，再摇一次骰子，改变别人的点数。",
+      "notes": "技能费用、重掷适用判定和响应顺序待确认。",
+      "printedHp": "3",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-042": {
+      "id": "character-042",
+      "name": "小原始人",
+      "source": "docs/cards/角色牌.md#character-042",
+      "text": "- 主动技 数学天才：你可以自定义你的判定点数。",
+      "notes": "点数范围、费用、次数待确认。",
+      "printedHp": "3",
+      "spawnRegion": "山洞",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-049": {
+      "id": "character-049",
+      "name": "中帝汶",
+      "source": "docs/cards/角色牌.md#character-049",
+      "text": "- 锁定技 店长：你使用食物时不需要消耗行动点，别人使用食物时，你需要掉落一张牌。\n- 主动技 哈基米：当你移动时甩到6，则可以跨过其他角色，并对其造成一点伤害（也可以不造成）。",
+      "notes": "掉落选取、无手牌处理、跨过多人计次、哈基米费用待确认。",
+      "printedHp": "4",
+      "spawnRegion": "XDF",
+      "printedFaction": null,
+      "waterNative": true
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "capturedAt": "2026-10-20T12:23:31.592Z",
+  "environment": "local TS private v18 fixture, not cloud authority",
+  "mobileMetrics": {
+    "forecast": {
+      "clientWidth": 378,
+      "height": 16,
+      "scrollWidth": 378,
+      "text": "观察 · 第1轮末轰炸：帝汶岛、淘安泽",
+      "width": 378,
+      "x": 6,
+      "y": 208
+    },
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "watchMetrics": {
+    "buttons": [
+      {
+        "height": 28,
+        "text": "玩家",
+        "width": 27.33333396911621,
+        "x": 239,
+        "y": 69.66667175292969
+      },
+      {
+        "height": 28,
+        "text": "日志",
+        "width": 27.33333396911621,
+        "x": 270.3333435058594,
+        "y": 69.66667175292969
+      },
+      {
+        "height": 28,
+        "text": "说明",
+        "width": 27.33333396911621,
+        "x": 301.66668701171875,
+        "y": 69.66667175292969
+      },
+      {
+        "height": 28,
+        "text": "离开观战",
+        "width": 45.33333587646485,
+        "x": 333,
+        "y": 69.66667175292969
+      }
+    ],
+    "forecast": "观察 · 第1轮末轰炸：帝汶岛、淘安泽",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "otherPlayerForecastCount": 0,
+  "mobileInvisibilityClickSucceeded": true,
+  "landscapeMetrics": {
+    "forecast": "观察 · 第1轮末轰炸：帝汶岛、淘安泽",
+    "scrollWidth": 844,
+    "width": 844
+  },
+  "narrowMetrics": {
+    "forecast": {
+      "clientWidth": 308,
+      "scrollWidth": 308,
+      "text": "观察 · 第1轮末轰炸：帝汶岛、淘安泽"
+    },
+    "scrollWidth": 320,
+    "width": 320
+  }
+}

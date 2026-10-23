@@ -1,0 +1,198 @@
+{
+  "scope": "private local H first tranche component review; not cloud or real mobile acceptance",
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:5187/review",
+  "measurements": [
+    {
+      "controls": [
+        {
+          "bottom": 803.3333740234375,
+          "height": 28,
+          "right": 162.73958587646484,
+          "text": "请选择角色S3 · 马懿S4 · 跑者",
+          "width": 89.33333587646484,
+          "x": 73.40625,
+          "y": 775.3333740234375
+        },
+        {
+          "bottom": 803.3333740234375,
+          "height": 28,
+          "right": 317.41668701171875,
+          "text": "冰封之力 · 还需2次自己开始",
+          "width": 150.67709350585938,
+          "x": 166.73959350585938,
+          "y": 775.3333740234375
+        }
+      ],
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "controls": [
+        {
+          "bottom": 699.3333740234375,
+          "height": 28,
+          "right": 100.00000286102296,
+          "text": "请选择角色S3 · 马懿S4 · 跑者",
+          "width": 89.33333587646484,
+          "x": 10.666666984558104,
+          "y": 671.3333740234375
+        },
+        {
+          "bottom": 698.0000228881836,
+          "height": 39.33333587646485,
+          "right": 309.3333435058594,
+          "text": "冰封之力 · 还需2次自己开始",
+          "width": 146.875,
+          "x": 162.45834350585938,
+          "y": 658.6666870117188
+        }
+      ],
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "controls": [
+        {
+          "bottom": 361.6666870117187,
+          "height": 22,
+          "right": 328.9479293823242,
+          "text": "请选择角色S3 · 马懿S4 · 跑者",
+          "width": 89.33333587646484,
+          "x": 239.61459350585935,
+          "y": 339.66668701171875
+        },
+        {
+          "bottom": 361.6666870117187,
+          "height": 22,
+          "right": 467.3229370117187,
+          "text": "冰封之力 · 还需2次自己开始",
+          "width": 134.375,
+          "x": 332.94793701171875,
+          "y": 339.66668701171875
+        }
+      ],
+      "height": 390,
+      "scrollWidth": 844,
+      "width": 844
+    },
+    {
+      "controls": [
+        {
+          "bottom": 516.3333435058594,
+          "height": 44,
+          "right": 1064.3854598999023,
+          "text": "请选择角色S3 · 马懿S4 · 跑者",
+          "width": 121.33333587646484,
+          "x": 943.0521240234376,
+          "y": 472.3333435058594
+        },
+        {
+          "bottom": 556.3333740234375,
+          "height": 40,
+          "right": 1031.9583587646484,
+          "text": "冰封之力 · 还需2次自己开始",
+          "width": 189.2916717529297,
+          "x": 842.6666870117188,
+          "y": 516.3333740234375
+        }
+      ],
+      "height": 900,
+      "scrollWidth": 1200,
+      "width": 1200
+    }
+  ],
+  "verified": [
+    "freeze mobile target select, AP12 to10, cooldown2 personal starts",
+    "freeze target skipped free action and normal next player started",
+    "attraction selected r2c3 and moved target S2 there",
+    "monkey reroll2 to6 then6+6 draws2, deck191 to189",
+    "H provisional rules distinguish normalG43 and privateH; no nonexistent v19 link"
+  ],
+  "clock": "harness uses monotonic fixed intent times; UI countdown is not network timing evidence",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/attract-desktop.png",
+      "bytes": 94805,
+      "sha256": "09176349f890d1186c77b21cc92456d5582daf0ee06c906b5c8c8753ad4d0ed5"
+    },
+    {
+      "path": "artifacts/p3-batch-h/attract-mobile-chosen.png",
+      "bytes": 46815,
+      "sha256": "8c909ec959837585533d05ee93c2a8063c00b9790d9935492dfe932a5a06518c"
+    },
+    {
+      "path": "artifacts/p3-batch-h/attract-mobile.png",
+      "bytes": 49188,
+      "sha256": "1e29a7de6ff6ce4edaaf5134fb251baf36806da990c14056090c3a37cfa7b652"
+    },
+    {
+      "path": "artifacts/p3-batch-h/freeze-desktop.png",
+      "bytes": 89047,
+      "sha256": "01e3cfb41fa591f8a625126836b37d9ae825d101f95db581fed9989cf823533b"
+    },
+    {
+      "path": "artifacts/p3-batch-h/freeze-landscape.png",
+      "bytes": 44094,
+      "sha256": "ab39f19625d363b8d44d559f2a24c73c8ee9b7411e1bef19e9e04b0fffc8f131"
+    },
+    {
+      "path": "artifacts/p3-batch-h/freeze-mobile-after.png",
+      "bytes": 47707,
+      "sha256": "dd422b98f952f9727bd062b401f7be329404259881d763c82013c0d2d11eec37"
+    },
+    {
+      "path": "artifacts/p3-batch-h/freeze-mobile-before.png",
+      "bytes": 46010,
+      "sha256": "e96a607cd74c240f7fde681d1bf34b5ce663758f32bb0cac666aeb9d0d4a6dee"
+    },
+    {
+      "path": "artifacts/p3-batch-h/freeze-mobile-skipped.png",
+      "bytes": 46499,
+      "sha256": "be8f655d51256ed80c16e26daea84001345c3a01802fb1f886bd189bdc769551"
+    },
+    {
+      "path": "artifacts/p3-batch-h/freeze-narrow-320.png",
+      "bytes": 41012,
+      "sha256": "9e9f3bda1c9791c06b0b419075007226378f82d91e81c9076b637156ae37afa2"
+    },
+    {
+      "path": "artifacts/p3-batch-h/reroll-desktop.png",
+      "bytes": 88412,
+      "sha256": "88becf3bd8f530eb19c22e7eabff32faad13d8025b7e1e1394705a7a4828057a"
+    },
+    {
+      "path": "artifacts/p3-batch-h/reroll-mobile.png",
+      "bytes": 46035,
+      "sha256": "b588554cfb2151018730e452fea18b4d3dfba32f1825a746f7d639f567fc51a2"
+    },
+    {
+      "path": "artifacts/p3-batch-h/rules-desktop.png",
+      "bytes": 123059,
+      "sha256": "ed83a2f96aaa0ec0297d19c020d90ee0a9b009b99ff806e18a2e8bbce267aa18"
+    },
+    {
+      "path": "artifacts/p3-batch-h/rules-mobile.png",
+      "bytes": 66243,
+      "sha256": "ca1f44233252db936b030f92d994018b2b51beef35bc2213d61e318651ecb3f4"
+    },
+    {
+      "path": "artifacts/p3-batch-h/six-desktop.png",
+      "bytes": 89920,
+      "sha256": "cf8adb85b5844760e06bfaee8079cb1ddf7c385894d95069a92a205b40d92398"
+    },
+    {
+      "path": "artifacts/p3-batch-h/six-mobile-drawn.png",
+      "bytes": 45173,
+      "sha256": "e8e268be8ccc0f4bca4d569b095033270bcd1a3a132061a896f29b03078e4b9b"
+    },
+    {
+      "path": "artifacts/p3-batch-h/six-mobile.png",
+      "bytes": 44924,
+      "sha256": "d29219ec246cbb6155c84b46fbe3cce9e66a86c5437d187f7d6ce992797e8a08"
+    }
+  ],
+  "captureReview": "Replaced stale rendered frames; checked saved images for AP10, skipped target, r2c3 movement and hand2/deck189. Expired choices remain visibly disabled. Component harness only."
+}

@@ -1,0 +1,101 @@
+{
+  "scope": "private H011 localhost actual component review, not real mobile or cloud acceptance",
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:5187/review",
+  "measurements": [
+    {
+      "scenario": "circle",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "scenario": "circle-pay",
+      "width": 320,
+      "scrollWidth": 320,
+      "payRight": 135.91,
+      "refuseLeft": 139.91,
+      "controlsBottom": 725.67,
+      "height": 740
+    },
+    {
+      "scenario": "circle-pay",
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 390
+    },
+    {
+      "scenario": "silence",
+      "width": 390,
+      "scrollWidth": 390,
+      "reasonDisplay": "block"
+    },
+    {
+      "scenario": "silence",
+      "width": 320,
+      "scrollWidth": 320,
+      "reasonHeight": 28,
+      "actionsBottom": 736.0,
+      "height": 740
+    }
+  ],
+  "verified": [
+    "circle button becomes used and fixed region is shown",
+    "actual pay click: AP12 to11, r2c4 to r1c4, two movement steps remain",
+    "suppression text visible and JJ reads currently suppressed",
+    "saved nine raster files opened and inspected",
+    "temporary tab closed, viewport reset, local server stopped"
+  ],
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/circle-desktop.png",
+      "bytes": 95948,
+      "sha256": "5d0ae5890b180eeea6a9f8f6af94c2abd111fa04d45611dd886a82701c3ad03d"
+    },
+    {
+      "path": "artifacts/p3-batch-h/circle-mobile.png",
+      "bytes": 50673,
+      "sha256": "0fefde7641d1a1a0d310c0af116579b6d3a33f5f1e242a9f3ab3bbbe2bdee91c"
+    },
+    {
+      "path": "artifacts/p3-batch-h/circle-pay-mobile.png",
+      "bytes": 52228,
+      "sha256": "f3bd2272079a78fb37f96c11973616272cb9a022dec3625890ccbd94d33ae9a1"
+    },
+    {
+      "path": "artifacts/p3-batch-h/circle-paid-mobile.png",
+      "bytes": 49187,
+      "sha256": "28177da3cfe42540baa9b3d18282c40a783f548ff2438c1560cf58c752ea44da"
+    },
+    {
+      "path": "artifacts/p3-batch-h/circle-pay-narrow-320.png",
+      "bytes": 48797,
+      "sha256": "5803ba513d2f5cc667e84e7f20a7fb287719be61691b9cad048e01eb6470d773"
+    },
+    {
+      "path": "artifacts/p3-batch-h/circle-pay-landscape.png",
+      "bytes": 47058,
+      "sha256": "065a67f55f96aa9b1b41ce510f2b733c679d10d8800560f8a83871fd095e98de"
+    },
+    {
+      "path": "artifacts/p3-batch-h/silence-mobile.png",
+      "bytes": 50705,
+      "sha256": "a6ce3a4309a7b74d3a7cc90fd268a2c07ee5f8422c8682cc5fd58abf964d6315"
+    },
+    {
+      "path": "artifacts/p3-batch-h/silence-desktop.png",
+      "bytes": 95264,
+      "sha256": "153b6647b49c1138a96920bb8762a01cd546db60b8eb039c349e373358d51bec"
+    },
+    {
+      "path": "artifacts/p3-batch-h/silence-narrow-320.png",
+      "bytes": 48051,
+      "sha256": "3cee3d07b6900c052438c5fa1132189403f7069d2116cb135c6ea4f1d15744f2"
+    }
+  ],
+  "clock": "deterministic component harness, runtime deadlines verified by TS/SQL tests; no live network timing claim",
+  "setupCorrections": [
+    "unique setup request IDs",
+    "step path array rather than cell"
+  ],
+  "original16ScreenshotHashesVerified": 16
+}

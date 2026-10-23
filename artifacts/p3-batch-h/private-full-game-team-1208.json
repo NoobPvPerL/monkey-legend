@@ -1,0 +1,31 @@
+{
+  "scope": "H private TS and isolated PostgreSQL harness based on frozen029; this harness does not install030",
+  "mode": "team",
+  "seed": 1208,
+  "characters": [
+    "character-041",
+    "character-011",
+    "character-029",
+    "character-042"
+  ],
+  "commands": 68,
+  "rounds": 4,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    0,
+    2
+  ],
+  "events": 164,
+  "choiceResolutionsAndSkills": {
+    "skill:circle": 2,
+    "skill:quote-cost": 10,
+    "g-math": 6,
+    "discard": 3,
+    "water-discard": 1,
+    "board-path": 3,
+    "h-circle-pay": 1,
+    "board-tax": 1,
+    "gear-reflect": 2
+  }
+}

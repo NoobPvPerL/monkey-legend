@@ -1,3 +1,7 @@
+import {fArrival} from './p3-f';
+import {gEnabled} from './p3-g-state';
+import {eEnabled,eRoot,eGate} from './p3-e';
+import {dPaid} from './p3-d';
 import {discardCards} from './exercise';
 import {reactiveArrival} from './stage4-movement';
 import {hasPlaytestRules,hasCardFeedbackRules} from '../../game-data/src/index';
@@ -20,11 +24,11 @@ export const MAP_CARD_IDS=['basic-013','basic-020','basic-021','basic-023','basi
 export const isBoardChoice=(kind:string)=>['board-path','board-cell','board-guess','board-tax','board-return','native-shore'].includes(kind);
 export function boardArrivalTasks(s:GameState,a:number,from:string,to:string,reactive=true):Task[]{
  const m=mapForVersion(s.version).map;
- return [...(m[from]?.region!==m[to]?.region&&currentDesert(s,a)?[task('board-desert',{actor:a})]:[]),...(reactive?reactiveArrival(s,a,from,to):[])];
+ return [...(m[from]?.region!==m[to]?.region&&currentDesert(s,a)?[task('board-desert',{actor:a})]:[]),...fArrival(s,a,from,to),...(reactive?reactiveArrival(s,a,from,to):[])];
 }
 export function boardReturn(s:GameState,a:number,now:number,p:Stage3Ports):boolean {
  const st=state(s);if(!st.stage4.offMap[a])return false;
- const cells=mapForVersion(s.version).cells.filter(c=>boardEmptyEntry(st,a,c.id,[a])).map(c=>c.id);
+ const cells=mapForVersion(s.version).cells.filter(c=>boardEmptyEntry(st,a,c.id,[a],true)).map(c=>c.id);
  if(cells.length){p.select(s,'board-return',a,now,{cells});return true;}
  s.queue=s.queue.filter(t=>!(t.kind==='turn-start'&&t.actor===a));s.queue.unshift({kind:'next'});return true;
 }
@@ -38,7 +42,7 @@ export function stage4MapEffect(s:GameState,now:number,p:Stage3Ports):boolean {
   st.stage4.lmmUntil[a]=st.stage3.starts[a]+1;st.stage4.lmmEffects[a]=structuredClone(c.effect);st.stage4.lmmSerial[a]=c.serial;
   jobs.push(...s.order.filter(t=>targets.includes(t)).map(actor=>task('board-pay',{actor,source:a,data:{mode:'lmm'}})));
  }
- if(c.definition==='basic-034')for(const target of targets){st.stage4.offMap[target]=true;s.classic!.exposure[target]={region:null,streak:0};s.classic!.caveEnds![target]=0;p.emit(s,'off-map',`S${target+1} 移出地图，等待下个个人开始返回`);}
+ if(c.definition==='basic-034')for(const target of targets){if(eEnabled(s.version)){jobs.push(task('e-off-map',{actor:a,target,data:{root:eRoot(s)}}));continue;}st.stage4.offMap[target]=true;s.classic!.exposure[target]={region:null,streak:0};s.classic!.caveEnds![target]=0;p.emit(s,'off-map',`S${target+1} 移出地图，等待下个个人开始返回`);}
  if(c.definition==='basic-023'){
   st.stage4.blocks=st.stage4.blocks.filter(b=>!(b.owner===a&&b.region===c.stage4!.region));
   st.stage4.blocks.push({region:c.stage4!.region!,owner:a,effect:structuredClone(c.effect),until:st.stage3.starts[a]+1,exempt:c.stage4!.officeExempt??[]});
@@ -69,7 +73,7 @@ export function stage4MapEffect(s:GameState,now:number,p:Stage3Ports):boolean {
 function pay(s:State,a:number,owner:number,mode:'desert'|'lmm'|'tribute',card:string|null,ap:boolean,p:Stage3Ports):Task[]{
  const actor=s.players[a],to=s.players[owner];let missing=false;
  if(mode==='tribute'||mode==='desert'&&ap){
-  const amount=Math.min(1,actor.ap);actor.ap-=amount;if(amount&&to.hp>0)resources.gainAp(s,owner,amount);missing=amount<1;
+  const amount=Math.min(1,actor.ap);actor.ap-=amount;if(mode==='desert'&&ap)dPaid(s,a,actor.ap+amount,amount);if(amount&&to.hp>0)resources.gainAp(s,owner,amount);missing=amount<1;
  }
  if(mode!=='desert'||!ap){
   if(card){need(actor.hand.includes(card),'手中没有所选上交牌');actor.hand=actor.hand.filter(c=>c!==card);if(to.hp>0)to.hand.push(card);else discardCards(s,[card]);}
@@ -98,6 +102,7 @@ export function stage4MapTask(s:GameState,t:Task,now:number,p:Stage3Ports):boole
  if(!c||t.serial!==undefined&&c.serial!==t.serial)return true;
  if(t.action==='board-force'){
   const {region,steps}=t.data as {region:string;steps:number},paths=forcedRegionPaths(st,a,region,steps);
+  if(eEnabled(s.version)&&paths.some(path=>path.length)){const gate=eGate(s,a,c.actor,[t]);if(gate!==null){s.queue.unshift(...gate);return true;}}
   if(paths.length>1)p.select(s,'board-path',a,now,{options:Object.fromEntries(paths.map((path,i)=>[String(i),path])),data:{serial:c.serial}});
   else if(paths[0]?.length)queuePath(st,a,paths[0],c.serial);return true;
  }
@@ -149,9 +154,10 @@ export function stage4MapChoose(s:GameState,cmd:Extract<Command,{type:'choose'}>
   s.queue.unshift(...pay(st,a,choice.source!,mode,card,ap,p));return;
  }
  if(choice.kind==='board-guess'){
-  const c=stack.currentCard(st),die=c.stage4!.guessDie!;
+  const c=stack.currentCard(st);let die=c.stage4!.guessDie!;
   need(timeout||Number.isInteger(cmd.guess)&&cmd.guess!>=1&&cmd.guess!<=6,'请选择1—6');
   p.emit(s,'dice',`卫汶找你：d6 = ${die}`,die);
+  if(gEnabled(s.version)){need(p.finalDie,'G隐藏骰缺少权威续接');die=p.finalDie!(s,'卫汶找你',c.actor,die);}
   if(hasCardFeedbackRules(s.version))p.emit(s,'effect',timeout||cmd.guess!==die?`卫汶找你：S${a+1}${timeout?'猜点超时':'猜错'}，由S${c.actor+1}选择传送落点`:`卫汶找你：S${a+1}猜中，位置不变`);
   if(timeout||cmd.guess!==die)s.queue.unshift(task('board-teleport',{target:a,serial:c.serial}));return;
  }
@@ -160,10 +166,10 @@ export function stage4MapChoose(s:GameState,cmd:Extract<Command,{type:'choose'}>
   else if(hasCardFeedbackRules(s.version))p.emit(s,'effect',`卫汶找你：S${a+1}${timeout?'选择超时':'放弃传送'}，位置不变`);return;
  }
  if(choice.kind==='board-return'){
-  const cells=(choice.cells??[]).filter(cell=>boardEmptyEntry(st,a,cell,[a]));need(cells.length>0,'当前无合法返回格');
+  const cells=(choice.cells??[]).filter(cell=>boardEmptyEntry(st,a,cell,[a],true));need(cells.length>0,'当前无合法返回格');
   const cell=timeout?cells[integer(s.random,cells.length)]:cmd.cell;need(cell&&cells.includes(cell),'请选择合法返回格');
   st.stage4.offMap[a]=false;const from=s.players[a].cell;
-  const jobs=p.relocate(s,a,cell!,false);if(from===cell&&water(s,cell!,a)&&!native(s,a)&&s.players[a].hand.length)jobs.unshift({kind:'water',actor:a,data:{entry:true}});
+  const jobs=p.relocate(s,a,cell!,false,true,true,{actor:a,placement:true});if(from===cell&&water(s,cell!,a)&&!native(s,a)&&s.players[a].hand.length)jobs.unshift({kind:'water',actor:a,data:{entry:true}});
   if(from===cell&&currentDesert(st,a))jobs.push(task('board-desert',{actor:a}));s.queue.unshift(...jobs);p.emit(s,'return',`S${a+1} 返回地图${cell}`);return;
  }
  throw Error('未知阶段四地图选择');

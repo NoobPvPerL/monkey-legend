@@ -1,3 +1,5 @@
+import {hBlocks,hSmall} from './p3-h-occupancy';
+import {hasP3FRules} from '../../game-data/src/index';
 import {isClassicVersion,mapForVersion,sourceCatalogForVersion,characterTraitsForVersion,classicLocationPolicy} from '../../game-data/src/index';
 export interface LocationPlayer {character:string;cell:string;ap:number;hp:number;maxHp:number}
 const policy=classicLocationPolicy();
@@ -12,7 +14,8 @@ export function personalStartAp(version:string,p:LocationPlayer,round:number):nu
 }
 export function foodHealing(version:string,p:LocationPlayer,base:number):number {
  if(p.hp<=0||p.character==='character-027')return 0;
- return Math.min(Math.max(0,p.maxHp-p.hp),base+(isClassicVersion(version)&&regionAt(version,p.cell)==='XDF'?policy.xdf.foodHealBonus:0));
+ const cap=hasP3FRules(version)&&p.character==='character-019'?Infinity:Math.max(0,p.maxHp-p.hp);
+ return Math.min(cap,base+(isClassicVersion(version)&&regionAt(version,p.cell)==='XDF'?policy.xdf.foodHealBonus:0));
 }
 export function locationCardAllowed(version:string,cell:string,card:string):boolean {
  if(!isClassicVersion(version))return true;
@@ -31,7 +34,7 @@ export function locationDestinations(s:LocationActionState,actor:number,kind:'sh
  if(kind==='ship'&&(regionAt(s.version,p.cell)!=='飞船'||s.shipUsed.includes(actor)))return [];
  return mapForVersion(s.version).cells.filter(cell=>
   (kind!=='commute'||cell.region==='云上学府')&&(!s.farmClosed||cell.region!=='高唐农场')&&
-  !s.players.some(other=>other.hp>0&&other.cell===cell.id)).map(cell=>cell.id);
+  !s.players.some(other=>other.hp>0&&other.cell===cell.id&&hBlocks(s,actor,s.players.indexOf(other)))).map(cell=>cell.id);
 }
 export function isWaterNative(version:string,character:string):boolean {return characterTraitsForVersion(version,character).waterNative;}
 // Pure reference effect, invoked inside the authority's command transaction.

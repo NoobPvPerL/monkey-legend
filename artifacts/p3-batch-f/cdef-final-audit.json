@@ -1,0 +1,88 @@
+{
+  "auditedAt": "2026-10-23T00:18:08.595123+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "lastObservedRemoteHead": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "remoteRead": "git ls-remote origin refs/heads/main; read-only, no push",
+  "normalCandidate": {
+    "ruleVersion": "web-v0.1.18",
+    "engineRevision": 29,
+    "characters": 43
+  },
+  "privateH": {
+    "ruleVersion": "web-v0.1.19",
+    "characters": 52,
+    "rulesPendingReview": true
+  },
+  "frozenPredecessorsVerified": 35,
+  "migration029Sha256": "f5179b99332e27585cd1db7dd7f1d12c640656e828b24710949eca1abef2b473",
+  "originalTrackedFilesUnchanged": 196,
+  "originalAssetsVerified": 191,
+  "earlierHScreenHashesVerified": 81,
+  "screenshots": {
+    "count": 84,
+    "C": 14,
+    "D": 16,
+    "E": 20,
+    "F": 34,
+    "contactSheetsOpened": 18,
+    "finalContactPixelsMatchOriginals": true,
+    "viewports": [
+      "390x844",
+      "1200x900"
+    ],
+    "noDocumentHorizontalOverflow": true,
+    "scope": "local headless Edge viewport emulation; not physical mobile or production"
+  },
+  "browserFlows": 32,
+  "browserCommands": 56,
+  "sqlCommandsFullyCompared": 56,
+  "reports": {
+    "cdef-ui-regression-final": {
+      "total": 39,
+      "passed": 39,
+      "failed": 0,
+      "files": 6
+    },
+    "full-regression-cdef-ui-final": {
+      "total": 1426,
+      "passed": 1426,
+      "failed": 0,
+      "files": 138
+    }
+  },
+  "documentationLinksChecked": 672,
+  "sourceHashes": {
+    "apps/client/src/Stage3Controls.tsx": "aab82994479d29c05ffb5d840376fad2833452fadf4769c4f3e56712f65f2503",
+    "apps/client/src/Stage4Controls.tsx": "69c476bf3dbefd96cdd19b9a53e120c3f01dfc5788a8120feeae254d2336ca76",
+    "tests/browser/p3-cdef-review.tsx": "b5e13b9c85baa9e821d1cb64c81e60bfd410b014b1ab1c08632a8870ca97604d",
+    "tools/review-p3-cdef.mjs": "2c8e95fe2649202f56071aaf8b4b7d3b6ad468d6d247397e6fefd5ad586108b1",
+    "tools/verify-p3-cdef-browser.mjs": "95832d6cbd0adc3c22ef447615aa829730bc2edcf050c1486d59c14ccb918928",
+    "tools/verify-p3-cdef-browser-sql.mjs": "a643832ded5a9c116b8c0a8218a1d51e5a03247761f6cf930009f947152b4a63"
+  },
+  "checks": [
+    "typecheck",
+    "verify:catalog",
+    "verify:data",
+    "verify:db-data",
+    "git diff --check",
+    "node --check three new tools"
+  ],
+  "reviewServerStopped": true,
+  "ownHeadlessBrowsersClosed": true,
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "githubUploaded": false,
+  "productionWritten": false,
+  "requiredWorkRemaining": [
+    "H provisional rule and screenshot review",
+    "normal H activation and new migration/public-RPC compatibility tests",
+    "aligned release metadata and packaging inputs",
+    "approved WorkBuddy build and independent extraction/startup/migration verification",
+    "GitHub source and package upload with remote verification"
+  ],
+  "outsideDeliveryAuthorization": [
+    "production cloud execution",
+    "owner phase acceptance"
+  ]
+}

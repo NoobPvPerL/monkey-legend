@@ -1,0 +1,3728 @@
+{
+  "scope": "Actual local OnlineBoard clicks and core dispatch using controlled C-F scenarios. Headless Edge viewport emulation, not physical mobile, production or user acceptance.",
+  "screenshots": [
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-start-mobile.png",
+      "sha256": "eabf689220a508e91ea6a445245327aa131fedda227c6b12794b47094f0ce9d5",
+      "bytes": 68605,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-target-mobile.png",
+      "sha256": "a2e7cecfb7833e767e214aa1ad50a9b76403d3c200371597e09f59a8b8a61017",
+      "bytes": 77940,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-result-mobile.png",
+      "sha256": "d4d6a6dc3c902f997ac5383025c8b778283172b87a5bb5bbe29cdb1612a18381",
+      "bytes": 67983,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-fail-start-mobile.png",
+      "sha256": "91e189eb1b44a4a4aebd11d3bcd9a9a7482f8335b4ed8d643ce0325f5d6677d4",
+      "bytes": 68600,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-fail-result-mobile.png",
+      "sha256": "40e85b30c771c27c77b3c2b8bb9f0020e1bc992485bea39723b11c6877b63157",
+      "bytes": 71574,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/primitive-start-mobile.png",
+      "sha256": "897df21dcc11b8b12f6eb16f1e9a039d5b1d021903429e9d7269d903508ed369",
+      "bytes": 63142,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/primitive-result-mobile.png",
+      "sha256": "859bce3e42f925c3d47b7ad6496b5772552ef9c472f9a658eaff73f144db6878",
+      "bytes": 63163,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/dragon-start-mobile.png",
+      "sha256": "dc3e9feb55582a3e5258793f6daac1060f12d579279bc28f765c54f065237917",
+      "bytes": 70684,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/dragon-target-mobile.png",
+      "sha256": "793c2551df7c0f8e3bf8aabb675ea7711e543c9500de464b853b626565a08446",
+      "bytes": 77198,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/dragon-result-mobile.png",
+      "sha256": "f8d3c575598b5cf083c240b93349bed77cfdde23e1186ef92ac203e0fadbdc5d",
+      "bytes": 69120,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/clan-start-mobile.png",
+      "sha256": "9d9bc24109213afe7896d3d893675f33b9ed1273de6690bd740e4a0e181dd69b",
+      "bytes": 72702,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/clan-result-mobile.png",
+      "sha256": "1aa9165bcffae78337b66da8a43d6142f4e14ace6a151f655c5b217c5bff2182",
+      "bytes": 68017,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/encourage-start-mobile.png",
+      "sha256": "31d0593960fe31b0736799858b013c1e23502e08eebdac1ac8ac8d26aea32788",
+      "bytes": 65205,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/encourage-discard-mobile.png",
+      "sha256": "88a70035a9921c6803f5d258e8f49ea04a25fd3ea8bc2c4ac7cfa4ce0a43f7fd",
+      "bytes": 64973,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/encourage-result-mobile.png",
+      "sha256": "f3022a57fa8741904a92f2912f6fda2073b4779b2cf56fd473e52a5b530287e4",
+      "bytes": 64262,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/gas-start-mobile.png",
+      "sha256": "a7dbde76a942a0398b6b7bec228aa85f024e204daf04d6b48468c13c780ac336",
+      "bytes": 63107,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/gas-consent-mobile.png",
+      "sha256": "1da843a5f88db978000c0ed990a571b6a038a493011f0e45d6d99beb3358ae36",
+      "bytes": 65883,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/gas-egg-mobile.png",
+      "sha256": "ce2b483b4d95486833a11147422338c224c9d6fd69b5451a9dfb18604575c8e6",
+      "bytes": 65270,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/gas-result-mobile.png",
+      "sha256": "b1f39f533732675b9c8171253f455f19f2ab11eb9cf4cb9b58644b05025be903",
+      "bytes": 63252,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/escape-start-mobile.png",
+      "sha256": "d1e285c5256e369026ce6048d8d59bac351d499ef911a7a98fea5959e3e88835",
+      "bytes": 66622,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/escape-direction-mobile.png",
+      "sha256": "fd2855d327ddd87f7e724762af4e531ba4788db7c4ea3102500446951bce9c26",
+      "bytes": 64511,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/escape-result-mobile.png",
+      "sha256": "e669de1db9f73bc5b9287110785afe47ab73f43711b55959b7c6559f47bc41b1",
+      "bytes": 66810,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/highest-start-mobile.png",
+      "sha256": "39bb846706f0c7dc024d79cd69fd5ab3dec5bb0d1cdf3687fad09c7c812a919c",
+      "bytes": 66628,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/highest-direction-mobile.png",
+      "sha256": "aec8c1f4be5b062639961efeddfbbc2bd2a80e7b6c1b46e629ca86ce388e51e0",
+      "bytes": 64864,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-e/highest-result-mobile.png",
+      "sha256": "c7ff036e99c4038cb82e68939eaa559f697563e2f1a8c2e7ff3126f4d80b368f",
+      "bytes": 65214,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/execute-start-mobile.png",
+      "sha256": "40eea9ecc8136a1d26c305de175cc66ebbc7e1ee9ad38e0241d07532e80b969b",
+      "bytes": 65195,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 732,
+        "width": 378,
+        "height": 108
+      }
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/execute-target-mobile.png",
+      "sha256": "7af9c9749c40dfca0b40f817cf033cf3d13e13d7853d552cadbe02d055902fcb",
+      "bytes": 63308,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 700,
+        "width": 378,
+        "height": 140
+      }
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/execute-result-mobile.png",
+      "sha256": "d41830edb9be70a1ce8006297000626ee238e842489c0d443c4dd8a8b4ea0979",
+      "bytes": 64718,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 732,
+        "width": 378,
+        "height": 108
+      }
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/tenacity-start-mobile.png",
+      "sha256": "d0389f2de9abaa6507297982ce87ce4abbfa1d76c34ceb93be34adca0d032f14",
+      "bytes": 61949,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/tenacity-tenacity-mobile.png",
+      "sha256": "ed10689299dffdde6870107403fe8ebfe37f73bab3d4a62b2647788da104bfa5",
+      "bytes": 62296,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/tenacity-result-mobile.png",
+      "sha256": "491b807d335c83312367a0066a641fdd4b176222efcce8ff021f50aa04e68551",
+      "bytes": 61916,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/monkey5-start-mobile.png",
+      "sha256": "18c3d6e5e24bf4abe3b06e1bc45c161d3a9e1003c69165761a32e7b20311ca9d",
+      "bytes": 65874,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/monkey5-result-mobile.png",
+      "sha256": "ed50b06faa2dd5de3406b86ca42c6195855039904926d4ea871d7c1bc8a96dd4",
+      "bytes": 64148,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/home-start-mobile.png",
+      "sha256": "c9be5eb4c5cf128ba9291b6c0e1f9a239c5664b9e325cfec3d75bb5e25380b56",
+      "bytes": 64877,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/home-result-mobile.png",
+      "sha256": "3ae5b003d00b690c343a24db90f39d1574a0cc1e50a46370655a7a52172a64da",
+      "bytes": 62353,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/self-start-mobile.png",
+      "sha256": "e276e3762d357913a0136a3a2eeadd49553932b456be5328ed1871e20ee70370",
+      "bytes": 64949,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/self-discard-mobile.png",
+      "sha256": "996a2e4097288f8dfe18d176cea99f97078e12429383b0ca7b064683120af6cf",
+      "bytes": 66088,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/self-result-mobile.png",
+      "sha256": "2b75a4be18b096f22de3c824a53a6b9887cc9ce23dc590513dbd0f000aca52dd",
+      "bytes": 63653,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/sting-start-mobile.png",
+      "sha256": "4f8a4b078d273d344104cac64e696e939cc7fea748a3a529fca3d27fd64edcee",
+      "bytes": 59882,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/sting-result-mobile.png",
+      "sha256": "39f55197a2e9c313298f9f6989be4c96afa0be59be4e1fc006f083b942fbabd0",
+      "bytes": 62070,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/bccb-start-mobile.png",
+      "sha256": "ea8d45e89f2a08deb59c49a14910f253b73b8d885fe54aaa4bd63b54e4f5dd9c",
+      "bytes": 64671,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-f/bccb-result-mobile.png",
+      "sha256": "2cf98ec1db679eb0d986b996927ed45b1447a0ea230e515e17c1bbd7d6d49ed7",
+      "bytes": 63283,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-c/feather-start-desktop.png",
+      "sha256": "9db339838d4be163d570336745e4caed75bb819b3ded3842cc5221dc687487f5",
+      "bytes": 117582,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 88
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-c/feather-target-desktop.png",
+      "sha256": "ab3de51fa24e7225fa92ad7a2c05b64bb06f92e5d74141783eb18126bbbb969a",
+      "bytes": 137578,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 365.390625
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-c/feather-result-desktop.png",
+      "sha256": "88368a075c7d0020269387dfe15aab89ab0f292bd8e55abfd81f7702f97c03cd",
+      "bytes": 115749,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 154
+      }
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-c/feather-fail-start-desktop.png",
+      "sha256": "7c87a29eb2b8d4c62a28a8281d07252abe260b106807a764ca6d512014f6b23b",
+      "bytes": 117587,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 88
+      }
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-c/feather-fail-result-desktop.png",
+      "sha256": "be16621290411ea558c1c6b025be60bf1a76deab2a1fd35824f9eff176606cdd",
+      "bytes": 125137,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 165
+      }
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-c/primitive-start-desktop.png",
+      "sha256": "a4353726b3fb32240e49e4296e77125d877afea4b1173d1314215e682bf7cb31",
+      "bytes": 99108,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 80
+      }
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-c/primitive-result-desktop.png",
+      "sha256": "e063d234fa2c838b2e3f7e82c4fa977b4e49d7bd9c3c0021afe01dfa078747ed",
+      "bytes": 98740,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 88
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/dragon-start-desktop.png",
+      "sha256": "395d09560ec9df1e88344467562efaa36a5732abdf4cc6192ce2f5efa3ea1c13",
+      "bytes": 112566,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 106
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/dragon-target-desktop.png",
+      "sha256": "5809fa7d34fae635beb4864360391a69d96436c7f2ea11dfbc574f07a424d48a",
+      "bytes": 135110,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 312.390625
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/dragon-result-desktop.png",
+      "sha256": "98f1dd81f93ce1b2ab1ec81b9e2ebf41deb40892621beb821178bb4462cb27ca",
+      "bytes": 116751,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 106
+      }
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/clan-start-desktop.png",
+      "sha256": "e3630f177861ff5eefc06120f9818dae3d49e40e96c91545d0c15dd50311eb87",
+      "bytes": 115876,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 154
+      }
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/clan-result-desktop.png",
+      "sha256": "2dfae90f0fd2971bfb636da21649552eb1687a54a32e380dfcd88840c66ccd0d",
+      "bytes": 104807,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 136
+      }
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/encourage-start-desktop.png",
+      "sha256": "beb0ccbf549e2db205f6a37c2642e3346a7cf6e798d753026a1fbb5cac63d038",
+      "bytes": 100961,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/encourage-discard-desktop.png",
+      "sha256": "b009ab0c999f4409743d36726f52a07425d785b5f5986264ecd64e52eed7c7f7",
+      "bytes": 101577,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 80
+      }
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-d/encourage-result-desktop.png",
+      "sha256": "55322879eba0595c3fae3e5f76f16ccd4c2b29f01744ec3cf3f47fe2aa0fdef6",
+      "bytes": 99741,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 136
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/gas-start-desktop.png",
+      "sha256": "097d0728c87c6981e7f823a2c3356dd897bd063cf75de9557af33da8e7a693ee",
+      "bytes": 98710,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 136
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/gas-consent-desktop.png",
+      "sha256": "3d7d5fe4278de20f87072ebaf638637954828a5eaf3587aa816a7f6afd6fe5ec",
+      "bytes": 102784,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 130
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/gas-egg-desktop.png",
+      "sha256": "a548349d445dc0a2740995a335ca5baed47a0f515bf824d8a1c28cafa93e0d6f",
+      "bytes": 102420,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 130
+      }
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/gas-result-desktop.png",
+      "sha256": "e9dcea40eeb78164ee91c1bb8c50958fada78eaf23622d9233780c97b12f1754",
+      "bytes": 98891,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 136
+      }
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/escape-start-desktop.png",
+      "sha256": "9a21fd472e591818852571db557cb564ef5560fea3a3be4d2a35369f1e9c6ba2",
+      "bytes": 102129,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 184
+      }
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/escape-direction-desktop.png",
+      "sha256": "f18a3fc26d7098d3e1c24bc8b221bf82a9985875aa160d805dd998790e5cc66f",
+      "bytes": 100710,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 130
+      }
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/escape-result-desktop.png",
+      "sha256": "920cf26cb131edc6b32f6d4d097a6c03874f34cefb291f6a702fe51f2d41f96f",
+      "bytes": 102132,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 184
+      }
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/highest-start-desktop.png",
+      "sha256": "4c85d3f8e117dee66e2968492aa4f660ba068d314fd7ec9eb93499c32a88a78d",
+      "bytes": 102193,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 184
+      }
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/highest-direction-desktop.png",
+      "sha256": "81c57551d2e63323552e52d9e5fda977d33027cd2bf35f52081a6dc9f50b1a2c",
+      "bytes": 101121,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 130
+      }
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-e/highest-result-desktop.png",
+      "sha256": "71c7370246bb8a5c05f6322e59bdd99e9fb079369911ae43554a7d4c168f3f7e",
+      "bytes": 102116,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 130
+      }
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/execute-start-desktop.png",
+      "sha256": "4e6a5c882fab7fea321da4ecf18368fb3c80e4a91cce1ed372769bcec8613159",
+      "bytes": 101020,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 236
+      }
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/execute-target-desktop.png",
+      "sha256": "bb9bfa3dcc28a13550dd7bbe1fdaa4bc81e0cb323f3bb134e3da4663f13b7ca7",
+      "bytes": 100838,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 382.796875
+      }
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/execute-result-desktop.png",
+      "sha256": "f03819cc95f2d1ea740b4e362a235471cb92724bf6ab319ab7e3f5038599df98",
+      "bytes": 102276,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 236
+      }
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/tenacity-start-desktop.png",
+      "sha256": "1e3d51a9f1902cf3334c18941a8c31d531ce84b84fd2d818cc9a8d64a9c4cd24",
+      "bytes": 94953,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 184
+      }
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/tenacity-tenacity-desktop.png",
+      "sha256": "fa160387f7c53a44648d749af79791a4f86675db76bca8076750789f5a7ce566",
+      "bytes": 95397,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 134
+      }
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/tenacity-result-desktop.png",
+      "sha256": "c34b14659c15a9af764d3f7c0b185d303790e32489b5d8ba9498b36302104d67",
+      "bytes": 94880,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 184
+      }
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/monkey5-start-desktop.png",
+      "sha256": "c8981fde64d81acd6beef653014df2d20115503998efb8aa8541764c97f801b3",
+      "bytes": 110837,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 542.125,
+        "width": 350,
+        "height": 106
+      }
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/monkey5-result-desktop.png",
+      "sha256": "44cf609a835a7f70e246956f13fb97e201a671fe8fd5b9f854f691d377f1ea72",
+      "bytes": 100113,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 106
+      }
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/home-start-desktop.png",
+      "sha256": "5df170b1f2da3184185ae8df12f0eaf88c03106ce0d6f32309b2b659e23c6149",
+      "bytes": 101356,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 88
+      }
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/home-result-desktop.png",
+      "sha256": "7fe58e86faa2638ae75af01200091d33eeb587366f2b0666c0776c7153ff4fc8",
+      "bytes": 98226,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 88
+      }
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/self-start-desktop.png",
+      "sha256": "aa455679f4902220e7961bf37e011b34d76e7c4b55d2db8d1ead4b42c9cc4793",
+      "bytes": 102218,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 109
+      }
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/self-discard-desktop.png",
+      "sha256": "70287e45509fec36153b5c193ad15a333148575a7157103fe732da5ee8eabd44",
+      "bytes": 104264,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 80
+      }
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/self-result-desktop.png",
+      "sha256": "fcf47fbd273c7429a3a1cf11ef83ae3182964e6633872d58a5481f8bd88c42cc",
+      "bytes": 99297,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 88
+      }
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/sting-start-desktop.png",
+      "sha256": "0fe9fa4db66864f14ec9505bf7e0d79cd684aecb6f1ceaa2e7ffd68769836fc2",
+      "bytes": 93002,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 109
+      }
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/sting-result-desktop.png",
+      "sha256": "1139c4a0811eb71b0442645a4fb5a4664c1bf43a8f74b9749441cdbb7d5becc8",
+      "bytes": 96036,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 466,
+        "width": 350,
+        "height": 80
+      }
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/bccb-start-desktop.png",
+      "sha256": "c991d18fdd50f1e6fcc381539f3f27e669b0b32f7ed1aeb277ee2953fa2bb799",
+      "bytes": 102065,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 109
+      }
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "desktop",
+      "path": "artifacts/p3-batch-f/bccb-result-desktop.png",
+      "sha256": "16bcaae94867bcf6b34ea42576dd6080e38280e8ae47c488421ca31239d04a5b",
+      "bytes": 98863,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "actionsRect": {
+        "x": 832,
+        "y": 396,
+        "width": 350,
+        "height": 80
+      }
+    }
+  ],
+  "flows": [
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 3
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 2
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 3
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 2
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 14,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 14,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "mobile",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "encourage-discard",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 9,
+              "cell": "r1c4",
+              "handCount": 2
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 0,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 9,
+              "cell": "r1c4",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 0,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "mobile",
+      "commands": 4,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "move-consent",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "choice",
+          "choice": "egg-move",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 4,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c3",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "mobile",
+      "commands": 4,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "egg-move",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 4,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c7",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "mobile",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 3,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "egg-move",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 3,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 0,
+              "maxHp": 4,
+              "ap": 0,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 2,
+              "maxHp": 2,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "mobile",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "f-tenacity",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 1
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r3c4",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 2,
+              "maxHp": 2,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 1
+            },
+            {
+              "seat": 1,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r3c4",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 2,
+              "maxHp": 2,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 3,
+              "maxHp": 2,
+              "ap": 9,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 0,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 3,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "mobile",
+      "commands": 3,
+      "states": [
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "f-discard",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 1
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 1
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "choice",
+          "choice": "f-discard",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 1
+            }
+          ]
+        },
+        {
+          "revision": 4,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 3,
+          "phase": "moving",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 2
+            },
+            {
+              "seat": 1,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r1c2",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r3c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 3,
+          "phase": "moving",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 2,
+              "maxHp": 4,
+              "ap": 14,
+              "cell": "r1c2",
+              "handCount": 2
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r3c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "desktop",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 3
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 2
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 3
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 2
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "d-clan",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 14,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 14,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "d-encourage",
+      "viewport": "desktop",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "encourage-discard",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 9,
+              "cell": "r1c4",
+              "handCount": 2
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 0,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 9,
+              "cell": "r1c4",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 0,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "e-gas",
+      "viewport": "desktop",
+      "commands": 4,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "move-consent",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "choice",
+          "choice": "egg-move",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 4,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c3",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "e-escape",
+      "viewport": "desktop",
+      "commands": 4,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "egg-move",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 4,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c7",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "e-highest",
+      "viewport": "desktop",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "force-step",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 3,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "egg-move",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 3,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-execute",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 0,
+              "maxHp": 4,
+              "ap": 0,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 2,
+              "maxHp": 2,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-tenacity",
+      "viewport": "desktop",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "choice",
+          "choice": "f-tenacity",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 1
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r3c4",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 2,
+              "maxHp": 2,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 1
+            },
+            {
+              "seat": 1,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r3c4",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 2,
+              "maxHp": 2,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-monkey5",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 3,
+              "maxHp": 2,
+              "ap": 9,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 0,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-home",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 10,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 3,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r1c5",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-self",
+      "viewport": "desktop",
+      "commands": 3,
+      "states": [
+        {
+          "revision": 2,
+          "phase": "choice",
+          "choice": "f-discard",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 1
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 1
+            }
+          ]
+        },
+        {
+          "revision": 3,
+          "phase": "choice",
+          "choice": "f-discard",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 1
+            }
+          ]
+        },
+        {
+          "revision": 4,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-sting",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 3,
+          "phase": "moving",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 2
+            },
+            {
+              "seat": 1,
+              "hp": 3,
+              "maxHp": 3,
+              "ap": 12,
+              "cell": "r1c2",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r3c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "f-bccb",
+      "viewport": "desktop",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 3,
+          "phase": "moving",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 2,
+              "maxHp": 4,
+              "ap": 14,
+              "cell": "r1c2",
+              "handCount": 2
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r3c5",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,7 @@
+{
+  "credentialHelperAvailable": true,
+  "tokenPrinted": false,
+  "method": "Standard git credential helper used in memory only; authenticated repo GET, no mutation",
+  "repository": "NoobPvPerL/monkey-legend",
+  "pushAllowed": true
+}

@@ -1,0 +1,256 @@
+{
+  "scope": "Normal H TS draft/create factories rendered by production DraftBoard/OnlineBoard; controlled local seed, no hidden catalog/state injection. Headless viewport emulation, not cloud or physical mobile.",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-draft-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 44065,
+      "sha256": "d32634e9a12b40418afbe4ad13de7b9de22b1df81e144c963cbfec599a4386cf"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-birth-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 59565,
+      "sha256": "3aa0dca98370329e8cdf834ffec9b277381ec68cf48c0e2736adf0476f9fea43"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-started-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 75441,
+      "sha256": "80d68683d3b00095267668c8ea55f71560ee85685042a98455586d25bc6fb7b9"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-rules-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 62399,
+      "sha256": "b5deb268f3200720636b1ec625436286205126f00b8d09049845bb9b98dce2ec"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-reference-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 72583,
+      "sha256": "f94824adea995d4325c5194b0da24f28c8ac9a4826b8cfc1343ec544943fed65"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-draft-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 73685,
+      "sha256": "34ea6a633127c9295b3ab0380b2c45883dfa4b57b10e5300c206f3be78a3d59c"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-birth-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 93014,
+      "sha256": "982e1f7a5abd1fd6c8c90b084c2aa7f7a7515dcb3c7325931d10f2615ce0f900"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-started-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 120598,
+      "sha256": "f0703b9ea8665d4b2673877f8fcfac7f5133732b388da9785af0edcb2bebde25"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-rules-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 145259,
+      "sha256": "ac9a4d27333122ade1af2e227ee171a2b852c80b7196e257b0fab0e5ee4e9408"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-ffa-reference-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 123960,
+      "sha256": "f0ff9fdab0e51c8316a2ef00ec49115ba53932ef76b4e406caecada91d7a07ad"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-draft-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 45881,
+      "sha256": "0c7d927e6c4334b627bb8d61981178054e86e9e8b5456122dc62411c11776aea"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-birth-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 60946,
+      "sha256": "1f71f0e4c186193ab99d7d1cceb26263cca4be1546d921b1f7e75cdc1c664eae"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-started-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 73198,
+      "sha256": "7d5bd2df9b40270e40f3d90d0ed0dcfab264fdd1a919e04d9c6ed95b9cb7dd7a"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-rules-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 62650,
+      "sha256": "8cfe60b45e181dd54727b3e459f5eae32dcd4af9f5d897dd37e06e804d1d3c49"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-reference-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 72799,
+      "sha256": "ab30ab93a2735e4973291af3a680e338df4e1e057ec944c1d5859cf1e262ab1d"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-draft-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 72611,
+      "sha256": "d1e6909df3853dbc520271816fd1afc6d65ec845081d060335b8b60167045c30"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-birth-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 97267,
+      "sha256": "6fe26d34a0d62239c7d812f02955749a04d118fe63ce7ed503edefa1ad502af5"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-started-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 118371,
+      "sha256": "216c745b070cba84b8b2a9968514949fecf0275895b89f5ae3c899711b04e48c"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-rules-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 152880,
+      "sha256": "e81846aa4a867c998cae97b3364eee73a8e54f58e0d3dfe6b76c0a13d35de457"
+    },
+    {
+      "path": "artifacts/p3-batch-h/release-team-reference-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 131265,
+      "sha256": "a071a1e625914a48b64b383b233ee8e33ac79bedef4d0f259e594041317d9723"
+    }
+  ],
+  "flows": [
+    {
+      "mode": "ffa",
+      "viewport": "mobile",
+      "seed": 43,
+      "commands": 6,
+      "characters": [
+        "character-011",
+        "character-035",
+        "character-026",
+        "character-039"
+      ]
+    },
+    {
+      "mode": "ffa",
+      "viewport": "desktop",
+      "seed": 43,
+      "commands": 6,
+      "characters": [
+        "character-011",
+        "character-035",
+        "character-026",
+        "character-039"
+      ]
+    },
+    {
+      "mode": "team",
+      "viewport": "mobile",
+      "seed": 8,
+      "commands": 6,
+      "characters": [
+        "character-050",
+        "character-010",
+        "character-048",
+        "character-035"
+      ]
+    },
+    {
+      "mode": "team",
+      "viewport": "desktop",
+      "seed": 8,
+      "commands": 6,
+      "characters": [
+        "character-050",
+        "character-010",
+        "character-048",
+        "character-035"
+      ]
+    }
+  ],
+  "errors": []
+}

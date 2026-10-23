@@ -1,0 +1,120 @@
+{
+  "scope": "H030 private localhost OnlineBoard, no real mobile/cloud acceptance",
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:5187/review?scenario=cooperate",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/cooperate-source-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 54195,
+      "sha256": "d8158aaf46a2f7e16df02475accf3ada4ec6272684f8c888bebc67fdb8db21e7"
+    },
+    {
+      "path": "artifacts/p3-batch-h/cooperate-recipient-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 52704,
+      "sha256": "b271ab7a9dd05f4f2e8228d21aa81fb0cb565e607e92d0cd3ea5e1cc5a71caf2"
+    },
+    {
+      "path": "artifacts/p3-batch-h/cooperate-complete-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 53582,
+      "sha256": "f7b694da908d445a135cff075c51137fe1212b2bf3871c3bd1c2500c9c14103b"
+    },
+    {
+      "path": "artifacts/p3-batch-h/cooperate-source-narrow-320.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 50990,
+      "sha256": "7a4d76bd54d4548945adb9ae322354aef73e5b9cd792d9c5a27373c52b4173e2"
+    },
+    {
+      "path": "artifacts/p3-batch-h/cooperate-source-landscape.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 47002,
+      "sha256": "b6fe7235772e9f1fbefdfe12e4cfbcca839a3c44497c5868e74859626a44d3e8"
+    },
+    {
+      "path": "artifacts/p3-batch-h/cooperate-source-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 100295,
+      "sha256": "d402d6d46ea2449a4be09e8dd991394c2ad015b288bb265c4e212b788e98fe7b"
+    },
+    {
+      "path": "artifacts/p3-batch-h/cooperate-recipient-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 104684,
+      "sha256": "dff8247b2315de347d8353b7395846b576a1c3033f2597955f5346a8fea2bcc0"
+    }
+  ],
+  "priorScreenshotHashesVerified": 25,
+  "measurements": [
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "selectY": [
+        696.67,
+        735.33
+      ],
+      "cardsY": [
+        741.33,
+        769.33
+      ],
+      "submitY": [
+        775.33,
+        803.33
+      ]
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320,
+      "controlsBottom": 699.33
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "mapRect": [
+        6,
+        118,
+        467.927,
+        386
+      ],
+      "controlsRect": [
+        471.927,
+        118,
+        838,
+        386
+      ],
+      "cooperateRect": [
+        476.594,
+        244.667,
+        833.334,
+        339.333
+      ]
+    },
+    {
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200
+    }
+  ],
+  "verified": [
+    "7 saved raster files opened and inspected",
+    "mobile actual source selects2 -> submit -> recipient selects2 -> confirms; equal hands, discard0, link visible",
+    "desktop recipient selects2, confirm enabled with27sec; no claim of desktop completed exchange",
+    "source landscape switched to left map/right controls; no map/hand overlap",
+    "initial landscape compressed map and stale/expired desktop capture corrected",
+    "latest landscape screenshot retains temporary toast away from action buttons; both cards selected",
+    "temporary review tab closed, viewport reset, localhost server stopped"
+  ],
+  "clock": "latest harness uses monotonic real time; exact timeout/budget assertions in TS/SQL, no live cloud timing claim"
+}

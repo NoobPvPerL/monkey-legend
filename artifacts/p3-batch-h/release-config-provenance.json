@@ -1,0 +1,13 @@
+{
+  "source": "releases/monkey-legend-0.2.8-p2.9-online-source-card-feedback-workbuddy/config/workbuddy-public.json",
+  "fields": [
+    "applicationId",
+    "resourceId",
+    "endpoint",
+    "oauthRelayBaseUrl",
+    "publishableKey"
+  ],
+  "sha256": "81233015d9cee3a903918cb800e4862340103df70708aef837cba86880e6110b",
+  "configurationValuesPrinted": false,
+  "productionConnectionTested": false
+}

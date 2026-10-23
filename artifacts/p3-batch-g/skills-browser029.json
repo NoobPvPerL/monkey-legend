@@ -1,0 +1,36 @@
+{
+  "steps": [
+    {
+      "scenario": "counter",
+      "after": "Browser tab: 12, Title: \"P3 G技能本地审核\", URL: \"http://127.0.0.1:5186/review?scenario=counter\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 2-3, 21-22, 32-33, 45-46, 58-59, 71-72, 77, 80, 83, 88, 91, 94, 97, 100, 103, 106, 109, 114, 117, 122, 125, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 175, 178, 181, 196-202\n+\t\t196 text 应猴传说\n~\t\t\t6 text 轮到你行动\n~\t\t\t\t9 text 32s\n+\t\t\t\t197 button 玩家\n~\t\t14 container S1 好奇怪哦支付1AP，本份逻辑牌失效\n~\t\t\t15 text S1\n~\t\t\t16 text  好奇怪哦支付1AP，本份逻辑牌失效\n~\t\t\t\t20 text S 1 技能审核\n~\t\t\t\t\t27 text AP  11\n+\t\t\t\t198 text 装  0\n~\t\t\t\t35 text S 2\n+\t\t\t\t199 container 其他玩家\n+\t\t\t\t\t200 text 其他玩家  · 你\n+\t\t\t\t201 text 装  0\n+\t\t\t\t202 text 装  0\n+\t\t\t\t203 text 装  0\n+\t\t\t204 container\n+\t\t\t\t205 text 永久毒区  2 / 11  区 · 轮末轰炸2区 第5轮封闭高唐农场 尚未进行轮末轰炸\n~\t\t\t\t82 cell r1c2 教学楼 安全 陆地 技能审核 · 大幻神，生命4，AP11\n~\t\t\t\t185 text 你的手牌  ·  0  张\n~\t\t\t\t187 button 牌堆 190 / 弃牌 1\n~\t\t\t\t\t191 text 1\n+\t\t\t206 button 操作与设置\n~\t\t\t195 text 选择手牌出牌，或移动、结束行动。\n+\t\t\t207 button 移动 · 免费\n+\t\t\t\t208 text 移动 · \n+\t\t\t\t209 text 免费\n+\t\t\t210 button 通校 · 耗尽AP\n+\t\t\t211 button 结束行动 →\n+\t\t212 text 请操作\n+\t\t213 container 轮到你行动\n+\t\t\t214 text 轮到你行动\n+\t\t215 button 关闭动作提示\nThe focused UI element is 0 AXWebArea P3 G技能本地审核, URL: 127.0.0.1:5186/review?scenario=counter"
+    },
+    {
+      "scenario": "white",
+      "after": "Browser tab: 12, Title: \"P3 G技能本地审核\", URL: \"http://127.0.0.1:5186/review?scenario=white\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 45, 58, 160, 164-169\n~\t\t\t6 text 轮到你行动\n~\t\t\t\t9 text 30s\n~\t\t\t\t\t31 text ▤  2\n~\t\t\t\t\t43 text ▤  0\n~\t\t\t\t\t56 text ▤  0\n~\t\t\t\t152 text 你的手牌  ·  2  张\n+\t\t\t\t164 checkbox Description: 防御姿态，1 AP，取消可响应攻击对自己的全部效果；不能响应躲避球，点击查看牌面, Help: 取消可响应攻击对自己的全部效果；不能响应躲避球, Value: 0\n+\t\t\t\t\t165 text 响应\n+\t\t\t\t\t166 text 1 AP\n+\t\t\t\t\t167 text 防御姿态\n+\t\t\t\t\t168 text 取消可响应攻击对自己的全部效果；不能响应躲避球\n+\t\t\t\t169 checkbox Description: 防御姿态，1 AP，取消可响应攻击对自己的全部效果；不能响应躲避球，点击查看牌面, Help: 取消可响应攻击对自己的全部效果；不能响应躲避球, Value: 0\n+\t\t\t\t\t170 text 响应\n+\t\t\t\t\t171 text 1 AP\n+\t\t\t\t\t172 text 防御姿态\n+\t\t\t\t\t173 text 取消可响应攻击对自己的全部效果；不能响应躲避球\n~\t\t\t163 text 选择手牌出牌，或移动、结束行动。\n+\t\t\t174 button 移动 · 结束扣1 AP\n+\t\t\t\t175 text 移动 · \n+\t\t\t\t176 text 结束扣1 AP\n+\t\t\t177 button 通校 · 耗尽AP\n+\t\t\t178 button 结束行动 →\n+\t\t179 text 请操作\n+\t\t180 container 轮到你行动\n+\t\t\t181 text 轮到你行动\n+\t\t182 button 关闭动作提示\nThe focused UI element is 1 AXWebArea P3 G技能本地审核, URL: 127.0.0.1:5186/review?scenario=white"
+    },
+    {
+      "scenario": "dog",
+      "after": "Browser tab: 12, Title: \"P3 G技能本地审核\", URL: \"http://127.0.0.1:5186/review?scenario=dog\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 105-106, 187-190\n~\t\t\t\t9 text 52s\n~\t\t15 container S2 涨佳选 → r2c5\n~\t\t\t16 text S2\n~\t\t\t17 text  涨佳选 → r2c5\n~\t\t\t\t\t28 text AP  11\n~\t\t\t\t79 cell r1c2 教学楼 安全 陆地 技能审核 · 假原始人，生命3，AP11\n~\t\t\t\t103 cell r2c4 操场 安全 陆地\n~\t\t\t\t107 cell r2c5 秀松苑 安全 陆地 其他玩家 · 涨佳选，生命5，AP12\n+\t\t\t\t\t187 container 其他玩家 · 涨佳选\n+\t\t\t\t\t\t188 text S 2\n~\t\t\t\t169 pop up button (collapsed, settable) Description: 狗头军师目标, Value: S2 · 涨佳选, Secondary Actions: Expand\n~\t\t\t\t\t\t171 请选择角色\n~\t\t\t\t\t\t173 (selected) S2 · 涨佳选\n~\t\t\t\t178 pop up button (collapsed, settable) Description: 狗头军师方向, Value: 右 →, Secondary Actions: Expand\n~\t\t\t\t\t\t180 请选择方向\n~\t\t\t\t\t\t182 (selected) 右 →\n~\t\t\t185 button 狗头军师 · 1 AP\nThe focused UI element is 185 button 狗头军师 · 1 AP"
+    },
+    {
+      "scenario": "program",
+      "after": "Browser tab: 12, Title: \"P3 G技能本地审核\", URL: \"http://127.0.0.1:5186/review?scenario=dice\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 34-35, 164, 166-169\n~\t\t\t\t9 text 23s\n~\t\t15 container S1 小原始人 等待选择：g-math\n~\t\t\t16 text S1\n~\t\t\t17 text  小原始人 等待选择：g-math\n~\t\t\t\t21 text S 1\n+\t\t\t\t166 container 技能审核\n+\t\t\t\t\t167 text 技能审核  · 你\n~\t\t\t\t33 text S 2 其他玩家\n~\t\t\t162 text 数学天才：最终指定1—6（30秒）\n~\t\t\t163 text 数学天才：最后指定自己的点数，当前  5 。\n+\t\t\t168 button 最终 1\n+\t\t\t\t169 text 最终 \n+\t\t\t\t170 text 1\n+\t\t\t171 button 最终 2\n+\t\t\t\t172 text 最终 \n+\t\t\t\t173 text 2\n+\t\t\t174 button 最终 3\n+\t\t\t\t175 text 最终 \n+\t\t\t\t176 text 3\n+\t\t\t177 button 最终 4\n+\t\t\t\t178 text 最终 \n+\t\t\t\t179 text 4\n+\t\t\t180 button 最终 5\n+\t\t\t\t181 text 最终 \n+\t\t\t\t182 text 5\n+\t\t\t183 button 最终 6\n+\t\t\t\t184 text 最终 \n+\t\t\t\t185 text 6\n~\t\t\t165 button 保留当前点数\n+\t\t186 text 请操作\n+\t\t187 container 轮到你作出选择\n+\t\t\t188 text 轮到你作出选择\n+\t\t189 button 关闭动作提示\nThe focused UI element is 1 AXWebArea P3 G技能本地审核, URL: 127.0.0.1:5186/review?scenario=dice"
+    },
+    {
+      "scenario": "math",
+      "after": "Browser tab: 12, Title: \"P3 G技能本地审核\", URL: \"http://127.0.0.1:5186/review?scenario=dice\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 163, 171-189\n~\t\t\t6 text 选择移动路径\n~\t\t\t\t9 text 60s\n~\t\t15 container S1 数学天才：最终点数6\n~\t\t\t17 text  数学天才：最终点数6\n~\t\t\t\t77 cell r1c1 高唐农场 安全 陆地 可移动\n~\t\t\t\t83 cell r1c3 教学楼 安全 陆地 可移动\n~\t\t\t162 text 剩余 3 步 · 未走可取消；移动次数已用\n~\t\t\t165 button 取消移动 · 不扣AP\n+\t\t\t168 button 结束行动\n+\t\t169 text 请操作\n+\t\t170 container 选择移动路径\n+\t\t\t171 text 选择移动路径\n+\t\t172 button 关闭动作提示\nThe focused UI element is 1 AXWebArea P3 G技能本地审核, URL: 127.0.0.1:5186/review?scenario=dice"
+    }
+  ],
+  "measurements": [
+    {
+      "scenario": "dog",
+      "scroll": 320,
+      "width": 320
+    },
+    {
+      "scenario": "dog",
+      "scroll": 844,
+      "width": 844
+    }
+  ]
+}

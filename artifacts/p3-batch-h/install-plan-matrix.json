@@ -1,0 +1,169 @@
+{
+  "scope": "Pure package SQL assembly tested through isolated PostgreSQL prepared queries. No delivery folder/archive created, no production connection.",
+  "cases": [
+    {
+      "base": 18,
+      "target": 30,
+      "file": "UPGRADE-FROM-018-ONE-STATEMENT.sql",
+      "sha256": "8ca300177ea613fce2e1c324c85fa09fb5294a7974892355c0a4c2a337f7718b",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 19,
+      "target": 30,
+      "file": "UPGRADE-FROM-019-ONE-STATEMENT.sql",
+      "sha256": "18ae909c9cd8bdae7c5c39043a3c661b42e8257c7334deb227f48bcb705da585",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 20,
+      "target": 30,
+      "file": "UPGRADE-FROM-020-ONE-STATEMENT.sql",
+      "sha256": "af762ec04a5975c1c029bd6a69864410abca2800adb370539c4ef3b5078d22ef",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 21,
+      "target": 30,
+      "file": "UPGRADE-FROM-021-ONE-STATEMENT.sql",
+      "sha256": "e60bbdab620345907ec87d98681103448eaba3d9c74e0ea6477e10a8c6ad1e5c",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 22,
+      "target": 30,
+      "file": "UPGRADE-FROM-022-ONE-STATEMENT.sql",
+      "sha256": "727b6e3f3f5e37dd1cc27be98bc7419e08b18adb008a1efe81401588e753a736",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 23,
+      "target": 30,
+      "file": "UPGRADE-FROM-023-ONE-STATEMENT.sql",
+      "sha256": "d3932822574bddd2166f50cb830cee34bbd4fe5edfb2334cc0608f334b346469",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 24,
+      "target": 30,
+      "file": "UPGRADE-FROM-024-ONE-STATEMENT.sql",
+      "sha256": "e0043144d12959e2a80221f4fff048af89405a23c92255daae25ebc7ae030c8c",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 25,
+      "target": 30,
+      "file": "UPGRADE-FROM-025-ONE-STATEMENT.sql",
+      "sha256": "f6ee64fac3d16b4d4597839a6c7b4f0bedca6ea7634c05c6bb513b72e25690bf",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 26,
+      "target": 30,
+      "file": "UPGRADE-FROM-026-ONE-STATEMENT.sql",
+      "sha256": "3f7f6d2fcb2e932ea3b9db8bde834c7b23c13f3d3805a87e1160bd8b822bc2a9",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 27,
+      "target": 30,
+      "file": "UPGRADE-FROM-027-ONE-STATEMENT.sql",
+      "sha256": "e88d09f8d6adab560a2410db5255aee770cd581f031bd796eefc6f52ef2eb8c7",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 28,
+      "target": 30,
+      "file": "UPGRADE-FROM-028-ONE-STATEMENT.sql",
+      "sha256": "9ae7b71e35d15b0b2d3f976d70c1babee5bb12e8f605c39b4ae8ec843f338246",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": 29,
+      "target": 30,
+      "file": "UPGRADE-FROM-029-ONE-STATEMENT.sql",
+      "sha256": "2c095a5fe5001994611ebbe693ef7c4fe07a06d60cce35275d2ad087dc5c0005",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "oldCatalogsUnchanged": true,
+      "ready": true
+    },
+    {
+      "base": "schema1",
+      "target": 30,
+      "file": "install-one-statement.sql",
+      "sha256": "89ca555200d81d4e6759716c4261d1bc1a754a2ce11cfaafb8af07cc5b80fb90",
+      "rollback": true,
+      "repeated": true,
+      "savedRowsUnchanged": true,
+      "ready": true
+    },
+    {
+      "invalidMigrationInputsRejected": true
+    },
+    {
+      "base": "empty",
+      "target": 30,
+      "file": "install-one-statement.sql",
+      "sha256": "3d1bf9452bec2cce98c662e47b9f39be76d66a7d6504da3c0ebf7e6a0afd7663",
+      "ready": true
+    },
+    {
+      "base": "empty",
+      "target": 30,
+      "file": "install.sql",
+      "sha256": "e1d3c5f9edbc36a085cdd1941434a125a72ffbd6b6607b84f42c35cde90443f2",
+      "ready": true
+    },
+    {
+      "base": 17,
+      "rejectedPlan": "from018",
+      "unchanged": true
+    }
+  ]
+}

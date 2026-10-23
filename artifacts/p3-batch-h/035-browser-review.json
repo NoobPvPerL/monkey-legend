@@ -1,0 +1,131 @@
+{
+  "scope": "H035 actual local OnlineBoard; not physical mobile, cloud or user acceptance",
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:5187/review?scenario=leap-birth",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/leap-birth-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 53688,
+      "sha256": "67f6c3ee8541f049ac0529f7af5aca42fd5e8f949b7326e3e3c33ce0268130f6"
+    },
+    {
+      "path": "artifacts/p3-batch-h/leap-born-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 51883,
+      "sha256": "d9563c106e49af7dbf51eef449c2e03ec7c1a5750ebbed4e87fc0fee74821852"
+    },
+    {
+      "path": "artifacts/p3-batch-h/leap-select-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 58585,
+      "sha256": "ae83247b508ac7263e3d98c18abb35f89e2c90b43476a31a7025e714601dfed5"
+    },
+    {
+      "path": "artifacts/p3-batch-h/respect-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 57988,
+      "sha256": "9cb32015a03084b82058a4e7ecc3d12ce714f05c2b80100b7611799086621c25"
+    },
+    {
+      "path": "artifacts/p3-batch-h/respect-complete-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 50303,
+      "sha256": "351ec9aa8fd85284d5fee5304ad05294506e05560f6881b7f375674480675b37"
+    },
+    {
+      "path": "artifacts/p3-batch-h/leap-birth-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 101816,
+      "sha256": "ae4108d6a499fd6051c43522a6d136d0cc6d2d31d5313d90da51ade71c055781"
+    },
+    {
+      "path": "artifacts/p3-batch-h/leap-select-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 104454,
+      "sha256": "fd158f32097f2debe8761e3edac6ff2e522451dfdb9f751bc04db5c82cbc37a5"
+    },
+    {
+      "path": "artifacts/p3-batch-h/respect-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 105210,
+      "sha256": "04010e36d44d8c86271f5d2d030b117277a0467ef1a11e9bff9568f654d47a6c"
+    },
+    {
+      "path": "artifacts/p3-batch-h/respect-complete-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 93036,
+      "sha256": "8d2e2b3e7af4ba60ef5494d33e4ca5b2f3478d0db54b938d748faa09166aa00f"
+    },
+    {
+      "path": "artifacts/p3-batch-h/leap-birth-narrow-320.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 48630,
+      "sha256": "ca29ad50e0d71bfc1b5277263e10be7629716a935ba7496582c750d99906fa29"
+    },
+    {
+      "path": "artifacts/p3-batch-h/respect-landscape.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 50266,
+      "sha256": "f85088cc6f275c7b0b566d103eca6d2c5d2eea0af500f63279d3a2476a54ad79"
+    }
+  ],
+  "priorScreenshotHashesVerified": 46,
+  "measurements": [
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "mapRect": [
+        6,
+        118,
+        467.927,
+        386
+      ],
+      "controlsRect": [
+        471.927,
+        118,
+        838,
+        386
+      ]
+    },
+    {
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200
+    }
+  ],
+  "verified": [
+    "all11 saved PNGs opened and inspected; landscape reopened after layout fix",
+    "mobile and desktop actual birth r2c8, Leap r1c2, two respect targets r4c8 and r4c5",
+    "AP5 to4; four hands4, deck175; Leap disabled after complete",
+    "landscape grid compression fixed with side by side panels; all measured viewports no document horizontal overflow",
+    "temporary own tab closed, viewport reset, localhost server stopped"
+  ],
+  "caveats": [
+    "expired attempts excluded from action verification; close action toast before grid clicks",
+    "30sec live choices not extended; real monotonic harness time",
+    "no full suite rerun after035; legacy C state initialization defect remains"
+  ]
+}

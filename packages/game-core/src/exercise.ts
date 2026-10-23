@@ -1,4 +1,5 @@
 import {hasExerciseRules} from '../../game-data/src/index';
+import {gDiscardEntries} from './p3-g-equipment';
 import {gainAp} from './stage3-resources';
 import type {ResourceState} from './stage3-resources';
 
@@ -14,7 +15,7 @@ export function higherExerciseResponse(version:string|undefined,attack:string,re
 }
 /** Called once per physical entry, including repeated entries after a reshuffle. */
 export function discardCards(s:Omit<ResourceState,'stage3'>&{stage3?:ResourceState['stage3']},cards:readonly string[]):void {
- for(const card of cards){
+ for(const card of cards.flatMap(card=>gDiscardEntries(s,card))){
   s.discard.push(card);
   if(!hasExerciseRules(s.version)||!exerciseRank(card))continue;
   const owner=s.exercise?.owners[card];

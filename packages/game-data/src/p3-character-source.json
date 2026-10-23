@@ -1,0 +1,26 @@
+{
+  "characters": {
+    "character-013": {
+      "id": "character-013",
+      "name": "猴八",
+      "source": "docs/cards/角色牌.md#character-013",
+      "text": "- 锁定技 武士刀：由你造成的所有外星伤害+1。",
+      "notes": "外星伤害的归类待确认。",
+      "printedHp": "4",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-025": {
+      "id": "character-025",
+      "name": "马懿",
+      "source": "docs/cards/角色牌.md#character-025",
+      "text": "- 主动技 樱岛麻衣：你可以消耗3点行动点，你所有相同或相邻地块的队友（包括自己）各回复一点血量。",
+      "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+      "printedHp": "5",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    }
+  }
+}

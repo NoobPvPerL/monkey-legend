@@ -1,0 +1,256 @@
+{
+  "scope": "Normal H TS draft/create factories rendered by production DraftBoard/OnlineBoard; controlled local seed, no hidden catalog/state injection. Headless viewport emulation, not cloud or physical mobile.",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-draft-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 44065,
+      "sha256": "d32634e9a12b40418afbe4ad13de7b9de22b1df81e144c963cbfec599a4386cf"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-birth-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 59565,
+      "sha256": "3aa0dca98370329e8cdf834ffec9b277381ec68cf48c0e2736adf0476f9fea43"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-started-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 76250,
+      "sha256": "36257ba243f7dd4a0d413e8437d508140a172ee4dbe5414228177c4a15dba3a8"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-rules-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 63110,
+      "sha256": "19015b7591596cd9f02f7f33d8f8c8ca10a05d92ffc196f57198eb7b036fee6c"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-reference-mobile.png",
+      "mode": "ffa",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 73183,
+      "sha256": "fc9ee8a385d54441f315895fbf70407c96c7a2c8a1ec03e88a5c429f184405f5"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-draft-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 74820,
+      "sha256": "c90dd4e6472f6ab4e121a323a88fa0a57533a191208ad50059e2652747ca764b"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-birth-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 93014,
+      "sha256": "982e1f7a5abd1fd6c8c90b084c2aa7f7a7515dcb3c7325931d10f2615ce0f900"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-started-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 122582,
+      "sha256": "5d9dcc338509dee67d6a8d702d7d84e93fce0569d6c1bfa8c0f086ba32c45457"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-rules-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 147118,
+      "sha256": "bb5ff72c200351e337e3e3809832229c1abf9d16abb903302efb429d6afb4211"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-ffa-reference-desktop.png",
+      "mode": "ffa",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 125312,
+      "sha256": "dfea0c6d4d85eb9a5475c6da4ef0602d8bd5e351d28f75516f3124ee548d7198"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-draft-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 46806,
+      "sha256": "5a7ff47c52a0d2a3e5dad8dff70a6d3a904d90e410489fac2a11167fa2c7b8b2"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-birth-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 60946,
+      "sha256": "1f71f0e4c186193ab99d7d1cceb26263cca4be1546d921b1f7e75cdc1c664eae"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-started-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 73263,
+      "sha256": "0c148ed73699df8575ad89385004a3aa84a29c5b797ed443358b2bc8aa0781bd"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-rules-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 63364,
+      "sha256": "d3ede99a9d941ee1c8ee626c823256b378073e22e5fda72e3db0810c4b6a8578"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-reference-mobile.png",
+      "mode": "team",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "bytes": 73399,
+      "sha256": "d64f08b4411472ba8fae985e8166c107d79a52a5fb8a9a633f06eb84060a6d6a"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-draft-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 73033,
+      "sha256": "0a301fcf4600ecde5da9f800e5da072fa54d34b95e3e8800af74435c73d97607"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-birth-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 97267,
+      "sha256": "6fe26d34a0d62239c7d812f02955749a04d118fe63ce7ed503edefa1ad502af5"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-started-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 118675,
+      "sha256": "f5fb7c8a1c1aedcc17e4a6d771da978364541e57d4a4bb23217a4253304910cc"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-rules-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 154629,
+      "sha256": "6e6fb62d9e35980fc8a68717311177ae560d9a76713ff9e6a27363994258b5ad"
+    },
+    {
+      "path": "artifacts/p3-batch-h/activation-team-reference-desktop.png",
+      "mode": "team",
+      "viewport": "desktop",
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200,
+      "bytes": 132646,
+      "sha256": "e620106cb523a2e91e68b4c7204ecb88cedcb200c37d0c0ec97de56463d0b9cd"
+    }
+  ],
+  "flows": [
+    {
+      "mode": "ffa",
+      "viewport": "mobile",
+      "seed": 43,
+      "commands": 6,
+      "characters": [
+        "character-011",
+        "character-035",
+        "character-026",
+        "character-039"
+      ]
+    },
+    {
+      "mode": "ffa",
+      "viewport": "desktop",
+      "seed": 43,
+      "commands": 6,
+      "characters": [
+        "character-011",
+        "character-035",
+        "character-026",
+        "character-039"
+      ]
+    },
+    {
+      "mode": "team",
+      "viewport": "mobile",
+      "seed": 8,
+      "commands": 6,
+      "characters": [
+        "character-050",
+        "character-010",
+        "character-048",
+        "character-035"
+      ]
+    },
+    {
+      "mode": "team",
+      "viewport": "desktop",
+      "seed": 8,
+      "commands": 6,
+      "characters": [
+        "character-050",
+        "character-010",
+        "character-048",
+        "character-035"
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,91 @@
+{
+  "auditedAt": "2026-10-21T06:21:06.794373+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "frozenPriorHashesVerified": 35,
+  "migration029DeterministicCheck": "npm run verify:catalog passed; no DB contacted",
+  "originalTrackedFilesUnchanged": 194,
+  "originalImagesAndTranscriptsUnchanged": 191,
+  "HSourceAbilityTranscriptionsExact": 9,
+  "documentationLinksChecked": 371,
+  "normalCandidate": {
+    "app": "0.3.7-p3.8",
+    "rule": "web-v0.1.18",
+    "engineRevision": 29,
+    "characters": 43
+  },
+  "privateH": {
+    "rule": "web-v0.1.19",
+    "characters": 46,
+    "implemented": [
+      "001",
+      "015",
+      "039"
+    ],
+    "remaining": [
+      "011",
+      "030",
+      "034",
+      "035",
+      "041",
+      "050"
+    ]
+  },
+  "fullGames": {
+    "games": 4,
+    "commands": 478,
+    "entities": 191
+  },
+  "screenshots": 16,
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "uploaded": false,
+  "productionWritten": false,
+  "remoteFetch": "failed: github.com DNS unresolved; remote freshness not verified",
+  "finalFullReport": {
+    "path": "artifacts/p3-batch-h/full-regression-with-active-policy.json",
+    "files": 128,
+    "suites": 132,
+    "total": 1116,
+    "passed": 1116,
+    "failed": 0,
+    "earlierIntermittentFailuresNotDeclaredFixed": true
+  },
+  "additionalCombinations": {
+    "HRuntime": 26,
+    "HUI": 6,
+    "report": "final-combinations-and-ui.json",
+    "passed": 32
+  },
+  "legacyFollowup": {
+    "persistence": "legacy-persistence-recheck.json passed",
+    "DUpgrade": "six isolated reruns passed; initial full-regression-final.json failed old draft-pick. Not declared fixed."
+  },
+  "frozenSnapshotHashesVerifiedNow": 37,
+  "screenshotHashesVerifiedNow": 16,
+  "originalTrackedFilesUnchangedNow": 194,
+  "documentationLinksCheckedNow": 187,
+  "activePolicyFoundation": {
+    "implementedInRuntime": false,
+    "enabledCharacter011": false,
+    "policyCases": 16,
+    "policyAndHRuntimePassed": 42,
+    "report": "active-policy-and-runtime.json"
+  },
+  "originalGitCheckPaths": [
+    "docs/cards",
+    "assets/cards",
+    "packages/game-data/src/source-catalog.json",
+    "packages/game-data/src/stage3.ts"
+  ],
+  "earlierFullReport": {
+    "path": "artifacts/p3-batch-h/full-regression-complete-first-tranche.json",
+    "total": 1100,
+    "passed": 1099,
+    "failed": 1,
+    "failure": "P2-P01 persistence natural termination assertion; isolated recheck passed, root cause not proven"
+  },
+  "typecheck": "passed",
+  "verifyCatalog": "passed;000-029 unchanged; no DB contacted",
+  "gitDiffCheck": "passed; existing line-ending warnings only"
+}

@@ -1,3 +1,8 @@
+import {gFoodPortions} from './p3-g-food';
+import {gEnabled} from './p3-g-state';
+import {gCardTargetAllowed} from './p3-g-observer';
+import {dPay} from './p3-d';
+import {cMarkFood} from './p3-c';
 import {discardCards} from './exercise';
 import {onBoard} from './stage4-board';
 import type {GameState,Command,Task} from './types';
@@ -22,7 +27,7 @@ export function stage4CounterCards(s:GameState,a:number,c:stack.PendingCard):str
  return st.players[a].hand.filter(card=>{
   const d=STAGE4_CARDS[id(card)];
   if(!(d.id==='basic-027'&&target.type==='tactic'||d.id==='basic-028'&&target.tags.includes('建民')||d.id==='basic-038'&&target.type==='food'))return false;
-  if(!terrainCard(s,a,d.id))return false;
+  if(!terrainCard(s,a,d.id)||!gCardTargetAllowed(s,a,c.actor,d.id))return false;
   const quote=st.stage4.costs.locks[card];
   if(['die','tiers'].includes(d.cost.kind)&&quote?.turn!==st.stage3.turn)return true;
   const cost=resources.cardApCost(st,a,card,quote?.cost).cost;return cost<=st.players[a].ap;
@@ -50,7 +55,7 @@ export function stage4CounterTask(s:GameState,t:Task,now:number,p:Stage3Ports):b
   if(!c.countered&&roles.cardEffectAllowed(st,parent!.actor,c.definition,c.effect)){
    c.stage4={...c.stage4,counterEffective:true};
    if(c.definition==='basic-028')s.queue.unshift(...p.damage(s,[{target:parent!.actor,amount:1,source:c.actor,category:'response'}]));
-   if(c.definition==='basic-038')p.heal(s,c.actor,1,true);
+   if(c.definition==='basic-038'){if(gEnabled(s.version))s.queue.unshift(...gFoodPortions(c,[c.actor]));else{cMarkFood(s,c,[c.actor]);p.heal(s,c.actor,1,true);}}
    p.emit(s,'counter',`S${c.actor+1} ${STAGE4_CARDS[c.definition as Stage4CardId].name}抵消${STAGE4_CARDS[parent!.definition as Stage4CardId].name}`);
   }return true;
  }
@@ -74,7 +79,7 @@ export function stage4CounterChoose(s:GameState,cmd:Extract<Command,{type:'choos
  const def=STAGE4_CARDS[id(cmd.card)],quote=st.stage4.costs.locks[cmd.card];
  if(['die','tiers'].includes(def.cost.kind))need(quote?.turn===st.stage3.turn,'请先锁定响应牌费用');
  const quoted=resources.cardApCost(st,a,cmd.card,quote?.cost),fee=stage4FeePlan(st.players[a].ap,quoted.cost);
- st.players[a].ap-=fee.spend;if(fee.gain)resources.gainAp(st,a,fee.gain);
+ dPay(s,a,fee.spend);if(fee.gain)resources.gainAp(st,a,fee.gain);
  st.players[a].hand=st.players[a].hand.filter(c=>c!==cmd.card);s.resolving.push(cmd.card);
  const child=stack.beginCard(st,a,cmd.card,def.id,[parent.actor],quoted.effect,now,parent.serial);
  child.stage4={counter:def.id==='basic-027'?'tactic':def.id==='basic-028'?'jianmin':'food'};

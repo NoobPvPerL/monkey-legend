@@ -1,11 +1,14 @@
+import {hEquipmentCards} from './p3-h-equipment';
+import {hBlocks,hSmall} from './p3-h-occupancy';
+import {fPreviewMovement} from './p3-f';
 import {relocationCell} from './playtest';
 import {mapForVersion,distanceForVersion,hasPlaytestRules} from '../../game-data/src/index';
 import {roleEffectAllowed} from './character-effects';
 import type {Stage4State,RegionEffect} from './stage4-state';
 import type {EquipmentSource} from './stage3-resources';
 export interface BoardState {
- version?:string;mode?:string;players:{seat:number;cell:string;hp:number;character:string;faction?:string;team:string}[];
- stage4?:Stage4State;stage3?:{equipment:string[][];starts:number[]};classic?:{farmClosed:boolean};farmClosed?:boolean;
+ version?:string;mode?:string;active?:number;players:{seat:number;cell:string;hp:number;character:string;faction?:string;team:string}[];
+ stage4?:Stage4State;stage3?:{equipment:string[][];starts:number[];g?:{face:number[]}};classic?:{farmClosed:boolean};farmClosed?:boolean;
 }
 const map=(s:BoardState)=>mapForVersion(s.version??'web-v0.1.6');
 export const onBoard=(s:Pick<BoardState,'players'|'stage4'>,a:number)=>s.players[a]?.hp>0&&!s.stage4?.offMap[a];
@@ -21,12 +24,12 @@ export function boardWater(s:Pick<BoardState,'version'|'stage4'>,cell:string,a?:
 export function boardEntryAllowed(s:BoardState,a:number,cell:string):boolean {
  const c=map(s).map[cell];if(!c)return false;
  if((s.classic?.farmClosed??s.farmClosed)&&c.region==='高唐农场')return false;
- if(boardWater(s,cell,a)&&s.stage3?.equipment[a].some(card=>['basic-063','basic-064'].includes(s.stage4?.copies[card]??card.split('#')[0])))return false;
+ if(boardWater(s,cell,a)&&hEquipmentCards(s,a).some(card=>['basic-063','basic-064'].includes(s.stage4?.copies[card]??card.split('#')[0])))return false;
  return !(s.stage4?.blocks??[]).some(b=>b.region===c.region&&s.players[b.owner].hp>0&&s.stage3!.starts[b.owner]<b.until&&
   a!==b.owner&&!(s.mode==='team'&&s.players[a].team===s.players[b.owner].team)&&!b.exempt.includes(a)&&boardEffectAllowed(s,a,b.effect,'建民'));
 }
-export function boardEmptyEntry(s:BoardState,a:number,cell:string,ignore:readonly number[]=[]):boolean {
- return (!hasPlaytestRules(s.version)||relocationCell(s,a,s.players[a].cell,cell,ignore)!==null)&&boardEntryAllowed(s,a,cell)&&!s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell&&!ignore.includes(p.seat));
+export function boardEmptyEntry(s:BoardState,a:number,cell:string,ignore:readonly number[]=[],placement=false):boolean {
+ return (placement||fPreviewMovement(s,a,cell))&&(!hasPlaytestRules(s.version)||relocationCell(s,a,s.players[a].cell,cell,ignore)!==null)&&boardEntryAllowed(s,a,cell)&&!s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell&&!ignore.includes(p.seat)&&hBlocks(s,a,p.seat));
 }
 export function boardSingleProtected(s:BoardState,source:number,target:number):boolean {
  const effect=s.stage4?.toiletEffects[target];

@@ -1,9 +1,13 @@
+import {hBlocks,hSmall} from './p3-h-occupancy';
+import {gHaki} from './p3-g-haki';
+import {boardEntryAllowed} from './stage4-board';
 import {hasPlaytestRules} from '../../game-data/src/index';
 import {ignoreLocation} from './stage4-terrain';
 import {onBoard,boardWater,boardEmptyEntry} from './stage4-board';
 import {CLASSIC_RULE_VERSION,isClassicVersion,hasClassicPatch,PROTECTED_REGIONS,mapForVersion,characterTraitsForVersion,distanceForVersion} from '../../game-data/src/index';
 import type {GameState} from './types';
 import {integer} from './random';
+import {gReserveForecast,gBombs} from './p3-g-observer';
 export const isClassic=(s:Pick<GameState,'version'>)=>isClassicVersion(s.version);
 export const water=(s:Pick<GameState,'version'|'stage4'>,cell:string,a?:number)=>boardWater(s,cell,a);
 export const native=(s:GameState,a:number)=>characterTraitsForVersion(s.version,s.players[a].character).waterNative;
@@ -42,10 +46,11 @@ export function refreshClassicRound(s:GameState){
  c.poison.push(...pick(s,poisonRegions(s.version).filter(r=>!c.poison.includes(r)),2));
  c.farmClosed=s.round>=5;if(!hasClassicPatch(s.version))c.bombs=[];
  s.safe=map.cells.filter(cell=>!c.poison.includes(cell.region)).map(cell=>cell.id);s.bomb=null;s.forecast=null;
+ gReserveForecast(s,()=>pick(s,bombingRegions(s),2,true));
 }
 export function classicEnvironmentHits(s:GameState){
  const c=s.classic!,map=mapForVersion(s.version);
- c.bombs=pick(s,bombingRegions(s),2,true);if(hasClassicPatch(s.version))c.bombRound=s.round;
+ c.bombs=gBombs(s)??pick(s,bombingRegions(s),2,true);if(hasClassicPatch(s.version))c.bombRound=s.round;
  return s.players.filter(p=>onBoard(s,p.seat)).map(p=>{
   const region=map.map[p.cell].region,old=c.exposure[p.seat],danger=c.poison.includes(region)||c.bombs.includes(region);
   const streak=danger?(old.region===region?old.streak+1:1):0;
@@ -64,10 +69,10 @@ export function nativeLandings(s:GameState,a:number):string[]{
  const found=new Set<string>();
  for(const [dr,dc] of [[1,0],[-1,0],[0,1],[0,-1]]){
   let r=origin.row+dr,c=origin.col+dc,cell=map.map[`r${r}c${c}`];if(!cell||!water(s,cell.id,a))continue;
-  while(cell&&water(s,cell.id,a)){if(hasPlaytestRules(s.version)&&s.players.some(p=>p.seat!==a&&onBoard(s,p.seat)&&p.cell===cell.id)){cell=undefined!;break;}r+=dr;c+=dc;cell=map.map[`r${r}c${c}`];}
+  while(cell&&water(s,cell.id,a)){if((gHaki(s,a)||hSmall(s,a))&&!boardEntryAllowed(s,a,cell.id)){cell=undefined!;break;}if(hasPlaytestRules(s.version)&&!gHaki(s,a)&&!hSmall(s,a)&&s.players.some(p=>p.seat!==a&&onBoard(s,p.seat)&&p.cell===cell.id&&hBlocks(s,a,p.seat))){cell=undefined!;break;}r+=dr;c+=dc;cell=map.map[`r${r}c${c}`];}
   if(!cell)continue;
-  if(empty(cell.id))found.add(cell.id);
-  else if(!hasPlaytestRules(s.version)&&s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell.id))for(const near of map.cells)if(!water(s,near.id,a)&&distanceForVersion(s.version,cell.id,near.id)===1&&empty(near.id))found.add(near.id);
+  if(empty(cell.id)||gHaki(s,a)&&boardEntryAllowed(s,a,cell.id)&&s.players.some(p=>p.seat!==a&&onBoard(s,p.seat)&&p.cell===cell.id&&hBlocks(s,a,p.seat)))found.add(cell.id);
+  else if(!hasPlaytestRules(s.version)&&s.players.some(p=>onBoard(s,p.seat)&&p.cell===cell.id&&hBlocks(s,a,p.seat)))for(const near of map.cells)if(!water(s,near.id,a)&&distanceForVersion(s.version,cell.id,near.id)===1&&empty(near.id))found.add(near.id);
  }return map.cells.filter(c=>found.has(c.id)).map(c=>c.id);
 }
 export function stepCost(s:GameState,a:number,cell:string):number|null{

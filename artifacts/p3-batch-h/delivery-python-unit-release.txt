@@ -1,0 +1,12 @@
+test_dirty_source_without_snapshot_refuses_before_creating_outputs (test_p3_delivery.P3DeliveryGuards.test_dirty_source_without_snapshot_refuses_before_creating_outputs) ... ok
+test_duplicate_members_and_symlinks_are_rejected (test_p3_delivery.P3DeliveryGuards.test_duplicate_members_and_symlinks_are_rejected) ... ok
+test_finalize_rejects_unverified_or_other_snapshot_without_writing_zip (test_p3_delivery.P3DeliveryGuards.test_finalize_rejects_unverified_or_other_snapshot_without_writing_zip) ... ok
+test_mixed_source_sql_profiles_are_rejected (test_p3_delivery.P3DeliveryGuards.test_mixed_source_sql_profiles_are_rejected) ... ok
+test_safe_unicode_member_extracts_fixture_only (test_p3_delivery.P3DeliveryGuards.test_safe_unicode_member_extracts_fixture_only) ... ok
+test_suffix_cannot_escape_releases (test_p3_delivery.P3DeliveryGuards.test_suffix_cannot_escape_releases) ... ok
+test_traversal_and_windows_paths_are_rejected_before_extraction (test_p3_delivery.P3DeliveryGuards.test_traversal_and_windows_paths_are_rejected_before_extraction) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.037s
+
+OK

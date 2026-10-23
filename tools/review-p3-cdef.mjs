@@ -1,0 +1,5 @@
+import {createServer} from 'vite';
+const root=process.cwd(),port=Number(process.env.P3_REVIEW_PORT??5188);
+if(!Number.isInteger(port)||port<1024||port>65535)throw Error('P3_REVIEW_PORT must be1024-65535');
+const server=await createServer({configFile:false,root,publicDir:root+'/public',server:{host:'127.0.0.1',port,strictPort:true,watch:{ignored:['**/*-profile/**']}},plugins:[{name:'cdef-local-review-only',configureServer(s){s.middlewares.use(async(req,res,next)=>{if(req.url?.split('?')[0]==='/review'){res.setHeader('Content-Type','text/html');res.end(await s.transformIndexHtml('/review','<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>P3 CDEF本地审核</title></head><body><div id="root"></div><script type="module" src="/tests/browser/p3-cdef-review.tsx"></script></body></html>'));}else next();});}}]});
+await server.listen();console.log(`CDEF local review http://127.0.0.1:${port}/review?scenario=c-feather`);

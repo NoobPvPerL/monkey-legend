@@ -1,0 +1,30 @@
+{
+  "scope": "Normal H factories and isolated030 SQL; no production deployment",
+  "mode": "team",
+  "seed": 1209,
+  "characters": [
+    "character-041",
+    "character-035",
+    "character-036",
+    "character-016"
+  ],
+  "commands": 40,
+  "rounds": 2,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    1,
+    3
+  ],
+  "events": 91,
+  "choiceResolutionsAndSkills": {
+    "h-birth": 1,
+    "water-discard": 2,
+    "card-counter": 3,
+    "board-path": 3,
+    "move-consent": 1,
+    "skill:quote-cost": 5,
+    "discard": 1,
+    "gear-chalk": 1
+  }
+}

@@ -216,8 +216,8 @@
 .spectator-tabs{display:flex;gap:4px;padding:5px 7px 0;overflow-x:auto}
 .spectator-tabs button{flex:1;min-width:70px;max-width:240px;font-size:11px;padding:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .spectator-tabs [aria-selected=true]{border-color:var(--mint);background:#304a38}
-.watch-leave{position:absolute;right:18px;top:49px;z-index:5;font-size:10px;padding:4px 7px}
-.spectator-board .match-status{padding-right:80px}
+.spectator-board .match-status{flex-wrap:wrap}
+.spectator-board .match-status nav{flex-wrap:wrap;justify-content:flex-end;max-width:100%}
 .chat-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
 .chat-controls button{font-size:11px;padding:6px 9px}
 .chat-history{height:min(42dvh,360px);overflow:auto;overscroll-behavior:contain;margin:10px 0;padding:6px;background:#13232a;border-radius:6px}
@@ -251,8 +251,6 @@
 @media(max-width:540px){
  .online-app .topbar .online-identity,.online-app .topbar .connection-status.connected{display:none}
  .online-app .topbar .chat-launcher,.online-app .topbar .spectator-count{font-size:10px;padding:5px 6px}
- .spectator-board .match-status{padding-right:58px}
- .watch-leave{top:46px;right:9px;font-size:9px}
  .spectator-tabs{gap:2px;padding:4px 4px 0}
  .spectator-tabs button{font-size:9px;min-width:60px;padding:5px 3px}
  .spectator-hands>header>span{font-size:9px}
@@ -460,7 +458,7 @@ html,body,.online-app{overscroll-behavior-x:none}
  .stage3-board .compact-actions:not(.expanded-mobile-actions) .stage4-options{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain}
  .stage3-board .compact-actions:not(.expanded-mobile-actions) .stage4-options button{flex-shrink:0;white-space:nowrap}
  .stage3-board .compact-actions:not(.expanded-mobile-actions) .compact-buttons>span:not(.waiting-action){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;max-height:24px;overflow:hidden;font-size:10px;line-height:12px;flex-basis:100%}
- .stage3-board .compact-actions:not(.expanded-mobile-actions) .ordinary-actions>span{display:none}
+ .stage3-board .compact-actions:not(.expanded-mobile-actions) .ordinary-actions>span:not(.skill-block-reason){display:none}
  .stage3-board .compact-actions .stage3-direction,.stage3-board .compact-actions .character-skill-control{display:inline-flex;align-items:center;gap:4px;font-size:10px;max-width:100%}
  .stage3-board .compact-actions .stage3-direction select,.stage3-board .compact-actions .character-skill-control select{min-height:28px;height:28px;padding:2px 4px;font-size:12px;max-width:175px}
  .stage3-board .compact-actions:not(.expanded-mobile-actions) .stage4-card-form{display:contents}
@@ -479,7 +477,10 @@ html,body,.online-app{overscroll-behavior-x:none}
  .stage3-board .expanded-mobile-actions .card-effect-summary{flex-basis:100%;display:block}
  .stage3-board .action-toast{top:25%;padding:10px 30px 10px 12px}
  .stage3-board .action-toast p{font-size:16px}
- .online-board.stage3-board.spectator-board{grid-template-areas:"status" "latest" "roster" "map" "hand";grid-template-rows:32px 20px 70px minmax(0,1fr) 116px}
+ .online-board.stage3-board.spectator-board{grid-template-areas:"status" "latest" "roster" "map" "hand";grid-template-rows:auto 20px 70px minmax(0,1fr) 116px}
+ .spectator-board>.match-status{display:grid;grid-template-columns:minmax(0,1fr) auto}
+ .spectator-board>.match-status nav{grid-column:1/-1;justify-content:flex-end;gap:4px}
+ .spectator-board>.match-status nav button{min-height:28px}
  .stage3-board>.spectator-tabs{grid-area:tabs;padding:0;min-height:0}
  .stage3-board.spectator-board>.compact-hand{grid-area:hand;height:116px}
  .stage3-board.spectator-board .spectator-tabs{height:22px;min-height:22px;flex:none;padding:0;gap:3px}
@@ -535,6 +536,24 @@ html,body,.online-app{overscroll-behavior-x:none}
 }
 
 .card-target-options{display:flex;flex-wrap:wrap;align-items:center;gap:4px;flex-basis:100%}
+.mayi-preview{flex-basis:100%;font-size:12px;line-height:16px;max-height:32px;overflow:auto}
+@media(max-width:999px){.mayi-preview{font-size:10px;line-height:12px;max-height:24px}}
 .card-target-options button[aria-pressed=true]{border-color:#e1c779;background:#53472d}
 @media(max-width:999px){.card-target-options{font-size:10px}.card-target-options>span[role=status]{font-size:10px;line-height:12px}}
 @media(max-width:999px) and (max-height:700px){.card-target-options{display:contents}.card-target-options>span{font-size:10px}}
+
+.observer-forecast{color:#ffe3a1;font-weight:600}
+@media(max-width:999px){
+ .stage3-board:not(.map-dialog-board) .map-status.has-observer-forecast{height:auto;white-space:normal;overflow:visible;text-overflow:clip}
+ .stage3-board:not(.map-dialog-board) .map-status.has-observer-forecast .observer-forecast{display:block;margin-right:0;overflow-wrap:anywhere}
+}
+
+.cooperate-control{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;flex-basis:100%;min-width:0;max-width:100%}.cooperate-control label{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0;max-width:100%}.cooperate-control select{min-width:0;max-width:100%;font-size:12px;min-height:28px}.cooperate-control>button{justify-self:start}.cooperate-cards{display:flex;flex-wrap:wrap;gap:6px;max-height:140px;overflow-y:auto;width:100%}.cooperate-cards button[aria-pressed="true"]{outline:2px solid var(--accent,#a5d6b4)}
+@media(min-width:600px) and (max-width:999px) and (max-height:540px){
+ .online-board.stage3-board:has(:is(.cooperate-control,.ren-control,.leap-control,.small-control,.equipment-share-control,.shared-equipment-line)):not(.map-dialog-board):not(.spectator-board){grid-template-columns:minmax(0,1fr) minmax(280px,44%);grid-template-areas:"status status" "roster roster" "map controls";grid-template-rows:26px 54px minmax(0,1fr)}
+ .stage3-board:has(:is(.cooperate-control,.ren-control,.leap-control,.small-control,.equipment-share-control,.shared-equipment-line))>.board-controls{overflow-y:auto;overscroll-behavior-y:contain;align-content:start}
+}
+
+:is(.leap-control:not(button),.small-control,.equipment-share-control){display:flex;flex-wrap:wrap;gap:6px;min-width:0;flex-basis:100%}:is(.leap-control,.small-control,.equipment-share-control)>span{flex-basis:100%;overflow-wrap:anywhere}
+
+.shared-equipment-line{display:flex;flex-wrap:wrap;gap:4px;flex-basis:100%;min-width:0;font-size:11px;overflow-wrap:anywhere}.shared-equipment-line>span{border:1px solid var(--border);border-radius:4px;padding:2px 4px}.equipment-share-control{display:flex;flex-wrap:wrap;gap:6px;min-width:0;flex-basis:100%}.equipment-share-control>span{flex-basis:100%}

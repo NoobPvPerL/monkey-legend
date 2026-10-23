@@ -1,0 +1,224 @@
+{
+  "at": "2026-10-19T02:04:06.840200+00:00",
+  "branch": "main",
+  "baseCommit": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "applicationVersion": "0.3.2-p3.3",
+  "ruleVersion": "web-v0.1.13",
+  "schemaVersion": 2,
+  "engineRevision": 24,
+  "characterDefinitions": 18,
+  "cardDefinitions": 76,
+  "cardInstances": 191,
+  "frozenFiles": [
+    {
+      "path": "database/migrations/000_schema.sql",
+      "gitBlob": "8fc445167e74035e425543d93580f63f3d65b69d",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/001_data.sql",
+      "gitBlob": "3c9532cfe989b108f2bfe48ee1c435987e7e4126",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/002_engine.sql",
+      "gitBlob": "67dbdb698205e9072203ac7c3f51740675a89876",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/003_rooms.sql",
+      "gitBlob": "541746749e4952d816275a026df43775d7773913",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/004_permissions.sql",
+      "gitBlob": "0f29107cc662d874452342d771a91847b0c217a6",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/005_deferred_movement.sql",
+      "gitBlob": "18dadc3699c633a1ead345f0c4275a111967d7f5",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/006_social.sql",
+      "gitBlob": "61fda9d7f93787d0f5689a3d2e72b1a29f71740f",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/007_feedback_rules.sql",
+      "gitBlob": "ad2755135c6ac77c6a05420699a1a52a1b8df5ce",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/008_feedback_diagnostics.sql",
+      "gitBlob": "f0923b627b34c4dc2dc2ef65baa7e6f378e6bf6d",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/009_unlimited_attacks.sql",
+      "gitBlob": "19d5837cc576bfd6fc03e209d737e5a3b16e6826",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/010_versioned_catalog.sql",
+      "gitBlob": "1f827e862faada5894e2d29cfe4057806fc3e03b",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/011_classic_locations.sql",
+      "gitBlob": "8ade42dfa85374443c916ba81ad41941242a5245",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/012_classic_rules.sql",
+      "gitBlob": "26ac2c8d79fcbf3143c30afff495a33cc1ddce9c",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/013_draft_foundation.sql",
+      "gitBlob": "89a8ab7e6908654e3c524f17fa2fd0c43cdb7688",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/014_classic_feedback_patch.sql",
+      "gitBlob": "c87caa56fd08842f0492ea5976db3c14a141a6ee",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/015_stage3_resources.sql",
+      "gitBlob": "58259c1ad463266d646d82781039bac857be330e",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/016_stage3_release.sql",
+      "gitBlob": "82e542462bf07d61700fb04b39808042fdb0b85b",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/017_stage4_foundation.sql",
+      "gitBlob": "a1a9fe6d57debbaa5bf297ba78c811d4083f7b58",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/018_stage4_release.sql",
+      "gitBlob": "1dfe64b9450e886552fbf508bdba4656272660e7",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/019_p2_playtest_feedback.sql",
+      "gitBlob": "f9b340b110a65d6f5b71459737159614e4f257a4",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/020_p2_exercise_rules.sql",
+      "gitBlob": "cd1aecddd77214ffbea0f1b0afd78cf8ad958601",
+      "unchanged": true
+    },
+    {
+      "path": "database/migrations/021_p2_card_feedback.sql",
+      "gitBlob": "57a7fce7e4e98d43b6cf24c7c3fd77b285537a9a",
+      "unchanged": true
+    },
+    {
+      "path": "packages/game-data/src/source-catalog.json",
+      "gitBlob": "0a09b4fada295dcd454ce79ed1df98182c2db43b",
+      "unchanged": true
+    },
+    {
+      "path": "packages/game-data/src/stage3.ts",
+      "gitBlob": "0f4475b03cbe76b5ea4d4b2aa069c1fb1bb77b42",
+      "unchanged": true
+    },
+    {
+      "path": "docs/cards/README.md",
+      "gitBlob": "01117dd3515a26fdc1c6d1648b833ad6a87864c5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/cards/基础牌.md",
+      "gitBlob": "00cbd5d1c5f5e08bd8ca529ebb840a7a14b995e1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/cards/神牌.md",
+      "gitBlob": "71c1335f7d24bedf6a0fecd142afb770d81e9661",
+      "unchanged": true
+    },
+    {
+      "path": "docs/cards/角色牌.md",
+      "gitBlob": "f1990b5444976cc22489a367622864acd9149326",
+      "unchanged": true
+    },
+    {
+      "path": "docs/cards/选修课牌.md",
+      "gitBlob": "a5d540159842bbec099b7e74210804ef5bdebc1d",
+      "unchanged": true
+    }
+  ],
+  "originalImagesAndTranscripts": "verify:data passed:187 images and4 original card documents",
+  "gapRows": 53,
+  "legacyCharacters": 16,
+  "approvedNewCharacters": [
+    "character-013",
+    "character-025"
+  ],
+  "unapprovedCandidates": 35,
+  "localDocLinksChecked": 115,
+  "brokenLinks": [],
+  "tests": {
+    "fullFiles": 84,
+    "fullPassed": 630,
+    "fullFailed": 0,
+    "finalCompatibilityPassed": 6
+  },
+  "checks": [
+    "typecheck",
+    "verify:data",
+    "verify:db-data",
+    "verify:catalog",
+    "verify:classic-map",
+    "git diff --check",
+    "node --check package-online and package-database"
+  ],
+  "screenshots": {
+    "mobile-mayi-preview.jpg": {
+      "sha256": "afb66c9ca0d13dfa7aab9969a9dd5c6b49086b0cdc7b51d6ba9f539ff02387fb",
+      "bytes": 54617
+    },
+    "mobile-potato-teleport.jpg": {
+      "sha256": "b18bf92507e83d06dfdf7ebb4f660de49ddc1a31cd39cdd0b2a29f2b618ca787",
+      "bytes": 51303
+    },
+    "mobile-small-mayi-preview.jpg": {
+      "sha256": "66570c6dd46c6c1b9ededb3d4227fdc757eced4d5ab4fd619a22b4feba766a0f",
+      "bytes": 48576
+    },
+    "pc-mayi-preview.jpg": {
+      "sha256": "e156d7e80f87fc4aaa8baf1bbfc2559e35a7761bcdc93ad8e035db7380b5b5bb",
+      "bytes": 102627
+    },
+    "pc-mayi-result.jpg": {
+      "sha256": "4f47b65d8cf8bb371ffbca9a248a8e8cea4a7887dc3313dbe4542e904267e6e5",
+      "bytes": 100527
+    },
+    "pc-monkey-targets.jpg": {
+      "sha256": "e91176fe5a746ac77c23c4e45c6ac55498e7640bdd97af4f9b34d1cfc826b3f1",
+      "bytes": 107567
+    },
+    "pc-potato-teleport.jpg": {
+      "sha256": "7d059d047bdd6a64058461a9bb45531d44c92e0486773a5bd1094d6cddfaaeac",
+      "bytes": 97824
+    },
+    "pc-potato-water-discard.jpg": {
+      "sha256": "17d6031207214b0e2d19e866b3862ea6361b6fb280ee31074f7d441485c3d333",
+      "bytes": 93187
+    }
+  },
+  "productionBuildRun": false,
+  "packageGenerated": false,
+  "packageIndependentlyVerified": false,
+  "githubUploaded": false,
+  "productionWrites": false,
+  "stageAccepted": false
+}

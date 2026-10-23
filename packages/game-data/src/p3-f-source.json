@@ -1,0 +1,92 @@
+{
+  "characters": {
+    "character-007": {
+      "id": "character-007",
+      "name": "波波鲨鱼",
+      "source": "docs/cards/角色牌.md#character-007",
+      "text": "- 锁定技 没有手脚：没有唐车时，你无法移动。\n- 主动技 斩杀：每回合只可以使用一次，对1-2血的角色使用，弃1张牌，进行判定，单数则直接将其血条清零，此伤害无法恢复。",
+      "notes": "技能距离、行动点费用、无法恢复与复活关系待确认。",
+      "printedHp": "5",
+      "spawnRegion": "淘安泽",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-017": {
+      "id": "character-017",
+      "name": "猴十六",
+      "source": "docs/cards/角色牌.md#character-017",
+      "text": "- 主动技 自虐：当你被队友指定为目标的时候，你可以进行判定，1-2直接生效，3-5所有对手失去一张手牌，6对一个角色造成一点伤害。\n- 锁定技 首杀：由你造成的伤害，在第一个人死亡之前无法恢复。",
+      "notes": "自虐各分支是否取消原牌效果、费用待确认。",
+      "printedHp": "4",
+      "spawnRegion": "秀松苑",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-018": {
+      "id": "character-018",
+      "name": "猴四",
+      "source": "docs/cards/角色牌.md#character-018",
+      "text": "- 锁定技 易伤：你受到带有帝汶词条的卡牌伤害+1。\n- 锁定技 回家：你每次受到伤害，就立刻回到出生点，并且这一个回合，你不会再受到任何伤害（包括毒圈和轰炸区）。",
+      "notes": "受伤、回家、死亡的结算顺序待确认。",
+      "printedHp": "5",
+      "spawnRegion": "秀松苑",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-019": {
+      "id": "character-019",
+      "name": "猴五",
+      "source": "docs/cards/角色牌.md#character-019",
+      "text": "- 锁定技 做手术：你初始血量为2点，但是你没有血量上限。\n- 锁定技 搏击操爱好者：你每使用一次带有搏击操词条的卡片就会回复一点血量。",
+      "notes": "牌面右上角为“?”；正文明确初始2点、无血量上限，不能把“?”当数值。",
+      "printedHp": "?",
+      "spawnRegion": "秀松苑",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-032": {
+      "id": "character-032",
+      "name": "痞帅",
+      "source": "docs/cards/角色牌.md#character-032",
+      "text": "- 锁定技 bccb：当有人进入你的区域时，你可以进行判定，1-4你抽取对方两张手牌，自己扣一滴血，5-6对方扣一滴血，自己扣一滴血。\n- 锁定技 和气：你每次扣一滴血，都可以回复2点行动点并提升1点最大生命值上限。",
+      "notes": "多点扣血如何计次、无足够手牌时处理待确认。",
+      "printedHp": "3",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-036": {
+      "id": "character-036",
+      "name": "水母",
+      "source": "docs/cards/角色牌.md#character-036",
+      "text": "- 锁定技 干枯：你摇不到6就无法离开水域。\n- 锁定技 致命触须：你造成的所有伤害，都是真实伤害（直接扣总生命值+现在的血量）。\n- 主动技 毒蜇：当有人经过或停留你所在的区域时，你可以进行判定，1-3对方失去两张手牌，4-5你对对方造成2点真实伤害。",
+      "notes": "毒蜇判定6的效果未注明；真伤公式、次数/费用待确认。",
+      "printedHp": "3",
+      "spawnRegion": "红素洋",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-051": {
+      "id": "character-051",
+      "name": "朱鹏岩",
+      "source": "docs/cards/角色牌.md#character-051",
+      "text": "- 锁定技 随风漂流：每回合都要向右移动一格。\n- 被动技 坚韧：你受到伤害时，可以用一点最大生命值抵挡一点伤害。\n- 被动技 你是岩石：你是岩石类角色。",
+      "notes": "强制移动时点/边界、生命上限降低后当前血量处理待确认。",
+      "printedHp": "4",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-052": {
+      "id": "character-052",
+      "name": "朱伟岩",
+      "source": "docs/cards/角色牌.md#character-052",
+      "text": "- 主动技 岩浆之力：花费2点行动点，对同一个区域的角色造成伤害。\n- 被动技 你是岩石：你是岩石类角色。",
+      "notes": "伤害数值、目标数/是否含自己未注明。",
+      "printedHp": "5",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    }
+  }
+}

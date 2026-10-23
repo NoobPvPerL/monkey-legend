@@ -1,0 +1,26 @@
+{
+  "characters": {
+    "character-046": {
+      "id": "character-046",
+      "name": "羽毛人",
+      "source": "docs/cards/角色牌.md#character-046",
+      "text": "- 主动技 手长：你的所有攻击都没有距离限制。\n- 锁定技 脚短：你每次移动都要进行判定，1-2则本回合不能移动（还是要消耗行动点）。",
+      "notes": "手长标为主动技但正文为持续效果，费用/启动方式待确认。",
+      "printedHp": "4",
+      "spawnRegion": "操场",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-047": {
+      "id": "character-047",
+      "name": "原始人",
+      "source": "docs/cards/角色牌.md#character-047",
+      "text": "- 主动技 睡觉：本回合不使用卡牌，则下一个回合多回复2行动点（可以超过行动点上限）。\n- 主动技 你要不要吃：场上有人使用食物时，你可以进行判定，5-6则可以回复1点血量。",
+      "notes": "睡觉是否包括响应牌、技能费用/次数待确认。",
+      "printedHp": "4",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    }
+  }
+}

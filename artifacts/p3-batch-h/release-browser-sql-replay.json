@@ -1,0 +1,37 @@
+{
+  "scope": "Exact normal H browser draft picks, create_game and birth choice replayed through isolated000-030 SQL; full states after every operation. Not production RPC.",
+  "inputSha256": "dae68774ff5af5f59f66c4a441146b8bee77d65b3971d35d5be6f618b594c09d",
+  "flows": [
+    {
+      "mode": "ffa",
+      "viewport": "mobile",
+      "seed": 43,
+      "operations": 6,
+      "allStatesCompared": true
+    },
+    {
+      "mode": "ffa",
+      "viewport": "desktop",
+      "seed": 43,
+      "operations": 6,
+      "allStatesCompared": true
+    },
+    {
+      "mode": "team",
+      "viewport": "mobile",
+      "seed": 8,
+      "operations": 6,
+      "allStatesCompared": true
+    },
+    {
+      "mode": "team",
+      "viewport": "desktop",
+      "seed": 8,
+      "operations": 6,
+      "allStatesCompared": true
+    }
+  ],
+  "initialDrafts": 4,
+  "operations": 24,
+  "passed": true
+}

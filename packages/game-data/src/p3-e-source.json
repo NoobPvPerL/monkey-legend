@@ -1,0 +1,48 @@
+{
+  "characters": {
+    "character-014": {
+      "id": "character-014",
+      "name": "猴六",
+      "source": "docs/cards/角色牌.md#character-014",
+      "text": "- 主动技 释放毒气：消耗一个行动点，所有人远离自己一格（由你选择移动方向）。",
+      "notes": "是否含自己、技能次数、地形与越界处理待确认。",
+      "printedHp": "4",
+      "spawnRegion": "秀松苑",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-016": {
+      "id": "character-016",
+      "name": "猴十八",
+      "source": "docs/cards/角色牌.md#character-016",
+      "text": "- 锁定技 不动：任何人都无法使你移动（除非经过你的同意）。【此为最高等级，传送也不可以】",
+      "notes": "未发现此牌的额外文字缺项；通用规则仍见索引，不表示完整裁定已确认。",
+      "printedHp": "5",
+      "spawnRegion": "教学楼",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-024": {
+      "id": "character-024",
+      "name": "卤蛋",
+      "source": "docs/cards/角色牌.md#character-024",
+      "text": "- 主动技 体育部部长：当场上有人移动的时候，你可以移动一格。",
+      "notes": "是否可由自身移动再次触发、次数/费用待确认。",
+      "printedHp": "4",
+      "spawnRegion": "操场",
+      "printedFaction": null,
+      "waterNative": false
+    },
+    "character-038": {
+      "id": "character-038",
+      "name": "汪羊",
+      "source": "docs/cards/角色牌.md#character-038",
+      "text": "- 锁定技 大班级先走：你的回合结束时，血量最高的角色朝你的反方向走一步。\n- 主动技 逃生演习：每回合只可以使用一次，消耗两个行动点，指定一个地区，所有人向那边移动一格，且离目的地最远的角色扣一滴血（自己不用移动）。",
+      "notes": "最高/最远并列、反方向定义、自己是否可为最远者待确认。",
+      "printedHp": "4",
+      "spawnRegion": "操场",
+      "printedFaction": null,
+      "waterNative": false
+    }
+  }
+}

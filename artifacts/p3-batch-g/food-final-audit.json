@@ -1,0 +1,25 @@
+{
+  "auditedAt": "2026-10-20T13:09:05.942697+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "frozenFilesUnchanged": 35,
+  "originalTrackedFilesUnchanged": 196,
+  "originalImagesAndTranscriptsUnchanged": 191,
+  "documentationLinksChecked": 247,
+  "characters": {
+    "source": 53,
+    "current": 35,
+    "GApprovedInDevelopment": 8,
+    "HNeedRulings": 9,
+    "separate008": 1
+  },
+  "regression": {
+    "files": 117,
+    "suites": 121,
+    "tests": 908,
+    "passed": 908
+  },
+  "GActive": false,
+  "migration29Created": false,
+  "productionWritten": false
+}

@@ -1,0 +1,180 @@
+- main:
+  - generic: 应猴传说
+  - generic: 房间 0382
+  - region "当前行动状态":
+    - strong: 轮到你行动
+    - generic: 第 1 轮 · 各自为战
+    - generic "剩余操作时间": 61s
+    - navigation "对局工具":
+      - button "玩家"
+      - button "日志"
+      - button "规则"
+  - status:
+    - generic: 最新动作
+    - paragraph:
+      - generic "S1 原始人 回复1生命":
+        - generic: S1
+        - generic: "[♥ +1]"
+    - button "查看完整动作日志": 展开
+  - region "战场玩家":
+    - article:
+      - generic: S1
+      - strong: 审核玩家 · 你
+      - generic "在线"
+      - button "原始人": 原始人
+      - paragraph:
+        - generic "生命": ♥ 3/4
+        - generic "行动点": AP 11
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 2
+        - generic: 装 0
+    - article:
+      - generic: S2
+      - strong: 远处玩家
+      - generic "在线"
+      - button "涨佳选": 涨佳选
+      - paragraph:
+        - generic "生命": ♥ 5/5
+        - generic "行动点": AP 12
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 0
+        - generic: 装 0
+    - article:
+      - generic: S3
+      - strong: 同场玩家
+      - generic "在线"
+      - button "马懿": 马懿
+      - paragraph:
+        - generic "生命": ♥ 5/5
+        - generic "行动点": AP 12
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 0
+        - generic: 装 0
+    - article:
+      - generic: S4
+      - strong: 免疫玩家
+      - generic "在线"
+      - button "羽毛人": 羽毛人
+      - paragraph:
+        - generic "生命": ♥ 4/4
+        - generic "行动点": AP 12
+        - generic "护盾": ◇ 0
+        - generic "手牌数": ▤ 0
+        - generic: 装 0
+  - region "校园战场":
+    - strong: 校园战场 · 32格
+    - button "查看全图"
+    - generic: 永久毒区 2/11 区 · 轮末轰炸2区
+    - generic: 第5轮封闭高唐农场 · 无轰炸预告
+    - text: 尚未进行轮末轰炸
+    - grid "32格校园棋盘":
+      - gridcell "r1c1 高唐农场 安全 陆地":
+        - generic: 高唐农场
+      - gridcell "r1c2 教学楼 安全 陆地":
+        - generic: 教学楼
+      - gridcell "r1c3 教学楼 安全 陆地":
+        - generic: 教学楼
+      - gridcell "r1c4 秀松苑 安全 陆地":
+        - generic: 秀松苑
+      - gridcell "r1c5 秀松苑 安全 陆地":
+        - generic: 秀松苑
+      - gridcell "r1c6 尚德荟 安全 陆地":
+        - generic: 尚德荟
+      - gridcell "r1c7 食堂 安全 陆地":
+        - generic: 食堂
+      - gridcell "r1c8 飞船 安全 陆地":
+        - generic: 飞船
+      - gridcell "r2c1 XDF 安全 陆地":
+        - generic: XDF
+      - gridcell "r2c2 教学楼 安全 陆地 同场玩家 · 马懿，生命5，AP12":
+        - generic: 教学楼
+        - generic "同场玩家 · 马懿": S3
+      - gridcell "r2c3 教学楼 安全 陆地":
+        - generic: 教学楼
+      - gridcell "r2c4 操场 安全 陆地 审核玩家 · 原始人，生命3，AP11":
+        - generic: 操场
+        - generic "审核玩家 · 原始人": S1
+      - gridcell "r2c5 秀松苑 安全 陆地":
+        - generic: 秀松苑
+      - gridcell "r2c6 秀松苑 安全 陆地 免疫玩家 · 羽毛人，生命4，AP12":
+        - generic: 秀松苑
+        - generic "免疫玩家 · 羽毛人": S4
+      - gridcell "r2c7 食堂 安全 陆地":
+        - generic: 食堂
+      - gridcell "r2c8 山洞 安全 陆地":
+        - generic: 山洞
+      - gridcell "r3c1 帝汶岛 安全 陆地":
+        - generic: 帝汶岛
+      - gridcell "r3c2 帝汶岛 安全 陆地":
+        - generic: 帝汶岛
+      - gridcell "r3c3 红素洋 毒圈 水域":
+        - generic: 红素洋
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r3c4 操场 安全 陆地":
+        - generic: 操场
+      - gridcell "r3c5 樱花大道 安全 陆地":
+        - generic: 樱花大道
+      - gridcell "r3c6 樱花大道 安全 陆地":
+        - generic: 樱花大道
+      - gridcell "r3c7 樱花大道 安全 陆地":
+        - generic: 樱花大道
+      - gridcell "r3c8 樱花大道 安全 陆地":
+        - generic: 樱花大道
+      - gridcell "r4c1 帝汶岛 安全 陆地":
+        - generic: 帝汶岛
+      - gridcell "r4c2 帝汶岛 安全 陆地":
+        - generic: 帝汶岛
+      - gridcell "r4c3 红素洋 毒圈 水域":
+        - generic: 红素洋
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r4c4 办公室 安全 陆地":
+        - generic: 办公室
+      - gridcell "r4c5 办公室 安全 陆地":
+        - generic: 办公室
+      - gridcell "r4c6 淘安泽 毒圈 水域":
+        - generic: 淘安泽
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r4c7 淘安泽 毒圈 水域":
+        - generic: 淘安泽
+        - generic: ≈
+        - generic: ☠
+      - gridcell "r4c8 云上学府 安全 陆地 远处玩家 · 涨佳选，生命5，AP12":
+        - generic: 云上学府
+        - generic "远处玩家 · 涨佳选": S2
+  - region "你的手牌":
+    - strong: 你的手牌 · 2 张
+    - button "牌效详情"
+    - button "牌堆 188 / 弃牌 1"
+    - generic "左右滑动查看手牌":
+      - button "外星人，2 AP，自己回复2生命":
+        - text: 补给
+        - generic: 2 AP
+        - strong: 外星人
+        - generic: 自己回复2生命
+      - button "躲避球，1 AP，同/相邻区域；骰4—6伤1；不能用防御姿态抵挡":
+        - text: 攻击
+        - generic: 1 AP
+        - strong: 躲避球
+        - generic: 同/相邻区域；骰4—6伤1；不能用防御姿态抵挡
+  - region "操作区":
+    - button "操作与设置"
+    - status: 已使用卡牌，本回合睡觉资格已取消。
+    - button "移动 · 免费"
+    - button "结束行动 →"
+  - status:
+    - strong: 请操作
+    - paragraph:
+      - generic "轮到你作出选择 S1 使用奈雪，支付1AP S1 原始人 回复1生命":
+        - generic: 轮到你作出选择
+        - generic: S1
+        - text: 使用奈雪，支付1AP
+        - generic: S1
+        - generic: "[♥ +1]"
+    - article:
+      - generic: 奈雪 · 牌效说明
+      - paragraph: 自己回复1生命
+    - text: 是否命中、反制及最终数值以实际结算为准；对局计时继续。
+    - button "关闭动作提示": ×

@@ -1,0 +1,104 @@
+{
+  "scope": "H041 actual local OnlineBoard; not physical mobile, cloud or user acceptance",
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:5187/review?scenario=small-choice",
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/small-select-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 45725,
+      "sha256": "1a5a458ceae444e588cc9b8118ed8905963ce26f80223e42fefb98a313f3a075"
+    },
+    {
+      "path": "artifacts/p3-batch-h/small-choice-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 46588,
+      "sha256": "7753623528a529f04e6a23f598a9fc9b8e6317de1ead13162cc5360307c6ad44"
+    },
+    {
+      "path": "artifacts/p3-batch-h/small-result-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 47794,
+      "sha256": "2f7b5f86164926da06a7792d51a84220740fde9babdb608de98816c3342601c6"
+    },
+    {
+      "path": "artifacts/p3-batch-h/small-shared-mobile.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 49316,
+      "sha256": "27a89c54c8deacc8a66798ebf121f2400bd8c05a64bd15da65c2a5f4542341b1"
+    },
+    {
+      "path": "artifacts/p3-batch-h/small-choice-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 91205,
+      "sha256": "1e20647442f3692ab8720c87fd9a0b8a609ea5ea7dd72363fcf651f84ae94c2f"
+    },
+    {
+      "path": "artifacts/p3-batch-h/small-result-desktop.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 92506,
+      "sha256": "2260de7a270504986514db40acb34e568cccdf3ac7e052b42f553e270acb12f3"
+    },
+    {
+      "path": "artifacts/p3-batch-h/small-choice-narrow-320.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 43327,
+      "sha256": "eb9afd772e0cb71d8e5c866e332e7b7ce2fcc48c7db766b4319e65954d993ea4"
+    },
+    {
+      "path": "artifacts/p3-batch-h/small-choice-landscape.png",
+      "width": 65536,
+      "height": 4292542531,
+      "bytes": 44165,
+      "sha256": "a5bbc7a3153df736ea5564c872a9e59b8a152c1e8022471d8ddc8b70d37048a2"
+    }
+  ],
+  "priorScreenshotHashesVerified": 57,
+  "measurements": [
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "scrollWidth": 320
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "scrollWidth": 844,
+      "mapRect": [
+        6,
+        118,
+        461.927,
+        268
+      ]
+    },
+    {
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200
+    }
+  ],
+  "verified": [
+    "all8 saved PNGs opened and inspected; landscape reopened after side by side fix",
+    "mobile basic move to occupied r1c3, own free choice transfers2 cards, stop AP12 to11 while shared cell remains stable",
+    "desktop and second mobile submitted path resumes r2c3 after choice",
+    "real30sec choices and original paused60sec budget; no artificial clock extension",
+    "temporary own verification tab closed, viewport reset, localhost server stopped"
+  ],
+  "caveats": [
+    "expired choices and locator attempts excluded from successful action evidence",
+    "initial server connection attempts failed and left error page; later local server and fresh valid localhost tab used",
+    "no full suite rerun after041; legacy C state initialization defect remains"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "scope": "formal G candidate factories in local TS and isolated migration029 PostgreSQL; no production deployment",
+  "mode": "ffa",
+  "seed": 42,
+  "characters": [
+    "character-009",
+    "character-012",
+    "character-021",
+    "character-022"
+  ],
+  "commands": 62,
+  "rounds": 5,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    0
+  ],
+  "events": 172,
+  "featureEvents": {
+    "g-counter": 6,
+    "g-program": 0,
+    "g-math": 0,
+    "g-food": 4,
+    "g-white-eye": 3,
+    "g-invisible": 0,
+    "g-haki": 0
+  }
+}

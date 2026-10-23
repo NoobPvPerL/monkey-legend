@@ -1,0 +1,95 @@
+{
+  "auditedAt": "2026-10-22T09:55:13.285759+00:00",
+  "head": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "branch": "main",
+  "privateH": {
+    "version": "web-v0.1.19",
+    "characters": 50,
+    "implemented": [
+      "001",
+      "011",
+      "015",
+      "030",
+      "034",
+      "035",
+      "039"
+    ],
+    "remaining": [
+      "041",
+      "050"
+    ]
+  },
+  "normalCandidate": {
+    "version": "web-v0.1.18",
+    "characters": 43,
+    "engineRevision": 29
+  },
+  "frozenReferenceHashesVerified": 35,
+  "oldMigrationCatalogCheck": "npm run verify:catalog passed",
+  "migration029Sha256": "f5179b99332e27585cd1db7dd7f1d12c640656e828b24710949eca1abef2b473",
+  "originalTrackedFilesUnchanged": 196,
+  "originalAssetsVerified": 191,
+  "documentationLinksChecked": 459,
+  "reports": {
+    "035-integrated-initial": {
+      "files": 1,
+      "total": 7,
+      "passed": 5,
+      "failed": 2
+    },
+    "035-integrated-recheck1": {
+      "files": 2,
+      "total": 33,
+      "passed": 33,
+      "failed": 0
+    },
+    "035-combinations-initial": {
+      "files": 1,
+      "total": 25,
+      "passed": 24,
+      "failed": 1
+    },
+    "035-integrated-games-initial": {
+      "files": 3,
+      "total": 62,
+      "passed": 59,
+      "failed": 3
+    },
+    "035-integrated-games-recheck1": {
+      "files": 4,
+      "total": 87,
+      "passed": 87,
+      "failed": 0
+    },
+    "035-ui-layout-final": {
+      "files": 1,
+      "total": 17,
+      "passed": 17,
+      "failed": 0
+    },
+    "full-regression-030-local-network": {
+      "files": 131,
+      "total": 1213,
+      "passed": 1212,
+      "failed": 1
+    }
+  },
+  "fullGames": {
+    "games": 18,
+    "commands": 1973,
+    "entities": 191
+  },
+  "screenshots": {
+    "priorHashesVerified": 46,
+    "newRasterInspected": 11
+  },
+  "typecheck": "passed",
+  "gitDiffCheck": "passed",
+  "remoteFetch": "git fetch --prune origin succeeded; HEAD...origin/main 0 0 at584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "migration030Created": false,
+  "workbuddyBuilt": false,
+  "uploaded": false,
+  "productionWritten": false,
+  "unresolvedLegacyDefect": "026 saved v14 initialization missing C state before setup xiao-overflow, reproduced without H; not fixed",
+  "earlierFailuresRetained": true
+}

@@ -1,0 +1,29 @@
+{
+  "scope": "private local G TS and isolated PostgreSQL; no production deployment",
+  "mode": "team",
+  "seed": 917,
+  "characters": [
+    "character-028",
+    "character-033",
+    "character-042",
+    "character-049"
+  ],
+  "commands": 94,
+  "rounds": 5,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    1,
+    2
+  ],
+  "events": 219,
+  "featureEvents": {
+    "g-counter": 0,
+    "g-program": 6,
+    "g-math": 5,
+    "g-food": 0,
+    "g-white-eye": 0,
+    "g-invisible": 0,
+    "g-haki": 0
+  }
+}

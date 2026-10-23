@@ -1,0 +1,36 @@
+{
+  "scope": "Normal H factories and isolated030 SQL; no production deployment",
+  "mode": "ffa",
+  "seed": 1210,
+  "characters": [
+    "character-050",
+    "character-011",
+    "character-021",
+    "character-034"
+  ],
+  "commands": 120,
+  "rounds": 7,
+  "entities": 191,
+  "allCommandsCompared": true,
+  "winners": [
+    0
+  ],
+  "events": 301,
+  "choiceResolutionsAndSkills": {
+    "skill:quote-cost": 15,
+    "h-equip-draw": 3,
+    "forced-card": 6,
+    "skill:circle": 6,
+    "board-return": 1,
+    "skill:ren": 1,
+    "h-ren-gear": 1,
+    "gear-loss": 1,
+    "h-circle-pay": 3,
+    "discard": 8,
+    "h-ren-retreat": 1,
+    "h-ren-back": 2,
+    "h-ren-expel": 2,
+    "card-counter": 1,
+    "water-discard": 1
+  }
+}

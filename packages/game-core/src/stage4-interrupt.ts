@@ -1,3 +1,4 @@
+import {dPay} from './p3-d';
 import {discardCards} from './exercise';
 import type {GameState,Command,Task} from './types';
 import type {Stage3Ports} from './stage3-engine';
@@ -20,7 +21,7 @@ export function reserveStage4Interrupt(s:GameState,cmd:Extract<Command,{type:'pl
  need(terrainCard(s,a,'basic-017'),'当前位置禁止使用插队');
  const quoted=resources.cardApCost(st,a,cmd.card),reserve=s.active===a&&s.movement?.costDue&&s.movement.path.length>1?1:0;
  need(user.ap>=quoted.cost+reserve,'插队费用不足或须保留移动结算AP');
- user.ap-=quoted.cost;user.hand=user.hand.filter(card=>card!==cmd.card);s.resolving.push(cmd.card);
+ dPay(s,a,quoted.cost);user.hand=user.hand.filter(card=>card!==cmd.card);s.resolving.push(cmd.card);
  st.stage4.interrupts.push({actor:a,card:cmd.card,effect:quoted.effect,team:user.team});
  p.emit(s,'interrupt-intent',`S${a+1} 提交插队意图，支付${quoted.cost}AP，等待当前效果链结束`,{actor:a,card:cmd.card});
 }
@@ -46,13 +47,15 @@ export function stage4InterruptTask(s:GameState,t:Task,now:number,p:Stage3Ports)
   s.queue.unshift(task('cleanup',c.serial));return true;
  }
  if(t.action==='cleanup'){
+  if(c.g?.copy===1)return false;
   const closed=stack.closePending(st);s.attack=null;
+  const failed=closed.countered&&!closed.g?.firstSucceeded;
   if(p.finish(s,false,now))return true;
   const boundary=closed.stage4!.finishBoundary;
   if(boundary){
-   s.phase='resolving';if(!closed.countered&&boundary==='round-next')st.stage4.interruptSkipEnd=true;
-   s.queue.unshift({kind:closed.countered?boundary:'next'});
-  }else if(closed.countered){
+   s.phase='resolving';if(!failed&&boundary==='round-next')st.stage4.interruptSkipEnd=true;
+   s.queue.unshift({kind:failed?boundary:'next'});
+  }else if(failed){
    if(s.players[s.active].hp<=0){s.phase='resolving';s.queue.unshift({kind:'next'});}
    else{s.phase=closed.stage4!.resumePhase!;if(s.clock.since===null)s.clock.since=now;}
   }else{need(p.endTurn,'缺少插队结束回合端口');s.phase='resolving';p.endTurn!(s,now);}

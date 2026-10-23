@@ -1,0 +1,126 @@
+[
+  {
+    "path": "database/migrations/000_schema.sql",
+    "sha256": "764b5f4a791e446cfc57131b2081b86bdd9a99dcf2ad5e8d97006b68a7d5517e"
+  },
+  {
+    "path": "database/migrations/001_data.sql",
+    "sha256": "3807f7a364b526b7cc398ec9e711cadeeee725869e0935d9846654dba3139af1"
+  },
+  {
+    "path": "database/migrations/002_engine.sql",
+    "sha256": "ee889ff2e82bc717f5f3372d895b01927e09c7b6b42d2a4afd2085b28c846a87"
+  },
+  {
+    "path": "database/migrations/003_rooms.sql",
+    "sha256": "2a478f372e7c9f5fe639d77cfd7b1655e5454c2fdc7cf9483ecfbae8776fbef3"
+  },
+  {
+    "path": "database/migrations/004_permissions.sql",
+    "sha256": "314893cfcb9a0c2a96fbff4b24aeb1368aa15ccbcd61ae2ebde955cd1a0eeced"
+  },
+  {
+    "path": "database/migrations/005_deferred_movement.sql",
+    "sha256": "98ca01333d3cd2a616fa96fa14070763ac7059db1f706083658a2bf0420a6d77"
+  },
+  {
+    "path": "database/migrations/006_social.sql",
+    "sha256": "2558fff2bd05d664f85a956128bc0e32590c2bd29b8e516c6d5dd1d9dba838e6"
+  },
+  {
+    "path": "database/migrations/007_feedback_rules.sql",
+    "sha256": "1573c4fb698a4f5fa09cfe147ba3688219342d0d163098174b59d6830030c5ae"
+  },
+  {
+    "path": "database/migrations/008_feedback_diagnostics.sql",
+    "sha256": "f1535f8adbdd06badaa33c67b0adbfa71c7b284a704fdca18cc5e8f3ce7ff69a"
+  },
+  {
+    "path": "database/migrations/009_unlimited_attacks.sql",
+    "sha256": "9aee1392ded8743df865aa0bbe18669184f4971b2f14a75bc343e81cf3fb59da"
+  },
+  {
+    "path": "database/migrations/010_versioned_catalog.sql",
+    "sha256": "59fba1a3a58d36c9e9682b90abf32c44f43c9ec5004f6c9498ee9e0acb9c1a21"
+  },
+  {
+    "path": "database/migrations/011_classic_locations.sql",
+    "sha256": "64f7b4efccaf3ea37fd0732faf1848fdc7d372f3f301f345c114135208290ae7"
+  },
+  {
+    "path": "database/migrations/012_classic_rules.sql",
+    "sha256": "70f9968f124342340d88f03ccde9b7aab71ff853716b4594f856469a038dbea0"
+  },
+  {
+    "path": "database/migrations/013_draft_foundation.sql",
+    "sha256": "27fe642f255159e4e0548c194d47e08b1a1e15d9ac438b5e16f8970c3a0e82f0"
+  },
+  {
+    "path": "database/migrations/014_classic_feedback_patch.sql",
+    "sha256": "11e692548ecd618031236ce75e836e82e6f431e8b41814c9365d842ee1419b6f"
+  },
+  {
+    "path": "database/migrations/015_stage3_resources.sql",
+    "sha256": "dd64ee9bfd5e970803ae24f7a0c9465dc1bc944d4a0bed8424807c443b067011"
+  },
+  {
+    "path": "database/migrations/016_stage3_release.sql",
+    "sha256": "acfeedf9e7b4860647aff3eb20c28afec5e36c1652c34df11280e44b710a9403"
+  },
+  {
+    "path": "database/migrations/017_stage4_foundation.sql",
+    "sha256": "39b24f79e0315435073ceb60a3e560834ddb40b9b72202780ec2ea4095e1709b"
+  },
+  {
+    "path": "database/migrations/018_stage4_release.sql",
+    "sha256": "095003f979080ba3c308c694318934545baba927e318960ac099e7fb68ddc7fb"
+  },
+  {
+    "path": "database/migrations/019_p2_playtest_feedback.sql",
+    "sha256": "fa82f62863c17458ca74b99b145e0bf8619c81099448b51776c1bd01e401bb12"
+  },
+  {
+    "path": "database/migrations/020_p2_exercise_rules.sql",
+    "sha256": "cfe00fc19d6a695561712f412c1ad8b89764d3851afa540fb7dd249692925c6f"
+  },
+  {
+    "path": "database/migrations/021_p2_card_feedback.sql",
+    "sha256": "24d9f1f5faee7899c24df9cc37f7b95df223de4dfed8f1899482b76aa278ed5f"
+  },
+  {
+    "path": "database/migrations/022_p3_yinghao_rules.sql",
+    "sha256": "8a622795db5da60467bbcb00138a6223559f94a4dec0a328619f3b4f8a715f93"
+  },
+  {
+    "path": "database/migrations/023_p3_characters.sql",
+    "sha256": "220a52601750b96c5588deef5b5a0771255546474a87decab68cf3b85060d4b5"
+  },
+  {
+    "path": "database/migrations/024_p3_potato_teleport.sql",
+    "sha256": "48da41b3b5954fc6569a593fab4b20f1593cb3eea6889298ad2d9afd757d4733"
+  },
+  {
+    "path": "database/migrations/025_p3_batch_c.sql",
+    "sha256": "389cea0e525cc93c668c41e9877d759a235ee13b80cba6807656c16f2aa277e2"
+  },
+  {
+    "path": "packages/game-data/src/source-catalog.json",
+    "sha256": "1097187d6ffb69ef6c25e59bc692c4d67d750f5c34e99b1e214828bd2546e04d"
+  },
+  {
+    "path": "packages/game-data/src/p3-character-source.json",
+    "sha256": "fdfb0cd9e1d52093a955ab928c49909e5a6b3d4c1f5b97686898bd6b0583a0e2"
+  },
+  {
+    "path": "packages/game-data/src/p3-c-source.json",
+    "sha256": "e8850e96d00d0a35aa37b8088c9b07b3b72a99399499d6c381f8fe150f42baf0"
+  },
+  {
+    "path": "database/migrations/026_p3_batch_d.sql",
+    "sha256": "8e4ee95cf3568917eaafefcdd72517601984f9da107fb46a8319ef26c71e1eb2"
+  },
+  {
+    "path": "packages/game-data/src/p3-d-source.json",
+    "sha256": "3ff4e55f5c3084f70e54d1fabd53621294fa8889de18e0d205288adb68c4745d"
+  }
+]

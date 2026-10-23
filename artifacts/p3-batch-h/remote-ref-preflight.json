@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-23T01:19:03.058Z",
+  "scope": "Read-only GitHub connector ref lookup; no push, branch update or local fetch",
+  "ref": "refs/heads/main",
+  "sha": "584e6a0f442c67264cc0f98f3562bab7361fc4fe",
+  "url": "https://api.github.com/repos/NoobPvPerL/monkey-legend/git/refs/heads/main",
+  "gitCliAttempts": [
+    "Schannel SEC_E_NO_CREDENTIALS",
+    "OpenSSL unable to get local issuer certificate; TLS verification was not disabled"
+  ]
+}

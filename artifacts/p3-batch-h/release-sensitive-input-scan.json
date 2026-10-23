@@ -1,0 +1,6 @@
+{
+  "scope": "Pre-upload pattern scan; paths/line numbers only, no credential values printed",
+  "filesScanned": 1616,
+  "matches": [],
+  "passed": true
+}

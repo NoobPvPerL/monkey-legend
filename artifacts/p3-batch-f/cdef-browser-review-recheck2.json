@@ -1,0 +1,1036 @@
+{
+  "scope": "Actual local OnlineBoard clicks and core dispatch using controlled C-F scenarios. Headless Edge viewport emulation, not physical mobile, production or user acceptance.",
+  "screenshots": [
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-start-mobile.png",
+      "sha256": "7455d2bd7be598d6320c1031ee316301f18435abbd6899cf96a60b4ed0aced44",
+      "bytes": 68603,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-target-mobile.png",
+      "sha256": "73785f1861d9b2d523a645ed442d86c88c2061c0d6c721ed70945f13ce76956b",
+      "bytes": 78035,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-result-mobile.png",
+      "sha256": "af779d11971f56b0e6cb515c06ced2ddebdc62f939928d2f7f7a8af7a6487b94",
+      "bytes": 67987,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-fail-start-mobile.png",
+      "sha256": "4a08b5a34ead52976488904dca9614f1778e5e9f9c903256f0c12f151960a1c5",
+      "bytes": 68592,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/feather-fail-result-mobile.png",
+      "sha256": "cda998cf80b518f07825fc646d57f60a107a8010df96cfd1e021ca9f00fc4013",
+      "bytes": 71568,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/primitive-start-mobile.png",
+      "sha256": "de31730e421f71f0e63680511257d0fdba3be0c9303480deeb1b9e84fc96abce",
+      "bytes": 63130,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-c/primitive-result-mobile.png",
+      "sha256": "35b0d367f86387f07446f1476aa92cdf1cd193a2c153faf2f3137b27af863cae",
+      "bytes": 63164,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/dragon-start-mobile.png",
+      "sha256": "6da7dcb5471fb17f56ca0eaafc65a95d180da3126dfcfd43a8da77b022a92170",
+      "bytes": 70686,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/dragon-target-mobile.png",
+      "sha256": "fe0bf78a24bfa3691b46b30735666eaf0b86a6fcdc4cc578781db6bba671c590",
+      "bytes": 77195,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    },
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "path": "artifacts/p3-batch-d/dragon-failed-attempt-mobile.png",
+      "sha256": "36d11a3b176f98e5b44f70106359b718104690e6b9694ee14c7e9e92711987a8",
+      "bytes": 77005,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "actionsRect": {
+        "x": 6,
+        "y": 742,
+        "width": 378,
+        "height": 98
+      }
+    }
+  ],
+  "flows": [
+    {
+      "scenario": "c-feather",
+      "viewport": "mobile",
+      "commands": 2,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 3
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        },
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 2
+            },
+            {
+              "seat": 1,
+              "hp": 4,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "c-feather-fail",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 1,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c4",
+              "handCount": 3
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r4c8",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "c-primitive",
+      "viewport": "mobile",
+      "commands": 1,
+      "states": [
+        {
+          "revision": 2,
+          "phase": "action",
+          "players": [
+            {
+              "seat": 0,
+              "hp": 3,
+              "maxHp": 4,
+              "ap": 11,
+              "cell": "r2c4",
+              "handCount": 0
+            },
+            {
+              "seat": 1,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c6",
+              "handCount": 0
+            },
+            {
+              "seat": 2,
+              "hp": 5,
+              "maxHp": 5,
+              "ap": 12,
+              "cell": "r2c2",
+              "handCount": 0
+            },
+            {
+              "seat": 3,
+              "hp": 4,
+              "maxHp": 4,
+              "ap": 12,
+              "cell": "r1c8",
+              "handCount": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "scenario": "d-dragon",
+      "viewport": "mobile",
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /^确认出牌/ })\u001b[22m\n\n    at act (D:\\Users\\20753\\Desktop\\应猴传说\\monkey-legend\\.release-cache\\p3-cdef-browser.mjs:11:128)\n    at async file:///D:/Users/20753/Desktop/%E5%BA%94%E7%8C%B4%E4%BC%A0%E8%AF%B4/monkey-legend/.release-cache/p3-cdef-browser.mjs:31:109"
+    }
+  ],
+  "failedFlow": {
+    "scenario": "d-dragon",
+    "state": {
+      "version": "web-v0.1.15",
+      "revision": 0,
+      "time": 1792713571067,
+      "mode": "ffa",
+      "players": [
+        {
+          "seat": 0,
+          "character": "character-029",
+          "team": "S1",
+          "faction": "中立",
+          "hp": 4,
+          "maxHp": 4,
+          "ap": 12,
+          "shield": 0,
+          "cell": "r2c4",
+          "hand": [
+            "basic-039#01",
+            "basic-009#01",
+            "basic-003#01"
+          ],
+          "moved": false,
+          "attacks": 0,
+          "skillUsed": false,
+          "rewarded": [],
+          "kills": 0,
+          "damage": 0,
+          "eliminated": null
+        },
+        {
+          "seat": 1,
+          "character": "character-048",
+          "team": "S2",
+          "faction": "中立",
+          "hp": 5,
+          "maxHp": 5,
+          "ap": 12,
+          "shield": 0,
+          "cell": "r2c6",
+          "hand": [],
+          "moved": false,
+          "attacks": 0,
+          "skillUsed": false,
+          "rewarded": [],
+          "kills": 0,
+          "damage": 0,
+          "eliminated": null
+        },
+        {
+          "seat": 2,
+          "character": "character-044",
+          "team": "S3",
+          "faction": "中立",
+          "hp": 3,
+          "maxHp": 3,
+          "ap": 12,
+          "shield": 0,
+          "cell": "r2c2",
+          "hand": [],
+          "moved": false,
+          "attacks": 0,
+          "skillUsed": false,
+          "rewarded": [],
+          "kills": 0,
+          "damage": 0,
+          "eliminated": null
+        },
+        {
+          "seat": 3,
+          "character": "character-026",
+          "team": "S4",
+          "faction": "中立",
+          "hp": 4,
+          "maxHp": 4,
+          "ap": 12,
+          "shield": 0,
+          "cell": "r1c8",
+          "hand": [],
+          "moved": false,
+          "attacks": 0,
+          "skillUsed": false,
+          "rewarded": [],
+          "kills": 0,
+          "damage": 0,
+          "eliminated": null
+        }
+      ],
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cursor": 0,
+      "active": 0,
+      "round": 1,
+      "phase": "action",
+      "deck": [
+        "basic-048#01",
+        "basic-028#01",
+        "basic-033#02",
+        "basic-009#02",
+        "basic-006#06",
+        "basic-004#03",
+        "basic-012#01",
+        "basic-064#01",
+        "basic-039#04",
+        "basic-049#01",
+        "basic-005#01",
+        "basic-003#04",
+        "basic-053#01",
+        "basic-036#02",
+        "basic-021#02",
+        "basic-057#01",
+        "basic-001#06",
+        "basic-032#02",
+        "basic-011#01",
+        "basic-036#01",
+        "basic-071#02",
+        "basic-006#02",
+        "basic-023#02",
+        "basic-049#02",
+        "basic-064#02",
+        "basic-016#01",
+        "basic-029#01",
+        "basic-050#01",
+        "basic-008#02",
+        "basic-061#01",
+        "basic-070#02",
+        "basic-062#01",
+        "basic-020#02",
+        "basic-013#01",
+        "basic-009#11",
+        "basic-026#01",
+        "basic-044#01",
+        "basic-007#01",
+        "basic-047#01",
+        "basic-069#02",
+        "basic-017#02",
+        "basic-050#02",
+        "basic-042#01",
+        "basic-059#02",
+        "basic-068#01",
+        "basic-006#01",
+        "basic-001#05",
+        "basic-043#01",
+        "basic-012#02",
+        "basic-008#03",
+        "basic-040#02",
+        "basic-021#01",
+        "basic-054#01",
+        "basic-024#01",
+        "basic-062#02",
+        "basic-002#04",
+        "basic-052#02",
+        "basic-047#02",
+        "basic-022#02",
+        "basic-060#01",
+        "basic-038#01",
+        "basic-033#01",
+        "basic-037#01",
+        "basic-001#07",
+        "basic-009#06",
+        "basic-023#01",
+        "basic-059#01",
+        "basic-074#02",
+        "basic-024#02",
+        "basic-066#01",
+        "basic-058#02",
+        "basic-001#01",
+        "basic-017#01",
+        "basic-076#01",
+        "basic-065#01",
+        "basic-011#02",
+        "basic-069#01",
+        "basic-068#02",
+        "basic-006#03",
+        "basic-035#01",
+        "basic-051#01",
+        "basic-002#03",
+        "basic-009#08",
+        "basic-020#01",
+        "basic-003#08",
+        "basic-007#02",
+        "basic-060#02",
+        "basic-010#01",
+        "basic-075#01",
+        "basic-009#04",
+        "basic-008#06",
+        "basic-006#04",
+        "basic-073#02",
+        "basic-054#02",
+        "basic-030#01",
+        "basic-063#02",
+        "basic-009#10",
+        "basic-005#02",
+        "basic-002#01",
+        "basic-038#02",
+        "basic-072#02",
+        "basic-045#02",
+        "basic-001#04",
+        "basic-003#03",
+        "basic-040#01",
+        "basic-031#01",
+        "basic-025#02",
+        "basic-070#01",
+        "basic-018#02",
+        "basic-003#06",
+        "basic-076#02",
+        "basic-006#05",
+        "basic-031#02",
+        "basic-032#01",
+        "basic-034#01",
+        "basic-004#02",
+        "basic-034#02",
+        "basic-071#01",
+        "basic-073#01",
+        "basic-055#02",
+        "basic-046#02",
+        "basic-014#02",
+        "basic-074#01",
+        "basic-067#02",
+        "basic-003#05",
+        "basic-008#04",
+        "basic-044#02",
+        "basic-061#02",
+        "basic-009#12",
+        "basic-001#02",
+        "basic-051#02",
+        "basic-003#02",
+        "basic-027#02",
+        "basic-042#02",
+        "basic-002#02",
+        "basic-014#01",
+        "basic-058#01",
+        "basic-009#05",
+        "basic-043#02",
+        "basic-006#07",
+        "basic-056#02",
+        "basic-075#02",
+        "basic-048#02",
+        "basic-066#02",
+        "basic-065#02",
+        "basic-015#02",
+        "basic-035#02",
+        "basic-055#01",
+        "basic-045#01",
+        "basic-047#04",
+        "basic-004#04",
+        "basic-026#02",
+        "basic-019#01",
+        "basic-047#03",
+        "basic-039#02",
+        "basic-028#02",
+        "basic-019#02",
+        "basic-001#03",
+        "basic-053#02",
+        "basic-057#02",
+        "basic-063#01",
+        "basic-067#01",
+        "basic-001#08",
+        "basic-072#01",
+        "basic-006#08",
+        "basic-018#01",
+        "basic-009#07",
+        "basic-029#02",
+        "basic-027#01",
+        "basic-052#01",
+        "basic-003#07",
+        "basic-004#01",
+        "basic-046#01",
+        "basic-030#02",
+        "basic-009#03",
+        "basic-025#01",
+        "basic-009#09",
+        "basic-022#01",
+        "basic-056#01",
+        "basic-041#02",
+        "basic-008#05",
+        "basic-015#01",
+        "basic-010#02",
+        "basic-008#01",
+        "basic-041#01",
+        "basic-039#03",
+        "basic-013#02",
+        "basic-016#02"
+      ],
+      "discard": [],
+      "resolving": [],
+      "random": {
+        "seed": 3704343965,
+        "dice": [
+          6,
+          6
+        ],
+        "bombs": [],
+        "reshuffles": [],
+        "sortedReshuffles": false
+      },
+      "queue": [],
+      "choice": null,
+      "choiceSerial": 0,
+      "attack": null,
+      "movement": null,
+      "safe": [
+        "r1c1",
+        "r1c2",
+        "r1c3",
+        "r1c4",
+        "r1c5",
+        "r1c6",
+        "r1c7",
+        "r1c8",
+        "r2c1",
+        "r2c2",
+        "r2c3",
+        "r2c4",
+        "r2c5",
+        "r2c6",
+        "r2c7",
+        "r2c8",
+        "r3c1",
+        "r3c2",
+        "r3c4",
+        "r3c5",
+        "r3c6",
+        "r3c7",
+        "r3c8",
+        "r4c1",
+        "r4c2",
+        "r4c4",
+        "r4c5",
+        "r4c8"
+      ],
+      "bomb": null,
+      "forecast": null,
+      "clock": {
+        "remaining": 60000,
+        "since": 1792713571067
+      },
+      "events": [
+        {
+          "seq": 1,
+          "type": "setup",
+          "text": "四人各自为战 · web-v0.1.15"
+        },
+        {
+          "seq": 2,
+          "type": "draw",
+          "text": "S1 奶龙大帝 摸4张",
+          "data": {
+            "actor": 0,
+            "count": 4
+          }
+        },
+        {
+          "seq": 3,
+          "type": "draw",
+          "text": "S2 涨佳选 摸4张",
+          "data": {
+            "actor": 1,
+            "count": 4
+          }
+        },
+        {
+          "seq": 4,
+          "type": "draw",
+          "text": "S3 谢bro 摸4张",
+          "data": {
+            "actor": 2,
+            "count": 4
+          }
+        },
+        {
+          "seq": 5,
+          "type": "draw",
+          "text": "S4 梅梅涛 摸4张",
+          "data": {
+            "actor": 3,
+            "count": 4
+          }
+        },
+        {
+          "seq": 6,
+          "type": "round",
+          "text": "第1轮开始，毒区：红素洋、淘安泽"
+        },
+        {
+          "seq": 7,
+          "type": "turn",
+          "text": "S1 奶龙大帝 开始行动"
+        }
+      ],
+      "eventSerial": 7,
+      "batch": 0,
+      "reshuffleCount": 0,
+      "seen": [],
+      "result": null,
+      "classic": {
+        "poison": [
+          "红素洋",
+          "淘安泽"
+        ],
+        "bombs": [],
+        "exposure": [
+          {
+            "region": null,
+            "streak": 0
+          },
+          {
+            "region": null,
+            "streak": 0
+          },
+          {
+            "region": null,
+            "streak": 0
+          },
+          {
+            "region": null,
+            "streak": 0
+          }
+        ],
+        "shipUsed": [],
+        "farmClosed": false,
+        "bombRound": 0,
+        "caveEnds": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "stage3": {
+        "turn": 1,
+        "completedTurn": 0,
+        "starts": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "ends": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "deathTurns": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "equipment": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "equipmentSources": {},
+        "costLocks": {},
+        "basicUsed": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "voluntaryMoved": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "previousBasic": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "doubleMove": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "horseLocks": [],
+        "horseSources": {},
+        "breadReadyAt": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "breadPending": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "breadBlocked": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "coffeeRound": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "coffeeUntilStart": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "jjFree": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "jjExposed": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "jjUsed": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "combos": {},
+        "c": {
+          "feather": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "blocked": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "used": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "sleep": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "d": {
+          "clanUsed": [
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "cardStack": {
+        "serial": 0,
+        "stack": []
+      },
+      "stage4": {
+        "buffSources": {},
+        "terrainIgnore": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "watches": {},
+        "gearMarks": {},
+        "tongPending": {},
+        "tongBlocked": {},
+        "copies": {},
+        "durability": {},
+        "costs": {
+          "turn": 1,
+          "locks": {}
+        },
+        "tea": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "dodge": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "exerciseFree": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "exerciseGuard": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "downPending": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "drawBlocked": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "baseFactions": [
+          "中立",
+          "中立",
+          "中立",
+          "中立"
+        ],
+        "baseTeams": [
+          "S1",
+          "S2",
+          "S3",
+          "S4"
+        ],
+        "conversion": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "toiletUntil": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "lmmUntil": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "toiletEffects": {},
+        "lmmEffects": {},
+        "lmmSerial": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "water": {},
+        "deserts": {},
+        "blocks": [],
+        "offMap": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "interrupts": [],
+        "interruptTurn": null,
+        "interruptSkipEnd": false
+      },
+      "exercise": {
+        "owners": {}
+      }
+    },
+    "error": "",
+    "intents": []
+  }
+}

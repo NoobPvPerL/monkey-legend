@@ -1,0 +1,77 @@
+{
+  "scope": "Actual local OnlineBoard clicks using bundled Playwright and isolated headless Edge; not physical mobile or cloud acceptance",
+  "actions": [
+    {
+      "viewport": "mobile",
+      "verified": [
+        "shared Tang changes original setting",
+        "selecting a hand card keeps bread skill visible",
+        "shared bread original source selectable",
+        "targetS2 submitted through visible player button",
+        "actual userAP12 to10",
+        "one source cooldown2 shown"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "verified": [
+        "shared Tang changes original setting",
+        "selecting a hand card keeps bread skill visible",
+        "shared bread original source selectable",
+        "targetS2 submitted through visible player button",
+        "actual userAP12 to10",
+        "one source cooldown2 shown"
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "artifacts/p3-batch-h/equipment-selected-mobile.png",
+      "sha256": "b9156a01e5645d33d50242e6c4f7f487684013a97f66812649f1c2f28f3f9d77",
+      "bytes": 71158,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-bread-target-mobile.png",
+      "sha256": "fa1567205c8dd872dc643a48f259a43f023e39d8338e988b5124a71e33abb761",
+      "bytes": 78293,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-bread-cooldown-mobile.png",
+      "sha256": "4c95c7ecfae3aa874efd568d3fc22c061b336bf35964c86ef80644d3daf4c44e",
+      "bytes": 71390,
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-selected-desktop.png",
+      "sha256": "7e242f4c4474c9db830cd995e06b7a438dcabea09207a1dcfd813d2f91c7c603",
+      "bytes": 119464,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-bread-target-desktop.png",
+      "sha256": "346988fc0278e7fcde036365c3d182bd77aa3f7aa2d927c0789b3f115084b538",
+      "bytes": 126993,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200
+    },
+    {
+      "path": "artifacts/p3-batch-h/equipment-bread-cooldown-desktop.png",
+      "sha256": "e585e2797a6464a6bb8b54646ec4d419c811e398e39216b24a713323a5f0d923",
+      "bytes": 119920,
+      "width": 1200,
+      "height": 900,
+      "scrollWidth": 1200
+    }
+  ]
+}
